@@ -1,0 +1,29 @@
+# 环境变量（包含密钥）
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+.workbuddy/
+
+# 数据库
+*.db
+
+# 临时/输出文件
+*.tmp
+*_标准化.md
+segments_output*.json
+!segments_output_pretty_cleaned.json
+
+# 文件夹
+高等数学（上）/
