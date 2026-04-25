@@ -11,14 +11,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
+    - uses: actions/checkout@v4
+    
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
-
-    - name: Check syntax
+        python-version: "3.10"
+    
+    - name: Check Python syntax (if any .py files exist)
       run: |
-        python -m py_compile --quiet --files $(find . -name "*.py") || echo "Syntax check finished"
+        # 检查是否存在 .py 文件
+        py_files=$(find . -name "*.py" -type f)
+        if [ -n "$py_files" ]; then
+          echo "找到 Python 文件，检查语法..."
+          echo "$py_files" | xargs python -m py_compile
+        else
+          echo "没有 Python 文件，跳过语法检查"
+        fi
+    
+    - name: List all files (for debugging)
+      run: |
+        echo "仓库中的文件列表："
+        ls -la
+        echo ""
+        echo "所有文件："
+        find . -type f | head -20
