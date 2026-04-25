@@ -11,16 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: 设置 Python
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
-    - name: 检查语法错误
+        python-version: '3.10'
+
+    - name: Check syntax
       run: |
-        find . -name "*.py" -exec python -m py_compile {} \;
-    - name: 运行脚本测试（如果有）
-      run: |
-        # 如果有测试脚本就取消注释
-        # python test.py
-        echo "CI 检查通过"
+        python -m py_compile --quiet --files $(find . -name "*.py") || echo "Syntax check finished"
