@@ -18,19 +18,19 @@ try:
 except ImportError:
     pass
 
-from zhipuai import ZhipuAI
+from openai import OpenAI
 
-API_KEY = os.environ.get("ZHIPU_API_KEY", "")
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
 
 # 修复 Windows 编码
 if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
-MODEL = "glm-4-plus"
+MODEL = "qwen-plus"
 
-if not API_KEY:
-    print("❌ 请设置环境变量 ZHIPU_API_KEY")
+if not DASHSCOPE_API_KEY:
+    print("❌ 请设置环境变量 DASHSCOPE_API_KEY")
     print("   或创建 .env 文件（参考 .env.example）")
     sys.exit(1)
 
@@ -87,7 +87,10 @@ def learn_and_extract(full_content: str) -> str:
 {full_content}
 """
 
-    client = ZhipuAI(api_key=API_KEY)
+    client = OpenAI(
+        api_key=DASHSCOPE_API_KEY,
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+    )
     response = client.chat.completions.create(
         model=MODEL,
         messages=[

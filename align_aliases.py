@@ -36,17 +36,17 @@ try:
 except ImportError:
     pass
 
-LLM_API_KEY = os.environ.get("ZHIPU_API_KEY", "")
-LLM_MODEL = "glm-4-flash"
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+LLM_MODEL = "qwen-plus"
 
-if not LLM_API_KEY:
-    raise ValueError("请设置环境变量 ZHIPU_API_KEY")
+if not DASHSCOPE_API_KEY:
+    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
 
 try:
     from sentence_transformers import SentenceTransformer, util
-    from zhipuai import ZhipuAI
+    from openai import OpenAI
 except ImportError:
-    print("❌ 请先安装: pip install sentence-transformers zhipuai")
+    print("❌ 请先安装: pip install sentence-transformers openai")
     exit(1)
 
 
@@ -77,7 +77,10 @@ def llm_judge(alias, concept_name, concept_content):
 """
     
     try:
-        client = ZhipuAI(api_key=LLM_API_KEY)
+        client = OpenAI(
+            api_key=DASHSCOPE_API_KEY,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
         response = client.chat.completions.create(
             model=LLM_MODEL,
             messages=[{"role": "user", "content": prompt}]

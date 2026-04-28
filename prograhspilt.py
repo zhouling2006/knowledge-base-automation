@@ -21,13 +21,13 @@ try:
 except ImportError:
     pass
 
-from zhipuai import ZhipuAI
+from openai import OpenAI
 
-API_KEY = os.environ.get("ZHIPU_API_KEY", "")
-MODEL = "glm-4-plus"
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+MODEL = "qwen-plus"
 
-if not API_KEY:
-    raise ValueError("请设置环境变量 ZHIPU_API_KEY")
+if not DASHSCOPE_API_KEY:
+    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
 
 # 修复 Windows 编码
 if sys.platform == 'win32':
@@ -123,7 +123,7 @@ def segment_knowledge_points(markdown_content: str, source: str, section: str, s
     "summary": "简短摘要，一句话概括本块核心内容",  // 用于预览/检索
 
     "created_at": "当前ISO时间字符串，如 2026-01-15T10:30:00",
-    "model": "glm-4-plus",
+    "model": "qwen-plus",
     "version": 1,
 
     "embedding": null                         // 留空，后期扩展向量检索用
@@ -153,7 +153,10 @@ def segment_knowledge_points(markdown_content: str, source: str, section: str, s
 
 {markdown_content}"""
 
-    client = ZhipuAI(api_key=API_KEY)
+    client = OpenAI(
+        api_key=DASHSCOPE_API_KEY,
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+    )
     response = client.chat.completions.create(
         model=MODEL,
         messages=[
@@ -162,7 +165,6 @@ def segment_knowledge_points(markdown_content: str, source: str, section: str, s
         ],
         temperature=0.1,
         max_tokens=12000,
-        timeout=120,
     )
 
     result = response.choices[0].message.content

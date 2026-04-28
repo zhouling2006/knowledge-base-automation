@@ -7,7 +7,7 @@
 ### 1. 安装依赖
 
 ```bash
-pip install zhipuai sentence-transformers python-dotenv
+pip install openai sentence-transformers python-dotenv
 ```
 
 ### 2. 配置 API Key
@@ -15,7 +15,7 @@ pip install zhipuai sentence-transformers python-dotenv
 创建 `.env` 文件（参考 `.env.example`）：
 
 ```bash
-ZHIPU_API_KEY=你的智谱AI密钥
+DASHSCOPE_API_KEY=你的阿里云DashScope密钥
 ```
 
 ## 项目结构
@@ -216,15 +216,14 @@ python query_concepts.py
 
 | 变量名 | 说明 | 必填 |
 |--------|------|------|
-| `ZHIPU_API_KEY` | 智谱 AI API 密钥 | 是 |
+| `DASHSCOPE_API_KEY` | 阿里云 DashScope API 密钥（通义千问） | 是 |
 
 
 ### 模型配置
 
 | 配置项 | 默认值 | 说明 |
 |--------|--------|------|
-| LLM 模型 | `glm-4-plus` | 用于知识点切分 |
-| LLM 辅助模型 | `glm-4-flash` | 用于别名对齐判断 |
+| LLM 模型 | `qwen-plus` | 用于知识点切分 |
 | 向量模型 | `shibing624/text2vec-base-chinese` | 中文文本向量化 |
 | 向量阈值 | `0.75` | 别名对齐相似度阈值 |
 

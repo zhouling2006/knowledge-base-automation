@@ -27,7 +27,6 @@ build/
 segments_output*.json
 
 # 测试文件（请根据实际情况调整）
-split_segment.py
 三、函数的几种特性.md
 三、函数的几种特性_annotated.md
 第一章/
@@ -35,3 +34,4 @@ split_segment.py
 # 原始教材（体积大，单独管理）
 高等数学（上）.md
 高等数学（上）/
+debug_response.txt
