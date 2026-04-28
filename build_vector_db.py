@@ -3,7 +3,7 @@
 """
 向量知识库构建脚本
 - 读取 segments_output_pretty.json
-- 使用 text2vec 生成中文嵌入向量
+- 使用 DashScope text-embedding-v2 生成中文嵌入向量
 - 存入 SQLite 数据库
 """
 
@@ -14,14 +14,6 @@ import os
 import sqlite3
 import numpy as np
 from pathlib import Path
-import ssl
-import warnings
-warnings.filterwarnings('ignore')
-
-# 使用国内镜像
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-os.environ['HF_HUB_DISABLE_SSL_VERIFICATION'] = '1'
-ssl._create_default_https_context = ssl._create_unverified_context
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
@@ -29,14 +21,53 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_bufferin
 # ==================== 配置区 ====================
 INPUT_JSON = "segments_output_pretty.json"
 OUTPUT_DB = "knowledge_base.db"
-EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
+EMBEDDING_MODEL = "text-embedding-v2"
 # ==================== 配置区结束 ====================
 
+# DashScope API Key
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+if not DASHSCOPE_API_KEY:
+    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
+
 try:
-    from sentence_transformers import SentenceTransformer
+    from openai import OpenAI
 except ImportError:
-    print("❌ 请先安装: pip install sentence-transformers")
+    print("❌ 请先安装: pip install openai")
     exit(1)
+
+_embedding_client = None
+
+def get_embedding_client():
+    global _embedding_client
+    if _embedding_client is None:
+        _embedding_client = OpenAI(
+            api_key=DASHSCOPE_API_KEY,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+    return _embedding_client
+
+def encode_texts(texts):
+    """批量编码文本（使用 DashScope text-embedding-v2）"""
+    if not texts:
+        return np.array([])
+
+    client = get_embedding_client()
+
+    # 分批处理（每批最多25条）
+    all_embeddings = []
+    batch_size = 25
+
+    for i in range(0, len(texts), batch_size):
+        batch = texts[i:i+batch_size]
+        response = client.embeddings.create(
+            model=EMBEDDING_MODEL,
+            input=batch
+        )
+        for item in response.data:
+            all_embeddings.append(np.array(item.embedding, dtype=np.float32))
+        print(f"  已处理 {min(i+batch_size, len(texts))}/{len(texts)} 条")
+
+    return np.array(all_embeddings)
 
 
 def load_segments(json_path):
@@ -86,16 +117,11 @@ def init_database(db_path):
     return conn
 
 
-def encode_texts(texts, model):
-    """批量编码文本"""
-    embeddings = model.encode(texts, show_progress_bar=True)
-    return embeddings
-
-
 def build_knowledge_base():
     print("=" * 50)
     print("向量知识库构建")
     print("=" * 50)
+    print(f"🤖 Embedding 模型: {EMBEDDING_MODEL}")
 
     # 加载数据
     segments = load_segments(INPUT_JSON)
@@ -115,12 +141,9 @@ def build_knowledge_base():
         text = f"{seg.get('title', '')}。{seg.get('content', '')}"
         texts_to_embed.append(text)
 
-    # 加载模型并生成向量
-    print(f"\n🤖 加载 embedding 模型: {EMBEDDING_MODEL}")
-    model = SentenceTransformer(EMBEDDING_MODEL)
-
+    # 生成向量
     print("\n🔢 生成向量嵌入...")
-    embeddings = encode_texts(texts_to_embed, model)
+    embeddings = encode_texts(texts_to_embed)
     print(f"   向量维度: {embeddings.shape}")
 
     # 写入数据库

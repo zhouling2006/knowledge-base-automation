@@ -26,9 +26,10 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_bufferin
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
 
 DB_PATH = "concept_base.db"
-EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
+EMBEDDING_MODEL = "text-embedding-v2"
 
 VECTOR_THRESHOLD = 0.75
+VECTOR_DIM = 1536  # text-embedding-v2 固定维度
 
 try:
     from dotenv import load_dotenv
@@ -43,16 +44,40 @@ if not DASHSCOPE_API_KEY:
     raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
 
 try:
-    from sentence_transformers import SentenceTransformer, util
     from openai import OpenAI
 except ImportError:
-    print("❌ 请先安装: pip install sentence-transformers openai")
+    print("❌ 请先安装: pip install openai")
     exit(1)
 
 
-def load_model():
-    print(f"🤖 加载模型: {EMBEDDING_MODEL}")
-    return SentenceTransformer(EMBEDDING_MODEL)
+# DashScope embedding client
+_embedding_client = None
+
+def get_embedding_client():
+    global _embedding_client
+    if _embedding_client is None:
+        _embedding_client = OpenAI(
+            api_key=DASHSCOPE_API_KEY,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+    return _embedding_client
+
+def encode_texts(texts):
+    """使用 DashScope text-embedding-v2 生成向量"""
+    client = get_embedding_client()
+    if isinstance(texts, str):
+        texts = [texts]
+
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=texts
+    )
+
+    embeddings = []
+    for item in response.data:
+        embeddings.append(np.array(item.embedding, dtype=np.float32))
+
+    return np.array(embeddings)
 
 
 def llm_judge(alias, concept_name, concept_content):
@@ -157,7 +182,8 @@ def align_aliases(model, rerun_all=False):
         for concept in concept_data:
             if concept['embedding'] is None:
                 continue
-            sim = util.cos_sim(alias_embedding, concept['embedding']).item()
+            # 阿里 embedding 已归一化，直接用点积计算余弦相似度
+            sim = np.dot(alias_embedding, concept['embedding']).item()
             if sim > best_similarity:
                 best_similarity = sim
                 best_match = concept

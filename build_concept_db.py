@@ -18,22 +18,58 @@ import ssl
 import warnings
 warnings.filterwarnings('ignore')
 
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-os.environ['HF_HUB_DISABLE_SSL_VERIFICATION'] = '1'
-ssl._create_default_https_context = ssl._create_unverified_context
-
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
 
 INPUT_JSON = "segments_output_pretty.json"
 OUTPUT_DB = "concept_base.db"
-EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
+EMBEDDING_MODEL = "text-embedding-v2"
+VECTOR_DIM = 1536  # text-embedding-v2 固定维度
+
+# DashScope API Key
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+if not DASHSCOPE_API_KEY:
+    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
 
 try:
-    from sentence_transformers import SentenceTransformer
+    from openai import OpenAI
 except ImportError:
-    print("❌ 请先安装: pip install sentence-transformers")
+    print("❌ 请先安装: pip install openai")
     exit(1)
+
+_embedding_client = None
+
+def get_embedding_client():
+    global _embedding_client
+    if _embedding_client is None:
+        _embedding_client = OpenAI(
+            api_key=DASHSCOPE_API_KEY,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+    return _embedding_client
+
+def encode_texts(texts):
+    """使用 DashScope text-embedding-v2 生成向量"""
+    if not texts:
+        return np.array([])
+
+    client = get_embedding_client()
+
+    # 分批处理（每批最多25条）
+    all_embeddings = []
+    batch_size = 25
+
+    for i in range(0, len(texts), batch_size):
+        batch = texts[i:i+batch_size]
+        response = client.embeddings.create(
+            model=EMBEDDING_MODEL,
+            input=batch
+        )
+        for item in response.data:
+            all_embeddings.append(np.array(item.embedding, dtype=np.float32))
+        print(f"  已处理 {min(i+batch_size, len(texts))}/{len(texts)} 条")
+
+    return np.array(all_embeddings)
 
 
 def init_database(db_path, force_rebuild=False):
@@ -170,13 +206,6 @@ def extract_aliases(segments):
     return aliases
 
 
-def encode_texts(texts, model):
-    if not texts:
-        return np.array([])
-    embeddings = model.encode(texts, show_progress_bar=True)
-    return embeddings
-
-
 def build_concept_base(force_rebuild=False):
     print("=" * 60)
     print("标准概念库构建")
@@ -220,7 +249,7 @@ def build_concept_base(force_rebuild=False):
             conn.close()
             return
 
-    model = SentenceTransformer(EMBEDDING_MODEL)
+    print(f"🤖 Embedding 模型: {EMBEDDING_MODEL}")
 
     new_concepts_added = 0
     new_aliases_added = 0
@@ -228,7 +257,7 @@ def build_concept_base(force_rebuild=False):
     if concepts:
         print("\n🔢 生成概念向量...")
         concept_texts = [c['name'] for c in concepts]
-        concept_embeddings = encode_texts(concept_texts, model)
+        concept_embeddings = encode_texts(concept_texts)
 
         print("\n💾 存入概念...")
         for i, concept in enumerate(concepts):
@@ -275,7 +304,7 @@ def build_concept_base(force_rebuild=False):
     if aliases:
         print("🔢 生成别名/实体向量...")
         alias_texts = [a['alias'] for a in aliases]
-        alias_embeddings = encode_texts(alias_texts, model)
+        alias_embeddings = encode_texts(alias_texts)
 
         print("\n💾 存入别名/实体...")
         for i, alias in enumerate(aliases):

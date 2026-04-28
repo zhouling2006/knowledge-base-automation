@@ -17,27 +17,43 @@ import ssl
 import warnings
 warnings.filterwarnings('ignore')
 
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-os.environ['HF_HUB_DISABLE_SSL_VERIFICATION'] = '1'
-ssl._create_default_https_context = ssl._create_unverified_context
-
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
 
 DB_PATH = "concept_base.db"
-EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
+EMBEDDING_MODEL = "text-embedding-v2"
 TOP_K = 5
 
+# DashScope API Key
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+if not DASHSCOPE_API_KEY:
+    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY")
+
 try:
-    from sentence_transformers import SentenceTransformer, util
+    from openai import OpenAI
 except ImportError:
-    print("❌ 请先安装: pip install sentence-transformers")
+    print("❌ 请先安装: pip install openai")
     exit(1)
 
+_embedding_client = None
 
-def load_model():
-    print(f"🤖 加载模型: {EMBEDDING_MODEL}")
-    return SentenceTransformer(EMBEDDING_MODEL)
+def get_embedding_client():
+    global _embedding_client
+    if _embedding_client is None:
+        _embedding_client = OpenAI(
+            api_key=DASHSCOPE_API_KEY,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+    return _embedding_client
+
+def encode_text(text):
+    """使用 DashScope text-embedding-v2 生成单个文本的向量"""
+    client = get_embedding_client()
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+    return np.array(response.data[0].embedding, dtype=np.float32)
 
 
 def print_concepts(cursor):
@@ -106,12 +122,12 @@ def print_needs_review(cursor):
         print(f"  原因: {reason}")
 
 
-def search_by_text(query, cursor, model, top_k=TOP_K):
+def search_by_text(query, cursor, top_k=TOP_K):
     print("\n" + "=" * 60)
     print(f"语义搜索: {query}")
     print("=" * 60)
 
-    query_embedding = model.encode(query)
+    query_embedding = encode_text(query)
 
     cursor.execute("SELECT concept_id, name, content, embedding FROM concepts")
     concepts = cursor.fetchall()
@@ -119,7 +135,8 @@ def search_by_text(query, cursor, model, top_k=TOP_K):
     results = []
     for concept_id, name, content, embedding_blob in concepts:
         embedding = np.frombuffer(embedding_blob, dtype=np.float32)
-        similarity = util.cos_sim(query_embedding, embedding).item()
+        # 阿里 embedding 已归一化，直接用点积计算余弦相似度
+        similarity = np.dot(query_embedding, embedding).item()
         results.append({
             'concept_id': concept_id,
             'name': name,
@@ -135,7 +152,7 @@ def search_by_text(query, cursor, model, top_k=TOP_K):
         print(f"    内容: {r['content']}")
 
 
-def search_alias(query, cursor, model):
+def search_alias(query, cursor):
     print("\n" + "=" * 60)
     print(f"别名/实体搜索: {query}")
     print("=" * 60)
@@ -193,7 +210,7 @@ def main():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
-    model = load_model()
+    print(f"🤖 Embedding 模型: {EMBEDDING_MODEL}")
 
     while True:
         print("\n" + "-" * 40)
@@ -220,11 +237,11 @@ def main():
         elif cmd == '4':
             query = input("输入查询词: ").strip()
             if query:
-                search_by_text(query, cursor, model)
+                search_by_text(query, cursor)
         elif cmd == '5':
             query = input("输入搜索词: ").strip()
             if query:
-                search_alias(query, cursor, model)
+                search_alias(query, cursor)
         elif cmd == '6':
             alias = input("别名/实体: ").strip()
             concept_id = input("目标概念ID (如 C001): ").strip()
