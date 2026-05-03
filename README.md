@@ -18,50 +18,7 @@ pip install openai numpy python-dotenv
 DASHSCOPE_API_KEY=你的阿里云DashScope密钥
 ```
 
-### 阶段七：二次加工原文
-
-```bash
-# 基本用法（使用默认路径）
-python reprocess_original.py
-
-# 指定输入输出
-python reprocess_original.py \
-  --input-md "二、函数的概念.md" \
-  --input-json "segments_output_pretty.json" \
-  --output-dir "processed_output"
-
-# 只生成提示词，不调用 API（调试用）
-python reprocess_original.py --dry-run
-
-# 调整批次大小（默认每批 6 个 segment）
-python reprocess_original.py --batch-size 4
-```
-
-**功能说明**：通过 LLM（qwen-plus）将 `segments_output.json` 中的每个 segment 二次加工，输出符合 [markdown-hack 规范](https://github.com/zhouling2006/markdown-hack) 的独立 Markdown 文档。
-
-**输出特性**：
-- YAML frontmatter（`title`、`type`、`tags`、`aliases`、`related`、`section`）
-- 引用语法 `[[页面名]]{key=value}`
-- Pandoc 语义块 `:::{ .proof / .example / .note }:::`
-- 图片资源统一放在 `./assets/`
-
-**输入文件**：
-| 文件 | 说明 |
-|------|------|
-| `二、函数的概念.md` | 原始教材 Markdown |
-| `segments_output_pretty.json` | 结构化切分结果（由阶段三生成） |
-| `samples/*.md` | 参考示例（few-shot prompt） |
-| `markdown-hack规范.md` | 输出格式规范 |
-
-**后续改进方向**：
-1. 提示词中引入批次间 memory 上下文，使 LLM 能利用前面的处理结果
-2. 解决分隔符 `---SPLIT---` 被省略的问题，增加 LLM 二次修正环节
-3. 扩充训练集/示例文档，提升输出质量一致性
-4. 将硬编码绝对路径改为配置化
-
----
-
-## 项目结构
+## 工作流程
 
 ```
 ├── 目录.md                      # 教材原始目录
@@ -149,7 +106,48 @@ python prograhspilt.py -i "二、函数的概念.md" -s "二、函数的概念.m
 | `needs_review` | 是否需要人工审核 |
 | `summary` | 一句话摘要 |
 
-### 阶段四：构建概念库
+### 阶段四：二次加工原文
+
+```bash
+# 基本用法（使用默认路径）
+python reprocess_original.py
+
+# 指定输入输出
+python reprocess_original.py \
+  --input-md "二、函数的概念.md" \
+  --input-json "segments_output_pretty.json" \
+  --output-dir "processed_output"
+
+# 只生成提示词，不调用 API（调试用）
+python reprocess_original.py --dry-run
+
+# 调整批次大小（默认每批 6 个 segment）
+python reprocess_original.py --batch-size 4
+```
+
+**功能说明**：通过 LLM（qwen-plus）将 `segments_output.json` 中的每个 segment 二次加工，输出符合 [markdown-hack 规范](https://github.com/zhouling2006/markdown-hack) 的独立 Markdown 文档。
+
+**输出特性**：
+- YAML frontmatter（`title`、`type`、`tags`、`aliases`、`related`、`section`）
+- 引用语法 `[[页面名]]{key=value}`
+- Pandoc 语义块 `:::{ .proof / .example / .note }:::`
+- 图片资源统一放在 `./assets/`
+
+**输入文件**：
+| 文件 | 说明 |
+|------|------|
+| `二、函数的概念.md` | 原始教材 Markdown |
+| `segments_output_pretty.json` | 结构化切分结果（由阶段三生成） |
+| `samples/*.md` | 参考示例（few-shot prompt） |
+| `markdown-hack规范.md` | 输出格式规范 |
+
+**后续改进方向**：
+1. 提示词中引入批次间 memory 上下文，使 LLM 能利用前面的处理结果
+2. 解决分隔符 `---SPLIT---` 被省略的问题，增加 LLM 二次修正环节
+3. 扩充训练集/示例文档，提升输出质量一致性
+4. 将硬编码绝对路径改为配置化
+
+### 阶段五：构建概念库
 
 ```bash
 # 构建概念库（增量模式）
@@ -172,7 +170,7 @@ python build_concept_db.py --rebuild
 | `aliases` | 别名/实体表（含状态：pending/auto_mapped/llm_confirmed/needs_review） |
 | `metadata` | 元数据 |
 
-### 阶段五：别名对齐
+### 阶段六：别名对齐
 
 ```bash
 # 自动对齐别名到概念
@@ -184,7 +182,7 @@ python align_aliases.py
 - **实体 (entity)**：向量相似度 + LLM 二次判断
 - 低于阈值或 LLM 判断不匹配的条目标记为 `needs_review`，待人工审核
 
-### 阶段六：概念标注
+### 阶段七：概念标注
 
 ```bash
 # 基础用法（文末添加注释表）
