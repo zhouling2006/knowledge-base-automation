@@ -1,0 +1,136 @@
+```markdown
+---
+title: 例1.1.13：直角坐标方程化为极坐标方程
+aliases:
+  - 圆的极坐标表示
+  - x²+y²=a² 的极坐标转换
+tags:
+  - 高等数学
+  - 解析几何
+  - 极坐标系
+  - 坐标变换
+---
+
+# 例1.1.13：直角坐标方程化为极坐标方程
+
+将直角坐标方程  
+$$
+x^{2} + y^{2} = a^{2} \quad (a > 0)
+$$  
+化为极坐标方程。
+
+## 解法
+
+利用极坐标与直角坐标的转换关系：  
+$$
+x = \rho \cos \varphi,\quad y = \rho \sin \varphi,
+$$  
+代入原方程得：  
+$$
+(\rho \cos \varphi)^2 + (\rho \sin \varphi)^2 = a^2,
+$$  
+即  
+$$
+\rho^2 (\cos^2 \varphi + \sin^2 \varphi) = a^2 \quad \Rightarrow \quad \rho^2 = a^2.
+$$  
+
+由于 $\rho \geq 0$（极径非负），故取正根：  
+$$
+\rho = a.
+$$  
+
+因此，该曲线在极坐标系下的方程为：  
+$$
+\rho = a \quad (a > 0).
+$$
+
+## 几何意义
+
+方程 $\rho = a$ 表示**以极点为圆心、半径为 $a$ 的圆**。这清晰体现了极坐标对具有中心对称性的曲线（如圆、螺旋线、心形线等）的简洁表达优势。
+
+相关知识点：[[极坐标与直角坐标的关系]]{type=concept, label=坐标转换公式, render=link, subject=高等数学, grade=大学, tags=解析几何|坐标系}
+
+延伸思考：[[例1.1.14：心形线 ρ=a(1−cosφ) 的作图分析]]{type=example, id=例1.1.14, label=心形线绘图, render=card, source=教材例题, tags=极坐标图形|参数作图}
+
+::: {#proof-eg1113-001 .proof label="代入推导" type=proof}
+$$
+\begin{aligned}
+x^2 + y^2 &= (\rho \cos \varphi)^2 + (\rho \sin \varphi)^2 \\
+&= \rho^2 (\cos^2 \varphi + \sin^2 \varphi) \\
+&= \rho^2 \\
+&= a^2 \quad \Rightarrow \quad \rho = a \quad (\rho \geq 0)
+\end{aligned}
+$$
+:::
+
+关键步骤见 ((proof-eg1113-001)){type=proof, label=代入推导, render=card, note=极坐标代换恒等变形}
+
+---SPLIT---
+---
+title: 例1.1.14：心形线 ρ=a(1−cosφ) 的作图分析
+aliases:
+  - 心形线绘制方法
+  - 极坐标函数作图策略
+tags:
+  - 高等数学
+  - 极坐标系
+  - 参数曲线
+  - 图形对称性
+---
+
+# 例1.1.14：心形线 ρ=a(1−cosφ) 的作图分析
+
+画出极坐标函数  
+$$
+\rho = a(1 - \cos \varphi) \quad (a > 0)
+$$  
+的图形。
+
+## 性质分析
+
+- **周期性**：因 $\cos \varphi$ 以 $2\pi$ 为周期，故 $\rho(\varphi)$ 是以 $2\pi$ 为周期的函数；作图只需考察区间 $[0, 2\pi]$。
+- **对称性**：注意到  
+  $$
+  \rho(2\pi - \varphi) = a(1 - \cos(2\pi - \varphi)) = a(1 - \cos \varphi) = \rho(\varphi),
+  $$  
+  即曲线关于**极轴（$x$ 轴）对称**。因此可先绘制 $\varphi \in [0, \pi]$ 部分，再镜像补全。
+- **单调性**：当 $\varphi$ 从 $0$ 增至 $\pi$ 时，$\cos \varphi$ 从 $1$ 减至 $-1$，故 $\rho = a(1 - \cos \varphi)$ 从 $0$ 单调增至 $2a$。
+
+## 关键点列表（$\varphi \in [0, \pi]$）
+
+| $\varphi$ | $0$ | $\frac{\pi}{6}$ | $\frac{\pi}{4}$ | $\frac{\pi}{3}$ | $\frac{\pi}{2}$ | $\frac{2\pi}{3}$ | $\frac{3\pi}{4}$ | $\frac{5\pi}{6}$ | $\pi$ |
+|-----------|-----|------------------|------------------|------------------|------------------|-------------------|-------------------|-------------------|--------|
+| $\rho$    | $0$ | $\approx 0.1a$   | $\approx 0.3a$   | $\approx 0.5a$   | $a$              | $\approx 1.5a$    | $\approx 1.7a$    | $\approx 1.9a$    | $2a$   |
+
+> 注：数值近似基于 $\cos\frac{\pi}{6}=\frac{\sqrt{3}}{2}\approx0.866$，故 $1-\cos\frac{\pi}{6}\approx0.134$，即 $\rho\approx0.134a$，教材中简写为 $0.1a$，下同。
+
+## 作图步骤
+
+1. 在极坐标系中描出上表各点；
+2. 将这些点用光滑曲线连接（注意 $\rho=0$ 处为尖点）；
+3. 利用关于极轴的对称性，作出 $[\pi, 2\pi]$ 部分；
+4. 得到完整闭合曲线——**心形线（Cardioid）**。
+
+![心形线 ρ=a(1−cosφ)](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/18c4ca48a7e077de8a9a9dfc27ca11074fca54ae9d9da2048e675825903482c2.jpg)
+
+图1.1.14：心形线（$a>0$）
+
+## 拓展说明
+
+- 心形线是**圆滚线（epicycloid）** 的特例（一个圆在另一等大圆外无滑动滚动时，其上一点轨迹）；
+- 其极坐标形式凸显了“极点处收缩、对侧隆起”的几何特征，远比直角坐标隐式方程简洁；
+- 此类分析方法适用于一般极坐标函数：先判周期/对称性 → 缩减区间 → 列表描点 → 连线补全。
+
+关联概念：[[极坐标系下的函数]]{type=concept, label=极坐标函数定义, render=link, subject=高等数学, grade=大学, tags=极坐标系|函数表示}  
+前置基础：[[例1.1.13：直角坐标方程化为极坐标方程]]{type=example, id=例1.1.13, label=圆的极坐标化, render=link, source=教材例题, tags=坐标变换|圆}
+
+::: {#proof-eg1114-001 .proof label="对称性证明" type=proof}
+设 $(\rho, \varphi)$ 满足 $\rho = a(1 - \cos \varphi)$，则  
+$$
+\rho(2\pi - \varphi) = a(1 - \cos(2\pi - \varphi)) = a(1 - \cos \varphi) = \rho(\varphi),
+$$  
+故点 $(\rho, 2\pi - \varphi)$ 也在曲线上，即图形关于极轴对称。
+:::
+
+对称性依据见 ((proof-eg1114-001)){type=proof, label=对称性证明, render=card, note=利用余弦偶函数性质}
+```

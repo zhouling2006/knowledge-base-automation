@@ -1,0 +1,312 @@
+```markdown
+---
+title: 函数的图形定义
+aliases:
+  - 函数图像
+  - 函数曲线
+tags:
+  - 高等数学
+  - 函数
+  - 解析几何
+description: 定义函数图形的集合论与几何本质，强调单值性在图像中的体现。
+author: 教材编写组
+source: 《高等数学（上册）》第1章第2节
+---
+# 函数的图形定义
+
+设有函数 $y = f(x),\ x \in D$。在平面直角坐标系 $xOy$ 中，称所有满足  
+$$
+\{M(x, y) \mid y = f(x),\ x \in D\}
+$$  
+的点 $M(x, y)$ 构成的集合为函数 $y = f(x)$ 的**图形**。
+
+该图形在几何上通常表现为一条或若干条曲线（包括直线），其核心性质由函数的**单值性**保证：  
+> 任一平行于 $y$ 轴的直线（即形如 $x = x_0$ 的竖直线）与函数图形至多相交于一点。
+
+这一性质是函数区别于一般二元关系（如圆方程 $x^2 + y^2 = R^2$）的关键几何判据。
+
+![图1.1.6](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/af05a55ae335dca7218b3621c474f94bce4a6522d38e591b66f2d8a7b7f4587c.jpg)
+
+图1.1.6：函数图形示意图（单值性可视化）
+
+::: {#note-graph-uniqueness .note label="单值性与垂直线检验" type=concept}
+该几何特征常被称为**垂直线检验法（Vertical Line Test）**：若某平面图形被某条竖直线穿过两点及以上，则它**不能**表示一个（单值）函数。
+:::
+
+延伸阅读：  
+- [[函数的定义]]{type=concept, label=函数本质, render=link, subject=高等数学, grade=大学, tags=函数|基础概念}  
+- [[多值函数与单值分支]]{type=concept, label=多值情形, render=card, tags=函数|拓展}  
+- [[分段函数]]{type=concept, label=分段图形, render=link, tags=函数|特殊类型}
+
+---SPLIT---
+---
+title: 函数的三种表示法
+aliases:
+  - 解析法
+  - 表格法
+  - 图示法
+tags:
+  - 高等数学
+  - 函数
+  - 数学建模
+description: 系统介绍函数表达的三种基本方式及其适用场景与教学价值。
+author: 教材编写组
+source: 《高等数学（上册）》第1章第3节
+---
+# 函数的三种表示法
+
+函数的表示方法主要有以下三类，各具特点、互为补充：
+
+| 方法     | 描述                                                                 | 典型应用                     | 优势与局限                             |
+|----------|----------------------------------------------------------------------|------------------------------|------------------------------------------|
+| **公式法**（解析法） | 用一个或多个数学表达式（含分段）明确给出变量间依赖关系                 | 微积分运算、理论推导           | 精确、可微分；但未必直观或易求值         |
+| **表格法**         | 列出自变量与因变量的对应数值对                                         | 实验数据记录、离散采样         | 直观、免解析；但无法外推、缺乏连续性描述 |
+| **图示法**         | 在坐标系中描出函数图形，以视觉化方式呈现变化趋势与整体形态               | 心电图、信号分析、定性研究     | 形象、全局性强；但精度有限、难微分       |
+
+> 在高等数学中，**公式法是主要研究对象**；但为增强理解与问题转化能力，**常借助图示法辅助分析**——例如通过观察图形判断单调性、极值、渐近行为等。
+
+![图1.1.7：心电图（电压U随时间t变化）](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/60df69f80d357d84af9245c1105bb7ab2b645e37e9817b6e7eb654b790fadd0c.jpg)
+
+图1.1.7：医学中典型的图示法应用——心电图
+
+::: {#note-representation-flexibility .note label="表示法的等价性与选择" type=concept}
+同一函数可依需求切换表示法：解析式可生成表格与图像；图像可拟合解析式；表格可插值得到近似函数。选择依据是**问题目标**（计算？建模？解释？）与**可用信息**（是否完整？是否离散？）。
+:::
+
+关联知识点：  
+- [[分段函数]]{type=concept, label=公式法特例, render=link, tags=函数|表示法}  
+- [[函数的图形定义]]{type=concept, label=图示法基础, render=card, tags=函数|几何}  
+- [[绝对值函数]]{type=concept, label=典型图示案例, render=link, tags=函数|经典例子}
+
+---SPLIT---
+---
+title: 分段函数
+aliases:
+  - 分段定义函数
+  - piecewise function
+tags:
+  - 高等数学
+  - 函数
+  - 特殊函数
+description: 定义、结构特征、常见实例及几何意义，强调“分域定义、统一规则”的思想。
+author: 教材编写组
+source: 《高等数学（上册）》第1章第3节注及例1.1.8–1.1.11
+---
+# 分段函数
+
+## 定义
+
+当函数在整个定义域上**无法用一个统一的解析式表示**时，可将定义域划分为若干个**互不相交的子集**，并在每个子集上分别指定一个解析式，由此定义的函数称为**分段函数**（piecewise-defined function）。
+
+其一般形式为：
+$$
+f(x) =
+\begin{cases}
+f_1(x), & x \in I_1, \\
+f_2(x), & x \in I_2, \\
+\vdots \\
+f_n(x), & x \in I_n,
+\end{cases}
+$$
+其中 $I_1, I_2, \dots, I_n$ 是 $D_f$ 的一个划分（即 $I_i \cap I_j = \varnothing\ (i \ne j)$，且 $\bigcup_{i=1}^n I_i = D_f$）。
+
+> ✅ 关键性质：对定义域中**每一个 $x$**，有且仅有一个解析式适用 → 仍为**单值函数**。
+
+## 典型实例
+
+| 名称         | 表达式                                                                 | 定义域             | 值域              | 图形特征         |
+|--------------|------------------------------------------------------------------------|--------------------|-------------------|------------------|
+| **三角波**   | $U(t) = \begin{cases} \frac{2E}{\tau}t, & 0 \le t < \frac{\tau}{2} \\ -\frac{2E}{\tau}(t-\tau), & \frac{\tau}{2} \le t \le \tau \end{cases}$ | $[0,\tau]$         | $[0,E]$           | 折线、周期性     |
+| **绝对值函数** | $|x| = \begin{cases} x, & x \ge 0 \\ -x, & x < 0 \end{cases}$            | $(-\infty,+\infty)$ | $[0,+\infty)$     | V形、连续不可导  |
+| **符号函数**   | $\operatorname{sgn}x = \begin{cases} 1, & x > 0 \\ 0, & x = 0 \\ -1, & x < 0 \end{cases}$ | $(-\infty,+\infty)$ | $\{-1,0,1\}$      | 阶梯、不连续     |
+| **取整函数**   | $[x] = \max\{k \in \mathbb{Z} \mid k \le x\}$                           | $(-\infty,+\infty)$ | $\mathbb{Z}$      | 阶梯、右连续     |
+| **狄利克雷函数** | $D(x) = \begin{cases} 1, & x \in \mathbb{Q} \\ 0, & x \notin \mathbb{Q} \end{cases}$ | $(-\infty,+\infty)$ | $\{0,1\}$         | 无图像（处处不连续） |
+
+![图1.1.8：三角波](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/b60be3cb93613cdb6d982cd7824bada7adccfc46f9ace1fad101f357a5f313da.jpg)  
+图1.1.8：脉冲三角波（分段线性）
+
+![图1.1.9：绝对值函数](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/e6417afae7978ffdad8f8d0b18dfb7c94bce954be9a6819828b316dc7c4a5c6b.jpg)  
+图1.1.9：$y = |x|$ 的V形图像
+
+::: {#note-piecewise-domain-range .note label="定义域与值域的确定" type=concept}
+- **定义域** = 所有子区间之并集；
+- **值域** = 各段函数值域之并集；
+- 分段点处的函数值必须明确指定（如 $\operatorname{sgn}0 = 0$），否则函数未完全定义。
+:::
+
+延伸学习：  
+- [[例1.1.12：分段函数的平移变换]]{type=example, label=变量替换, render=card, id=例1.1.12, tags=函数|变换}  
+- [[函数的图形定义]]{type=concept, label=图像特征, render=link, tags=函数|几何}  
+- [[多值函数与单值分支]]{type=concept, label=对比概念, render=link, tags=函数|分类}
+
+---SPLIT---
+---
+title: 例1.1.12：分段函数的平移变换
+aliases: []
+tags:
+  - 高等数学
+  - 函数
+  - 变换
+  - 例题
+description: 演示分段函数进行变量代换（如 $x \to x+1$）时，如何同步调整各段定义域。
+author: 教材编写组
+source: 《高等数学（上册）》例1.1.12
+---
+# 例1.1.12：分段函数的平移变换
+
+## 题目
+
+已知分段函数  
+$$
+f(x) =
+\begin{cases}
+x^2, & 0 \le x \le 1, \\
+2x, & 1 < x \le 2,
+\end{cases}
+$$  
+求 $f(x+1)$ 的表达式。
+
+## 解答
+
+函数 $f$ 是一种**对应规则**。$f(x+1)$ 表示将输入量 $x+1$ 代入该规则，即：  
+> 对任意实数 $x$，先计算 $u = x+1$，再按 $f(u)$ 的分段规则输出结果。
+
+因此需将原定义域条件中的 $x$ 替换为 $x+1$，并解出对应的新 $x$ 范围：
+
+- 当 $0 \le x+1 \le 1$，即 $-1 \le x \le 0$，则 $f(x+1) = (x+1)^2 = x^2 + 2x + 1$；  
+- 当 $1 < x+1 \le 2$，即 $0 < x \le 1$，则 $f(x+1) = 2(x+1) = 2x + 2$。
+
+故所求函数为：
+$$
+f(x+1) =
+\begin{cases}
+x^2 + 2x + 1, & -1 \le x \le 0, \\
+2x + 2, & 0 < x \le 1.
+\end{cases}
+$$
+
+::: {#proof-piecewise-shift .proof label="分段平移原理" type=proof}
+此变换本质是**定义域的整体平移**：原函数定义在 $[0,1] \cup (1,2]$ 上，左移1单位后变为 $[-1,0] \cup (0,1]$。各段解析式按复合函数规则 $f(x+1)$ 自动更新，无需修改函数形式本身。
+:::
+
+💡 **关键思想**：分段函数的变量替换遵循“**整体代换、同步缩放/平移定义域**”原则，是函数复合与变换的基础技能。
+
+关联练习：  
+- [[分段函数]]{type=concept, label=基础概念, render=link, tags=函数|核心}  
+- [[函数的定义]]{type=concept, label=映射视角, render=card, tags=函数|本质}  
+- [[函数的图形定义]]{type=concept, label=图像平移, render=link, tags=函数|几何变换}
+
+---SPLIT---
+---
+title: 极坐标系定义
+aliases:
+  - 极坐标
+  - 极坐标表示
+tags:
+  - 高等数学
+  - 解析几何
+  - 坐标系
+description: 构建极坐标系的公理化定义，阐明极点、极轴、极径、极角的几何含义与约定。
+author: 教材编写组
+source: 《高等数学（上册）》第1章第4节
+---
+# 极坐标系定义
+
+## 基本构成
+
+在平面内选定一个定点 $O$（称为**极点**），并从 $O$ 引出一条射线 $Ox$（称为**极轴**），则由此构成一个**极坐标系**。
+
+对平面内任意一点 $P$（$P \ne O$），其位置由两个量唯一确定：
+- **极径** $\rho = |OP| \ge 0$：点 $P$ 到极点 $O$ 的距离；
+- **极角** $\varphi$：以极轴 $Ox$ 为始边、射线 $OP$ 为终边的**有向角**（通常取弧度制）。
+
+有序实数对 $(\rho, \varphi)$ 称为点 $P$ 的**极坐标**，记作 $P(\rho, \varphi)$。
+
+## 特殊约定与唯一性
+
+| 情形 | 规定 | 说明 |
+|------|------|------|
+| **极点 $O$** | $\rho = 0$，$\varphi$ 可取任意实数 | 即 $(0,\varphi)$ 对所有 $\varphi$ 均表示同一点 $O$ |
+| **非极点 $P$** | 通常限定 $\rho > 0$，且 $\varphi \in [0, 2\pi)$（或 $(-\pi, \pi]$） | 此时除极点外，**点与极坐标一一对应** |
+
+> ⚠️ 注意：若不限定 $\rho \ge 0$ 或 $\varphi$ 范围，则同一 $P$ 可有无穷多种极坐标表示，例如 $P(2,\frac{\pi}{3}) = (2,\frac{7\pi}{3}) = (-2,\frac{4\pi}{3})$。
+
+![图1.1.12：极坐标系示意图](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/137e8c8eae22dbec7bfbbabac343d19cae78cb8d3ca978605e3b000b9274d0d7.jpg)
+
+图1.1.12：极点 $O$、极轴 $Ox$、点 $P(\rho,\varphi)$ 的几何关系
+
+::: {#note-polar-uniqueness .note label="极坐标的多值性与主值" type=concept}
+极坐标本质上是**非单射映射**：$(\rho,\varphi) \mapsto P$。为便于计算与绘图，常取**主值分支**（principal value）：$\rho \ge 0$, $\varphi \in [0,2\pi)$。这与复数的极坐标表示完全一致。
+:::
+
+延伸知识：  
+- [[极坐标与直角坐标转换公式]]{type=theorem, label=坐标互化, render=card, tags=坐标系|变换}  
+- [[函数的图形定义]]{type=concept, label=极坐标下图形, render=link, tags=函数|坐标系}  
+- [[心形线]]{type=concept, label=极坐标曲线范例, render=link, tags=曲线|极坐标}
+
+---SPLIT---
+---
+title: 极坐标与直角坐标转换公式
+aliases:
+  - 坐标变换公式
+  - 极直互化公式
+tags:
+  - 高等数学
+  - 解析几何
+  - 坐标系
+description: 给出两种坐标系间标准转换关系，强调三角函数本质与象限修正要点。
+author: 教材编写组
+source: 《高等数学（上册）》第1章第4节
+---
+# 极坐标与直角坐标转换公式
+
+设极坐标系的**极点与直角坐标系原点重合**，**极轴与 $x$ 轴正半轴重合**。对平面内任意一点 $P$，其直角坐标为 $(x,y)$，极坐标为 $(\rho,\varphi)$，则二者满足如下关系：
+
+## 1. 极坐标 → 直角坐标（正向变换）
+
+$$
+\begin{cases}
+x = \rho \cos \varphi, \\
+y = \rho \sin \varphi.
+\end{cases}
+\tag{1.1.1}
+$$
+
+该式直接由三角函数定义得出，几何意义清晰：$x,y$ 是极径 $\rho$ 在 $x,y$ 轴上的投影。
+
+## 2. 直角坐标 → 极坐标（逆向变换）
+
+由 (1.1.1) 平方相加得：
+$$
+\rho^2 = x^2 + y^2 \quad \Rightarrow \quad \rho = \sqrt{x^2 + y^2} \ge 0.
+$$
+
+由两式相除（当 $x \ne 0$）得：
+$$
+\tan \varphi = \frac{y}{x}.
+$$
+
+⚠️ **重要说明**：$\tan \varphi = y/x$ 仅能确定 $\varphi$ 的**参考角**，实际 $\varphi$ 必须根据点 $P(x,y)$ 所在**象限**修正：
+- $x > 0, y \ge 0$ → $\varphi = \arctan(y/x) \in [0,\frac{\pi}{2}]$  
+- $x < 0$ → $\varphi = \arctan(y/x) + \pi$  
+- $x > 0, y < 0$ → $\varphi = \arctan(y/x) + 2\pi$（或取负角）  
+- $x = 0, y > 0$ → $\varphi = \frac{\pi}{2}$；$x = 0, y < 0$ → $\varphi = \frac{3\pi}{2}$
+
+![图1.1.13：极坐标与直角坐标关系](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/3cb5a3483e2aa9aad83915fc7e7fce023e2cada66f5508ac5b2632e2669130d2.jpg)
+
+图1.1.13：坐标系重合下的几何对应
+
+::: {#proof-polar-cartesian .proof label="转换公式的推导" type=proof}
+由图1.1.13，在直角三角形 $OP_xP$ 中（$P_x$ 为 $P$ 在 $x$ 轴投影），$\cos\varphi = x/\rho$, $\sin\varphi = y/\rho$，立即得正向公式。逆向由勾股定理与三角恒等式 $\tan\theta = \sin\theta/\cos\theta$ 导出。
+:::
+
+应用场景：  
+- 将直角坐标方程（如圆、直线）转化为极坐标方程（如例1.1.13：$x^2+y^2=a^2 \to \rho=a$）  
+- 绘制极坐标曲线（如心形线 $\rho = a(1-\cos\varphi)$）  
+- 计算极坐标下的面积、弧长等积分  
+
+关联内容：  
+- [[极坐标系定义]]{type=concept, label=基础设定, render=link, tags=坐标系|基础}  
+- [[心形线]]{type=concept, label=极坐标曲线实例, render=card, tags=曲线|应用}  
+- [[函数的图形定义]]{type=concept, label=极坐标下图形, render=link, tags=函数|坐标系}
+```
