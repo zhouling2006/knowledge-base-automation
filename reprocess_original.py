@@ -131,9 +131,11 @@ def build_user_prompt(
     spec_content: str,
     samples: list[tuple[str, str]],
     start_idx: int,
+    memory_context: Optional[str] = None,
 ) -> str:
     """
-    构建 user prompt，包含规范 + 示例 + 输入数据
+    构建 user prompt，包含规范 + 示例 + 输入数据。
+    memory_context: 已生成文档的摘要（用于批次间上下文衔接）
     """
     # 组装示例部分
     examples_parts = []
@@ -159,6 +161,15 @@ def build_user_prompt(
         })
     segments_json_text = json.dumps(compact_segments, ensure_ascii=False, indent=2)
 
+    # Memory 上下文块（前面批次已生成的文档列表）
+    memory_block = ""
+    if memory_context:
+        memory_block = (
+            f"## 已生成的文档（前面批次的结果，供引用时参考文件名）\n\n"
+            f"{memory_context}\n\n"
+            f"---\n\n"
+        )
+
     user_prompt = (
         "# 任务：将数学教材内容转换为多个独立的 Markdown 知识文档\n\n"
         "请严格按照以下规范和要求生成。\n\n"
@@ -170,6 +181,7 @@ def build_user_prompt(
         f"以下是可以参考的示例文档的结构和写法：\n\n"
         f"{examples_text}\n\n"
         f"---\n\n"
+        f"{memory_block}"
         f"## 原始教材内容\n\n"
         f"```markdown\n{src_md}\n```\n\n"
         f"---\n\n"
@@ -180,6 +192,26 @@ def build_user_prompt(
         f"用 {SPLIT_SEPARATOR} 分隔。\n"
     )
     return user_prompt
+
+
+def build_rewrite_prompt(output_text: str, expected_count: int) -> str:
+    """
+    构建 rewrite 校验 prompt：要求 LLM 修复分隔符缺失或格式不合规的输出。
+    """
+    return (
+        f"以下是一段应该包含 {expected_count} 个 Markdown 文档的输出，"
+        f"每个文档之间用单独一行 `---SPLIT---` 分隔。\n"
+        f"但检测发现分隔符数量不正确（应有 {expected_count - 1} 个 `---SPLIT---`）。\n\n"
+        f"请你仔细检查并修复以下问题：\n"
+        f"1. 确保每两个文档之间有且仅有一行 `---SPLIT---` 作为分隔。\n"
+        f"2. 不要在文档内部添加 `---SPLIT---`。\n"
+        f"3. 第一个文档之前和最后一个文档之后不要添加分隔符。\n"
+        f"4. 不要修改文档内容，只修复分隔符问题。\n"
+        f"5. 如果某些文档被合并在一起未分开，请将其拆分为独立文档。\n\n"
+        f"原始输出如下：\n\n"
+        f"---BEGIN---\n{output_text}\n---END---\n\n"
+        f"请输出修复后的完整内容（同样用 `---SPLIT---` 分隔）："
+    )
 
 
 # =============================================================================
@@ -237,8 +269,63 @@ def call_llm(system_prompt: str, user_prompt: str,
 
 
 # =============================================================================
-# 输出解析与保存
+# 输出校验与 Rewrite
 # =============================================================================
+
+def check_and_rewrite(
+    output_text: str,
+    expected_count: int,
+    output_dir: str,
+    batch_label: str,
+) -> tuple[str, list[str]]:
+    """
+    检查 LLM 输出是否包含正确数量的文档，
+    若分隔符不足则调用 LLM 进行 rewrite 修复。
+    返回 (最终输出文本, 解析后的文档列表)
+    """
+    parts = parse_output(output_text)
+    actual_count = len(parts)
+
+    print(f"    📋 解析结果：预期 {expected_count} 个文档，实际得到 {actual_count} 个")
+
+    if actual_count == expected_count:
+        return output_text, parts
+
+    # 数量不匹配，触发 rewrite
+    print(f"    ⚠️ 数量不匹配，触发 Rewrite 修正（LLM 二次调整）...")
+    rewrite_prompt = build_rewrite_prompt(output_text, expected_count)
+
+    try:
+        rewrite_system = (
+            "你是一个文档格式修复助手。"
+            "你的唯一任务是修复给定文本中缺失或错误的 `---SPLIT---` 分隔符，"
+            "使文档数量与要求一致。不要修改文档正文内容。"
+        )
+        fixed_text = call_llm(rewrite_system, rewrite_prompt)
+
+        # 保存 rewrite 结果（调试用）
+        rw_file = os.path.join(output_dir, f"_debug_{batch_label}_rewrite.txt")
+        with open(rw_file, 'w', encoding='utf-8') as f:
+            f.write(fixed_text)
+        print(f"    💾 Rewrite 结果已保存到 _debug_{batch_label}_rewrite.txt")
+
+        fixed_parts = parse_output(fixed_text)
+        fixed_count = len(fixed_parts)
+        print(f"    📋 Rewrite 后：预期 {expected_count} 个，实际得到 {fixed_count} 个")
+
+        if fixed_count == expected_count:
+            print(f"    ✅ Rewrite 修正成功")
+            return fixed_text, fixed_parts
+        else:
+            print(f"    ⚠️ Rewrite 后仍不匹配，使用 rewrite 结果继续（人工检查 _debug_{batch_label}_rewrite.txt）")
+            return fixed_text, fixed_parts
+
+    except Exception as e:
+        print(f"    ❌ Rewrite 调用失败：{e}，使用原始结果继续")
+        return output_text, parts
+
+
+
 
 def parse_output(output_text: str) -> list[str]:
     """
@@ -331,8 +418,10 @@ def process_all(
     """
     完整的处理流程：
     1. 按 batch_size 分批
-    2. 每批调用 LLM
-    3. 解析输出并保存为独立文件
+    2. 每批调用 LLM（携带前面批次的 memory 上下文）
+    3. 校验输出，必要时触发 rewrite
+    4. 解析输出并保存为独立文件
+    5. 将本批生成结果追加到 memory，供下一批使用
     """
     total_segments = len(segments)
     total_batches = (total_segments + batch_size - 1) // batch_size
@@ -350,6 +439,8 @@ def process_all(
     print(f"{'=' * 60}\n")
 
     all_saved_files = []
+    # memory_entries: [(文件名, title, summary), ...]，用于跨批次上下文
+    memory_entries: list[dict] = []
 
     for batch_num in range(total_batches):
         start_idx = batch_num * batch_size
@@ -360,10 +451,19 @@ def process_all(
         print(f"\n▶️ 第 {batch_num + 1}/{total_batches} 批：segment [{start_idx + 1} ~ {end_idx}]，共 {len(batch)} 条")
         print(f"{'-' * 50}")
 
+        # 构建 memory 上下文字符串
+        memory_context: Optional[str] = None
+        if memory_entries:
+            lines = ["以下文档已在前面批次中生成，可在 [[...]] 引用时直接使用这些文件名：\n"]
+            for entry in memory_entries:
+                lines.append(f"- `{entry['filename']}` — {entry['title']}：{entry['summary']}")
+            memory_context = "\n".join(lines)
+
         # 构建 prompt
         user_prompt = build_user_prompt(
             src_md, batch, spec_content, samples,
-            start_idx=start_idx + 1  # 1-indexed for display
+            start_idx=start_idx + 1,  # 1-indexed for display
+            memory_context=memory_context,
         )
 
         # 如果是 dry run，只保存 prompt 不调用 API
@@ -386,22 +486,31 @@ def process_all(
             f.write(output_text)
         print(f"    💾 原始响应已保存到 _debug_{batch_label}_raw.txt")
 
-        # 解析输出
-        parts = parse_output(output_text)
-        expected_count = len(batch)
-        actual_count = len(parts)
-
-        print(f"    📋 解析结果：预期 {expected_count} 个文档，实际得到 {actual_count} 个")
-
-        if actual_count != expected_count:
-            print(f"    ⚠️ 数量不匹配！可能是 LLM 输出格式异常")
+        # 校验输出，必要时 rewrite
+        final_text, parts = check_and_rewrite(
+            output_text,
+            expected_count=len(batch),
+            output_dir=output_dir,
+            batch_label=batch_label,
+        )
 
         # 保存文件
         saved = save_outputs(parts, output_dir, batch_prefix=f"{batch_label}-")
         all_saved_files.extend(saved)
 
+        # 将本批结果追加到 memory（文件名 + title + summary）
+        for i, (filepath, seg) in enumerate(zip(saved, batch)):
+            filename = os.path.basename(filepath)
+            title = extract_title_from_frontmatter(parts[i]) if i < len(parts) else seg.get("title", "")
+            summary = seg.get("summary", "")
+            memory_entries.append({
+                "filename": filename,
+                "title": title or seg.get("title", ""),
+                "summary": summary,
+            })
+
         # 批次间隔，避免速率限制
-        if batch_num < total_batches - 1 and not dry_run:
+        if batch_num < total_batches - 1:
             print("\n    ⏳ 等待 2s 后继续下一批...")
             time.sleep(2)
 
