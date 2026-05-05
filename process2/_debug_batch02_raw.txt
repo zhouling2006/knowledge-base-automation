@@ -1,0 +1,270 @@
+```markdown
+---
+title: 函数的图形定义
+aliases:
+  - 函数图像
+  - 函数曲线
+tags:
+  - 高等数学
+  - 函数
+  - 几何表示
+description: 定义函数图形为满足 y = f(x) 的所有点 (x, y) 构成的集合，体现单值性在几何层面的核心约束。
+---
+# 函数的图形定义
+
+设有函数 $y = f(x),\ x \in D$。在平面直角坐标系 $xOy$ 中，称以自变量 $x$ 为横坐标、对应函数值 $f(x)$ 为纵坐标的点 $M(x, y)$ 的全体所构成的集合：
+
+$$
+\{M(x, y) \mid y = f(x),\ x \in D\}
+$$
+
+为函数 $y = f(x)$ 的**图形**。
+
+::: {#def-graph-001 .definition label="函数图形定义" type=definition}
+函数的图形是其定义域上所有输入-输出对 $(x, f(x))$ 在直角坐标系中的几何实现；其本质是一条（或若干条）曲线（含直线），且由函数的**单值性**保证：任一垂直于 $x$ 轴的直线与该图形至多相交于一点。
+:::
+
+这一几何特征是判断一个图形是否为函数图像的**垂直线检验法（Vertical Line Test）** 的理论依据。
+
+参考基础概念：[[函数的定义]]{type=concept, label=函数本质, render=link, subject=高等数学, grade=大学, tags=函数|基础概念}  
+延伸理解：[[函数的单值性]]{type=concept, label=单值性约束, render=card, tags=函数|逻辑性质}  
+典型示例见：[[例1.1.8-绝对值函数]]{type=example, id=例1.1.8, label=V形图像, render=card, source=教材, tags=分段函数|图像}  
+
+![图1.1.6](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/af05a55ae335dca7218b3621c474f94bce4a6522d38e591b66f2d8a7b7f4587c.jpg)
+
+图1.1.6 —— 函数图形的典型示意（单值性可视化）
+
+---SPLIT---
+---
+title: 函数的三种表示法
+aliases:
+  - 解析法
+  - 表格法
+  - 图示法
+tags:
+  - 高等数学
+  - 函数
+  - 表示方法
+description: 系统介绍公式法、表格法与图示法三类函数表达方式及其适用场景与教学价值。
+---
+# 函数的三种表示法
+
+函数的表示方法通常有以下三种：
+
+1. **公式法（解析法）**：用一个或多个数学解析式明确表达对应关系，如 $f(x) = x^2 + 1$。这是高等数学研究的主要对象，便于进行极限、导数、积分等分析运算。
+
+2. **表格法**：通过有限组输入-输出数据对列示函数关系，常见于实验测量、统计建模与离散系统建模中。
+
+3. **图示法**：基于函数图形，以直观方式反映变量间的变化趋势与整体形态。例如，医学中心电图（ECG）即用图形表示电压 $U$ 随时间 $t$ 的连续变化（见图1.1.7）。
+
+::: {#note-representation-001 .note label="方法互补性" type=note}
+在实际应用与教学中，三者常协同使用：解析式提供精确性与可推演性；表格法支撑数值验证与插值；图示法则增强几何直觉与定性判断。高等数学虽以公式法为核心，但**图形辅助是理解抽象概念不可或缺的桥梁**。
+:::
+
+延伸阅读：  
+- 公式法的局限与拓展 → [[分段函数]]{type=concept, label=分段定义, render=link, tags=函数|特殊类型}  
+- 图形化工具实践 → [[函数的图形定义]]{type=concept, label=图像本质, render=link, tags=函数|几何表示}  
+- 实际案例参考：[[例1.1.9-符号函数]]{type=example, id=例1.1.9, label=离散图像, render=card, source=教材, tags=分段函数|图像}
+
+![图1.1.7](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/60df69f80d357d84af9245c1105bb7ab2b645e37e9817b6e7eb654b790fadd0c.jpg)
+
+图1.1.7 —— 心电图：图示法在真实世界中的典型应用
+
+---SPLIT---
+---
+title: 分段函数
+aliases:
+  - 分段定义函数
+  - piecewise function
+tags:
+  - 高等数学
+  - 函数
+  - 特殊函数
+description: 定义分段函数为在定义域不同子集上采用不同解析式描述的函数；涵盖绝对值、符号、取整、狄利克雷等经典范例。
+---
+# 分段函数
+
+当函数在整个定义域上**无法用一个统一的解析式表示**时，可将其定义域划分为若干个互不相交的真子集，并在每个子集上分别给出对应的解析式。这类函数称为**分段函数（piecewise function）**。
+
+形式上，若 $D = D_1 \cup D_2 \cup \cdots \cup D_n$，其中 $D_i \cap D_j = \varnothing\ (i \ne j)$，且对每个 $x \in D_i$，有 $f(x) = f_i(x)$，则：
+
+$$
+f(x) =
+\begin{cases}
+f_1(x), & x \in D_1, \\
+f_2(x), & x \in D_2, \\
+\vdots \\
+f_n(x), & x \in D_n.
+\end{cases}
+$$
+
+其**定义域**为各子集之并：$D_f = \bigcup_{i=1}^{n} D_i$；  
+其**值域**为各段值域之并：$R_f = \bigcup_{i=1}^{n} R_{f_i}$。
+
+::: {#example-piecewise-001 .example label="三角波函数" type=example}
+脉冲发生器产生的三角波（见图1.1.8）：
+$$
+U(t) =
+\begin{cases}
+\frac{2E}{\tau} t, & 0 \leq t < \frac{\tau}{2}, \\
+-\frac{2E}{\tau}(t - \tau), & \frac{\tau}{2} \leq t \leq \tau.
+\end{cases}
+$$
+定义域：$[0,\tau]$；值域：$[0,E]$。
+:::
+
+经典分段函数示例：
+- [[例1.1.8-绝对值函数]]{type=example, id=例1.1.8, label=|x|, render=link, tags=基础|分段}
+- [[例1.1.9-符号函数]]{type=example, id=例1.1.9, label=sgn x, render=link, tags=离散|分段}
+- [[例1.1.10-取整函数]]{type=example, id=例1.1.10, label=[x], render=link, tags=离散|分段}
+- [[例1.1.11-狄利克雷函数]]{type=example, id=例1.1.11, label=D(x), render=card, tags=病态|分段}
+
+> ⚠️ 注意：狄利克雷函数 $D(x)$ 在任意区间上都**不可画出图像**——因有理数与无理数在实数轴上稠密交错，导致其图像“处处跳跃、处处不连”。
+
+![图1.1.8](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/b60be3cb93613cdb6d982cd7824bada7adccfc46f9ace1fad101f357a5f313da.jpg)  
+图1.1.8 —— 三角波函数图像（分段线性）
+
+![图1.1.9](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/e6417afae7978ffdad8f8d0b18dfb7c94bce954be9a6819828b316dc7c4a5c6b.jpg)  
+图1.1.9 —— 绝对值函数图像（V形折线）
+
+---SPLIT---
+---
+title: 例1.1.12：分段函数的平移变换
+aliases: []
+tags:
+  - 高等数学
+  - 函数
+  - 变换
+  - 分段函数
+description: 演示分段函数变量代换（如 f(x+1)）的操作规范：需同步平移各段定义域区间，体现“整体代换”思想。
+---
+# 例1.1.12：分段函数的平移变换
+
+> **题目**：设  
+> $$
+f(x) =
+\begin{cases}
+x^2, & 0 \leq x \leq 1, \\
+2x, & 1 < x \leq 2,
+\end{cases}
+$$  
+> 求 $f(x+1)$ 的表示式。
+
+::: {#sol-1112-001 .solution label="解法步骤" type=solution}
+函数 $f$ 是一种**对应规则**；$f(x+1)$ 表示将输入量整体替换为 $(x+1)$ 后，按原规则执行运算。因此需将原定义域中每一段的不等式条件中的 $x$ 替换为 $(x+1)$，再解出新变量 $x$ 的范围：
+
+- 当 $0 \leq x+1 \leq 1$，即 $-1 \leq x \leq 0$，得 $(x+1)^2 = x^2 + 2x + 1$；
+- 当 $1 < x+1 \leq 2$，即 $0 < x \leq 1$，得 $2(x+1) = 2x + 2$。
+
+故  
+$$
+f(x+1) =
+\begin{cases}
+x^2 + 2x + 1, & -1 \leq x \leq 0, \\
+2x + 2, & 0 < x \leq 1.
+\end{cases}
+$$
+:::
+
+✅ **关键要点**：  
+- 分段函数的复合/平移/缩放等变换，**必须同步作用于每一段的定义域条件**；  
+- 不可仅改写表达式而忽略定义域迁移，否则将导致函数失真；  
+- 此操作是后续学习函数图像变换（如左右平移）与复合函数定义域分析的基础。
+
+关联知识点：  
+- 函数定义域的运算 → [[函数的两大要素与相等性]]{type=concept, label=定义域核心性, render=link, tags=函数|基础}  
+- 图像平移几何意义 → [[函数的图形定义]]{type=concept, label=图像变换, render=card, tags=函数|几何}  
+- 更复杂变换示例 → [[例1.1.12-进阶变形]]{type=example, id=例1.1.12-进阶, label=f(2x−1), render=link, tags=变换|分段}（待生成）
+
+---SPLIT---
+---
+title: 极坐标系定义
+aliases:
+  - 极坐标
+  - 极坐标表示
+tags:
+  - 高等数学
+  - 坐标系
+  - 几何基础
+description: 形式化定义极坐标系的构成要素（极点、极轴、极径、极角），阐明其与直角坐标系的本质差异及一一对应条件。
+---
+# 极坐标系定义
+
+在平面内取一定点 $O$（称为**极点**），由 $O$ 引一条射线 $Ox$（称为**极轴**），则平面上任意一点 $P$ 的位置可由两个量唯一确定：
+
+- **极径** $\rho = |OP| \geq 0$：点 $P$ 到极点 $O$ 的距离；  
+- **极角** $\varphi$：从极轴 $Ox$ 到射线 $OP$ 的有向角（通常取逆时针方向为正）。
+
+有序数对 $(\rho, \varphi)$ 称为点 $P$ 的**极坐标**，记作 $P(\rho, \varphi)$（见图1.1.12）。
+
+::: {#def-polar-001 .definition label="极坐标系公理化定义" type=definition}
+- 极点 $O$ 对应所有 $(0, \varphi)$，其中 $\varphi$ 可取任意实数（约定：$(0,\varphi)$ 均表示同一点 $O$）；  
+- 若限定 $\rho > 0$ 且 $\varphi \in [0, 2\pi)$（或 $(-\pi, \pi]$），则除极点外，平面上每一点与唯一一组极坐标 $(\rho,\varphi)$ 构成**一一对应**。
+:::
+
+💡 **对比直角坐标系**：  
+- 直角坐标系用**位移分量** $(x,y)$ 描述位置（加法结构）；  
+- 极坐标系用**距离与方向** $(\rho,\varphi)$ 描述位置（乘法/旋转结构），天然适配圆对称问题（如圆、螺线、心形线）。
+
+延伸学习：  
+- 坐标互化 → [[极坐标与直角坐标转换公式]]{type=theorem, label=互化公式, render=link, tags=坐标变换}  
+- 应用实例 → [[例1.1.13-圆的极坐标方程]]{type=example, id=例1.1.13, label=ρ=a, render=card, source=教材, tags=极坐标|圆}  
+- 图形绘制 → [[例1.1.14-心形线]]{type=example, id=例1.1.14, label=ρ=a(1−cosφ), render=card, source=教材, tags=极坐标|曲线}
+
+![图1.1.12](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/137e8c8eae22dbec7bfbbabac343d19cae78cb8d3ca978605e3b000b9274d0d7.jpg)  
+图1.1.12 —— 极坐标系基本结构（极点 O、极轴 Ox、点 P(ρ,φ)）
+
+---SPLIT---
+---
+title: 极坐标与直角坐标转换公式
+aliases:
+  - 坐标变换公式
+  - 极直互化公式
+tags:
+  - 高等数学
+  - 坐标系
+  - 三角函数
+description: 给出极坐标 $(\rho,\varphi)$ 与直角坐标 $(x,y)$ 之间的标准互化公式，强调象限修正对 $\varphi$ 的必要性。
+---
+# 极坐标与直角坐标转换公式
+
+设极点 $O$ 与直角坐标系原点重合，极轴 $Ox$ 与 $x$ 轴正半轴重合（见图1.1.13）。对平面上任意非极点 $P$，其直角坐标 $(x,y)$ 与极坐标 $(\rho,\varphi)$ 满足如下关系：
+
+### ✅ 由极坐标 → 直角坐标（正向变换）
+$$
+\begin{cases}
+x = \rho \cos \varphi, \\
+y = \rho \sin \varphi.
+\end{cases}
+\tag{1.1.1}
+$$
+
+### ✅ 由直角坐标 → 极坐标（逆向变换）
+$$
+\begin{cases}
+\rho = \sqrt{x^2 + y^2} \geq 0, \\
+\tan \varphi = \dfrac{y}{x} \quad (\text{需据 }x,y\text{ 符号确定 }\varphi\text{ 所在象限}).
+\end{cases}
+$$
+
+::: {#thm-polar-rect-001 .theorem label="坐标互化定理" type=theorem}
+设 $P$ 为平面内一点，$(x,y)$ 为其直角坐标，$(\rho,\varphi)$ 为其极坐标（$\rho \geq 0$，$\varphi \in \mathbb{R}$），则恒有：
+- $\rho^2 = x^2 + y^2$；
+- 若 $\rho > 0$，则 $\cos \varphi = \dfrac{x}{\rho},\ \sin \varphi = \dfrac{y}{\rho}$，从而 $\varphi$ 唯一确定于 $[0,2\pi)$ 内；
+- 若 $\rho = 0$（即 $P$ 为极点），则 $\varphi$ 可取任意值。
+:::
+
+⚠️ **重要提醒**：仅凭 $\tan \varphi = y/x$ 无法唯一确定 $\varphi$！必须结合 $x$ 与 $y$ 的正负号判断象限：
+- $x>0,y>0$ → 第一象限（$\varphi \in (0,\pi/2)$）  
+- $x<0,y>0$ → 第二象限（$\varphi \in (\pi/2,\pi)$）  
+- $x<0,y<0$ → 第三象限（$\varphi \in (\pi,3\pi/2)$）  
+- $x>0,y<0$ → 第四象限（$\varphi \in (3\pi/2,2\pi)$）
+
+应用示例：  
+- 圆方程转化 → [[例1.1.13]]{type=example, id=例1.1.13, label=直角→极坐标, render=link, tags=极坐标|代数}  
+- 心形线绘图 → [[例1.1.14]]{type=example, id=例1.1.14, label=极坐标→直角, render=link, tags=极坐标|几何}  
+- 曲线对称性分析 → [[极坐标系定义]]{type=concept, label=对称性优势, render=card, tags=极坐标|性质}
+
+![图1.1.13](https://cdn-mineru.openxlab.org.cn/result/2026-04-03/ccf3acff-bbac-48d8-97dd-e31ada0e3759/3cb5a3483e2aa9aad83915fc7e7fce023e2cada66f5508ac5b2632e2669130d2.jpg)  
+图1.1.13 —— 极坐标与直角坐标系的叠加示意图（互化几何基础）
+```
