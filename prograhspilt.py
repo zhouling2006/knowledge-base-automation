@@ -218,7 +218,7 @@ def segment_knowledge_points(markdown_content: str, source: str, section: str, s
 
 输出格式要求（严格遵循以下每个字段，不得遗漏、不得自创字段）：
 
-{
+{{
     "source": "第3章/3.1 导数的定义.md",     // 来源文件路径，从 user_prompt 提取
     "section": "3.1 导数的定义",             // 所属小节名，从 user_prompt 提取
     "section_id": "1",                       // 小节ID，不知道则填 null（字符串）
@@ -247,11 +247,11 @@ def segment_knowledge_points(markdown_content: str, source: str, section: str, s
     "summary": "简短摘要，一句话概括本块核心内容",  // 用于预览/检索
 
     "created_at": "当前ISO时间字符串，如 2026-01-15T10:30:00",
-    "model": "qwen-plus",
+    "model":qwen-plus",
     "version": 1,
 
     "embedding": null                         // 留空，后期扩展向量检索用
-}
+}}
 
 ---
 
