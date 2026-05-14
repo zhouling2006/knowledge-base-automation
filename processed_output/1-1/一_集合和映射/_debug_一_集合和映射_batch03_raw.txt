@@ -1,0 +1,188 @@
+---
+title: 有界集与确界定义
+numeric_source: 1-1-1-9
+aliases:
+  - 上确界
+  - 下确界
+  - 最小上界
+  - 最大下界
+tags:
+  - 高等数学
+  - 实数理论
+  - 基础概念
+---
+
+# 有界集与确界定义
+
+设 $A$ 为一非空数集：
+
+- 若存在 $L \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \leqslant L$，则称 $A$ **有上界**（或**上有界**），$L$ 称为 $A$ 的一个**上界**；  
+- 若存在 $l \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \geqslant l$，则称 $A$ **有下界**（或**下有界**），$l$ 称为 $A$ 的一个**下界**；  
+- 若 $A$ 既有上界又有下界，则称 $A$ **有界**；否则称 $A$ **无界**。
+
+进一步地：
+
+- 若 $\beta$ 是 $A$ 的一个上界，且对 $A$ 的**任意上界** $L$ 都有 $\beta \leqslant L$，则称 $\beta$ 为 $A$ 的**上确界**（least upper bound），记作  
+  $$
+  \sup A = \beta.
+  $$
+
+- 若 $\alpha$ 是 $A$ 的一个下界，且对 $A$ 的**任意下界** $l$ 都有 $\alpha \geqslant l$，则称 $\alpha$ 为 $A$ 的**下确界**（greatest lower bound），记作  
+  $$
+  \inf A = \alpha.
+  $$
+
+::: {.note}
+上确界是所有上界中**最小者**，下确界是所有下界中**最大者**；它们未必属于原集合 $A$。例如，集合 $A = \{x \mid 0 < x < 1\}$ 满足 $\sup A = 1$、$\inf A = 0$，但 $0,1 \notin A$。
+:::
+
+该定义是实数完备性的核心刻画之一，为极限理论提供基础支撑。
+
+相关定理：[[确界存在定理]]{type=theorem, label=确界存在性, render=link, subject=高等数学, grade=大学, tags=实数理论|完备性}
+
+延伸阅读：[[实数集的完备性]]{type=concept, label=实数完备性, render=link, subject=高等数学, grade=大学, tags=实数理论|核心概念}
+
+---
+title: 确界存在定理
+numeric_source: 1-1-1-10
+aliases:
+  - 上确界存在定理
+  - 下确界存在定理
+tags:
+  - 高等数学
+  - 实数理论
+  - 定理
+---
+
+# 确界存在定理
+
+> **定理1.1.1（确界存在定理）**  
+> 任意有上（下）界的非空实数子集 $A \subseteq \mathbb{R}$ 必有上（下）确界。
+
+即：  
+- 若 $A \neq \varnothing$ 且 $A$ 有上界，则 $\sup A$ 存在且唯一（属于 $\mathbb{R}$）；  
+- 若 $A \neq \varnothing$ 且 $A$ 有下界，则 $\inf A$ 存在且唯一（属于 $\mathbb{R}$）。
+
+::: {#thm-sup-exist-001 .theorem label="确界存在定理" type=theorem}
+该定理是实数集 $\mathbb{R}$ **完备性**（或称**连续性**）的等价表述之一，不依赖于有理数集 $\mathbb{Q}$ 的性质，也无法在 $\mathbb{Q}$ 中成立（反例：$A = \{x \in \mathbb{Q} \mid x^2 < 2\}$ 在 $\mathbb{Q}$ 中无上确界）。
+:::
+
+该定理是后续定义极限、连续、积分等分析概念的基石。
+
+前置定义：[[有界集与确界定义]]{type=concept, label=确界定义, render=link, subject=高等数学, grade=大学, tags=实数理论|基础概念}
+
+对比理解：[[实数集的完备性]]{type=concept, label=完备性本质, render=card, subject=高等数学, grade=大学, tags=实数理论|核心公理}
+
+---
+title: 区间与邻域
+numeric_source: 1-1-1-11
+aliases:
+  - 开区间
+  - 闭区间
+  - 邻域
+  - 去心邻域
+tags:
+  - 高等数学
+  - 实数理论
+  - 集合表示
+---
+
+# 区间与邻域
+
+在实数集 $\mathbb{R}$ 上，以下几类集合具有重要地位，广泛用于极限、连续、微分等分析定义中。
+
+## 一、区间（Interval）
+
+设 $a,b \in \mathbb{R},\ a < b$：
+
+- **开区间**：$(a,b) = \{x \in \mathbb{R} \mid a < x < b\}$  
+- **闭区间**：$[a,b] = \{x \in \mathbb{R} \mid a \leqslant x \leqslant b\}$  
+- **半开半闭区间**：  
+  $(a,b] = \{x \in \mathbb{R} \mid a < x \leqslant b\}$，  
+  $[a,b) = \{x \in \mathbb{R} \mid a \leqslant x < b\}$  
+
+以上统称**有限区间**，长度为 $b-a$。
+
+- **无限区间**（引入符号 $+\infty$, $-\infty$）：  
+  $$
+  \begin{aligned}
+  (-\infty, +\infty) &= \mathbb{R}, \\
+  (a, +\infty) &= \{x \mid x > a\}, \\
+  [a, +\infty) &= \{x \mid x \geqslant a\}, \\
+  (-\infty, b) &= \{x \mid x < b\}, \\
+  (-\infty, b] &= \{x \mid x \leqslant b\}.
+  \end{aligned}
+  $$
+
+## 二、邻域（Neighborhood）
+
+设 $a \in \mathbb{R},\ \delta > 0$：
+
+- **$\delta$-邻域**（以 $a$ 为中心）：  
+  $$
+  U(a,\delta) = \{x \in \mathbb{R} \mid |x - a| < \delta\} = (a - \delta,\ a + \delta).
+  $$  
+  其中 $a$ 称为**中心**，$\delta$ 称为**半径**。
+
+- **去心 $\delta$-邻域**（排除中心点）：  
+  $$
+  \mathring{U}(a,\delta) = \{x \in \mathbb{R} \mid 0 < |x - a| < \delta\} = (a - \delta,\ a) \cup (a,\ a + \delta).
+  $$
+
+当不强调半径时，简记为 $U(a)$ 和 $\mathring{U}(a)$。
+
+> 📌 **几何意义**：邻域是数轴上以 $a$ 为中心、长度为 $2\delta$ 的开线段；去心邻域则挖去中心点 $a$，常用于极限定义中（因极限关注“趋近但不等于”的行为）。
+
+参考图示：![图1.1.2：邻域示意图](images/e248a15b882dfb9c55d3f2b76200cf43b2311ea63fa1ec375752d8d840615c8e.jpg)  
+*图1.1.2*
+
+关联知识点：[[有界集与确界定义]]{type=concept, label=有界性背景, render=link, tags=实数理论|集合结构}  
+应用入口：[[极限的定义]]{type=concept, label=邻域在极限中的作用, render=link, subject=高等数学, grade=大学, tags=极限|基础工具}
+
+---
+title: 常量与变量
+numeric_source: 1-1-1-12
+aliases:
+  - 常数
+  - 自变量
+  - 因变量
+tags:
+  - 高等数学
+  - 数学基础
+  - 概念辨析
+---
+
+# 常量与变量
+
+在某一特定过程或问题背景下：
+
+- **常量**（constant）：只取固定值的量；  
+- **变量**（variable）：可以取不同数值的量。
+
+> ✅ **关键理解**：常量与变量的区分**依赖于研究过程的具体范围**，并非绝对属性。  
+> 例如：重力加速度 $g$ 在全球尺度是变量（随纬度、高度变化），但在实验室局部实验中可视为常量。
+
+## 符号习惯与数学视角
+
+- 通常用 $a,b,c,\dots$ 表示常量，$x,y,z,\dots$ 表示变量；
+- **常量可视作变量的特例**：即在某过程中恒取同一值的变量（类比“静止是速度为零的运动”）；
+- 在函数关系 $y = f(x)$ 中：
+  - $x$ 称为**自变量**（independent variable），
+  - $y$ 称为**因变量**（dependent variable），
+  - 而参数（如圆周率 $\pi$、自然对数底 $e$）属于**绝对常量**。
+
+### 典型实例
+
+| 量         | 是否常量？ | 说明 |
+|------------|-------------|------|
+| 圆周率 $\pi$ | 是（绝对常量） | 圆周长与直径之比恒为 $\pi$ |
+| 气体体积 $V$ | 否（变量） | 加热密闭容器时，若压强变化，$V$ 可能变化（除非刚性容器） |
+| 密闭容器内分子数 $N$ | 是（过程常量） | 分子不逸出、不反应时保持不变 |
+
+::: {.note}
+变量是函数、映射、极限等分析概念的逻辑起点；而常量（尤其参数）常用于刻画函数族或模型特征。
+:::
+
+延伸学习：[[映射]]{type=concept, label=变量间的对应关系, render=link, subject=高等数学, grade=大学, tags=映射|函数基础}  
+前置基础：[[集合的定义]]{type=concept, label=元素与集合, render=link, tags=集合论|基础}  
+---SPLIT---

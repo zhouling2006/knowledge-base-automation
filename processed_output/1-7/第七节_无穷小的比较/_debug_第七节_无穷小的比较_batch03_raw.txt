@@ -1,0 +1,163 @@
+---
+title: 例1.7.1：等价代换求极限
+numeric_source: 1-4-1-9
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - 极限计算
+  - 等价代换
+---
+
+# 例1.7.1：等价代换求极限
+
+求  
+$$
+\lim_{x \to 0} \frac{\sin(5x)}{\tan(6x)}.
+$$
+
+**解**：当 $x \to 0$ 时，有等价关系  
+$$
+\sin(5x) \sim 5x, \quad \tan(6x) \sim 6x.
+$$  
+由 [[等价无穷小替换性质(性质1.7.1)]]{type=concept, label=等价替换合法性, render=link, tags=无穷小|极限|核心性质} 可知，分子分母可分别用其等价无穷小替换，故  
+$$
+\lim_{x \to 0} \frac{\sin(5x)}{\tan(6x)} 
+= \lim_{x \to 0} \frac{5x}{6x} 
+= \frac{5}{6}.
+$$
+
+该题是等价代换法的典型入门应用，适用于含基本三角函数的比值型极限。  
+延伸思考：若将分母改为 $\tan(6x^2)$，是否仍可直接代换？请结合 [[无穷小的阶(定义1.7.1)]]{type=concept, label=阶的判定, render=link, tags=无穷小|阶} 分析。
+
+::: {.example label="例1.7.1" type=example}
+求 $\displaystyle \lim_{x \to 0} \frac{\sin(5x)}{\tan(6x)} = \frac{5}{6}$。
+:::
+
+---
+SPLIT---
+---
+title: 例1.7.2：复杂结构的等价代换
+numeric_source: 1-4-1-10
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - 极限计算
+  - 等价代换
+  - 三角恒等变形
+---
+
+# 例1.7.2：复杂结构的等价代换
+
+求  
+$$
+\lim_{x \to 0} \frac{\tan x - \sin x}{\sin^3 x}.
+$$
+
+**解**：当 $x \to 0$ 时，  
+- $\sin x \sim x$，故 $\sin^3 x \sim x^3$；  
+- 分子化简：$\tan x - \sin x = \sin x \left(\frac{1}{\cos x} - 1\right) = \frac{\sin x (1 - \cos x)}{\cos x}$；  
+- 利用等价关系：$\sin x \sim x$，$1 - \cos x \sim \dfrac{x^2}{2}$，$\cos x \to 1$。
+
+于是  
+$$
+\lim_{x \to 0} \frac{\tan x - \sin x}{\sin^3 x}
+= \lim_{x \to 0} \frac{\sin x (1 - \cos x)}{x^3 \cos x}
+= \lim_{x \to 0} \frac{1}{\cos x} \cdot \frac{\sin x}{x} \cdot \frac{1 - \cos x}{x^2}
+= 1 \cdot 1 \cdot \frac{1}{2}
+= \frac{1}{2}.
+$$
+
+本例展示了等价代换与恒等变形的协同使用，强调：**等价代换需在乘除因子中谨慎实施，加减项不可直接代换（除非先提取公因式或构造主部）**。  
+参考核心依据：[[等价无穷小替换性质(性质1.7.1)]]{type=concept, label=替换适用条件, render=link, tags=无穷小|极限|规则}、[[无穷小的阶(定义1.7.1)]]{type=concept, label=阶与主部, render=link, tags=无穷小|主部}。
+
+::: {.example label="例1.7.2" type=example}
+$$
+\lim_{x \to 0} \frac{\tan x - \sin x}{\sin^3 x} = \frac{1}{2}
+$$
+:::
+
+---
+SPLIT---
+---
+title: 等价无穷小的充要条件（性质1.7.2）
+numeric_source: 1-4-1-11
+aliases:
+  - 等价的差形式刻画
+  - 主部判定准则
+tags:
+  - 高等数学
+  - 无穷小
+  - 等价无穷小
+  - 主部
+---
+
+# 等价无穷小的充要条件（性质1.7.2）
+
+设 $\alpha, \beta$ 是同一极限过程（如 $x \to 0$, $x \to x_0$, $n \to \infty$）中的两个无穷小。则  
+$$
+\alpha \sim \beta \quad \text{当且仅当} \quad \alpha - \beta = o(\alpha) \quad \text{或} \quad \alpha - \beta = o(\beta).
+$$  
+即，以下任一条件成立即可等价：
+- $\displaystyle \lim \frac{\alpha - \beta}{\alpha} = 0$，  
+- $\displaystyle \lim \frac{\alpha - \beta}{\beta} = 0$。
+
+该性质建立了“等价”与“差为高阶无穷小”的严格逻辑等价，是理解**主部（principal part）**概念的理论基石：若 $\alpha \sim \beta$，则 $\beta$ 可作为 $\alpha$ 的主部近似，误差 $\alpha - \beta$ 相对于 $\alpha$（或 $\beta$）可忽略。
+
+> ✅ **几何/直观意义**：当 $|x|$ 充分小时，$\sin x$ 与 $x$ 在图像上几乎重合，其垂直偏差（即差）远小于 $x$ 本身——这正是 $o(x)$ 的体现。
+
+该性质支撑了工程与物理中广泛使用的**线性近似**和**主部截断法**。  
+参见应用实例：[[例1.7.3]]{type=question, id=例1.7.3, label=主部替换应用, render=card, source=教材, tags=无穷小|主部|计算题}、[[从性质1.7.2看主部近似]]{type=concept, label=主部近似原理, render=link, tags=无穷小|近似|应用}。
+
+::: {.note}
+该性质揭示：等价无穷小的本质不是“数值接近”，而是“相对误差趋于零”。这是区别于普通近似（如四舍五入）的关键。
+:::
+
+---
+SPLIT---
+---
+title: 性质1.7.2的证明
+numeric_source: 1-4-1-12
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - 等价无穷小
+  - 证明
+  - 极限理论
+---
+
+# 性质1.7.2的证明
+
+设 $\alpha, \beta$ 是同一极限过程中的无穷小。我们证明：  
+$$
+\alpha \sim \beta \iff \alpha - \beta = o(\alpha) \quad \text{或} \quad \alpha - \beta = o(\beta).
+$$
+
+## 必要性  
+设 $\alpha \sim \beta$，即 $\displaystyle \lim \frac{\alpha}{\beta} = 1$（且 $\beta \not\to 0$ 恒成立，故极限存在非零）。则  
+$$
+\lim \left( \frac{\beta}{\alpha} - 1 \right) = 0 \quad \Rightarrow \quad \lim \frac{\beta - \alpha}{\alpha} = 0 \quad \Rightarrow \quad \alpha - \beta = o(\alpha).
+$$  
+同理，由 $\displaystyle \lim \frac{\alpha}{\beta} = 1$ 可得 $\displaystyle \lim \frac{\alpha - \beta}{\beta} = 0$，即 $\alpha - \beta = o(\beta)$。
+
+## 充分性  
+设 $\alpha - \beta = o(\alpha)$，即 $\displaystyle \lim \frac{\alpha - \beta}{\alpha} = 0$，则  
+$$
+\lim \left( 1 - \frac{\beta}{\alpha} \right) = 0 \quad \Rightarrow \quad \lim \frac{\beta}{\alpha} = 1 \quad \Rightarrow \quad \lim \frac{\alpha}{\beta} = 1 \quad \Rightarrow \quad \alpha \sim \beta.
+$$  
+若已知 $\alpha - \beta = o(\beta)$，同理可得 $\displaystyle \lim \frac{\alpha}{\beta} = 1$，故 $\alpha \sim \beta$。
+
+因此，双向蕴含成立，证毕。
+
+该证明完全依赖极限的四则运算法则与极限存在的保号性，体现了无穷小比较的严密性。  
+核心工具链：[[极限的运算法则]]{type=concept, label=极限运算基础, render=link, tags=极限|基础}、[[无穷小的阶(定义1.7.1)]]{type=concept, label=高阶定义, render=link, tags=无穷小|阶}。
+
+::: {#proof-property-1-7-2 .proof label="性质1.7.2的双向证明" type=proof}
+必要性：$\alpha \sim \beta \Rightarrow \lim \frac{\alpha - \beta}{\alpha} = 0$；  
+充分性：$\lim \frac{\alpha - \beta}{\alpha} = 0 \Rightarrow \alpha \sim \beta$。  
+双向推导均基于极限的线性与商法则。
+:::
+
+详细推导见 ((proof-property-1-7-2)){type=proof, label=双向逻辑推导, render=card, note=极限运算的典范应用}。

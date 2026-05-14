@@ -1,0 +1,204 @@
+---
+title: 曲线弧长的定义
+numeric_source: 6-2-3-1
+aliases:
+  - 曲线长度
+  - 弧长定义
+tags:
+  - 高等数学
+  - 积分学
+  - 几何量
+---
+
+# 曲线弧长的定义
+
+曲线弧与直线段不同，不能用直尺度量它的长度。我们从直线段可求长的事实出发，建立曲线的弧长概念。
+
+设一条以 $A, B$ 为端点的曲线弧 $\widehat{AB}$，在 $\widehat{AB}$ 上从 $A$ 到 $B$ 任取分点  
+$$
+M_0 = A,\; M_1,\; M_2,\; \dots,\; M_{n-1},\; M_n = B,
+$$  
+依次连接这些分点，得到一折线（见图6.2.21）。该折线的长度为  
+$$
+\sum_{i=0}^{n-1} |M_i M_{i+1}|,
+$$  
+其中 $|M_i M_{i+1}|$ 表示以 $M_i, M_{i+1}$ 为端点的直线段长度（$i = 0,1,\dots,n-1$）。
+
+记  
+$$
+\lambda = \max_{0 \leqslant i \leqslant n-1} \{|M_i M_{i+1}|\},
+$$  
+若极限  
+$$
+\lim_{\lambda \to 0} \sum_{i = 0}^{n - 1} \left| M_i M_{i + 1} \right|
+$$  
+存在，则称这个极限为曲线弧 $\widehat{AB}$ 的**弧长**。
+
+![图6.2.21：折线逼近曲线弧](images/4cb5a4be37676fb94bf260824f7ef9c05257a784096d4802b891b1350cd46a4e.jpg)  
+*图6.2.21*
+
+该定义体现了“以直代曲”的思想，是黎曼和式在几何度量中的典型应用，也是后续弧长公式推导的理论基础。
+
+相关知识点：[[直角坐标系下平面曲线的弧长公式]]{type=concept, label=显函数弧长公式, render=link, subject=高等数学, grade=大学, tags=积分学|弧长|微分几何}
+
+---
+SPLIT---
+---
+title: 直角坐标系下平面曲线的弧长公式
+numeric_source: 6-2-3-2
+aliases:
+  - 直角坐标弧长公式
+  - 显函数弧长公式
+tags:
+  - 高等数学
+  - 积分学
+  - 弧长
+---
+
+# 直角坐标系下平面曲线的弧长公式
+
+设曲线弧 $\widehat{AB}$ 的方程为  
+$$
+y = f(x), \quad a \leqslant x \leqslant b,
+$$  
+且 $f'(x)$ 在区间 $[a,b]$ 上连续。由第三章第六节已知，其**弧微分**为  
+$$
+\mathrm{d}s = \sqrt{1 + y'^2}\,\mathrm{d}x. \tag{6.2.10}
+$$  
+
+将式 (6.2.10) 在 $[a,b]$ 上积分，即得曲线弧 $\widehat{AB}$ 的**弧长计算公式**：  
+$$
+s = \int_a^b \sqrt{1 + y'^2}\,\mathrm{d}x. \tag{6.2.11}
+$$  
+
+该公式成立的关键条件是 $f'(x)$ 连续——保证了被积函数在闭区间上连续，从而可积；同时确保曲线光滑、无尖点，使弧长具有良定义性。
+
+> 💡 **理解提示**：弧微分 $\mathrm{d}s$ 是曲线在 $x$ 处的无穷小弧段长度，其几何意义来自勾股定理：$\mathrm{d}s = \sqrt{(\mathrm{d}x)^2 + (\mathrm{d}y)^2} = \sqrt{1 + (y')^2}\,\mathrm{d}x$。
+
+应用实例：  
+- [[例6.2.14：悬链线弧长及几何关系]]{type=example, id=例6.2.14, label=悬链线计算, render=card, source=同济高数, tags=双曲函数|弧长|物理应用}  
+- [[例6.2.15：正弦型曲线族弧长不变性]]{type=example, id=例6.2.15, label=周期曲线弧长, render=card, source=同济高数, tags=三角函数|变量代换}
+
+---
+SPLIT---
+---
+title: 例6.2.14：悬链线弧长及几何关系
+numeric_source: 6-2-3-3
+aliases: []
+tags:
+  - 高等数学
+  - 弧长
+  - 双曲函数
+  - 应用题
+---
+
+# 例6.2.14：悬链线弧长及几何关系
+
+> **问题**：两根电线杆之间的电线因自重下垂形成**悬链线**，其方程为  
+> $$
+> y = a \cosh \frac{x}{a}, \quad a > 0.
+> $$  
+> 求该曲线介于 $x = -a$ 与 $x = a$ 之间的一段弧长 $s$，并证明顶点 $A(0,a)$ 到曲线上任意点 $M(x,y)$ 的弧长 $s_M$ 满足关系式：  
+> $$
+> a^2 + s_M^2 = y^2.
+> $$
+
+**解**：  
+先求导：  
+$$
+y' = \sinh \frac{x}{a},
+$$  
+故弧微分为  
+$$
+\mathrm{d}s = \sqrt{1 + y'^2}\,\mathrm{d}x = \sqrt{1 + \sinh^2 \frac{x}{a}}\,\mathrm{d}x = \cosh \frac{x}{a}\,\mathrm{d}x.
+$$  
+
+由直角坐标弧长公式 (6.2.11)，得  
+$$
+s = \int_{-a}^{a} \cosh \frac{x}{a}\,\mathrm{d}x 
+= a \sinh \frac{x}{a} \Bigg|_{-a}^{a} 
+= a(\sinh 1 - \sinh(-1)) 
+= 2a \sinh 1.
+$$  
+
+又顶点 $A(0,a)$ 对应 $x = 0$，故从 $A$ 到 $M(x,y)$ 的弧长为  
+$$
+s_M = \left| \int_0^x \cosh \frac{t}{a}\,\mathrm{d}t \right| = \left| a \sinh \frac{x}{a} \right|.
+$$  
+
+于是  
+$$
+a^2 + s_M^2 = a^2 + a^2 \sinh^2 \frac{x}{a} 
+= a^2 \left(1 + \sinh^2 \frac{x}{a}\right) 
+= a^2 \cosh^2 \frac{x}{a} 
+= y^2.
+$$  
+
+该恒等式揭示了悬链线深刻的几何性质：**以顶点为圆心、$y$ 坐标为半径的圆，总经过点 $(s_M, a)$** ——体现双曲函数与欧氏几何的优美统一。
+
+![图6.2.22：悬链线示意图](images/76762c66c3312e39bf5032aae33e64211fee56c2f8054565f2758e7d8e1284c5.jpg)  
+*图6.2.22*
+
+关联知识点：  
+- [[直角坐标系下平面曲线的弧长公式]]{type=concept, label=公式来源, render=link, tags=弧长|双曲函数}  
+- [[双曲函数基本恒等式]]{type=concept, label=cosh²−sinh²=1, render=link, subject=高等数学, tags=双曲函数|恒等式}
+
+---
+SPLIT---
+---
+title: 例6.2.15：正弦型曲线族弧长不变性
+numeric_source: 6-2-3-4
+aliases: []
+tags:
+  - 高等数学
+  - 弧长
+  - 变量代换
+  - 周期函数
+---
+
+# 例6.2.15：正弦型曲线族弧长不变性
+
+> **问题**：证明对任意正整数 $n$，曲线  
+> $$
+> y = \frac{1}{n} \sin(nx)
+> $$  
+> 在区间 $[0, 2\pi]$ 上的弧长均相等。
+
+**证**：  
+计算导数：  
+$$
+y' = \cos(nx),
+$$  
+故弧长为  
+$$
+s = \int_0^{2\pi} \sqrt{1 + y'^2}\,\mathrm{d}x 
+= \int_0^{2\pi} \sqrt{1 + \cos^2(nx)}\,\mathrm{d}x.
+$$  
+
+令 $t = nx$，则 $\mathrm{d}x = \frac{\mathrm{d}t}{n}$，当 $x = 0$ 时 $t = 0$；当 $x = 2\pi$ 时 $t = 2n\pi$。代入得  
+$$
+s = \int_0^{2n\pi} \sqrt{1 + \cos^2 t}\,\frac{\mathrm{d}t}{n} 
+= \frac{1}{n} \int_0^{2n\pi} \sqrt{1 + \cos^2 t}\,\mathrm{d}t.
+$$  
+
+注意到被积函数 $\sqrt{1 + \cos^2 t}$ 是以 $2\pi$ 为周期的函数，因此  
+$$
+\int_0^{2n\pi} \sqrt{1 + \cos^2 t}\,\mathrm{d}t 
+= n \int_0^{2\pi} \sqrt{1 + \cos^2 t}\,\mathrm{d}t.
+$$  
+
+于是  
+$$
+s = \frac{1}{n} \cdot n \int_0^{2\pi} \sqrt{1 + \cos^2 t}\,\mathrm{d}t 
+= \int_0^{2\pi} \sqrt{1 + \cos^2 t}\,\mathrm{d}t.
+$$  
+
+该结果**与 $n$ 无关**，即对所有正整数 $n$，弧长恒为同一常数。
+
+> ✅ **关键洞察**：振幅缩放 $\frac{1}{n}$ 与频率提升 $n$ 恰好抵消了对弧长的影响；高频振荡虽更“曲折”，但每段起伏更“扁平”，总长度保持不变。
+
+该结论是周期函数弧长分析中变量代换与周期性结合的典范应用。
+
+延伸思考：  
+- 若改为 $y = \frac{1}{n^2}\sin(nx)$，弧长是否仍与 $n$ 无关？[[变量代换在弧长计算中的适用条件]]{type=concept, label=代换有效性, render=link, tags=变量代换|积分技巧}  
+- 类似结论是否适用于 $y = \frac{1}{n}\cos(nx)$？[[余弦函数弧长对称性]]{type=concept, label=cosine弧长, render=link, tags=三角函数|对称性}

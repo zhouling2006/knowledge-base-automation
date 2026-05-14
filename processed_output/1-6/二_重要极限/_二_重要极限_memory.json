@@ -1,0 +1,57 @@
+[
+  {
+    "filename": "重要极限-$lim_{xto-infty}left(1-+-frac{1}{x}right)^x-=-e$.md",
+    "title": "重要极限 $\\lim_{x\\to \\infty}\\left(1 + \\frac{1}{x}\\right)^x = e$",
+    "summary": "定义并陈述第二个重要极限：$\\lim_{x\\to \\infty}(1+1/x)^x = e$。"
+  },
+  {
+    "filename": "离散情形回顾-数列极限-$lim_{ntoinfty}(1+1n)^n-=-e$.md",
+    "title": "离散情形回顾：数列极限 $\\lim_{n\\to\\infty}(1+1/n)^n = e$",
+    "summary": "回顾并引用已证的数列极限 $\\lim_{n\\to\\infty}(1+1/n)^n = e$，作为连续极限的理论基础。"
+  },
+  {
+    "filename": "连续变量推广-$x-to-pminfty$-时极限仍为-$e$.md",
+    "title": "连续变量推广：$x \\to \\pm\\infty$ 时极限仍为 $e$",
+    "summary": "指出函数极限在 $x\\to+\\infty$ 和 $x\\to-\\infty$ 下均收敛于 $e$，支持统一记作 $x\\to\\infty$。"
+  },
+  {
+    "filename": "例1.6.8-证明-$lim_{xto-+infty}(1+1x)^x-=-e$(夹逼法).md",
+    "title": "例1.6.8：证明 $\\lim_{x\\to +\\infty}(1+1/x)^x = e$（夹逼法）",
+    "summary": "通过整数夹逼构造不等式链，利用已知数列极限和夹逼准则证明右极限为 $e$。"
+  },
+  {
+    "filename": "例1.6.8续-计算辅助极限.md",
+    "title": "例1.6.8续：计算辅助极限",
+    "summary": "计算夹逼不等式两端的极限，均化归为已知极限 $\\lim(1+1/n)^n=e$，验证夹逼条件成立。"
+  },
+  {
+    "filename": "例1.6.8续-由夹逼准则得右极限.md",
+    "title": "例1.6.8续：由夹逼准则得右极限",
+    "summary": "直接应用夹逼准则，由不等式夹逼得出右极限值。"
+  },
+  {
+    "filename": "例1.6.8续-证明左极限-$lim_{xto-infty}(1+1x)^x-=-e$.md",
+    "title": "例1.6.8续：证明左极限 $\\lim_{x\\to-\\infty}(1+1/x)^x = e$",
+    "summary": "通过变量代换 $x=-(1+t)$ 将左极限转化为已知极限形式，证明其值也为 $e$。"
+  },
+  {
+    "filename": "综合结论-$lim_{xtoinfty}(1+1x)^x-=-e$.md",
+    "title": "综合结论：$\\lim_{x\\to\\infty}(1+1/x)^x = e$",
+    "summary": "汇总左右极限结果，给出完整极限公式 (1.6.3)。"
+  },
+  {
+    "filename": "等价形式-$lim_{zto0}(1+z)^{1z}-=-e$.md",
+    "title": "等价形式：$\\lim_{z\\to0}(1+z)^{1/z} = e$",
+    "summary": "通过倒代换 $x=1/z$ 得到极限在零点处的等价表达式。"
+  },
+  {
+    "filename": "例1.6.9-求-$lim_{xtoinfty}(1-1(3x))^x$.md",
+    "title": "例1.6.9：求 $\\lim_{x\\to\\infty}(1-1/(3x))^x$",
+    "summary": "通过线性代换将一般形式还原为标准重要极限，求得结果为 $e^{-1/3}$。"
+  },
+  {
+    "filename": "例1.6.10-求-$lim_{xto0}(1-x)^{2x}$.md",
+    "title": "例1.6.10：求 $\\lim_{x\\to0}(1-x)^{2/x}$",
+    "summary": "通过平移代换将底数化为 $1+t$ 形式，利用零点型重要极限求得结果为 $e^{-2}$。"
+  }
+]

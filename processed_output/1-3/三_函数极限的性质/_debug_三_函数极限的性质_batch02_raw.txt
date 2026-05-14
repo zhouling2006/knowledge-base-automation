@@ -1,0 +1,59 @@
+---
+title: 函数极限的保号性推论（极限值不等式）
+numeric_source: 1-3-3-5
+aliases:
+  - 极限保序性
+  - 极限不等式性质
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+---
+
+# 函数极限的保号性推论（极限值不等式）
+
+若 $\lim_{x \to x_0} f(x) = A$，且在 $x_0$ 的某个去心邻域内有 $f(x) \geqslant 0$（或 $f(x) \leqslant 0$），则必有 $A \geqslant 0$（或 $A \leqslant 0$）。
+
+该结论是函数极限**局部保号性**（[[函数极限的局部保号性]]{type=concept, label=局部保号性, render=link, subject=高等数学, grade=大学, tags=极限|核心性质}）的重要推论，常用于反证法与不等式型极限判定。
+
+::: {#proof-theorem-1-3-6 .proof label="定理1.3.6证明" type=proof}
+设 $\lim_{x \to x_0} f(x) = A$，且存在 $\delta_0 > 0$，使得当 $0 < |x - x_0| < \delta_0$ 时，恒有 $f(x) \geqslant 0$。  
+假设 $A < 0$，取 $\varepsilon = -\frac{A}{2} > 0$，由极限定义，存在 $\delta_1 > 0$，使得当 $0 < |x - x_0| < \delta_1$ 时，有  
+$$
+|f(x) - A| < -\frac{A}{2} \quad \Rightarrow \quad f(x) < A + \left(-\frac{A}{2}\right) = \frac{A}{2} < 0,
+$$  
+这与 $f(x) \geqslant 0$ 矛盾。故 $A \geqslant 0$。  
+同理可证 $f(x) \leqslant 0 \Rightarrow A \leqslant 0$。
+:::
+
+该推论与[[函数极限的唯一性]]{type=concept, label=极限唯一性, render=link, tags=极限|基础性质}、[[函数极限的局部有界性]]{type=concept, label=局部有界性, render=link, tags=极限|基础性质}共同构成函数极限三大基本性质，是后续研究极限运算、连续性及导数定义的逻辑基石。
+
+详细证明见 ((proof-theorem-1-3-6)){type=proof, label=定理1.3.6证明, render=card, note=反证法应用}。  
+相关概念支撑：[[有界变量(局部)定义]]{type=concept, label=局部有界变量, render=link, subject=高等数学, grade=大学, tags=极限|定义}。
+
+---SPLIT---
+---
+title: 应用案例：飞机滑跑速度问题
+numeric_source: 1-3-3-6
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 应用案例
+  - 物理建模
+---
+
+# 应用案例：飞机滑跑速度问题
+
+本节附图展示飞机在跑道上滑跑过程中**速度 $v(t)$ 随时间 $t$ 变化的函数图像**，用于直观阐释函数极限的**局部性质**在实际物理建模中的体现：
+
+- **局部有界性**：起飞前有限时间内，速度始终被约束在安全阈值范围内（如 $0 \leq v(t) \leq v_{\text{max}}$），对应极限存在前提下的有界性保障；
+- **局部保号性**：滑跑阶段速度恒为正（$v(t) > 0$），其极限（如离地瞬时速度）亦必为正，体现物理量符号的连续继承；
+- **极限唯一性**：若速度趋近某一确定值（如 $v \to v_0$），则该值唯一，排除振荡发散等非物理情形。
+
+![飞机滑跑速度变化示意图](./assets/835979daf4979f0ac2cfdb03d96e060f331dca0d97319b13e19b971e82cf79d4.jpg)  
+*图1.3：飞机滑跑速度 $v(t)$ 的典型变化曲线（示意）*
+
+该案例将抽象的极限性质锚定于具体工程场景，强化“极限是局部行为描述”这一核心认知，呼应[[函数极限的局部有界性]]{type=concept, label=局部有界性, render=link, tags=极限|应用}与[[函数极限的局部保号性]]{type=concept, label=局部保号性, render=link, tags=极限|应用}的知识点。
+
+延伸思考：若考虑空气阻力随速度平方增长，模型中 $v(t)$ 是否仍满足相同极限性质？可结合[[有界变量(局部)定义]]{type=concept, label=局部有界变量, render=link, tags=极限|定义}进一步分析。

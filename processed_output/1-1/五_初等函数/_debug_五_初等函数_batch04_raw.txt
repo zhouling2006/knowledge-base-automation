@@ -1,0 +1,166 @@
+---
+title: 双曲函数恒等式
+numeric_source: 1-1-5-13
+aliases:
+  - 双曲恒等式
+  - 双曲加法公式
+tags:
+  - 高等数学
+  - 双曲函数
+  - 恒等式
+---
+
+# 双曲函数恒等式
+
+双曲函数满足一系列结构上与三角函数高度相似的恒等式，包括加法公式、减法公式、倍角公式及基本平方恒等式。这些恒等式均可由双曲正弦与双曲余弦的定义出发严格推导得出，体现了双曲函数内在的代数对称性。
+
+核心恒等式如下：
+
+$$
+\begin{array}{l}
+\sinh (x + y) = \sinh x \cdot \cosh y + \cosh x \cdot \sinh y ; \\
+\sinh (x - y) = \sinh x \cdot \cosh y - \cosh x \cdot \sinh y ; \\
+\cosh (x + y) = \cosh x \cdot \cosh y + \sinh x \cdot \sinh y; \\
+\cosh (x - y) = \cosh x \cdot \cosh y - \sinh x \cdot \sinh y; \\
+\sinh (2 x) = 2 \sinh x \cdot \cosh x; \\
+\cosh (2 x) = \cosh^{2} x + \sinh^{2} x; \\
+\cosh^{2} x - \sinh^{2} x = 1.
+\end{array}
+$$
+
+其中，$\cosh^{2} x - \sinh^{2} x = 1$ 是双曲函数最基础的恒等式，类比于三角函数中的 $\cos^{2} x + \sin^{2} x = 1$，是后续所有推导的基石。
+
+相关知识点：  
+- [[双曲正弦函数]]{type=concept, label=双曲sinh定义, render=link, subject=高等数学, grade=大学, tags=双曲函数|初等函数}  
+- [[双曲余弦函数]]{type=concept, label=双曲cosh定义, render=link, subject=高等数学, grade=大学, tags=双曲函数|初等函数}  
+- [[三角函数]]{type=concept, label=三角函数对比, render=card, subject=高等数学, grade=大学, tags=三角函数|双曲函数|类比学习}
+
+::: {#proof-hyperbolic-id-001 .proof label="恒等式推导示意" type=proof}
+以 $\cosh^2 x - \sinh^2 x = 1$ 为例：  
+$$
+\begin{aligned}
+\cosh^2 x - \sinh^2 x 
+&= \left( \frac{e^x + e^{-x}}{2} \right)^2 - \left( \frac{e^x - e^{-x}}{2} \right)^2 \\
+&= \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^{-2x}}{4} = \frac{4}{4} = 1.
+\end{aligned}
+$$
+其余公式同理可由指数展开与代数整理完成。
+:::
+
+详细推导见 ((proof-hyperbolic-id-001)){type=proof, label=恒等式推导示意, render=card, note=基于指数定义的代数验证}
+---SPLIT---
+---
+title: 反双曲正弦函数
+numeric_source: 1-1-5-14
+aliases:
+  - arsinh x
+  - 反双曲sinh
+tags:
+  - 高等数学
+  - 双曲函数
+  - 反函数
+---
+
+# 反双曲正弦函数
+
+反双曲正弦函数（inverse hyperbolic sine），记作 $y = \operatorname{arsinh} x$ 或 $\sinh^{-1} x$，是双曲正弦函数 $y = \sinh x$ 的反函数。由于 $\sinh x$ 在整个实数域 $(-\infty, +\infty)$ 上严格单调递增且连续，故其反函数存在、唯一，且同样在 $\mathbb{R}$ 上严格单调递增。
+
+其显式解析表达式为：
+
+$$
+y = \operatorname{arsinh} x = \ln\left(x + \sqrt{x^2 + 1}\right), \quad x \in \mathbb{R}.
+$$
+
+该表达式可通过解方程 $\sinh x = y$ 推导得到：由定义 $y = \dfrac{e^x - e^{-x}}{2}$，整理得二次方程 $e^{2x} - 2y e^x - 1 = 0$，取正根后取对数并交换变量即得。
+
+**性质要点：**  
+- 定义域：$\mathbb{R}$；值域：$\mathbb{R}$；  
+- 奇函数：$\operatorname{arsinh}(-x) = -\operatorname{arsinh} x$；  
+- 导数：$\dfrac{d}{dx}\operatorname{arsinh} x = \dfrac{1}{\sqrt{x^2 + 1}}$（后续微分学中将深入讨论）。
+
+关联概念：  
+- [[双曲正弦函数]]{type=concept, label=原函数, render=link, tags=双曲函数|反函数基础}  
+- [[反函数]]{type=concept, label=反函数存在条件, render=card, subject=高等数学, grade=大学, tags=函数|映射|单调性}  
+- [[初等函数]]{type=concept, label=复合构造, render=link, tags=初等函数|反函数|对数与根式}
+
+::: {.note}
+> **注**：尽管写作 $\sinh^{-1} x$，但此符号**不表示** $(\sinh x)^{-1} = \csch x$（双曲余割），仅为反函数的标准记号，需与倒数严格区分。
+:::
+---SPLIT---
+---
+title: 反双曲余弦函数
+numeric_source: 1-1-5-15
+aliases:
+  - arcosh x
+  - 反双曲cosh
+tags:
+  - 高等数学
+  - 双曲函数
+  - 反函数
+  - 主值分支
+---
+
+# 反双曲余弦函数
+
+反双曲余弦函数（inverse hyperbolic cosine），记作 $y = \operatorname{arccosh} x$ 或 $\cosh^{-1} x$，是双曲余弦函数 $y = \cosh x$ 在其单调区间上的反函数。由于 $\cosh x$ 在 $\mathbb{R}$ 上**非单射**（偶函数，关于 $y$ 轴对称），需限制定义域至 $[0, +\infty)$ —— 此区间内 $\cosh x$ 严格单调递增，从而保证反函数存在且唯一。
+
+其主值分支（principal branch）的显式表达式为：
+
+$$
+y = \operatorname{arccosh} x = \ln\left(x + \sqrt{x^2 - 1}\right), \quad x \geq 1.
+$$
+
+该式由解 $\cosh x = y$ 得到：$y = \dfrac{e^x + e^{-x}}{2} \Rightarrow e^{2x} - 2y e^x + 1 = 0$，取 $e^x = y + \sqrt{y^2 - 1}$（因 $e^x > 0$ 且 $y \ge 1$），再取对数并交换变量即得。
+
+**关键特征：**  
+- 定义域：$[1, +\infty)$；值域（主值）：$[0, +\infty)$；  
+- 非奇非偶，但满足 $\operatorname{arccosh} x \ge 0$；  
+- 导数：$\dfrac{d}{dx}\operatorname{arccosh} x = \dfrac{1}{\sqrt{x^2 - 1}},\ x > 1$。
+
+延伸理解：  
+- [[双曲余弦函数]]{type=concept, label=原函数与单调性, render=link, tags=双曲函数|偶函数|分段单调}  
+- [[主值范围]]{type=concept, label=反函数主值约定, render=card, subject=高等数学, grade=大学, tags=反函数|多值性|主值分支}  
+- [[反三角函数]]{type=concept, label=类比构造逻辑, render=link, tags=反函数|周期性|主值}
+
+::: {.note}
+> **注意**：$\cosh x$ 在 $(-\infty, 0]$ 上也单调递减，对应另一支反函数 $y = -\operatorname{arccosh} x$，但标准主值分支仅取非负值。
+:::
+---SPLIT---
+---
+title: 反双曲正切函数
+numeric_source: 1-1-5-16
+aliases:
+  - artanh x
+  - 反双曲tanh
+tags:
+  - 高等数学
+  - 双曲函数
+  - 反函数
+---
+
+# 反双曲正切函数
+
+反双曲正切函数（inverse hyperbolic tangent），记作 $y = \operatorname{artanh} x$ 或 $\tanh^{-1} x$，是双曲正切函数 $y = \tanh x$ 的反函数。由于 $\tanh x = \dfrac{\sinh x}{\cosh x}$ 在 $\mathbb{R}$ 上严格单调递增，且值域为 $(-1, 1)$，故其反函数定义域为开区间 $(-1, 1)$，值域为 $\mathbb{R}$。
+
+其显式解析表达式为：
+
+$$
+y = \operatorname{artanh} x = \frac{1}{2} \ln \frac{1 + x}{1 - x}, \quad x \in (-1, 1).
+$$
+
+推导思路：由 $\tanh x = y = \dfrac{e^x - e^{-x}}{e^x + e^{-x}}$，化简得 $e^{2x} = \dfrac{1+y}{1-y}$，取自然对数后解出 $x$，再交换变量即得。
+
+**重要性质：**  
+- 定义域：$(-1, 1)$；值域：$\mathbb{R}$；  
+- 奇函数：$\operatorname{artanh}(-x) = -\operatorname{artanh} x$；  
+- 渐近线：当 $x \to 1^{-}$ 时，$y \to +\infty$；当 $x \to -1^{+}$ 时，$y \to -\infty$；  
+- 导数：$\dfrac{d}{dx}\operatorname{artanh} x = \dfrac{1}{1 - x^2},\ |x| < 1$。
+
+知识网络：  
+- [[双曲正切函数]]{type=concept, label=原函数特性, render=link, tags=双曲函数|有界性|奇函数}  
+- [[对数函数]]{type=concept, label=表达式构成要素, render=link, tags=对数函数|初等函数|复合}  
+- [[初等函数]]{type=concept, label=反函数属于初等函数, render=card, tags=初等函数|反函数|复合运算}
+
+::: {.note}
+> **辨析**：$\tanh^{-1} x$ 表示反函数，而 $\coth x = (\tanh x)^{-1}$ 才是倒数（双曲余切），二者不可混淆。
+:::

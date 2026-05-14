@@ -1,0 +1,215 @@
+[
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 1,
+    "title": "自变量与函数的增量",
+    "content": "对于函数 y = f(x)，当自变量 x 从初值 x₀ 变到终值 x₁ 时，x₁ − x₀ 称为自变量在点 x₀ 处的增量，记作 Δx；相应地，f(x₁) − f(x₀) 称为函数在点 x₀ 处的增量，记作 Δy。Δx 和 Δy 是不可分割的整体记号，其值可正可负。",
+    "raw_content": "我们先引入改变量的概念\\n\\n对于函数 $y = f(x)$ ，当自变量 $x$ 从它的一个初值 $x_0$ 变到终值 $x_1$ 时，函数值相应地从 $f(x_0)$ 变到 $f(x_1)$ 。我们称终值与初值的差 $x_1 - x_0$ 为自变量 $x$ 在点 $x_0$ 处的改变量（或增量），记作 $\\Delta x$ ，即 $\\Delta x = x_1 - x_0$ 。相应地，称两函数值之差 $f(x_1) - f(x_0)$ 为函数在点 $x_0$ 处的改变量（或增量），记作 $\\Delta y$ ，即 $\\Delta y = f(x_1) - f(x_0)$ 。这里， $\\Delta x, \\Delta y$ 均是一个不可分割的记号，它们的值可正可负（见图1.8.1）。\\n\\n![](images/d37dd4c1467890c9f9f7fd72acc6437574db3478212aa93fdbc0e00633981c10.jpg)  \\n图1.8.1",
+    "type": "concept",
+    "aliases": [
+      "自变量增量",
+      "函数增量"
+    ],
+    "entities": "函数,自变量,增量,Δx,Δy",
+    "references": [
+      "称终值与初值的差 $x_1 - x_0$ 为自变量 $x$ 在点 $x_0$ 处的改变量（或增量），记作 $\\Delta x$，即 $\\Delta x = x_1 - x_0$。",
+      "称两函数值之差 $f(x_1) - f(x_0)$ 为函数在点 $x_0$ 处的改变量（或增量），记作 $\\Delta y$，即 $\\Delta y = f(x_1) - f(x_0)$。"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义自变量增量 Δx 和函数增量 Δy，并说明其符号可正可负。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 2,
+    "title": "函数在一点连续的增量定义",
+    "content": "设函数 y = f(x) 在点 x₀ 的某邻域内有定义，给 x₀ 以增量 Δx，则函数增量为 Δy = f(x₀ + Δx) − f(x₀)。若当 Δx → 0 时，Δy → 0，即 lim_{Δx→0} [f(x₀ + Δx) − f(x₀)] = 0，则称 f(x) 在点 x₀ 处连续，x₀ 称为 f(x) 的连续点。",
+    "raw_content": "有了增量的概念，函数 $y = f(x)$ 在点 $x_0$ 处连续可以叙述为：当自变量 $x$ 在点 $x_0$ 处的增量 $\\Delta x$ 是无穷小时，对应的函数 $y = f(x)$ 的增量 $\\Delta y$ 也是无穷小。因此有\\n\\n定义1.8.1 设函数 $y = f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$ ）有定义。给 $x_0$ 以增量 $\\Delta x$ ，相应地，函数有增量 $\\Delta y = f(x_0 + \\Delta x) - f(x_0)$ 。如果当自变量的增量 $\\Delta x$ 趋向于 0 时，对应的函数增量 $\\Delta y$ 也趋向于 0，即\\n\\n$$\\n\\lim  _ {\\Delta x \\rightarrow 0} \\Delta y = \\lim  _ {\\Delta x \\rightarrow 0} [ f (x _ {0} + \\Delta x) - f (x _ {0}) ] = 0,\\n$$\\n\\n则称函数 $f(x)$ 在点 $x_0$ 处连续，点 $x_0$ 称为 $f(x)$ 的连续点",
+    "type": "definition",
+    "aliases": [
+      "增量形式的连续性定义"
+    ],
+    "entities": "函数,连续点,极限,Δx,Δy",
+    "references": [
+      "如果当自变量的增量 $\\Delta x$ 趋向于 0 时，对应的函数增量 $\\Delta y$ 也趋向于 0，即 $\\lim  _ {\\Delta x \\rightarrow 0} \\Delta y = \\lim  _ {\\Delta x \\rightarrow 0} [ f (x _ {0} + \\Delta x) - f (x _ {0}) ] = 0$，则称函数 $f(x)$ 在点 $x_0$ 处连续，点 $x_0$ 称为 $f(x)$ 的连续点"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "用增量语言定义函数在一点连续：Δx→0 ⇒ Δy→0。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 3,
+    "title": "函数在一点连续的极限定义",
+    "content": "设函数 f(x) 在点 x₀ 的某邻域内有定义，若 lim_{x→x₀} f(x) 存在且等于 f(x₀)，即 lim_{x→x₀} f(x) = f(x₀)，则称 f(x) 在点 x₀ 处连续。",
+    "raw_content": "由于 $\\Delta x\\to 0$ 等价于 $x\\rightarrow x_0$ ， $\\Delta y\\to 0$ 等价于 $f(x_{0} + \\Delta x)\\rightarrow f(x_{0})$ ，于是定义1.8.1可以叙述为：\\n\\n定义1.8.2 设函数 $f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$ ）有定义。如果当 $x \\to x_0$ 时，函数 $f(x)$ 的极限存在，且等于函数值 $f(x_0)$ ，即\\n\\n$$\\n\\lim  _ {x \\rightarrow x _ {0}} f (x) = f \\left(x _ {0}\\right),\\n$$\\n\\n则称函数 $f(x)$ 在点 $x_0$ 处连续",
+    "type": "definition",
+    "aliases": [
+      "极限形式的连续性定义"
+    ],
+    "entities": "函数,极限,连续点",
+    "references": [
+      "如果当 $x \\to x_0$ 时，函数 $f(x)$ 的极限存在，且等于函数值 $f(x_0)$ ，即 $\\lim  _ {x \\rightarrow x _ {0}} f (x) = f \\left(x _ {0}\\right)$，则称函数 $f(x)$ 在点 $x_0$ 处连续"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "用极限语言定义函数在一点连续：极限存在且等于函数值。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 4,
+    "title": "函数在一点连续的 ε–δ 定义",
+    "content": "设函数 f(x) 在点 x₀ 的某邻域内有定义。若对任意 ε > 0，总存在 δ > 0，使得当 |x − x₀| < δ 时，恒有 |f(x) − f(x₀)| < ε，则称 f(x) 在点 x₀ 处连续。",
+    "raw_content": "用“ $\\varepsilon - \\delta$ ”语言，函数 $f(x)$ 在点 $x_0$ 处连续的定义可叙述为：\\n\\n设函数 $f(x)$ 在点 $x_0$ 的某个邻域内有定义，如果对于任意给定的 $\\varepsilon > 0$ ，总存在正数 $\\delta$ ，使得当 $|x - x_0| < \\delta$ 时，恒有不等式\\n\\n$$\\n\\left| f (x) - f \\left(x _ {0}\\right) \\right| <   \\varepsilon\\n$$\\n\\n成立，则称函数 $f(x)$ 在点 $x_0$ 处连续",
+    "type": "definition",
+    "aliases": [
+      "ε–δ 连续性定义"
+    ],
+    "entities": "函数,ε–δ,连续点",
+    "references": [
+      "如果对于任意给定的 $\\varepsilon > 0$ ，总存在正数 $\\delta$ ，使得当 $|x - x_0| < \\delta$ 时，恒有不等式 $\\left| f (x) - f \\left(x _ {0}\\right) \\right| <   \\varepsilon$ 成立，则称函数 $f(x)$ 在点 $x_0$ 处连续"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "用 ε–δ 语言严格刻画函数在一点连续。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 5,
+    "title": "函数在一点连续的三个必要条件",
+    "content": "函数 f(x) 在点 x₀ 处连续必须同时满足：(1) f(x) 在 x₀ 的某邻域内有定义；(2) lim_{x→x₀} f(x) 存在；(3) lim_{x→x₀} f(x) = f(x₀)。",
+    "raw_content": "注 函数 $f(x)$ 在点 $x_0$ 处有极限与函数 $f(x)$ 在点 $x_0$ 处连续是两个不相同的概念. 前者并不要求函数 $f(x)$ 在点 $x_0$ 处有定义, 但函数 $f(x)$ 在点 $x_0$ 处连续时, 必须满足下列三个条件:\\n\\n（1）函数 $f(x)$ 在点 $x_0$ 的邻域 $U(x_0,\\delta)$ 内有定义；  \\n（2）函数 $f(x)$ 当 $x \\to x_0$ 时的极限存在；  \\n(3) $\\lim_{x\\to x_0}f(x) = f(x_0).$",
+    "type": "note",
+    "aliases": [],
+    "entities": "函数,极限,连续点",
+    "references": [],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "指出函数在一点连续需同时满足定义域、极限存在、极限等于函数值三条件。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 6,
+    "title": "左连续与右连续",
+    "content": "若 lim_{x→x₀⁺} f(x) = f(x₀)，称 f(x) 在 x₀ 处右连续；若 lim_{x→x₀⁻} f(x) = f(x₀)，称 f(x) 在 x₀ 处左连续。函数在 x₀ 处连续当且仅当它在该点既左连续又右连续。",
+    "raw_content": "有时只需考虑在点 $x_0$ 处的一侧，函数 $f(x)$ 的连续性。如果 $\\lim_{x \\to x_0^+} f(x) = f(x_0)$ ，则称函数 $f(x)$ 在点 $x_0$ 处右连续，记作 $f(x_0 + 0) = f(x_0)$ ；如果 $\\lim_{x \\to x_0^-} f(x) = f(x_0)$ ，则称函数 $f(x)$ 在点 $x_0$ 处左连续，记作 $f(x_0 - 0) = f(x_0)$ 。左连续与右连续统称为单侧连续。根据定义，不难得出：函数 $f(x)$ 在点 $x_0$ 处连续的充要条件是函数 $f(x)$ 在点 $x_0$ 处左连续并且右连续。",
+    "type": "concept",
+    "aliases": [
+      "单侧连续",
+      "右连续",
+      "左连续"
+    ],
+    "entities": "函数,左连续,右连续,连续点",
+    "references": [
+      "如果 $\\lim_{x \\to x_0^+} f(x) = f(x_0)$ ，则称函数 $f(x)$ 在点 $x_0$ 处右连续",
+      "如果 $\\lim_{x \\to x_0^-} f(x) = f(x_0)$ ，则称函数 $f(x)$ 在点 $x_0$ 处左连续",
+      "函数 $f(x)$ 在点 $x_0$ 处连续的充要条件是函数 $f(x)$ 在点 $x_0$ 处左连续并且右连续"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义左连续、右连续，并给出连续性的充要条件。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 7,
+    "title": "区间上的连续性",
+    "content": "若 f(x) 在开区间 (a,b) 内每点都连续，则称 f(x) 在 (a,b) 内连续；若 f(x) 在 (a,b) 内连续，且在 a 处右连续、在 b 处左连续，则称 f(x) 在闭区间 [a,b] 上连续。",
+    "raw_content": "若函数 $f(x)$ 在开区间 $(a, b)$ 内每一点处都连续，则称函数 $f(x)$ 在 $(a, b)$ 内连续，或者说 $f(x)$ 是开区间 $(a, b)$ 内的连续函数，开区间 $(a, b)$ 称为 $f(x)$ 的连续区间；若函数 $f(x)$ 在 $(a, b)$ 内连续，且在左端点 $a$ 处右连续，在右端点 $b$ 处左连续，则称 $f(x)$ 在闭区间 $[a, b]$ 上连续，或者说 $f(x)$ 是闭区间 $[a, b]$ 上的连续函数，闭区间 $[a, b]$ 称为 $f(x)$ 的连续区间.",
+    "type": "concept",
+    "aliases": [
+      "区间连续",
+      "开区间连续",
+      "闭区间连续"
+    ],
+    "entities": "函数,开区间,闭区间,连续区间",
+    "references": [
+      "若函数 $f(x)$ 在开区间 $(a, b)$ 内每一点处都连续，则称函数 $f(x)$ 在 $(a, b)$ 内连续",
+      "若函数 $f(x)$ 在 $(a, b)$ 内连续，且在左端点 $a$ 处右连续，在右端点 $b$ 处左连续，则称 $f(x)$ 在闭区间 $[a, b]$ 上连续"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义函数在开区间和闭区间上连续的含义。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 8,
+    "title": "基本初等函数的连续性",
+    "content": "常数函数 y = C、恒等函数 y = x、三角函数 y = sin x、y = cos x、指数函数 y = eˣ 在 (−∞, +∞) 上连续；y = tan x 在 (−π/2, π/2) 上连续；y = cot x 在 (0, π) 上连续。",
+    "raw_content": "由本章第三节可以知道，对于开区间 $(- \\infty, + \\infty)$ 内的任意一点 $x_0$ ，有\\n\\n$$\\n\\lim  _ {x \\to x _ {0}} C = C \\text {(} C \\text {是 常 数)}  , \\quad \\lim  _ {x \\to x _ {0}} x = x _ {0}  ,\\n$$\\n\\n$$\\n\\lim  _ {x \\rightarrow x _ {0}} \\sin x = \\sin x _ {0}, \\quad \\lim  _ {x \\rightarrow x _ {0}} \\cos x = \\cos x _ {0}, \\quad \\lim  _ {x \\rightarrow x _ {0}} e ^ {x} = e ^ {x _ {0}}.\\n$$\\n\\n因此，函数 $y = C$ （ $C$ 是常数）， $y = x, y = \\sin x, y = \\cos x$ 及 $y = \\mathrm{e}^x$ 在开区间 $(-\\infty, +\\infty)$ 内连续. 函数 $y = \\tan x$ 在开区间 $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ 内连续，这是因为，对于任意一点 $x_0 \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ ，有\\n\\n$$\\n\\lim  _ {x \\rightarrow x _ {0}} \\tan x = \\lim  _ {x \\rightarrow x _ {0}} \\frac {\\sin x}{\\cos x} = \\frac {\\lim  _ {x \\rightarrow x _ {0}} \\sin x}{\\lim  _ {x \\rightarrow x _ {0}} \\cos x} = \\frac {\\sin x _ {0}}{\\cos x _ {0}} = \\tan x _ {0}.\\n$$\\n\\n同理可证， $y = \\cot x$ 在开区间 $(0,\\pi)$ 内连续",
+    "type": "example",
+    "aliases": [],
+    "entities": "常数函数,恒等函数,三角函数,指数函数,正切函数,余切函数",
+    "references": [],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "列举常见基本初等函数的连续区间及依据。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/一、函数的连续性.md",
+    "section": "一、函数的连续性",
+    "section_id": null,
+    "position": 9,
+    "title": "例1.8.1：分段函数在分界点的连续性讨论",
+    "content": "函数 f(x) = {x², −1 ≤ x ≤ 1; −3x + 4, 1 < x ≤ 2} 在 x = 1 处左右极限均等于 f(1) = 1，故在该点连续。",
+    "raw_content": "例1.8.1 讨论函数\\n\\n$$\\nf (x) = \\left\\{ \\begin{array}{l l} x ^ {2}, & - 1 \\leqslant x \\leqslant 1, \\\\ - 3 x + 4, & 1 <   x \\leqslant 2 \\end{array} \\right.\\n$$\\n\\n在点 $x = 1$ 处的连续性\\n\\n解点 $x = 1$ 是 $f(x)$ 的分段点，必须讨论 $f(x)$ 在点 $x = 1$ 处的单侧连续性\\n\\n由于\\n\\n$$\\n\\lim  _ {x \\rightarrow \\Gamma} f (x) = \\lim  _ {x \\rightarrow \\Gamma} x ^ {2} = 1 = f (1),\\n$$\\n\\n$$\\n\\lim  _ {x \\rightarrow 1 ^ {+}} f (x) = \\lim  _ {x \\rightarrow 1 ^ {+}} (- 3 x + 4) = 1 = f (1),\\n$$\\n\\n所以 $f(x)$ 在点 $x = 1$ 处既是左连续也是右连续，从而 $f(x)$ 在点 $x = 1$ 处连续",
+    "type": "example",
+    "aliases": [],
+    "entities": "分段函数,左连续,右连续,连续点",
+    "references": [],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "通过计算左右极限验证分段函数在分界点 x=1 处连续。",
+    "created_at": "2026-05-11T16:44:57",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

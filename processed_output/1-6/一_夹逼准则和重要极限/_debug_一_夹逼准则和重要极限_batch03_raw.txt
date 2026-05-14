@@ -1,0 +1,179 @@
+---
+title: 图1.6.2
+numeric_source: 1-6-1-9
+aliases:
+  - 单位圆几何图
+  - sin x/x 几何证明图
+tags:
+  - 高等数学
+  - 极限
+  - 几何证明
+  - 重要极限
+---
+
+# 图1.6.2
+
+单位圆示意图：∠AOB = x（弧度），AC ⊥ OB，BD 为点 B 处的切线，与 OA 延长线交于 D。该图用于建立三角形 AOB、扇形 AOB 与三角形 DOB 的面积不等式关系：
+
+$$
+\frac{1}{2}\sin x < \frac{1}{2}x < \frac{1}{2}\tan x,
+$$
+
+进而导出关键夹逼链：
+$$
+1 > \frac{\sin x}{x} > \cos x \quad (0 < x < \tfrac{\pi}{2}),
+$$
+为 [[重要极限-lim_{x→0}-sin-x--x-=-1]]{type=concept, label=sin x/x 极限, render=link, subject=高等数学, grade=大学, tags=重要极限|几何证明} 提供直观与严格基础。
+
+该图是 [[例1.6.3-sin-x--x-极限的几何证明]]{type=question, id=例1.6.3, label=几何法证 sin x/x → 1, render=card, source=同济高数, answer=1, tags=高数|极限|几何证明} 的核心视觉支撑。
+
+![单位圆示意图：∠AOB = x，AC ⊥ OB，BD 为 B 点切线](images/0e734347d200eb0069631d09ac80a00be395d9c1b3bb7e05bc6144b5007a33f6.jpg)  
+图1.6.2
+
+::: {.note}
+图1.6.2 是例1.6.3 中面积比较法的关键几何载体，体现“形—数”统一思想，是微积分中首个经典几何极限论证范式。
+:::
+---SPLIT---
+---
+title: 例1.6.4：tan x / x 极限
+numeric_source: 1-6-1-10
+aliases:
+  - tan x/x 极限计算
+  - 重要极限直接应用题
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 计算题
+---
+
+# 例1.6.4：tan x / x 极限
+
+求：
+$$
+\lim_{x\to 0}\frac{\tan x}{x}.
+$$
+
+**解**：  
+将 $\tan x = \dfrac{\sin x}{\cos x}$ 代入，得  
+$$
+\lim_{x\to 0}\frac{\tan x}{x} 
+= \lim_{x\to 0}\left(\frac{\sin x}{\cos x}\cdot \frac{1}{x}\right) 
+= \lim_{x\to 0}\frac{\sin x}{x}\cdot \lim_{x\to 0}\frac{1}{\cos x}.
+$$
+
+由 [[重要极限-lim_{x→0}-sin-x--x-=-1]]{type=concept, label=sin x/x 极限, render=link, tags=重要极限|核心} 知 $\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$，  
+又 $\cos x$ 在 $x=0$ 处连续，故 $\displaystyle\lim_{x\to 0}\frac{1}{\cos x} = \frac{1}{\cos 0} = 1$。  
+因此，
+$$
+\lim_{x\to 0}\frac{\tan x}{x} = 1 \times 1 = 1.
+$$
+
+本题是重要极限的**最简直接应用**，体现“拆分—分别取极限—乘积还原”的典型策略，依赖极限的乘法运算法则与连续函数极限性质。
+
+::: {.example label="例1.6.4" type=example}
+$$
+\lim_{x\to 0}\frac{\tan x}{x} = \lim_{x\to 0}\frac{\sin x}{x}\cdot \frac{1}{\cos x} = 1.
+$$
+:::
+
+延伸练习：[[例1.6.6-sin 2x / sin 3x 极限]]{type=question, id=例1.6.6, label=复合角正弦比, render=link, tags=高数|极限|配凑技巧}。
+---SPLIT---
+---
+title: 例1.6.5：1 − cos x / x² 极限
+numeric_source: 1-6-1-11
+aliases:
+  - 1−cos x/x² 极限
+  - 半角公式极限题
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 三角恒等变换
+---
+
+# 例1.6.5：1 − cos x / x² 极限
+
+求：
+$$
+\lim_{x\to 0}\frac{1 - \cos x}{x^2}.
+$$
+
+**解**：  
+利用恒等式 $1 - \cos x = 2\sin^2\!\dfrac{x}{2}$，得  
+$$
+\frac{1 - \cos x}{x^2} 
+= \frac{2\sin^2\!\frac{x}{2}}{x^2} 
+= \frac{1}{2}\left(\frac{\sin\frac{x}{2}}{\frac{x}{2}}\right)^2.
+$$
+
+令 $u = \dfrac{x}{2}$，当 $x \to 0$ 时 $u \to 0$，故  
+$$
+\lim_{x\to 0}\frac{1 - \cos x}{x^2} 
+= \frac{1}{2}\left(\lim_{u\to 0}\frac{\sin u}{u}\right)^2 
+= \frac{1}{2} \times 1^2 = \frac{1}{2}.
+$$
+
+本题展示了如何通过**三角恒等变形**将非标准形式转化为重要极限 $\displaystyle\lim_{u\to 0}\dfrac{\sin u}{u}=1$ 的幂次组合，是处理含 $1-\cos x$ 型未定式的标准范式。
+
+::: {.example label="例1.6.5" type=example}
+$$
+\lim_{x\to 0}\frac{1 - \cos x}{x^2} 
+= \lim_{x\to 0}\frac{2\sin^2\frac{x}{2}}{x^2} 
+= \frac{1}{2}\left(\lim_{x\to 0}\frac{\sin\frac{x}{2}}{\frac{x}{2}}\right)^2 = \frac{1}{2}.
+$$
+:::
+
+关联知识点：[[重要极限-lim_{x→0}-sin-x--x-=-1]]{type=concept, label=sin x/x 极限, render=link, tags=重要极限|核心}；  
+进阶应用：[[例1.6.7-sin x/(x−π) 极限]]{type=question, id=例1.6.7, label=平移型正弦极限, render=link, tags=高数|极限|变量替换}。
+---SPLIT---
+---
+title: 例1.6.6：sin 2x / sin 3x 极限
+numeric_source: 1-6-1-12
+aliases:
+  - sin 2x/sin 3x 极限
+  - 倍角极限配凑题
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 变量配凑
+---
+
+# 例1.6.6：sin 2x / sin 3x 极限
+
+求：
+$$
+\lim_{x\to 0}\frac{\sin 2x}{\sin 3x}.
+$$
+
+**解**：  
+对分子分母分别引入标准形式 $\dfrac{\sin(\cdot)}{(\cdot)}$，并补全系数：  
+$$
+\frac{\sin 2x}{\sin 3x} 
+= \frac{\sin 2x}{2x} \cdot \frac{2x}{3x} \cdot \frac{3x}{\sin 3x}
+= \frac{2}{3} \cdot \frac{\sin 2x}{2x} \cdot \frac{3x}{\sin 3x}.
+$$
+
+当 $x \to 0$ 时，$2x \to 0$，$3x \to 0$，故  
+$$
+\lim_{x\to 0}\frac{\sin 2x}{2x} = 1,\quad 
+\lim_{x\to 0}\frac{3x}{\sin 3x} = \frac{1}{\lim_{x\to 0}\frac{\sin 3x}{3x}} = 1.
+$$
+
+因此，
+$$
+\lim_{x\to 0}\frac{\sin 2x}{\sin 3x} 
+= \frac{2}{3} \times 1 \times 1 = \frac{2}{3}.
+$$
+
+本题是**倍角型极限的典范**，核心技巧为“**同构配凑 + 系数分离**”，适用于所有 $\displaystyle\lim_{x\to 0}\frac{\sin(ax)}{\sin(bx)}$（$a,b\neq0$）类问题。
+
+::: {.example label="例1.6.6" type=example}
+$$
+\lim_{x\to 0}\frac{\sin 2x}{\sin 3x} 
+= \frac{2}{3} \lim_{x\to 0}\frac{\sin 2x}{2x} \cdot \lim_{x\to 0}\frac{3x}{\sin 3x} = \frac{2}{3}.
+$$
+:::
+
+延伸思考：若改为 $\displaystyle\lim_{x\to 0}\frac{\tan 2x}{\sin 5x}$，应如何配凑？参考 [[例1.6.4-tan x / x 极限]]{type=question, id=例1.6.4, label=tan x/x 极限, render=link, tags=高数|极限|三角比}。

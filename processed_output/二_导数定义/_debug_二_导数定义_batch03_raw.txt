@@ -1,0 +1,239 @@
+---
+title: 导数定义的补充说明（2）：导函数
+numeric_source: 2-1-2-9
+aliases:
+  - 导函数
+  - 微商
+tags:
+  - 高等数学
+  - 导数
+  - 函数
+  - 基础概念
+---
+
+# 导数定义的补充说明（2）：导函数
+
+若函数 $y = f(x)$ 在开区间 $I$ 内的每一点处都可导，则对于开区间 $I$ 内每一个 $x$ 值，都有一个确定的导数值与之对应，从而构成了开区间 $I$ 内一个以 $x$ 为自变量的新的函数，称为函数 $y = f(x)$ 的**导函数**（简称**导数**），记作：
+
+$$
+f'(x), \quad y', \quad \frac{\mathrm{d}y}{\mathrm{d}x} \quad \text{或} \quad \frac{\mathrm{d}f(x)}{\mathrm{d}x}.
+$$
+
+此时也称 $f(x)$ 在开区间 $I$ 内可导。不难看出，导函数的定义式为：
+
+$$
+f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+\quad \text{或} \quad
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}.
+$$
+
+显然，
+
+$$
+f'(x_0) = f'(x)\Big|_{x = x_0},
+$$
+
+即函数 $f(x)$ 在点 $x_0$ 处的导数 $f'(x_0)$ 就是其导函数 $f'(x)$ 在点 $x_0$ 处的函数值。
+
+该性质建立了**点导数**与**导函数**之间的本质联系：点导数是导函数在特定点的取值，而导函数是点导数在区间上的整体表达。
+
+相关概念参考：[[导数的定义]]{type=concept, label=导数基础定义, render=link, subject=高等数学, grade=大学, tags=导数|核心概念}  
+延伸理解：[[导数定义的等价形式(h → 0)]]{type=concept, label=h→0形式, render=link, tags=导数|定义变形}  
+应用实例：[[例2.1.3-常数函数的导数]]{type=question, id=例2.1.3, label=常数导数, render=card, source=同济高数, answer=0, tags=导数|初等函数}
+
+::: {.note}
+导函数的存在性比单点可导要求更强——它要求函数在**整个开区间内处处可导**；而单点可导仅关注局部邻域极限行为。
+:::
+
+---
+SPLIT---
+---
+title: 例2.1.3：常数函数的导数
+numeric_source: 2-1-2-10
+aliases: []
+tags:
+  - 高等数学
+  - 导数
+  - 初等函数
+  - 计算题
+---
+
+# 例2.1.3：常数函数的导数
+
+设 $f(x) = C$（其中 $C$ 为常数），求 $f'(x)$。
+
+## 解
+
+给自变量 $x$ 以增量 $h$，则函数增量为：
+
+$$
+f(x + h) - f(x) = C - C = 0.
+$$
+
+作差商：
+
+$$
+\frac{f(x + h) - f(x)}{h} = \frac{0}{h} = 0 \quad (h \neq 0).
+$$
+
+令 $h \to 0$ 取极限，得：
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} = \lim_{h \to 0} 0 = 0.
+$$
+
+即：
+
+$$
+(C)' = 0.
+$$
+
+## 说明
+
+该结果表明：**常数函数的变化率为零**，其图像为水平直线，切线斜率恒为 0，物理上对应静止状态（如位置恒定、速度为零）。
+
+知识点支撑：[[导数的定义]]{type=concept, label=导数定义, render=link, tags=导数|基础}  
+几何意义：[[导数的几何意义-切线斜率]]{type=concept, label=切线斜率, render=card, tags=导数|几何}  
+物理意义：[[导数的物理意义-瞬时速度]]{type=concept, label=瞬时速度, render=link, tags=导数|物理}
+
+::: {.example label="例2.1.3" type=example}
+常数函数的导数恒为零，是导数运算中最基本、最典型的特例，也是后续求导法则（如线性性）的起点。
+:::
+
+---
+SPLIT---
+---
+title: 例2.1.4：幂函数 xⁿ 的导数
+numeric_source: 2-1-2-11
+aliases: []
+tags:
+  - 高等数学
+  - 导数
+  - 幂函数
+  - 计算题
+---
+
+# 例2.1.4：幂函数 $x^n$ 的导数
+
+设 $f(x) = x^n$（其中 $n$ 为正整数），求 $f'(x)$。
+
+## 解
+
+给 $x$ 以增量 $h$，则：
+
+$$
+\begin{aligned}
+f(x + h) - f(x) &= (x + h)^n - x^n \\
+&= nx^{n-1}h + \frac{n(n-1)}{2!}x^{n-2}h^2 + \dots + h^n.
+\end{aligned}
+$$
+
+作差商：
+
+$$
+\frac{f(x + h) - f(x)}{h} = nx^{n-1} + \frac{n(n-1)}{2!}x^{n-2}h + \dots + h^{n-1}.
+$$
+
+令 $h \to 0$，所有含 $h$ 的高阶项趋于 0，得：
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} = nx^{n-1}.
+$$
+
+即：
+
+$$
+(x^n)' = nx^{n-1}, \quad (-\infty < x < +\infty).
+$$
+
+### 典型特例：
+- $(x)' = 1$  
+- $(x^2)' = 2x$  
+- $(x^3)' = 3x^2$
+
+## 推广：一般幂函数
+
+对任意实数 $\mu$，函数 $f(x) = x^\mu$（定义域为 $x > 0$）的导数为：
+
+$$
+(x^\mu)' = \mu x^{\mu - 1}, \quad x \in (0, +\infty). \tag{2.1.4}
+$$
+
+> 公式 (2.1.4) 将在本章第二节中严格证明。
+
+知识关联：[[导数定义的等价形式(h → 0)]]{type=concept, label=h→0形式, render=link, tags=导数|定义变形}  
+前置基础：[[二项式定理]]{type=concept, label=二项式展开, render=link, subject=代数, grade=高中}  
+后续应用：[[导数的运算法则]]{type=concept, label=四则运算, render=link, tags=导数|运算法则}
+
+::: {.example label="例2.1.4" type=example}
+本例通过二项式展开揭示了幂函数导数的本质来源：首项线性主部决定极限值，其余高阶无穷小项在极限过程中消失。
+:::
+
+---
+SPLIT---
+---
+title: 例2.1.5：正弦函数的导数
+numeric_source: 2-1-2-12
+aliases: []
+tags:
+  - 高等数学
+  - 导数
+  - 三角函数
+  - 计算题
+---
+
+# 例2.1.5：正弦函数的导数
+
+求函数 $f(x) = \sin x$ 的导数，并计算 $f'\left(\dfrac{\pi}{4}\right)$。
+
+## 解
+
+利用和差化积公式：
+
+$$
+f(x + h) - f(x) = \sin(x + h) - \sin x = 2 \cos\left(\frac{2x + h}{2}\right) \sin\left(\frac{h}{2}\right).
+$$
+
+于是差商为：
+
+$$
+\frac{f(x + h) - f(x)}{h}
+= \cos\left(\frac{2x + h}{2}\right) \cdot \frac{\sin\left(\frac{h}{2}\right)}{\frac{h}{2}}.
+$$
+
+令 $h \to 0$，应用重要极限 $\displaystyle \lim_{u \to 0} \frac{\sin u}{u} = 1$，得：
+
+$$
+f'(x) = \lim_{h \to 0} \cos\left(\frac{2x + h}{2}\right) \cdot \lim_{h \to 0} \frac{\sin\left(\frac{h}{2}\right)}{\frac{h}{2}} = \cos x \cdot 1 = \cos x.
+$$
+
+即：
+
+$$
+(\sin x)' = \cos x, \quad (-\infty < x < +\infty).
+$$
+
+进而，
+
+$$
+f'\left(\frac{\pi}{4}\right) = \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}.
+$$
+
+同理可证：
+
+$$
+(\cos x)' = -\sin x, \quad (-\infty < x < +\infty).
+$$
+
+## 关键工具
+
+- **三角恒等变换**：将差值转化为乘积形式，分离出可取极限的因子  
+- **重要极限**：$\displaystyle \lim_{u \to 0} \frac{\sin u}{u} = 1$ 是三角函数求导的核心支点  
+
+知识锚点：[[重要极限 sin x/x]]{type=concept, label=sin x/x极限, render=link, subject=高等数学, grade=大学, tags=极限|三角}  
+对比学习：[[例2.1.6-指数函数 eˣ 的导数]]{type=question, id=例2.1.6, label=eˣ导数, render=card, source=同济高数, answer=eˣ, tags=导数|指数函数}  
+几何验证：[[导数的几何意义-切线斜率]]{type=concept, label=正弦曲线切线, render=card, tags=导数|几何|三角}
+
+::: {.example label="例2.1.5" type=example}
+本例展示了如何将抽象的极限定义与具体函数特性结合，是理解“导数作为变化率”在周期性运动中体现的关键范例。
+:::

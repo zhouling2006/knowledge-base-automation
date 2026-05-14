@@ -1,0 +1,54 @@
+---
+title: 例1.8.1：分段函数在分界点的连续性讨论
+numeric_source: 1-8-1-9
+aliases:
+  - 分段函数在x=1处的连续性
+  - 例1.8.1
+tags:
+  - 高等数学
+  - 连续性
+  - 分段函数
+  - 题目
+---
+
+# 例1.8.1：分段函数在分界点的连续性讨论
+
+讨论函数  
+$$
+f(x) = 
+\begin{cases} 
+x^2, & -1 \leqslant x \leqslant 1, \\ 
+-3x + 4, & 1 < x \leqslant 2 
+\end{cases}
+$$  
+在点 $x = 1$ 处的连续性。
+
+---
+
+点 $x = 1$ 是 $f(x)$ 的分段点，必须分别考察其左连续性与右连续性。
+
+由于  
+$$
+\lim_{x \to 1^-} f(x) = \lim_{x \to 1^-} x^2 = 1 = f(1),
+$$  
+且  
+$$
+\lim_{x \to 1^+} f(x) = \lim_{x \to 1^+} (-3x + 4) = 1 = f(1),
+$$  
+因此 $f(x)$ 在 $x = 1$ 处**左连续且右连续**，从而在该点**连续**。
+
+::: {.example label="例1.8.1" type=example}
+本题是判断分段函数在分界点连续性的典型范例。关键在于：  
+- 明确分段点处需验证**左右极限是否存在且均等于函数值**；  
+- 左右极限相等且等于 $f(1)$，即满足连续的**三个必要条件**（定义存在、极限存在、极限等于函数值）；  
+- 同时呼应 [[函数在一点连续的增量定义]]{type=concept, label=增量视角, render=link, tags=连续性|基础} 与 [[函数在一点连续的极限定义]]{type=concept, label=极限视角, render=link, tags=连续性|基础} 两种等价刻画。
+:::
+
+相关知识点：  
+- [[函数在一点连续的三个必要条件]]{type=concept, label=连续三条件, render=link, subject=高等数学, grade=大学, tags=连续性|核心概念}  
+- [[左连续与右连续]]{type=concept, label=单侧连续, render=link, tags=连续性|分析基础}  
+- [[函数在一点连续的极限定义]]{type=concept, label=极限定义, render=card, tags=连续性|定义}  
+
+延伸思考：若将 $f(1)$ 改为 $2$，则函数在 $x=1$ 处是否仍连续？请结合 [[函数在一点连续的-ε–δ-定义]]{type=concept, label=ε–δ定义, render=link, tags=连续性|严格定义} 分析。
+
+---SPLIT---

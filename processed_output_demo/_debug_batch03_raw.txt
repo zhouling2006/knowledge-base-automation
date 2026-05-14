@@ -1,0 +1,365 @@
+---
+title: 有界集与确界定义
+numeric_source: 1-1-1-9
+aliases:
+  - 最小上界
+  - 最大下界
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 有界集与确界定义
+
+设 $A$ 为一非空实数子集：
+
+- 若存在 $L \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \leqslant L$，则称 $A$ **有上界**（或**上有界**），$L$ 称为 $A$ 的一个**上界**；  
+- 若存在 $l \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \geqslant l$，则称 $A$ **有下界**（或**下有界**），$l$ 称为 $A$ 的一个**下界**；  
+- 若 $A$ 既有上界又有下界，则称 $A$ 为**有界集**；否则称 $A$ 为**无界集**。
+
+进一步地：
+
+- 若 $\beta$ 是 $A$ 的一个上界，且对 $A$ 的**任意上界** $L$ 均有 $\beta \leqslant L$，则称 $\beta$ 为 $A$ 的**上确界**（least upper bound），记作  
+  $$
+  \sup A = \beta.
+  $$
+
+- 若 $\alpha$ 是 $A$ 的一个下界，且对 $A$ 的**任意下界** $l$ 均有 $\alpha \geqslant l$，则称 $\alpha$ 为 $A$ 的**下确界**（greatest lower bound），记作  
+  $$
+  \inf A = \alpha.
+  $$
+
+::: {.note}
+上确界是所有上界中**最小者**，下确界是所有下界中**最大者**；它们未必属于原集合 $A$。例如，对开区间 $A = (0, 1)$，有 $\sup A = 1$、$\inf A = 0$，但 $0,1 \notin A$。
+:::
+
+该定义是实数完备性的核心刻画之一，为极限、连续性与积分理论奠定基础。
+
+延伸阅读：[[确界存在定理]]{type=theorem, label=确界存在性保证, render=link, subject=高等数学, grade=大学, tags=实数理论|完备性}  
+关联概念：[[实数集与完备性]]{type=concept, label=实数连续性, render=link, tags=高数|基础}  
+应用示例：[[区间与邻域]]{type=concept, label=邻域有界性, render=link, tags=分析基础}
+
+---
+title: 确界存在定理
+numeric_source: 1-1-1-10
+aliases:
+  - 上确界原理
+  - 实数完备性公理
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 确界存在定理
+
+> **定理1.1.1（确界存在定理）**  
+> 任意有上界（或下界）的非空实数子集 $A \subseteq \mathbb{R}$，必有上确界（或下确界）。即：  
+> - 若 $A$ 非空且有上界，则 $\sup A$ 存在且 $\sup A \in \mathbb{R}$；  
+> - 若 $A$ 非空且有下界，则 $\inf A$ 存在且 $\inf A \in \mathbb{R}$。
+
+该定理不加证明地作为实数系的基本公理引入，是**实数完备性**（completeness of $\mathbb{R}$）的等价表述之一，亦称**上确界原理**（Least Upper Bound Property）。
+
+::: {#thm-sup-principle .theorem label="确界存在定理" type=theorem}
+该定理表明：有界性 + 实数性 ⇒ 确界存在。它排除了有理数集 $\mathbb{Q}$ 中“空隙”现象（如 $\{x \in \mathbb{Q} \mid x^2 < 2\}$ 在 $\mathbb{Q}$ 中无上确界），从而成为极限理论得以严格建立的基石。
+:::
+
+对比理解：  
+- 在 $\mathbb{Q}$ 中，集合 $\{x \in \mathbb{Q} \mid x^2 < 2\}$ 有上界（如 $2$），但**无有理数上确界**；  
+- 在 $\mathbb{R}$ 中，同一集合的上确界为 $\sqrt{2} \in \mathbb{R}$，确界存在定理成立。
+
+延伸阅读：[[有界集与确界定义]]{type=concept, label=确界定义回顾, render=link, tags=实数理论|基础}  
+理论支撑：[[实数集与完备性]]{type=concept, label=完备性本质, render=card, subject=高等数学, grade=大学, tags=高数|核心公理}
+
+---
+title: 区间与邻域
+numeric_source: 1-1-1-11
+aliases:
+  - δ-邻域
+  - 去心δ-邻域
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 区间与邻域
+
+在实数分析中，**区间**与**邻域**是描述点集结构、定义极限与连续性的基本工具。
+
+## 一、区间（Interval）
+
+设 $a,b \in \mathbb{R},\ a < b$：
+
+| 类型 | 记号 | 定义 | 图示特征 |
+|------|------|------|-----------|
+| 开区间 | $(a,b)$ | $\{x \mid a < x < b\}$ | 端点不包含 |
+| 闭区间 | $[a,b]$ | $\{x \mid a \leqslant x \leqslant b\}$ | 端点均包含 |
+| 半开半闭区间 | $(a,b]$ | $\{x \mid a < x \leqslant b\}$ | 左开右闭 |
+|  | $[a,b)$ | $\{x \mid a \leqslant x < b\}$ | 左闭右开 |
+
+上述统称**有限区间**，长度为 $b-a$。
+
+### 无限区间（Infinite Intervals）
+
+$$
+\begin{aligned}
+(-\infty, +\infty) &= \{x \mid -\infty < x < +\infty\} = \mathbb{R}, \\
+(a, +\infty) &= \{x \mid x > a\}, \quad [a, +\infty) = \{x \mid x \geqslant a\}, \\
+(-\infty, b) &= \{x \mid x < b\}, \quad (-\infty, b] = \{x \mid x \leqslant b\}.
+\end{aligned}
+$$
+
+## 二、邻域（Neighborhood）
+
+设 $a \in \mathbb{R},\ \delta > 0$：
+
+- **$\delta$-邻域**：  
+  $$
+  U(a,\delta) = \{x \mid |x - a| < \delta\} = (a-\delta,\, a+\delta).
+  $$  
+  其中 $a$ 为**中心**，$\delta$ 为**半径**。
+
+- **去心 $\delta$-邻域**（punctured neighborhood）：  
+  $$
+  \mathring{U}(a,\delta) = \{x \mid 0 < |x - a| < \delta\} = (a-\delta,\, a+\delta) \setminus \{a\}.
+  $$  
+  排除中心点本身，是定义**极限**（$x \to a$ 但 $x \ne a$）的关键工具。
+
+![](images/e248a15b882dfb9c55d3f2b76200cf43b2311ea63fa1ec375752d8d840615c8e.jpg)  
+图1.1.2：点 $a$ 的 $\delta$-邻域示意
+
+当不强调半径时，简记为 $U(a)$ 和 $\hat{U}(a)$（或 $\mathring{U}(a)$）。
+
+关联知识点：  
+- [[有界集与确界定义]]{type=concept, label=区间有界性, render=link, tags=实数理论}  
+- [[极限的定义]]{type=concept, label=邻域在极限中的作用, render=card, subject=高等数学, grade=大学, tags=极限|基础}  
+- [[函数的定义]]{type=concept, label=定义域常用形式, render=link, tags=函数|基础}
+
+---
+title: 常量与变量
+numeric_source: 1-1-1-12
+aliases:
+  - 恒量
+  - 参量（语境依赖）
+tags:
+  - 高等数学
+  - 数学建模
+  - 基础概念
+---
+
+# 常量与变量
+
+在数学分析与物理建模中，“常量”与“变量”并非绝对概念，而是依赖于所考察的**过程**或**系统尺度**：
+
+- **常量**（constant）：在某一特定过程中取**固定值**的量；  
+- **变量**（variable）：在该过程中可取**不同数值**的量。
+
+### 典型示例
+
+| 场景 | 常量 | 变量 | 说明 |
+|------|------|------|------|
+| 密闭容器内气体加热 | 体积、分子数 | 温度、压强 | 容器刚性约束使体积不变 |
+| 圆的几何性质 | 圆周率 $\pi$ | 直径、周长、面积 | $\pi = \frac{\text{周长}}{\text{直径}}$ 恒为定值 |
+| 地表局部运动 | 重力加速度 $g \approx 9.8\,\text{m/s}^2$ | 位移、速度、时间 | 忽略纬度/高度微小变化 |
+
+::: {.note}
+**相对性原则**：一个量是否为常量，取决于研究问题的精度与范围。  
+**统一视角**：常量可视作**取值恒定的特殊变量**——正如静止是速度为零的运动特例。
+:::
+
+符号习惯：  
+- 常量常用 $a,b,c,k,\pi,g$ 等表示；  
+- 变量常用 $x,y,z,t,u,v$ 等表示。
+
+该区分是函数定义（$y=f(x)$ 中 $x$ 变、$y$ 随之变）、参数方程、微分方程建模的逻辑起点。
+
+延伸阅读：  
+- [[映射的定义]]{type=concept, label=输入输出关系, render=link, tags=函数|基础}  
+- [[函数的定义]]{type=concept, label=变量依赖关系, render=card, subject=高等数学, grade=大学, tags=函数|核心}  
+- [[实数集与完备性]]{type=concept, label=实数作为变量取值域, render=link, tags=高数|基础}
+```  
+---SPLIT---  
+```markdown
+---
+title: 有界集与确界定义
+numeric_source: 1-1-1-9
+aliases:
+  - 最小上界
+  - 最大下界
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 有界集与确界定义
+
+设 $A$ 为一非空实数子集：
+
+- 若存在 $L \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \leqslant L$，则称 $A$ **有上界**（或**上有界**），$L$ 称为 $A$ 的一个**上界**；  
+- 若存在 $l \in \mathbb{R}$，使得对任意 $x \in A$，都有 $x \geqslant l$，则称 $A$ **有下界**（或**下有界**），$l$ 称为 $A$ 的一个**下界**；  
+- 若 $A$ 既有上界又有下界，则称 $A$ 为**有界集**；否则称 $A$ 为**无界集**。
+
+进一步地：
+
+- 若 $\beta$ 是 $A$ 的一个上界，且对 $A$ 的**任意上界** $L$ 均有 $\beta \leqslant L$，则称 $\beta$ 为 $A$ 的**上确界**（least upper bound），记作  
+  $$
+  \sup A = \beta.
+  $$
+
+- 若 $\alpha$ 是 $A$ 的一个下界，且对 $A$ 的**任意下界** $l$ 均有 $\alpha \geqslant l$，则称 $\alpha$ 为 $A$ 的**下确界**（greatest lower bound），记作  
+  $$
+  \inf A = \alpha.
+  $$
+
+::: {.note}
+上确界是所有上界中**最小者**，下确界是所有下界中**最大者**；它们未必属于原集合 $A$。例如，对开区间 $A = (0, 1)$，有 $\sup A = 1$、$\inf A = 0$，但 $0,1 \notin A$。
+:::
+
+该定义是实数完备性的核心刻画之一，为极限、连续性与积分理论奠定基础。
+
+延伸阅读：[[确界存在定理]]{type=theorem, label=确界存在性保证, render=link, subject=高等数学, grade=大学, tags=实数理论|完备性}  
+关联概念：[[实数集与完备性]]{type=concept, label=实数连续性, render=link, tags=高数|基础}  
+应用示例：[[区间与邻域]]{type=concept, label=邻域有界性, render=link, tags=分析基础}
+
+---
+title: 确界存在定理
+numeric_source: 1-1-1-10
+aliases:
+  - 上确界原理
+  - 实数完备性公理
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 确界存在定理
+
+> **定理1.1.1（确界存在定理）**  
+> 任意有上界（或下界）的非空实数子集 $A \subseteq \mathbb{R}$，必有上确界（或下确界）。即：  
+> - 若 $A$ 非空且有上界，则 $\sup A$ 存在且 $\sup A \in \mathbb{R}$；  
+> - 若 $A$ 非空且有下界，则 $\inf A$ 存在且 $\inf A \in \mathbb{R}$。
+
+该定理不加证明地作为实数系的基本公理引入，是**实数完备性**（completeness of $\mathbb{R}$）的等价表述之一，亦称**上确界原理**（Least Upper Bound Property）。
+
+::: {#thm-sup-principle .theorem label="确界存在定理" type=theorem}
+该定理表明：有界性 + 实数性 ⇒ 确界存在。它排除了有理数集 $\mathbb{Q}$ 中“空隙”现象（如 $\{x \in \mathbb{Q} \mid x^2 < 2\}$ 在 $\mathbb{Q}$ 中无上确界），从而成为极限理论得以严格建立的基石。
+:::
+
+对比理解：  
+- 在 $\mathbb{Q}$ 中，集合 $\{x \in \mathbb{Q} \mid x^2 < 2\}$ 有上界（如 $2$），但**无有理数上确界**；  
+- 在 $\mathbb{R}$ 中，同一集合的上确界为 $\sqrt{2} \in \mathbb{R}$，确界存在定理成立。
+
+延伸阅读：[[有界集与确界定义]]{type=concept, label=确界定义回顾, render=link, tags=实数理论|基础}  
+理论支撑：[[实数集与完备性]]{type=concept, label=完备性本质, render=card, subject=高等数学, grade=大学, tags=高数|核心公理}
+
+---
+title: 区间与邻域
+numeric_source: 1-1-1-11
+aliases:
+  - δ-邻域
+  - 去心δ-邻域
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 区间与邻域
+
+在实数分析中，**区间**与**邻域**是描述点集结构、定义极限与连续性的基本工具。
+
+## 一、区间（Interval）
+
+设 $a,b \in \mathbb{R},\ a < b$：
+
+| 类型 | 记号 | 定义 | 图示特征 |
+|------|------|------|-----------|
+| 开区间 | $(a,b)$ | $\{x \mid a < x < b\}$ | 端点不包含 |
+| 闭区间 | $[a,b]$ | $\{x \mid a \leqslant x \leqslant b\}$ | 端点均包含 |
+| 半开半闭区间 | $(a,b]$ | $\{x \mid a < x \leqslant b\}$ | 左开右闭 |
+|  | $[a,b)$ | $\{x \mid a \leqslant x < b\}$ | 左闭右开 |
+
+上述统称**有限区间**，长度为 $b-a$。
+
+### 无限区间（Infinite Intervals）
+
+$$
+\begin{aligned}
+(-\infty, +\infty) &= \{x \mid -\infty < x < +\infty\} = \mathbb{R}, \\
+(a, +\infty) &= \{x \mid x > a\}, \quad [a, +\infty) = \{x \mid x \geqslant a\}, \\
+(-\infty, b) &= \{x \mid x < b\}, \quad (-\infty, b] = \{x \mid x \leqslant b\}.
+\end{aligned}
+$$
+
+## 二、邻域（Neighborhood）
+
+设 $a \in \mathbb{R},\ \delta > 0$：
+
+- **$\delta$-邻域**：  
+  $$
+  U(a,\delta) = \{x \mid |x - a| < \delta\} = (a-\delta,\, a+\delta).
+  $$  
+  其中 $a$ 为**中心**，$\delta$ 为**半径**。
+
+- **去心 $\delta$-邻域**（punctured neighborhood）：  
+  $$
+  \mathring{U}(a,\delta) = \{x \mid 0 < |x - a| < \delta\} = (a-\delta,\, a+\delta) \setminus \{a\}.
+  $$  
+  排除中心点本身，是定义**极限**（$x \to a$ 但 $x \ne a$）的关键工具。
+
+![](images/e248a15b882dfb9c55d3f2b76200cf43b2311ea63fa1ec375752d8d840615c8e.jpg)  
+图1.1.2：点 $a$ 的 $\delta$-邻域示意
+
+当不强调半径时，简记为 $U(a)$ 和 $\hat{U}(a)$（或 $\mathring{U}(a)$）。
+
+关联知识点：  
+- [[有界集与确界定义]]{type=concept, label=区间有界性, render=link, tags=实数理论}  
+- [[极限的定义]]{type=concept, label=邻域在极限中的作用, render=card, subject=高等数学, grade=大学, tags=极限|基础}  
+- [[函数的定义]]{type=concept, label=定义域常用形式, render=link, tags=函数|基础}
+
+---
+title: 常量与变量
+numeric_source: 1-1-1-12
+aliases:
+  - 恒量
+  - 参量（语境依赖）
+tags:
+  - 高等数学
+  - 数学建模
+  - 基础概念
+---
+
+# 常量与变量
+
+在数学分析与物理建模中，“常量”与“变量”并非绝对概念，而是依赖于所考察的**过程**或**系统尺度**：
+
+- **常量**（constant）：在某一特定过程中取**固定值**的量；  
+- **变量**（variable）：在该过程中可取**不同数值**的量。
+
+### 典型示例
+
+| 场景 | 常量 | 变量 | 说明 |
+|------|------|------|------|
+| 密闭容器内气体加热 | 体积、分子数 | 温度、压强 | 容器刚性约束使体积不变 |
+| 圆的几何性质 | 圆周率 $\pi$ | 直径、周长、面积 | $\pi = \frac{\text{周长}}{\text{直径}}$ 恒为定值 |
+| 地表局部运动 | 重力加速度 $g \approx 9.8\,\text{m/s}^2$ | 位移、速度、时间 | 忽略纬度/高度微小变化 |
+
+::: {.note}
+**相对性原则**：一个量是否为常量，取决于研究问题的精度与范围。  
+**统一视角**：常量可视作**取值恒定的特殊变量**——正如静止是速度为零的运动特例。
+:::
+
+符号习惯：  
+- 常量常用 $a,b,c,k,\pi,g$ 等表示；  
+- 变量常用 $x,y,z,t,u,v$ 等表示。
+
+该区分是函数定义（$y=f(x)$ 中 $x$ 变、$y$ 随之变）、参数方程、微分方程建模的逻辑起点。
+
+延伸阅读：  
+- [[映射的定义]]{type=concept, label=输入输出关系, render=link, tags=函数|基础}  
+- [[函数的定义]]{type=concept, label=变量依赖关系, render=card, subject=高等数学, grade=大学, tags=函数|核心}  
+- [[实数集与完备性]]{type=concept, label=实数作为变量取值域, render=link, tags=高数|基础}

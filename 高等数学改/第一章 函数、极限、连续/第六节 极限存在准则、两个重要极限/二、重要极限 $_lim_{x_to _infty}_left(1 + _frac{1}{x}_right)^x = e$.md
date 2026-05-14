@@ -1,0 +1,84 @@
+### 二、重要极限 $\lim_{x\to \infty}\left(1 + \frac{1}{x}\right)^x = e$
+
+在本章第二节，我们利用数列极限的单调有界准则证明了重要极限
+
+$$
+\lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n}\right) ^ {n} = e.
+$$
+
+如果把 $n$ 换成连续变量 $x$ ，则当 $x$ 趋向 $+\infty$ 或 $-\infty$ 时，函数 $\left(1 + \frac{1}{x}\right)^x$ 的极限仍然存在，且等于 $e$ .
+
+例1.6.8 证明： $\lim_{x\to \infty}\left(1 + \frac{1}{x}\right)^x = e.$
+
+证 先证 $\lim_{x\to +\infty}\left(1 + \frac{1}{x}\right)^x = \mathrm{e}.$
+
+对于任何大于1的数 $x$ ，总能找到相邻的正整数 $n$ 和 $n + 1$ ，使得 $n \leqslant x < n + 1$ ，则
+
+$$
+1 + \frac {1}{n + 1} <   1 + \frac {1}{x} \leqslant 1 + \frac {1}{n},
+$$
+
+于是
+
+$$
+\left(1 + \frac {1}{n + 1}\right) ^ {n} <   \left(1 + \frac {1}{x}\right) ^ {x} <   \left(1 + \frac {1}{n}\right) ^ {n + 1}.
+$$
+
+令 $x \to +\infty$ ，则 $n \to \infty$ ，而
+
+$$
+\lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n + 1}\right) ^ {n} = \lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n + 1}\right) ^ {n + 1 - 1} = \frac {\lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n + 1}\right) ^ {n + 1}}{\lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n + 1}\right)} = e,
+$$
+
+$$
+\lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n}\right) ^ {n + 1} = \lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n}\right) ^ {n} \cdot \lim  _ {n \rightarrow \infty} \left(1 + \frac {1}{n}\right) = e.
+$$
+
+由夹逼准则即得
+
+$$
+\lim  _ {x \rightarrow + \infty} \left(1 + \frac {1}{x}\right) ^ {x} = e.
+$$
+
+再证 $\lim_{x\to -\infty}\left(1 + \frac{1}{x}\right)^x = \mathrm{e}.$
+
+令 $x = -(1 + t)$ ，则当 $x\to -\infty$ 时， $t\rightarrow +\infty$ ，于是
+
+$$
+\begin{array}{l} \lim  _ {x \rightarrow - \infty} \left(1 + \frac {1}{x}\right) ^ {x} = \lim  _ {t \rightarrow + \infty} \left(1 - \frac {1}{t + 1}\right) ^ {- (1 + t)} = \lim  _ {t \rightarrow + \infty} \left(\frac {t}{1 + t}\right) ^ {- (1 + t)} = \lim  _ {t \rightarrow + \infty} \left(\frac {1 + t}{t}\right) ^ {1 + t} \\ = \lim  _ {t \rightarrow + \infty} \left(1 + \frac {1}{t}\right) ^ {t} \cdot \lim  _ {t \rightarrow + \infty} \left(1 + \frac {1}{t}\right) = e. \\ \end{array}
+$$
+
+综上所述，可得
+
+$$
+\lim  _ {x \rightarrow \infty} \left(1 + \frac {1}{x}\right) ^ {x} = e. \tag {1.6.3}
+$$
+
+若在式（1.6.3）中令 $x = \frac{1}{z}$ ，则当 $x\to \infty$ 时 $z\rightarrow 0$ ，于是
+
+$$
+\lim  _ {z \rightarrow 0} (1 + z) ^ {\frac {1}{z}} = e,
+$$
+
+也可以写成
+
+$$
+\lim  _ {x \rightarrow 0} (1 + x) ^ {\frac {1}{x}} = e.
+$$
+
+例1.6.9 求 $\lim_{x\to \infty}\left(1 - \frac{1}{3x}\right)^x$
+
+解 $\lim_{x\to \infty}\left(1 - \frac{1}{3x}\right)^x = \lim_{x\to \infty}\left(1 + \frac{1}{-3x}\right)^x.$ 令 $-3x = t$ ，则当 $x\to \infty$ 时， $t\to \infty$ ，于是
+
+$$
+\lim  _ {x \rightarrow \infty} \left(1 - \frac {1}{3 x}\right) ^ {x} = \lim  _ {t \rightarrow \infty} \left(1 + \frac {1}{t}\right) ^ {- \frac {t}{3}} = \frac {1}{\left[ \lim  _ {t \rightarrow \infty} \left(1 + \frac {1}{t}\right) ^ {t} \right] ^ {\frac {1}{3}}} = e ^ {- \frac {1}{3}}.
+$$
+
+例1.6.10 求 $\lim_{x\to 0}(1 - x)^{\frac{2}{x}}$
+
+解 令 $-x = t$ ，则 $x\to 0$ 时 $t\to 0$ ，于是
+
+$$
+\lim  _ {x \rightarrow 0} (1 - x) ^ {\frac {2}{x}} = \lim  _ {t \rightarrow 0} (1 + t) ^ {- \frac {2}{t}} = \frac {1}{\left[ \lim  _ {t \rightarrow 0} (1 + t) ^ {\frac {1}{t}} \right] ^ {2}} = e ^ {- 2}.
+$$
+

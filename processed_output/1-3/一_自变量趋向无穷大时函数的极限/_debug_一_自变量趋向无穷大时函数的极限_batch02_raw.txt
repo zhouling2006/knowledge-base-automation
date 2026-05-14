@@ -1,0 +1,183 @@
+---
+title: 例1.3.2：证明 lim_(x→+∞) 1/√x = 0
+numeric_source: 1-3-1-5
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - ε–X 证明
+  - 根号函数
+---
+
+# 例1.3.2：证明 $\lim_{x\to +\infty} \frac{1}{\sqrt{x}} = 0$
+
+证：当 $x > 0$ 时，有  
+$$
+\left| \frac{1}{\sqrt{x}} - 0 \right| = \frac{1}{\sqrt{x}}.
+$$
+
+对任意给定的 $\varepsilon > 0$，取 $X = \dfrac{1}{\varepsilon^2}$，则当 $x > X$ 时，  
+$$
+\frac{1}{\sqrt{x}} < \frac{1}{\sqrt{X}} = \varepsilon.
+$$
+
+因此，  
+$$
+\left| \frac{1}{\sqrt{x}} - 0 \right| < \varepsilon.
+$$
+
+由定义1.3.1（$x \to +\infty$ 时函数极限的 $\varepsilon$–$X$ 定义）可知：  
+$$
+\lim_{x \to +\infty} \frac{1}{\sqrt{x}} = 0.
+$$
+
+该例是 $\varepsilon$–$X$ 定义的典型应用，凸显了**根号衰减型函数**在正无穷处趋于零的严格刻画。  
+参考核心定义：[[定义1.3.1-x-→-+∞-时函数极限的-ε–X-定义]]{type=concept, label=ε–X 正无穷定义, render=link, subject=高等数学, grade=大学, tags=极限|定义|ε–X}
+
+几何直观可结合 [[几何解释-x-→-+∞-时函数极限的带形区域描述]]{type=concept, label=带形区域图示, render=card, tags=极限|几何意义} 理解：随着 $x$ 增大，曲线 $y = 1/\sqrt{x}$ 最终完全落入任意窄带 $y \in (-\varepsilon,\, \varepsilon)$ 内。
+
+::: {#proof-1-3-2-001 .proof label="例1.3.2 证明过程" type=proof}
+当 $x > 0$ 时，$\left| \frac{1}{\sqrt{x}} \right| = \frac{1}{\sqrt{x}}$；对任意 $\varepsilon > 0$，令 $X = \frac{1}{\varepsilon^2}$，则 $x > X \implies \frac{1}{\sqrt{x}} < \varepsilon$，故极限为 0。
+:::
+
+详细推导见 ((proof-1-3-2-001)){type=proof, label=证明过程, render=card, note=根号函数的 ε–X 控制}
+
+---SPLIT---
+---
+title: 定义1.3.2：x → −∞ 时函数极限的 ε–X 定义
+numeric_source: 1-3-1-6
+aliases:
+  - 负无穷极限定义
+  - x → −∞ 极限定义
+tags:
+  - 高等数学
+  - 极限
+  - 定义
+  - ε–X 语言
+  - 负无穷
+---
+
+# 定义1.3.2：$x \to -\infty$ 时函数极限的 $\varepsilon$–$X$ 定义
+
+设函数 $f(x)$ 在区间 $(-\infty, b)$ 内有定义，$A$ 是一个常数。如果对于任意给定的 $\varepsilon > 0$，存在正数 $X\ (> -b)$，使得当 $x < -X$ 时，恒有  
+$$
+|f(x) - A| < \varepsilon,
+$$  
+则称常数 $A$ 为函数 $f(x)$ 当 $x \to -\infty$ 时的极限，记作  
+$$
+\lim_{x \to -\infty} f(x) = A \quad \text{或} \quad f(x) \to A \ (x \to -\infty).
+$$
+
+该定义是定义1.3.1（$x \to +\infty$）的对称推广，强调**自变量沿负方向无限远离原点**时函数值的稳定行为。其逻辑结构与 $\varepsilon$–$X$ 形式完全一致，仅将“$x > X$”替换为“$x < -X$”，体现单侧无穷的定向性。
+
+此定义是构建双向极限 $\lim_{x \to \infty} f(x)$ 的基础之一，亦为研究奇函数、反比例函数、指数衰减（如 $e^{x}$）等在负无穷处行为的关键工具。
+
+关联知识点：  
+- [[定义1.3.1-x-→-+∞-时函数极限的-ε–X-定义]]{type=concept, label=正无穷定义, render=link, tags=极限|定义|ε–X}  
+- [[例1.3.3-证明-lim_(x→∞)-(1+x)-x-=-1]]{type=question, id=例1.3.3, label=(1+x)/x 极限, render=card, source=教材例题, answer=1, tags=极限|分式|单侧分析}
+
+::: {.note}
+> **注意**：条件中要求 $X > -b$ 是为了确保区间 $(-\infty, b)$ 与 $(-\infty, -X)$ 有交集，从而保证 $f(x)$ 在 $x < -X$ 时有定义。
+:::
+
+---SPLIT---
+---
+title: 定义1.3.3：x → ∞ 时函数极限的 ε–X 定义
+numeric_source: 1-3-1-7
+aliases:
+  - 绝对值无穷极限定义
+  - x → ∞ 极限定义
+tags:
+  - 高等数学
+  - 极限
+  - 定义
+  - ε–X 语言
+  - 双向无穷
+---
+
+# 定义1.3.3：$x \to \infty$ 时函数极限的 $\varepsilon$–$X$ 定义
+
+设函数 $f(x)$ 在 $|x| > a$（其中常数 $a > 0$）时有定义，$A$ 是一个常数。如果对于任意给定的 $\varepsilon > 0$，存在正数 $X\ (> a)$，使得当 $|x| > X$ 时，恒有  
+$$
+|f(x) - A| < \varepsilon,
+$$  
+则称常数 $A$ 为函数 $f(x)$ 当 $x \to \infty$ 时的极限，记作  
+$$
+\lim_{x \to \infty} f(x) = A \quad \text{或} \quad f(x) \to A \ (x \to \infty).
+$$
+
+该定义刻画的是**自变量绝对值无限增大（即同时趋向 $+\infty$ 和 $-\infty$）** 时函数的整体收敛性。它等价于要求：  
+$$
+\lim_{x \to +\infty} f(x) = A \quad \text{且} \quad \lim_{x \to -\infty} f(x) = A.
+$$  
+即左右两个单侧无穷极限均存在且相等。
+
+典型适用对象包括偶函数（如 $1/x^2$, $\cos(1/x)$）、有理函数主部（如 $(2x^2+1)/(x^2-3)$），以及本节例1.3.4中的根式差。
+
+延伸阅读：  
+- [[定义1.3.2-x-→--∞-时函数极限的-ε–X-定义]]{type=concept, label=负无穷定义, render=link, tags=极限|定义|单侧}  
+- [[例1.3.4-证明-lim_(x→∞)-(√(x²+1)-√(x²-1))-=-0]]{type=question, id=例1.3.4, label=根式差极限, render=card, source=教材例题, answer=0, tags=极限|根式|双向无穷}
+
+::: {.note}
+> **关键区别**：定义1.3.3 中的条件 $|x| > X$ 意味着需同时控制 $x > X$ 和 $x < -X$ 两个区域，因此其 $\varepsilon$–$X$ 控制比单侧定义更“强”——若 $\lim_{x \to \infty} f(x) = A$ 成立，则必有 $\lim_{x \to +\infty} f(x) = \lim_{x \to -\infty} f(x) = A$；反之不必然成立。
+:::
+
+---SPLIT---
+---
+title: 例1.3.3：证明 lim_(x→∞) (1+x)/x = 1
+numeric_source: 1-3-1-8
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - ε–X 证明
+  - 分式函数
+  - 单侧极限
+---
+
+# 例1.3.3：证明 $\lim_{x\to \infty}\frac{1 + x}{x} = 1$
+
+我们首先化简表达式：  
+$$
+\frac{1+x}{x} = 1 + \frac{1}{x}, \quad (x \neq 0)
+$$  
+因此  
+$$
+\left| \frac{1+x}{x} - 1 \right| = \left| \frac{1}{x} \right| = \frac{1}{|x|}.
+$$
+
+为验证 $\lim_{x \to \infty} \frac{1+x}{x} = 1$，需证明：  
+对任意 $\varepsilon > 0$，存在 $X > 0$，使得当 $|x| > X$ 时，$\dfrac{1}{|x|} < \varepsilon$。
+
+取 $X = \dfrac{1}{\varepsilon}$，则当 $|x| > X$ 时，  
+$$
+\frac{1}{|x|} < \frac{1}{X} = \varepsilon.
+$$
+
+故  
+$$
+\left| \frac{1+x}{x} - 1 \right| < \varepsilon \quad \text{当 } |x| > X.
+$$
+
+由定义1.3.3（$x \to \infty$ 时的 $\varepsilon$–$X$ 定义）得：  
+$$
+\lim_{x \to \infty} \frac{1+x}{x} = 1.
+$$
+
+> **说明**：原文仅给出 $x < 0$ 情形的推导（即验证左极限），但完整结论需覆盖 $|x| > X$ 全域。由于 $\left|\frac{1}{x}\right|$ 关于 $x=0$ 对称，右极限同理成立，故双向极限一致。
+
+本例展示了**分式函数在无穷远处的渐近行为**，也揭示了极限运算中“主导项”思想（此处 $x$ 主导，常数 $1$ 可忽略）。
+
+关联知识：  
+- [[定义1.3.3-x-→-∞-时函数极限的-ε–X-定义]]{type=concept, label=双向无穷定义, render=link, tags=极限|定义|ε–X}  
+- [[引例-指数函数在正无穷处的极限行为]]{type=concept, label=指数衰减类比, render=link, tags=极限|直观|指数函数}（对比 $e^{-x} \to 0$ 与 $1/x \to 0$ 的速率差异）
+
+::: {#proof-1-3-3-001 .proof label="例1.3.3 完整证明" type=proof}
+$$
+\left| \frac{1+x}{x} - 1 \right| = \left| \frac{1}{x} \right| = \frac{1}{|x|}. \quad
+\forall \varepsilon > 0,\ \text{取 } X = \frac{1}{\varepsilon},\ \text{则 } |x| > X \implies \frac{1}{|x|} < \varepsilon.
+$$
+因此 $\lim_{x \to \infty} \frac{1+x}{x} = 1$。
+:::
+
+完整推导见 ((proof-1-3-3-001)){type=proof, label=完整证明, render=card, note=基于 |x| > X 的双向控制}

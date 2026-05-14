@@ -1,0 +1,252 @@
+[
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 1,
+    "title": "间断点定义",
+    "content": "若函数 f(x) 在点 x₀ 的某去心邻域内有定义，但不满足连续性条件，则称 x₀ 为 f(x) 的间断点（或不连续点）。具体包括三种情形：(1) f(x) 在 x₀ 处无定义；(2) f(x) 在 x₀ 处有定义，但 lim_{x→x₀} f(x) 不存在；(3) f(x) 在 x₀ 处有定义且极限存在，但极限值不等于函数值。",
+    "raw_content": "定义1.8.3 设 $f(x)$ 在点 $x_0$ 的某个邻域或去心邻域内有定义，若 $\\dot{x}_0$ 不是 $f(x)$ 的连续点，则称 $x_0$ 是 $f(x)$ 的间断点或不连续点。\n\n根据函数的连续性定义可知，如果函数 $f(x)$ 在点 $x_0$ 的某去心邻域内有定义，呈下述三种情形之一：\n\n（1） $f(x)$ 在点 $x_0$ 处没有定义；  \n(2) $f(x)$ 在点 $x_0$ 处有定义, 但 $f(x)$ 当 $x \\to x_0$ 时的极限不存在;  \n（3） $f(x)$ 在点 $x_0$ 处有定义，且 $\\lim_{x\\to x_0}f(x)$ 存在，但 $\\lim_{x\\to x_0}f(x)\\neq f(x_0)$\n\n那么点 $x_0$ 便是函数 $f(x)$ 的间断点",
+    "type": "concept",
+    "aliases": [
+      "不连续点"
+    ],
+    "entities": "函数,间断点,极限,连续点",
+    "references": [
+      "若 $\\dot{x}_0$ 不是 $f(x)$ 的连续点，则称 $x_0$ 是 $f(x)$ 的间断点或不连续点。"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "给出函数间断点的严格定义及三类典型不连续情形。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 2,
+    "title": "第一类间断点定义",
+    "content": "若函数 f(x) 在间断点 x₀ 处的左极限与右极限均存在，则称 x₀ 为第一类间断点；否则称为第二类间断点。",
+    "raw_content": "定义1.8.4 设 $x_0$ 为函数 $f(x)$ 的间断点，且在点 $x_0$ 处， $\\lim_{x \\to x_0^-} f(x)$ 与 $\\lim_{x \\to x_0^+} f(x)$ 均存在，则称点 $x_0$ 为函数 $f(x)$ 的第一类间断点。否则，称为函数 $f(x)$ 的第二类间断点。",
+    "type": "concept",
+    "aliases": [
+      "可补间断点",
+      "左右极限存在型间断点"
+    ],
+    "entities": "第一类间断点,左极限,右极限,函数",
+    "references": [
+      "设 $x_0$ 为函数 $f(x)$ 的间断点，且在点 $x_0$ 处， $\\lim_{x \\to x_0^-} f(x)$ 与 $\\lim_{x \\to x_0^+} f(x)$ 均存在，则称点 $x_0$ 为函数 $f(x)$ 的第一类间断点。"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义第一类间断点为左右极限均存在的间断点。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 3,
+    "title": "可去间断点",
+    "content": "若函数 f(x) 在 x₀ 处极限存在，但 f(x₀) 无定义或 f(x₀) ≠ lim_{x→x₀} f(x)，则称 x₀ 为可去间断点。可通过重新定义 f(x₀) = lim_{x→x₀} f(x) 使其在该点连续。",
+    "raw_content": "（1）若函数 $f(x)$ 当 $x \\to x_0$ 时极限存在，且 $f(x)$ 在点 $x_0$ 处没有定义或 $f(x)$ 在点 $x_0$ 处有定义，但是 $\\lim_{x \\to x_0} f(x) \\neq f(x_0)$ ，则称点 $x_0$ 是函数 $f(x)$ 的可去间断点.\n\n例如，点 $x = 0$ 是函数 $f(x) = x\\sin \\frac{1}{x}$ 的可去间断点，这是由于 $\\lim_{x\\to 0}x\\sin \\frac{1}{x} = 0$ ，但 $f(x) = x\\sin {\\frac{1}{x}}$ 在点 $x = 0$ 处没有定义.\n\n又例如，分段函数\n\n$$\nf (x) = \\left\\{ \\begin{array}{l l} x, & - 1 \\leqslant x <   1, \\\\ 0, & x = 1, \\\\ 2 - x, & 1 <   x \\leqslant 3 \\end{array} \\right.\n$$\n\n在分段点 $x = 1$ 处，有 $f(1 + 0) = f(1 - 0) = 1$ ，于是极限 $\\lim_{x\\to 1}f(x) = 1$ .但 $f(1) = 0\\neq \\lim_{x\\to 1}f(1)$ ，故分段点 $x = 1$ 是 $f(x)$ 的可去间断点（见图1.8.2）：\n\n对于可去间断点，可以通过补充或改变函数在间断点 $x_0$ 处的定义，就可得到一个在点 $x_0$ 处连续的新函数。例如，对于函数 $f(x) = x \\sin \\frac{1}{x}$ ，若在可去间断点 $x = 0$ 处补充定义，使函数值等于极限值0，则所得函数\n\n$$\ng (x) = \\left\\{ \\begin{array}{l l} x \\sin \\frac {1}{x}, & x \\neq 0, \\\\ 0, & x = 0 \\end{array} \\right.\n$$\n\n在点 $x = 0$ 处连续",
+    "type": "concept",
+    "aliases": [
+      "可补间断点",
+      "可修复间断点"
+    ],
+    "entities": "可去间断点,极限,函数,分段函数",
+    "references": [
+      "若函数 $f(x)$ 当 $x \\to x_0$ 时极限存在，且 $f(x)$ 在点 $x_0$ 处没有定义或 $f(x)$ 在点 $x_0$ 处有定义，但是 $\\lim_{x \\to x_0} f(x) \\neq f(x_0)$ ，则称点 $x_0$ 是函数 $f(x)$ 的可去间断点。"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "可去间断点指极限存在但函数值缺失或不匹配，可通过重定义消除。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 4,
+    "title": "图1.8.2",
+    "content": "图1.8.2 展示了分段函数在 x=1 处的可去间断点：左右极限均为1，但函数值为0，形成‘空洞’型不连续。",
+    "raw_content": "![](images/cdcecac908452a8e6fa6ec42ff140d64f1051f727960143ade0ff5bfd7d7583c.jpg)  \n图1.8.2",
+    "type": "note",
+    "aliases": [],
+    "entities": "图1.8.2,可去间断点,分段函数",
+    "references": [],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "图1.8.2示意可去间断点的几何表现。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 5,
+    "title": "跳跃间断点",
+    "content": "若函数 f(x) 在 x₀ 处左、右极限均存在但不相等，则称 x₀ 为跳跃间断点。其图像在该点呈现‘跃变’，不可通过重定义消除。",
+    "raw_content": "（2）若函数 $f(x)$ 当 $x \\to x_0$ 时的左、右极限均存在，但 $\\lim_{x \\to x_0^+} f(x) \\neq \\lim_{x \\to x_0^-} f(x)$ ，则称点 $x_0$ 为函数 $f(x)$ 的跳跃间断点。例如，分段函数\n\n$$\nf (x) = \\left\\{ \\begin{array}{l l} x + 3, & x <   1, \\\\ x ^ {2}, & x \\geqslant 1 \\end{array} \\right.\n$$\n\n在分段点 $x = 1$ 处，左极限 $f(1 - 0) = 4$ ，右极限 $f(1 + 0) = 1$ ，故点 $\\dot{x} = 1$ 是其跳跃间断点（见图1.8.3）.",
+    "type": "concept",
+    "aliases": [
+      "跃变间断点"
+    ],
+    "entities": "跳跃间断点,左极限,右极限,分段函数",
+    "references": [
+      "若函数 $f(x)$ 当 $x \\to x_0$ 时的左、右极限均存在，但 $\\lim_{x \\to x_0^+} f(x) \\neq \\lim_{x \\to x_0^-} f(x)$ ，则称点 $x_0$ 为函数 $f(x)$ 的跳跃间断点。"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "跳跃间断点由左右极限存在但不等导致，图像出现阶跃。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 6,
+    "title": "图1.8.3",
+    "content": "图1.8.3 展示了分段函数在 x=1 处的跳跃间断点：左极限为4，右极限为1，图像在该点发生垂直跳变。",
+    "raw_content": "![](images/8cc07a9a779dec71d3f7f1efd6c03e95b5a25d20801ccc57cceb42e4bf08c38d.jpg)  \n图1.8.3",
+    "type": "note",
+    "aliases": [],
+    "entities": "图1.8.3,跳跃间断点,分段函数",
+    "references": [],
+    "confidence": 0.95,
+    "needs_review": false,
+    "summary": "图1.8.3示意跳跃间断点的几何表现。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 7,
+    "title": "第二类间断点",
+    "content": "若函数 f(x) 在间断点 x₀ 处的左极限或右极限至少有一个不存在，则称 x₀ 为第二类间断点。典型类型包括振荡间断点和无穷间断点。",
+    "raw_content": "根据第二类间断点的定义，函数在该间断点处的左、右极限至少有一个不存在。第二类间断点常见的有振荡间断点和无穷间断点。",
+    "type": "concept",
+    "aliases": [
+      "本质间断点"
+    ],
+    "entities": "第二类间断点,左极限,右极限,振荡间断点,无穷间断点",
+    "references": [
+      "函数在该间断点处的左、右极限至少有一个不存在。第二类间断点常见的有振荡间断点和无穷间断点。"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "第二类间断点指左右极限至少一个不存在，含振荡与无穷两类。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 8,
+    "title": "振荡间断点",
+    "content": "若函数在 x₀ 附近无限振荡导致极限不存在（如 sin(1/x) 在 x=0），则称 x₀ 为振荡间断点，属于第二类间断点。",
+    "raw_content": "例如，函数 $f(x) = \\sin \\frac{1}{x}$ 在点 $x = 0$ 处没有定义，当 $x \\to 0$ 时， $\\sin \\frac{1}{x}$ 在 -1 和 1 之间来回作无穷次振荡，极限 $\\lim_{x \\to 0} \\sin \\frac{1}{x}$ 不存在，故点 $x = 0$ 是其第二类间断点（见图 1.3.6），这种间断点称为振荡间断点。",
+    "type": "concept",
+    "aliases": [
+      "振荡型间断点"
+    ],
+    "entities": "振荡间断点,sin(1/x),极限,第二类间断点",
+    "references": [
+      "极限 $\\lim_{x \\to 0} \\sin \\frac{1}{x}$ 不存在，故点 $x = 0$ 是其第二类间断点（见图 1.3.6），这种间断点称为振荡间断点。"
+    ],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "振荡间断点因函数在趋近过程中无限振荡而无极限。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 9,
+    "title": "无穷间断点",
+    "content": "若函数在 x₀ 处无定义，且极限为无穷大（如 1/x² 在 x=0），则称 x₀ 为无穷间断点，属于第二类间断点。",
+    "raw_content": "再例如，函数 $f(x) = \\frac{1}{x^2}$ ，在点 $x = 0$ 处没有定义，且有 $\\lim_{x \\to 0} \\frac{1}{x^2} = +\\infty$ ，即当 $x \\to 0$ 时不存在有限的左、右极限， $x = 0$ 是其第二类间断点（见图1.8.4），这种间断点称为无穷间断点。不难看出点 $x = \\frac{\\pi}{2}$ 也是函数 $f(x) = \\tan x$ 的无穷间断点（见图1.8.5）。",
+    "type": "concept",
+    "aliases": [
+      "极点型间断点"
+    ],
+    "entities": "无穷间断点,1/x²,tan x,第二类间断点",
+    "references": [
+      "$\\lim_{x \\to 0} \\frac{1}{x^2} = +\\infty$ ，即当 $x \\to 0$ 时不存在有限的左、右极限， $x = 0$ 是其第二类间断点（见图1.8.4），这种间断点称为无穷间断点。"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "无穷间断点因函数值趋于无穷大而无有限极限。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 10,
+    "title": "图1.8.4",
+    "content": "图1.8.4 展示了函数 1/x² 在 x=0 处的无穷间断点：曲线沿 y 轴正向趋于无穷。",
+    "raw_content": "![](images/3ee61ebcce539ab46e44f799780c9c789d425673d1ea4c6a55b60a184546dc78.jpg)  \n图1.8.4",
+    "type": "note",
+    "aliases": [],
+    "entities": "图1.8.4,无穷间断点,1/x²",
+    "references": [],
+    "confidence": 0.94,
+    "needs_review": false,
+    "summary": "图1.8.4示意无穷间断点的几何表现。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第八节/二、函数的间断点.md",
+    "section": "二、函数的间断点",
+    "section_id": null,
+    "position": 11,
+    "title": "图1.8.5",
+    "content": "图1.8.5 展示了 tan x 在 x=π/2 处的无穷间断点：曲线在该点两侧分别趋于 +∞ 和 −∞。",
+    "raw_content": "![](images/de69cc446a5206b5c8f4d180b17ab03dd65d8818b22bed9c90a512414f5b2be2.jpg)  \n图1.8.5",
+    "type": "note",
+    "aliases": [],
+    "entities": "图1.8.5,无穷间断点,tan x",
+    "references": [],
+    "confidence": 0.94,
+    "needs_review": false,
+    "summary": "图1.8.5示意 tan x 的无穷间断点。",
+    "created_at": "2026-05-11T16:29:32",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

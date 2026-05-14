@@ -1,0 +1,195 @@
+---
+title: 例1.5.5：多项式在无穷远处的极限
+numeric_source: 1-5-1-9
+aliases:
+  - 多项式无穷极限
+  - 高次多项式∞极限
+  - 例1.5.5
+tags:
+  - 高等数学
+  - 极限
+  - 未定式
+  - 多项式
+---
+
+# 例1.5.5：多项式在无穷远处的极限
+
+求  
+$$
+\lim_{x \to \infty}(a_0 + a_1x + a_2x^2 + \dots + a_nx^n) \quad (a_n \neq 0).
+$$
+
+由于当 $x \to \infty$ 时，各项（如 $a_k x^k$）均发散（不收敛），**不满足极限四则运算法则对“每一项极限存在”的前提要求**，因此不能直接拆项计算。
+
+我们转而考察其**倒数的极限**：
+
+$$
+\begin{aligned}
+\lim_{x \to \infty} \frac{1}{a_0 + a_1x + a_2x^2 + \cdots + a_nx^n} 
+&= \lim_{x \to \infty} \left( \frac{1}{x^n} \cdot \frac{1}{\frac{a_0}{x^n} + \frac{a_1}{x^{n-1}} + \frac{a_2}{x^{n-2}} + \cdots + a_n} \right) \\
+&= \lim_{x \to \infty} \frac{1}{x^n} \cdot \lim_{x \to \infty} \frac{1}{\frac{a_0}{x^n} + \frac{a_1}{x^{n-1}} + \cdots + a_n} \\
+&= 0 \cdot \frac{1}{a_n} = 0.
+\end{aligned}
+$$
+
+由于该倒数极限为 $0$，且原函数在 $x \to \infty$ 过程中最终保持同号（因首项 $a_n x^n$ 主导符号），根据**无穷小与无穷大的倒数关系**（非零无穷小的倒数是无穷大），可得：
+
+$$
+\lim_{x \to \infty}(a_0 + a_1x + \dots + a_nx^n) = \infty \quad (a_n \neq 0).
+$$
+
+> ✅ **关键技巧**：对高次多项式在无穷远处的极限，若直接代入失效，优先考虑「倒数转化」或「提取最高次幂」。
+
+相关知识点：[[函数极限的四则运算法则(定理1.5.1).md]]{type=concept, label=运算法则前提, render=link, tags=高数|极限|基础}  
+延伸结论：[[例1.5.6-例1.5.8归纳结论.md]]{type=concept, label=有理函数∞极限通式, render=card, tags=高数|极限|通式}
+
+::: {.example label="例1.5.5" type=example}
+求 $\displaystyle \lim_{x \to \infty}(2x^4 - 7x^3 + x - 5)$。  
+解：首项系数 $2 > 0$，次数 $4$ 为偶数 ⇒ 极限为 $+\infty$。
+:::
+
+---
+SPLIT---
+```markdown
+---
+title: 例1.5.6：“∞/∞”型未定式（最高次项同除）
+numeric_source: 1-5-1-10
+aliases:
+  - ∞/∞型极限
+  - 同除最高次幂法
+  - 例1.5.6
+tags:
+  - 高等数学
+  - 极限
+  - 未定式
+  - 有理函数
+---
+
+# 例1.5.6：“∞/∞”型未定式（最高次项同除）
+
+求  
+$$
+\lim_{x \to \infty}\frac{3x^3 + 4x^2 + 1}{7x^3 + 5x^2 - 3}.
+$$
+
+当 $x \to \infty$ 时，分子与分母均趋于 $\infty$，属于典型的 **“$\frac{\infty}{\infty}$”型未定式**，不能直接应用商的极限法则。但因分子、分母均为多项式，可采用**同除最高次幂（此处为 $x^3$）** 的标准方法：
+
+$$
+\begin{aligned}
+\lim_{x \to \infty}\frac{3x^3 + 4x^2 + 1}{7x^3 + 5x^2 - 3}
+&= \lim_{x \to \infty}\frac{3 + \frac{4}{x} + \frac{1}{x^2}}{7 + \frac{5}{x} - \frac{3}{x^2}} \\
+&= \frac{3 + 0 + 0}{7 + 0 - 0} = \frac{3}{7}.
+\end{aligned}
+$$
+
+> ✅ **核心依据**：$\displaystyle \lim_{x \to \infty} \frac{1}{x^k} = 0$（$k > 0$），故所有低次项在极限过程中消失。
+
+该方法本质是将有理函数标准化为「常数主导型」，适用于任意形如 $\displaystyle \frac{P_n(x)}{Q_m(x)}$ 的比式（$P_n,Q_m$ 为多项式）。
+
+相关知识点：[[函数极限的四则运算法则(定理1.5.1).md]]{type=concept, label=商的法则条件, render=link, tags=高数|极限|法则}  
+对比学习：[[例1.5.7-例1.5.8.md]]{type=concept, label=次数差异的影响, render=card, tags=高数|极限|分类讨论}
+
+::: {.example label="例1.5.6" type=example}
+求 $\displaystyle \lim_{x \to \infty}\frac{5x^2 - 3x + 1}{2x^2 + 4}$。  
+解：同除 $x^2$ 得 $\displaystyle \frac{5 - \frac{3}{x} + \frac{1}{x^2}}{2 + \frac{4}{x^2}} \to \frac{5}{2}$。
+:::
+
+---
+SPLIT---
+```markdown
+---
+title: 例1.5.7：“∞/∞”型（分子次数低于分母）
+numeric_source: 1-5-1-11
+aliases:
+  - 分子低次∞/∞极限
+  - 有理函数∞极限为0
+  - 例1.5.7
+tags:
+  - 高等数学
+  - 极限
+  - 未定式
+  - 有理函数
+---
+
+# 例1.5.7：“∞/∞”型（分子次数低于分母）
+
+求  
+$$
+\lim_{x \to \infty}\frac{3x^2 - 2x + 5}{4x^3 + x^2 - 1}.
+$$
+
+此为“$\frac{\infty}{\infty}$”型未定式。因**分子次数（2）小于分母次数（3）**，宜以**分母最高次幂 $x^3$ 同除分子分母**：
+
+$$
+\begin{aligned}
+\lim_{x \to \infty}\frac{3x^2 - 2x + 5}{4x^3 + x^2 - 1}
+&= \lim_{x \to \infty}\frac{\frac{3}{x} - \frac{2}{x^2} + \frac{5}{x^3}}{4 + \frac{1}{x} - \frac{1}{x^3}} \\
+&= \frac{0 - 0 + 0}{4 + 0 - 0} = 0.
+\end{aligned}
+$$
+
+> ✅ **一般规律**：若 $\deg(P) < \deg(Q)$，则 $\displaystyle \lim_{x \to \infty}\frac{P(x)}{Q(x)} = 0$。
+
+该结论可由例1.5.6方法自然导出——分子经缩放后整体趋于0，分母趋于非零常数。
+
+相关知识点：[[例1.5.6-例1.5.8归纳结论.md]]{type=concept, label=有理函数∞极限三类通式, render=card, tags=高数|极限|通式}  
+反向应用：[[例1.5.8.md]]{type=concept, label=倒数关系推无穷大, render=link, tags=高数|极限|倒数技巧}
+
+::: {.example label="例1.5.7" type=example}
+求 $\displaystyle \lim_{x \to \infty}\frac{x^5 + 2x}{x^8 - 3x^4 + 1}$。  
+解：分子次数5 < 分母次数8 ⇒ 极限为 $0$。
+:::
+
+---
+SPLIT---
+```markdown
+---
+title: 例1.5.8：“∞/∞”型（分子次数高于分母）
+numeric_source: 1-5-1-12
+aliases:
+  - 分子高次∞/∞极限
+  - 有理函数∞极限为∞
+  - 例1.5.8
+tags:
+  - 高等数学
+  - 极限
+  - 未定式
+  - 有理函数
+---
+
+# 例1.5.8：“∞/∞”型（分子次数高于分母）
+
+求  
+$$
+\lim_{x \to \infty}\frac{4x^3 + x^2 - 1}{3x^2 - 2x + 5}.
+$$
+
+此为“$\frac{\infty}{\infty}$”型未定式，且**分子次数（3）大于分母次数（2）**。此时不宜直接同除（会得 $\frac{\infty}{\text{常数}}$ 形式），而应利用**倒数关系**：
+
+注意到  
+$$
+\frac{4x^3 + x^2 - 1}{3x^2 - 2x + 5} = \frac{1}{\displaystyle \frac{3x^2 - 2x + 5}{4x^3 + x^2 - 1}}.
+$$
+
+而分母的倒数式恰为 **例1.5.7 的结构**（分子次数2 < 分母次数3），故由例1.5.7知：
+$$
+\lim_{x \to \infty}\frac{3x^2 - 2x + 5}{4x^3 + x^2 - 1} = 0.
+$$
+
+又因该倒数式在 $x \to \infty$ 过程中恒正（首项比 $\frac{3x^2}{4x^3} = \frac{3}{4x} > 0$），故其倒数趋于 $+\infty$：
+
+$$
+\lim_{x \to \infty}\frac{4x^3 + x^2 - 1}{3x^2 - 2x + 5} = +\infty.
+$$
+
+> ✅ **一般规律**：若 $\deg(P) > \deg(Q)$，则 $\displaystyle \lim_{x \to \infty}\frac{P(x)}{Q(x)} = \pm\infty$，符号由首项系数比决定。
+
+综合例1.5.6–1.5.8，可归纳出有理函数在无穷远处的极限通式（见 [[例1.5.6-例1.5.8归纳结论.md]]）。
+
+相关知识点：[[例1.5.7.md]]{type=concept, label=倒数基础, render=link, tags=高数|极限|倒数}  
+完整归纳：[[例1.5.6-例1.5.8归纳结论.md]]{type=concept, label=三类情形统一公式, render=card, tags=高数|极限|通式}
+
+::: {.example label="例1.5.8" type=example}
+求 $\displaystyle \lim_{x \to \infty}\frac{x^{100} + x^{99}}{x^{98} + 1}$。  
+解：分子次数100 > 分母次数98 ⇒ 极限为 $+\infty$（首项系数均为1，正号）。
+:::

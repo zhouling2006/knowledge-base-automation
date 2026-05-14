@@ -1,0 +1,159 @@
+---
+title: 定理1.4.1的证明
+numeric_source: 1-4-1-9
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - ε-δ证明
+  - 极限性质
+---
+
+# 定理1.4.1的证明
+
+利用极限定义与三角不等式：对任意 $\varepsilon > 0$，取 $\delta = \min\{\delta_1,\delta_2\}$，使当 $0 < |x - x_0| < \delta$ 时，有  
+$$
+|\alpha (x)| < \frac{\varepsilon}{2}, \quad |\beta (x)| < \frac{\varepsilon}{2},
+$$  
+则  
+$$
+|\alpha (x) \pm \beta (x)| \leqslant |\alpha (x)| + |\beta (x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon,
+$$  
+由无穷小定义知 $\lim_{x \to x_0} [\alpha (x) \pm \beta (x)] = 0$。
+
+该证明是 [[定理1.4.1-无穷小的和差仍为无穷小]]{type=concept, label=无穷小加减封闭性, render=link, subject=高等数学, grade=大学, tags=无穷小|极限|定理} 的严格推导核心。
+
+::: {#proof-theorem1-4-1 .proof label="定理1.4.1证明" type=proof}
+证 任意给定 $\varepsilon > 0$ ，由 $\lim_{x \to x_0} \alpha(x) = 0,\lim_{x \to x_0} \beta(x) = 0$ 知必存在正数 $\delta_1$ 和 $\delta_2$ ，当 $0 < |x - x_0| < \delta_1$ 时，有
+
+$$
+| \alpha (x) | <   \frac {\varepsilon}{2}; \tag {1.4.1}
+$$
+
+当 $0 < |x - x_0| < \delta_2$ 时，有
+
+$$
+\left| \beta (x) \right| <   \frac {\varepsilon}{2}. \tag {1.4.2}
+$$
+
+取 $\delta = \min \{\delta_1,\delta_2\}$ ，则当 $0 < |x - x_0| < \delta$ 时，式（1.4.1）和式（1.4.2）同时成立，于是
+
+$$
+\left| \alpha (x) \pm \beta (x) \right| \leqslant \left| \alpha (x) \right| + \left| \beta (x) \right| <   \frac {\varepsilon}{2} + \frac {\varepsilon}{2} = \varepsilon ,
+$$
+
+由定义知 $\lim_{x\to x_0}[\alpha (x)\pm \beta (x)] = 0.$
+:::
+
+参考推导过程：((proof-theorem1-4-1)){type=proof, label=定理1.4.1证明, render=card, note=基于ε-δ与三角不等式的标准放缩}
+
+---SPLIT---
+---
+title: 推论1.4.1：有限个无穷小的代数和仍是无穷小
+numeric_source: 1-4-1-10
+aliases:
+  - 有限和封闭性
+tags:
+  - 高等数学
+  - 无穷小
+  - 极限性质
+  - 推论
+---
+
+# 推论1.4.1：有限个无穷小的代数和仍是无穷小
+
+有限个无穷小相加或相减的结果仍是无穷小。
+
+该结论是 [[定理1.4.1-无穷小的和差仍为无穷小]]{type=concept, label=无穷小加减封闭性, render=link, subject=高等数学, grade=大学, tags=无穷小|极限|定理} 的自然推广，体现了无穷小集合对**有限线性组合**的封闭性。
+
+> **说明**：此推论可通过数学归纳法由定理1.4.1直接推出。设 $\alpha_1(x), \alpha_2(x), \dots, \alpha_n(x)$ 均为 $x \to x_0$ 时的无穷小，则  
+> - 当 $n = 2$ 时，由定理1.4.1知 $\alpha_1 + \alpha_2$ 是无穷小；  
+> - 若对 $n = k$ 成立，则对 $n = k+1$，有 $(\alpha_1 + \cdots + \alpha_k) + \alpha_{k+1}$ 仍为两个无穷小之和，故仍为无穷小。
+
+因此，任意有限个无穷小的代数和（含符号调整）仍为无穷小。
+
+延伸应用见 [[无穷小的注释(1).md]]{type=concept, label=变量本质, render=link, tags=无穷小|基础概念} 与 [[无穷小的ε-δ(或ε-X)形式定义.md]]{type=concept, label=严格形式, render=link, tags=无穷小|ε-δ}。
+
+---SPLIT---
+---
+title: 定理1.4.2：无穷小与有界变量的乘积仍是无穷小
+numeric_source: 1-4-1-11
+aliases:
+  - 无穷小-有界乘积定理
+tags:
+  - 高等数学
+  - 无穷小
+  - 有界变量
+  - 极限性质
+  - 定理
+---
+
+# 定理1.4.2：无穷小与有界变量的乘积仍是无穷小
+
+若 $\alpha(x)$ 是 $x \to x_0$ 时的无穷小，$f(x)$ 在该极限过程中是有界变量（即存在 $M > 0$ 及 $\delta_1 > 0$，使得当 $0 < |x - x_0| < \delta_1$ 时恒有 $|f(x)| \leq M$），则其乘积 $\alpha(x) \cdot f(x)$ 也是 $x \to x_0$ 时的无穷小，即：
+
+$$
+\lim_{x \to x_0} [\alpha (x) \cdot f (x)] = 0.
+$$
+
+该定理是处理**振荡型极限**（如含 $\sin\frac{1}{x}$、$\cos\frac{1}{x}$ 等因子）的关键工具，例如：
+
+- $\displaystyle \lim_{x \to 0} x \cdot \sin\frac{1}{x} = 0$，因 $x \to 0$（无穷小），$\left|\sin\frac{1}{x}\right| \le 1$（有界）；
+- $\displaystyle \lim_{x \to \infty} \frac{1}{x} \cdot \arctan x = 0$，因 $\frac{1}{x} \to 0$，$\arctan x \in (-\frac{\pi}{2}, \frac{\pi}{2})$（有界）。
+
+本定理可进一步导出重要推论：
+- [[推论1.4.2]]{type=concept, label=无穷小乘常数/乘另一无穷小, render=link, tags=无穷小|推论}：$\lim \alpha(x)\beta(x) = 0$，$\lim k\alpha(x) = 0$（$k$ 为常数）；
+- [[推论1.4.3]]{type=concept, label=有限个无穷小乘积, render=link, tags=无穷小|推论}：有限个无穷小的乘积仍是无穷小。
+
+完整证明见 [[定理1.4.2的证明]]{type=concept, label=严格证明, render=link, tags=ε-δ|证明}。
+
+---SPLIT---
+---
+title: 定理1.4.2的证明
+numeric_source: 1-4-1-12
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - ε-δ证明
+  - 有界变量
+  - 极限性质
+---
+
+# 定理1.4.2的证明
+
+因 $f(x)$ 在 $x \to x_0$ 时是有界变量，故存在正数 $M$ 及 $\delta_1 > 0$，使得当 $0 < |x - x_0| < \delta_1$ 时，恒有  
+$$
+|f(x)| \leqslant M.
+$$  
+又因 $\lim_{x \to x_0} \alpha(x) = 0$，故对任意给定的 $\varepsilon > 0$，存在 $\delta_2 > 0$，使得当 $0 < |x - x_0| < \delta_2$ 时，有  
+$$
+|\alpha (x)| < \frac{\varepsilon}{M}.
+$$  
+取 $\delta = \min\{\delta_1, \delta_2\}$，则当 $0 < |x - x_0| < \delta$ 时，两条件同时满足，从而  
+$$
+|\alpha (x) \cdot f (x)| = |\alpha (x)| \cdot |f (x)| < \frac{\varepsilon}{M} \cdot M = \varepsilon.
+$$  
+由无穷小定义知 $\lim_{x \to x_0} [\alpha (x) f (x)] = 0$。
+
+该证明体现了“**有界性控制放大倍数，无穷小控制主尺度**”的核心思想，是分析类定理的标准范式。
+
+::: {#proof-theorem1-4-2 .proof label="定理1.4.2证明" type=proof}
+证 因为 $f(x)$ 当 $x \to x_0$ 时是有界变量，所以必存在正数 $M$ 及 $\delta_1$ ，当 $0 < |x - x_0| < \delta_1$ 时，有 $|f(x)| \leqslant M$ 。又因为 $\lim_{x \to x_0} \alpha(x) = 0$ ，所以对于任意给定的 $\varepsilon > 0$ ，必存在正数 $\delta_2$ ，当 $0 < |x - x_0| < \delta_2$ 时，有
+
+$$
+| \alpha (x) | <   \frac {\varepsilon}{M}.
+$$
+
+取 $\delta = \min \{\delta_1,\delta_2\}$ ，于是当 $0 < |x - x_0| < \delta$ 时，有
+
+$$
+| \alpha (x) \cdot f (x) | = | \alpha (x) | \cdot | f (x) | <   \frac {\varepsilon}{M} \cdot M = \varepsilon ,
+$$
+
+由定义知 $\lim_{x\to x_0}[\alpha (x)f(x)] = 0.$
+:::
+
+关键步骤解析：((proof-theorem1-4-2)){type=proof, label=定理1.4.2证明, render=card, note=有界性+无穷小=乘积极限为0}
+
+关联知识点：[[无穷小的定义.md]]{type=concept, label=定义回顾, render=link, tags=无穷小|基础}、[[无穷小的注释(2).md]]{type=concept, label=极限过程依赖性, render=link, tags=无穷小|前提}。

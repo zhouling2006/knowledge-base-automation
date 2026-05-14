@@ -1,0 +1,155 @@
+---
+title: 连续函数的和、差、积、商的连续性
+numeric_source: 1-8-3-1
+aliases:
+  - 连续函数的四则运算封闭性
+  - 连续性对四则运算的保持性
+tags:
+  - 高等数学
+  - 连续性
+  - 函数运算
+---
+
+# 连续函数的和、差、积、商的连续性
+
+若函数 $f(x)$ 和 $g(x)$ 均在点 $x_0$ 处连续，则：
+
+- $f(x) \pm g(x)$ 在点 $x_0$ 处连续；  
+- $f(x) \cdot g(x)$ 在点 $x_0$ 处连续；特别地，对任意常数 $k$，$k f(x)$ 在点 $x_0$ 处连续；  
+- 若 $g(x_0) \neq 0$，则 $\dfrac{f(x)}{g(x)}$ 在点 $x_0$ 处连续。
+
+该性质可推广至**有限个**在 $x_0$ 处连续的函数：它们的线性组合与乘积仍为在 $x_0$ 处连续的函数（即推论1.8.1）。
+
+此结论源于函数在一点连续的定义与极限的四则运算法则。其核心逻辑是：  
+> 连续性 ⇔ 极限值等于函数值，而极限可交换于加、减、乘、除（分母非零）运算。
+
+因此，由基本初等函数的连续性（如 $y = \sin x$、$y = \cos x$ 在 $(-\infty, +\infty)$ 上连续），可立即推出：  
+- $y = \tan x = \dfrac{\sin x}{\cos x}$ 在 $\cos x \neq 0$ 的区间（即 $\left(n\pi - \dfrac{\pi}{2},\, n\pi + \dfrac{\pi}{2}\right),\, n \in \mathbb{Z}$）内连续；  
+- $y = \cot x = \dfrac{\cos x}{\sin x}$ 在 $\sin x \neq 0$ 的区间（即 $(n\pi,\, (n+1)\pi),\, n \in \mathbb{Z}$）内连续。
+
+相关定理引用：[[定理1.8.1]]{type=theorem, label=连续函数四则运算定理, render=link, tags=连续性|定理}
+
+延伸学习：[[连续函数的复合性]]{type=concept, label=复合函数连续性, render=link, subject=高等数学, grade=大学, tags=连续性|复合函数}
+
+::: {#proof-sum-continuity-001 .proof label="定理1.8.1简证思路" type=proof}
+设 $\lim_{x \to x_0} f(x) = f(x_0)$，$\lim_{x \to x_0} g(x) = g(x_0)$。  
+由极限四则运算法则：  
+$$
+\lim_{x \to x_0} [f(x) \pm g(x)] = f(x_0) \pm g(x_0),
+$$  
+故 $f \pm g$ 在 $x_0$ 处连续。同理可证积与商（当 $g(x_0) \neq 0$）。
+:::
+
+详细证明见 ((proof-sum-continuity-001)){type=proof, label=简证思路, render=card, note=基于极限运算法则的直接推导}
+
+---
+SPLIT---
+---
+title: 反函数的连续性定理
+numeric_source: 1-8-3-2
+aliases:
+  - 反函数连续性准则
+  - 单调连续函数的反函数连续性
+tags:
+  - 高等数学
+  - 连续性
+  - 反函数
+---
+
+# 反函数的连续性定理
+
+**定理1.8.2（反函数的连续性）**  
+设函数 $y = f(x)$，定义域为 $D$。若 $f(x)$ 在 $D$ 上**单调**（严格增或严格减）且**连续**，则其反函数 $x = f^{-1}(y)$ 在值域 $D_{f^{-1}} = \{ y \mid y = f(x),\, x \in D \}$ 上也**单调**（同向）且**连续**。
+
+> ✅ 关键前提：单调性 + 连续性 → 反函数存在且保持单调与连续。
+
+该定理是构建反三角函数、对数函数等初等函数连续性的理论基石。
+
+典型应用包括：
+- 正弦函数 $x = \sin y$ 在 $\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$ 上严格增且连续 ⇒ 反函数 $y = \arcsin x$ 在 $[-1,1]$ 上严格增且连续；
+- 指数函数 $y = a^x$（$a>0,a\ne1$）在 $\mathbb{R}$ 上严格单调且连续 ⇒ 反函数 $y = \log_a x$ 在 $(0,+\infty)$ 上严格单调且连续。
+
+参考知识点：[[反三角函数的连续性]]{type=concept, label=反三角函数连续性, render=link, tags=反函数|连续性}  
+延伸阅读：[[对数函数的连续性]]{type=concept, label=对数函数连续性, render=link, tags=反函数|连续性}
+
+::: {#proof-inverse-continuity-001 .proof label="定理1.8.2证明概要" type=proof}
+因 $f$ 在闭区间 $[a,b] \subset D$ 上连续且严格单调，由介值定理知 $f$ 是满射到 $[f(a),f(b)]$（或 $[f(b),f(a)]$）；又因严格单调，故为单射，从而双射，反函数存在。再利用连续函数将闭区间映为闭区间、开区间映为开区间的性质，结合单调性可证 $f^{-1}$ 连续。完整证明详见教材第五节附录。
+:::
+
+证明细节见 ((proof-inverse-continuity-001)){type=proof, label=证明概要, render=card, note=依赖介值定理与单调性}
+
+---
+SPLIT---
+---
+title: 反三角函数的连续性
+numeric_source: 1-8-3-3
+aliases:
+  - 反三角函数连续性结论
+tags:
+  - 高等数学
+  - 连续性
+  - 反三角函数
+---
+
+# 反三角函数的连续性
+
+四类反三角函数在其**定义区间**内均连续，且保持严格单调性：
+
+| 函数 | 定义域 | 单调性 | 连续性区间 |
+|------|--------|--------|-------------|
+| $y = \arcsin x$ | $[-1,1]$ | 严格增 | $[-1,1]$（闭区间上连续） |
+| $y = \arccos x$ | $[-1,1]$ | 严格减 | $[-1,1]$ |
+| $y = \arctan x$ | $(-\infty, +\infty)$ | 严格增 | $(-\infty, +\infty)$ |
+| $y = \operatorname{arccot} x$ | $(-\infty, +\infty)$ | 严格减 | $(-\infty, +\infty)$ |
+
+**依据**：  
+- $\arcsin x$、$\arccos x$ 是正弦、余弦在主值区间上的反函数，而正弦在 $\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$、余弦在 $[0,\pi]$ 上均严格单调且连续 ⇒ 由[[反函数的连续性定理]]{type=theorem, label=反函数连续性, render=link, tags=反函数|连续性}得证；  
+- $\arctan x$、$\operatorname{arccot} x$ 同理，分别对应正切在 $\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$、余切在 $(0,\pi)$ 上的反函数。
+
+> 📌 **重要推论**：所有反三角函数在其定义区间内满足“极限可代入”性质：  
+> 若 $x_0$ 属于定义区间内部或端点（且函数在该点有定义），则  
+> $$
+> \lim_{x \to x_0} \arcsin x = \arcsin x_0,\quad \text{etc.}
+> $$
+
+应用示例：[[例1.8.4]]{type=question, id=例1.8.4, label=反正弦极限题, render=card, source=同济高数, answer=\pi/2, tags=反三角函数|极限|代入法}
+
+知识关联：[[初等函数的连续性]]{type=concept, label=初等函数整体结论, render=link, tags=连续性|初等函数}
+
+---
+SPLIT---
+---
+title: 对数函数的连续性
+numeric_source: 1-8-3-4
+aliases: []
+tags:
+  - 高等数学
+  - 连续性
+  - 对数函数
+  - 指数函数
+---
+
+# 对数函数的连续性
+
+对数函数 $y = \log_a x$（其中 $a > 0$ 且 $a \neq 1$）是指数函数 $y = a^x$ 的反函数。由于：
+
+- 指数函数 $y = a^x$ 在 $(-\infty, +\infty)$ 上**连续**（见第五节例1.5.11）；  
+- 当 $a > 1$ 时，$a^x$ **严格增**；当 $0 < a < 1$ 时，$a^x$ **严格减**；  
+
+因此，由[[反函数的连续性定理]]{type=theorem, label=反函数连续性, render=link, tags=反函数|连续性}可知：
+
+- $y = \log_a x$ 在其定义域 $(0, +\infty)$ 上**连续**；  
+- 且保持单调性：当 $a > 1$ 时严格增，当 $0 < a < 1$ 时严格减。
+
+特别地，自然对数函数 $y = \ln x = \log_e x$（$e \approx 2.718 > 1$）在 $(0, +\infty)$ 上**严格增且连续**。
+
+> ✅ 连续性保障了极限运算中“极限与函数可交换”的合法性：  
+> 若 $x_0 > 0$，则  
+> $$
+> \lim_{x \to x_0} \log_a x = \log_a \left( \lim_{x \to x_0} x \right) = \log_a x_0.
+> $$
+
+该性质是计算形如 $\displaystyle \lim_{x \to 0} \frac{\ln(1+x)}{x}$ 等重要极限的基础（参见[[例1.8.5]]{type=question, id=例1.8.5, label=对数型重要极限, render=card, source=同济高数, answer=1, tags=对数函数|重要极限}）。
+
+延伸阅读：[[指数函数的连续性]]{type=concept, label=指数函数连续性, render=link, tags=指数函数|连续性}  
+核心支撑：[[反函数的连续性定理]]{type=theorem, label=理论依据, render=link, tags=定理|反函数}

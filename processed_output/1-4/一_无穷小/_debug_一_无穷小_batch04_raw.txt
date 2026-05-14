@@ -1,0 +1,150 @@
+---
+title: 定理1.4.2的应用示例
+numeric_source: 1-4-2-13
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - 定理应用
+---
+
+# 定理1.4.2的应用示例
+
+定理1.4.2指出：**无穷小与有界变量的乘积仍是无穷小**。该结论在处理含振荡因子（如 $\sin\frac{1}{x}$、$\cos x$）的极限时极为关键。
+
+::: {.example label="振荡型极限计算" type=example}
+因 $\lim_{x\to 0} x = 0$ 且 $\left|\sin \frac{1}{x}\right| \leqslant 1$，故  
+$$
+\lim_{x\to 0} x \cdot \sin \frac{1}{x} = 0.
+$$  
+同理，因 $\lim_{x\to \infty} \frac{1}{x} = 0$ 且 $|\arctan x| \leqslant \frac{\pi}{2}$（即有界），故  
+$$
+\lim_{x\to \infty} \frac{1}{x} \cdot \arctan x = 0.
+$$
+:::
+
+这些例子体现了定理1.4.2的核心价值：**将“不可控振荡”与“可控衰减”结合，实现极限为0的严格判定**。
+
+延伸阅读：  
+- [[定理1.4.2-无穷小与有界变量的乘积仍是无穷小]]{type=concept, label=定理本体, render=link, tags=高数|无穷小|核心定理}  
+- [[定理1.4.2的证明]]{type=proof, label=严格证明, render=card, note=ε-δ放缩过程}  
+- [[无穷小的典型例子]]{type=concept, label=典型振荡无穷小, render=link, tags=高数|例子}
+
+---SPLIT---
+---
+title: 推论1.4.2：无穷小与常数或无穷小的乘积仍是无穷小
+numeric_source: 1-4-2-14
+aliases:
+  - 无穷小乘积推论
+  - 常数倍推论
+tags:
+  - 高等数学
+  - 无穷小
+  - 推论
+---
+
+# 推论1.4.2：无穷小与常数或无穷小的乘积仍是无穷小
+
+设 $\alpha(x), \beta(x)$ 均为 $x \to x_0$ 时的无穷小，$k$ 为任意常数，则：
+
+$$
+\lim_{x \to x_0} \big[ \alpha(x) \cdot \beta(x) \big] = 0, \quad 
+\lim_{x \to x_0} \big[ k \cdot \alpha(x) \big] = 0.
+$$
+
+该推论是**定理1.4.2的直接推论**：  
+- 常数 $k$ 显然是有界变量；  
+- 无穷小 $\beta(x)$ 在 $x \to x_0$ 过程中也必有界（因其极限为0，由极限局部有界性可知存在邻域使其绝对值小于1）；  
+- 故 $\alpha(x)\cdot\beta(x)$ 和 $k\cdot\alpha(x)$ 均满足“无穷小 × 有界变量”的结构，从而仍为无穷小。
+
+::: {.note}
+此推论说明：无穷小对**有限次乘法运算**和**标量乘法**封闭，是构建更复杂无穷小表达式（如 $x^2\sin\frac{1}{x}$、$e^{-x}\cos x$）的理论基础。
+:::
+
+关联知识：  
+- [[定理1.4.2-无穷小与有界变量的乘积仍是无穷小]]{type=concept, label=母定理, render=link, tags=高数|无穷小}  
+- [[推论1.4.3-有限个无穷小的乘积是无穷小]]{type=concept, label=推广形式, render=link, tags=高数|无穷小}  
+- [[无穷小的注释(1).md]]{type=concept, label=变量本质, render=link, tags=高数|概念辨析}
+
+---SPLIT---
+---
+title: 推论1.4.3：有限个无穷小的乘积是无穷小
+numeric_source: 1-4-2-15
+aliases:
+  - 无穷小乘积封闭性
+tags:
+  - 高等数学
+  - 无穷小
+  - 推论
+---
+
+# 推论1.4.3：有限个无穷小的乘积是无穷小
+
+若 $\alpha_1(x), \alpha_2(x), \dots, \alpha_n(x)$ 均为 $x \to x_0$ 时的无穷小（$n \in \mathbb{N}^+$），则其乘积  
+$$
+\alpha_1(x) \cdot \alpha_2(x) \cdots \alpha_n(x)
+$$  
+仍是 $x \to x_0$ 时的无穷小。
+
+该结论可由**数学归纳法**及**推论1.4.2**得出：  
+- 当 $n = 2$ 时，即为推论1.4.2中 $\alpha(x)\cdot\beta(x)$ 的情形；  
+- 假设对 $n = k$ 成立，则对 $n = k+1$，可将前 $k$ 个无穷小的乘积视为一个新无穷小 $\gamma(x)$，再与第 $(k+1)$ 个无穷小相乘，仍适用推论1.4.2。
+
+::: {.note}
+这是无穷小“代数封闭性”的重要体现——它允许我们安全地构造形如 $x^3\sin\frac{1}{x}\cos x$、$(1-e^{-x})^5$ 等复合无穷小，并确信其极限仍为0。
+:::
+
+延伸学习：  
+- [[推论1.4.2-无穷小与常数或无穷小的乘积仍是无穷小]]{type=concept, label=基础情形, render=link, tags=高数|无穷小}  
+- [[定理1.4.1-无穷小的和差仍为无穷小.md]]{type=concept, label=加法封闭性, render=link, tags=高数|无穷小}  
+- [[无穷小的ε-δ(或ε-X)形式定义.md]]{type=concept, label=严格刻画, render=link, tags=高数|定义}
+
+---SPLIT---
+---
+title: 定理1.4.3：无穷小除以非零极限函数仍是无穷小
+numeric_source: 1-4-2-16
+aliases:
+  - 无穷小除法定理
+tags:
+  - 高等数学
+  - 无穷小
+  - 定理
+---
+
+# 定理1.4.3：无穷小除以非零极限函数仍是无穷小
+
+若 $\alpha(x)$ 是 $x \to x_0$ 时的无穷小，即 $\lim_{x \to x_0} \alpha(x) = 0$，且函数 $f(x)$ 满足 $\lim_{x \to x_0} f(x) = A \neq 0$，则商函数  
+$$
+\frac{\alpha(x)}{f(x)}
+$$  
+仍是 $x \to x_0$ 时的无穷小，即  
+$$
+\lim_{x \to x_0} \frac{\alpha(x)}{f(x)} = 0.
+$$
+
+**思想本质**：当分母趋于非零常数 $A$ 时，其倒数 $\frac{1}{f(x)}$ 在 $x_0$ 的某去心邻域内有界（事实上，$\left|\frac{1}{f(x)}\right| < \frac{2}{|A|}$），因此  
+$$
+\frac{\alpha(x)}{f(x)} = \alpha(x) \cdot \frac{1}{f(x)}
+$$  
+即为“无穷小 × 有界变量”，由**定理1.4.2**即得结论。
+
+::: {#proof-thm143-001 .proof label="倒数有界性证明" type=proof}
+给定 $\varepsilon = \frac{|A|}{2} > 0$，由 $\lim_{x \to x_0} f(x) = A$，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，  
+$$
+|f(x) - A| < \frac{|A|}{2}.
+$$  
+由此推出  
+$$
+|f(x)| \geq |A| - |f(x) - A| > \frac{|A|}{2} > 0,
+$$  
+故 $\left|\frac{1}{f(x)}\right| < \frac{2}{|A|}$，即 $\frac{1}{f(x)}$ 在该邻域内有界。
+:::
+
+应用示例：  
+- $\lim_{x \to 1} \frac{x-1}{x^2 + 1} = 0$（因分子 $\to 0$，分母 $\to 2 \neq 0$）；  
+- $\lim_{x \to 0} \frac{\sin x}{2 + \cos x} = 0$（分子 $\to 0$，分母 $\to 3$）。
+
+深度链接：  
+- [[定理1.4.2-无穷小与有界变量的乘积仍是无穷小]]{type=concept, label=核心工具, render=link, tags=高数|无穷小}  
+- [[定理1.4.3的证明]]{type=proof, label=完整证明, render=card, note=利用倒数有界性}  
+- [[函数极限与无穷小的关系]]{type=concept, label=结构化视角, render=link, tags=高数|极限表示}

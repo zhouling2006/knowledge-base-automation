@@ -1,0 +1,93 @@
+[
+  {
+    "source": "第六章/第三节/二、功.md",
+    "section": "二、功",
+    "section_id": null,
+    "position": 1,
+    "title": "常力做功公式",
+    "content": "当物体在大小和方向均不变的常力 F 作用下，沿力的方向移动距离 s 时，该力所做的功为 W = F·s。",
+    "raw_content": "若物体在一个与位移平行的常力（力的大小和方向都不变） $F$ 作用下，沿力的方向移动了距离 $s$ ，则力 $F$ 对物体所做的功是\n\n$$\nW = F s.\n$$",
+    "type": "concept",
+    "aliases": [
+      "恒力做功",
+      "标量功公式"
+    ],
+    "entities": "功,常力,位移",
+    "references": [
+      "力 $F$ 对物体所做的功是 $W = F s$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "常力做功等于力与沿力方向位移的乘积。",
+    "created_at": "2026-05-11T17:55:18",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/二、功.md",
+    "section": "二、功",
+    "section_id": null,
+    "position": 2,
+    "title": "变力做功的微元法",
+    "content": "当物体在方向恒定但大小随位置变化的变力 F(x) 作用下，沿 Ox 轴从 a 移动到 b 时，功的微元为 dW = F(x)dx；总功通过对 [a,b] 积分得到：W = ∫ₐᵇ F(x)dx。",
+    "raw_content": "若某物体在变力 $F$ 的作用下沿 $Ox$ 轴运动，力 $F$ 的方向不变，始终沿着 $Ox$ 轴（也称力 $F$ 为平行力），力 $F$ 的大小是位移 $x$ 的连续函数 $F = F(x)$ 。当物体在变力 $F(x)$ 作用下，沿 $Ox$ 轴从点 $a$ 移动到点 $b$ （见图6.3.3），求变力 $F(x)$ 所做的功 $W$ .\n\n在位移区间 $[a,b]$ 上任取一个小区间 $[x,x + \\mathrm{d}x]$ ，当物体在变力 $F(x)$ 作用下，沿 $Ox$ 轴由点 $x$ 移动到点 $x + \\mathrm{d}x$ 时， $F(x)$ 所做的功的微元为\n\n$$\n\\mathrm {d} W = F (x) \\mathrm {d} x.\n$$\n\n将 $\\mathrm{d}W$ 在区间 $[a,b]$ 上积分得到所要求的功\n\n$$\nW = \\int_ {a} ^ {b} F (x) \\mathrm {d} x. \\tag {6.3.1}\n$$",
+    "type": "concept",
+    "aliases": [
+      "功的微元表达式",
+      "变力做功积分公式"
+    ],
+    "entities": "功,变力,微元法,定积分",
+    "references": [
+      "$F(x)$ 所做的功的微元为 $\\mathrm {d} W = F (x) \\mathrm {d} x$",
+      "将 $\\mathrm{d}W$ 在区间 $[a,b]$ 上积分得到所要求的功 $W = \\int_ {a} ^ {b} F (x) \\mathrm {d} x$"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "变力沿直线做功通过微元 dW = F(x)dx 积分求得。",
+    "created_at": "2026-05-11T17:55:18",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/二、功.md",
+    "section": "二、功",
+    "section_id": null,
+    "position": 3,
+    "title": "例6.3.3：点电荷电场中单位正电荷移动的功",
+    "content": "单位正电荷在原点处点电荷 q 的电场中，从 x = a 移动到 x = b（0 < a < b），受库仑力 F(x) = kq/x²（同向 x 轴），电场力做功为 W = kq(1/a − 1/b)。",
+    "raw_content": "例6.3.3 设在坐标原点 $O$ 处有一带正电量 $q$ 的点电荷，若单位正电荷在电场力的作用下由点 $a$ 移动到点 $b$ $(0 < a < b)$ ，求电场力所做的功 $W$ .\n\n解 由库仑（Coulomb）定律知，若单位正电荷位于 $x$ 轴上距原点 $x(x > 0)$ 处，则它所受到的电场力是一个排斥力，大小为\n\n$$\nF (x) = \\frac {k q}{x ^ {2}},\n$$\n\n其方向与 $x$ 轴同向. 取 $x$ 为积分变量, 它的变化范围是 $[a,b]$ . 功的微元为\n\n$$\n\\mathrm {d} W = \\frac {k q}{x ^ {2}} \\mathrm {d} x,\n$$\n\n于是所求的功为\n\n$$\nW = \\int_ {a} ^ {b} \\frac {k q}{x ^ {2}} \\mathrm {d} x = k q \\left(\\frac {1}{a} - \\frac {1}{b}\\right).\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "库仑定律,电场力,点电荷,功",
+    "references": [],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "利用库仑力函数对距离积分，计算电场中单位正电荷移动所做的功。",
+    "created_at": "2026-05-11T17:55:18",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/二、功.md",
+    "section": "二、功",
+    "section_id": null,
+    "position": 4,
+    "title": "例6.3.4：圆锥形容器抽水做功",
+    "content": "圆锥形水容器（顶点在原点，底半径 R、高 H）中水被全部抽出至顶部，需克服重力做功。取高度 h 为积分变量，水层微元质量为 ρπr²dh（其中 r = Rh/H），提升距离为 H−h，功微元为 dW = ρgπr²(H−h)dh，积分得总功 W = (ρgπ/12)R²H² = (2500π/3)R²H² J。",
+    "raw_content": "例6.3.4有一圆锥形的容器，里面充满了水，容器的上底半径为 $R(\\mathrm{m})$ ，高为 $H(\\mathrm{m})$ 水的密度为 $\\rho$ ，问要把容器中的水全部从顶部抽出，需做多少功（ $g$ 取 $10\\mathrm{m / s^2}$ ， $\\rho$ 为 $10^{3}\\mathrm{kg} / \\mathrm{m}^{3}$ ）？\n\n解 建立直角坐标系（见图6.3.4），圆锥顶点在坐标原点。选 $h$ 作为积分变量，则 $h \\in [0, H]$ ， $h$ 的单位为 $\\mathrm{m}$ 。\n\n![](images/eae4b8a489492691c025bf87f56398f7624b54e1fdb52ed3abc3609a6fb557c5.jpg)  \n图6.3.4\n\n在区间 $[0, H]$ 上任取一个小区间 $[h, h + \\mathrm{d}h]$ ，相应的水层的质量近似等于以 $r$ 为底半径、 $\\mathrm{d}h$ 为高的薄圆柱水层（图6.3.4中的阴影部分）的质量 $\\rho \\pi r^2 \\mathrm{~d}h$ 。将这一薄层水从顶部抽出所经过的距离是 $H - h$ ，故克服重力所做的功的微元是\n\n$$\n\\mathrm {d} W = \\rho g \\pi r ^ {2} (H - h) \\mathrm {d} h.\n$$\n\n又因为 $r = \\frac{Rh}{H}$ 所以\n\n$$\n\\mathrm {d} W = \\frac {\\rho g \\pi R ^ {2} h ^ {2}}{H ^ {2}} (H - h) \\mathrm {d} h.\n$$\n\n将 $\\mathrm{d}W$ 在区间 $[0,H]$ 上积分得到所求的功\n\n$$\nW = \\int_ {0} ^ {H} \\frac {\\rho g \\pi R ^ {2} h ^ {2}}{H ^ {2}} (H - h) \\mathrm {d} h = \\frac {\\rho g \\pi}{1 2} R ^ {2} H ^ {2} = \\frac {2 5 0 0 \\pi}{3} R ^ {2} H ^ {2} (\\mathrm {J}).\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "圆锥形容器,抽水做功,重力,水密度,积分变量",
+    "references": [],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "通过建立几何关系与微元模型，计算圆锥容器抽水所需克服重力的总功。",
+    "created_at": "2026-05-11T17:55:18",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

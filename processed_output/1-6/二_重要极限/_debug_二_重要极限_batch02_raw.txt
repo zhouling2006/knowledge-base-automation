@@ -1,0 +1,196 @@
+---
+title: 例1.6.8续：计算辅助极限
+numeric_source: 1-6-2-5
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 夹逼准则
+---
+
+# 例1.6.8续：计算辅助极限
+
+为应用夹逼准则证明 $\lim_{x\to +\infty}\left(1 + \frac{1}{x}\right)^x = e$，需先验证不等式链两端的极限均等于 $e$：
+
+$$
+\left(1 + \frac{1}{n + 1}\right)^n < \left(1 + \frac{1}{x}\right)^x < \left(1 + \frac{1}{n}\right)^{n + 1},
+$$
+
+其中 $n \le x < n+1$，且 $x \to +\infty \Rightarrow n \to \infty$。
+
+我们分别计算左右边界极限：
+
+- 左边界：
+  $$
+  \lim_{n \to \infty} \left(1 + \frac{1}{n + 1}\right)^n 
+  = \lim_{n \to \infty} \frac{\left(1 + \frac{1}{n + 1}\right)^{n + 1}}{1 + \frac{1}{n + 1}} 
+  = \frac{e}{1} = e,
+  $$
+  其中利用了已知数列极限 [[离散情形回顾-数列极限-$lim_{ntoinfty}(1+1n)^n-=-e$.md]]{type=concept, label=数列极限定义, render=link, subject=高等数学, grade=大学, tags=极限|数列|自然常数} 及 [[极限的运算法则]]{type=concept, label=极限乘除法则, render=link, tags=高数|极限}。
+
+- 右边界：
+  $$
+  \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n + 1}
+  = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n \cdot \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)
+  = e \cdot 1 = e.
+  $$
+
+二者均收敛于 $e$，从而满足夹逼准则前提条件。
+
+::: {#proof-168-auxiliary .proof label="辅助极限计算" type=proof}
+$$
+\lim_{n \to \infty} \left(1 + \frac{1}{n + 1}\right)^n = e, \quad
+\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n + 1} = e.
+$$
+:::
+
+该推导依赖核心知识：[[离散情形回顾-数列极限-$lim_{ntoinfty}(1+1n)^n-=-e$.md]]{type=concept, label=数列极限 $e$，render=link, tags=极限|数列} 和 [[极限的运算法则]]{type=concept, label=极限四则运算, render=link, tags=高数|极限}。
+
+---SPLIT---
+---
+title: 例1.6.8续：由夹逼准则得右极限
+numeric_source: 1-6-2-6
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 夹逼准则
+---
+
+# 例1.6.8续：由夹逼准则得右极限
+
+由前段构造的严格不等式链：
+
+$$
+\left(1 + \frac{1}{n + 1}\right)^n < \left(1 + \frac{1}{x}\right)^x < \left(1 + \frac{1}{n}\right)^{n + 1}, \quad \text{其中 } n \le x < n+1,
+$$
+
+并已证得：
+
+$$
+\lim_{n \to \infty} \left(1 + \frac{1}{n + 1}\right)^n = e, \quad
+\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n + 1} = e,
+$$
+
+根据 [[夹逼准则]]{type=concept, label=夹逼定理, render=link, subject=高等数学, grade=大学, tags=极限|定理}（又称“夹挤定理”或“三明治定理”），可立即推出：
+
+$$
+\lim_{x \to +\infty} \left(1 + \frac{1}{x}\right)^x = e.
+$$
+
+该结论是重要极限 $\lim_{x \to \infty}(1+1/x)^x = e$ 的右半部分，为后续统一表述奠定基础。
+
+::: {#proof-168-right-limit .proof label="右极限成立" type=proof}
+$$
+\lim_{x \to +\infty} \left(1 + \frac{1}{x}\right)^x = e.
+$$
+:::
+
+此步是例1.6.8证明的关键跃迁，将离散逼近成功过渡至连续变量极限。完整证明见 [[例1.6.8-证明-$lim_{xto-+infty}(1+1x)^x-=-e$(夹逼法).md]]{type=question, id=例1.6.8, label=夹逼法证明, render=card, source=同济高数, answer=e, tags=高数|极限|证明题}。
+
+---SPLIT---
+---
+title: 例1.6.8续：证明左极限 $\lim_{x\to-\infty}(1+1/x)^x = e$
+numeric_source: 1-6-2-7
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 变量代换
+---
+
+# 例1.6.8续：证明左极限 $\lim_{x\to-\infty}(1+1/x)^x = e$
+
+为完成对 $\lim_{x \to \infty}(1 + 1/x)^x = e$ 的完整证明，还需验证左极限：
+
+$$
+\lim_{x \to -\infty} \left(1 + \frac{1}{x}\right)^x = e.
+$$
+
+**证明思路**：通过变量代换将 $x \to -\infty$ 转化为 $t \to +\infty$ 的已知形式。
+
+令 $x = -(1 + t)$，则当 $x \to -\infty$ 时，$t \to +\infty$。代入得：
+
+$$
+\begin{aligned}
+\left(1 + \frac{1}{x}\right)^x 
+&= \left(1 - \frac{1}{t + 1}\right)^{-(1 + t)} \\
+&= \left(\frac{t}{t + 1}\right)^{-(1 + t)} \\
+&= \left(\frac{t + 1}{t}\right)^{1 + t} \\
+&= \left(1 + \frac{1}{t}\right)^t \cdot \left(1 + \frac{1}{t}\right).
+\end{aligned}
+$$
+
+取极限：
+
+$$
+\lim_{t \to +\infty} \left(1 + \frac{1}{t}\right)^t \cdot \left(1 + \frac{1}{t}\right) 
+= e \cdot 1 = e.
+$$
+
+因此，
+
+$$
+\lim_{x \to -\infty} \left(1 + \frac{1}{x}\right)^x = e.
+$$
+
+::: {#proof-168-left-limit .proof label="左极限成立" type=proof}
+$$
+\lim_{x \to -\infty} \left(1 + \frac{1}{x}\right)^x = e.
+$$
+:::
+
+该步骤体现了极限理论中典型的 **变量代换技巧**，其合法性依赖于复合函数极限的连续性与极限运算法则。相关支撑知识见 [[极限的运算法则]]{type=concept, label=极限乘法与复合, render=link, tags=高数|极限} 和 [[连续变量推广-$x-to-pminfty$-时极限仍为-$e$.md]]{type=concept, label=连续极限统一性, render=link, tags=极限|连续|自然常数}。
+
+---SPLIT---
+---
+title: 综合结论：$\lim_{x\to\infty}(1+1/x)^x = e$
+numeric_source: 1-6-2-8
+aliases:
+  - 公式(1.6.3)
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 公式编号
+---
+
+# 综合结论：$\lim_{x\to\infty}(1+1/x)^x = e$
+
+综合右极限与左极限两部分结果：
+
+- $\displaystyle \lim_{x \to +\infty} \left(1 + \frac{1}{x}\right)^x = e$，
+- $\displaystyle \lim_{x \to -\infty} \left(1 + \frac{1}{x}\right)^x = e$，
+
+可得统一结论：
+
+$$
+\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e. \tag{1.6.3}
+$$
+
+该公式被称作**第二个重要极限**（第一个为 $\lim_{x \to 0} \frac{\sin x}{x} = 1$），是自然指数函数 $e^x$ 与对数函数 $\ln x$ 微积分理论的基石之一。
+
+进一步作变量替换 $x = \frac{1}{z}$（即 $z = \frac{1}{x}$），当 $x \to \infty$ 时 $z \to 0$，立即导出等价形式：
+
+$$
+\lim_{z \to 0} (1 + z)^{\frac{1}{z}} = e,
+$$
+
+或写作：
+
+$$
+\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e.
+$$
+
+该等价形式在处理 $1^\infty$ 型未定式时极为常用，是后续例1.6.9、例1.6.10等计算题的直接依据。
+
+::: {.note}
+该结论首次系统确立了连续变量下 $(1+1/x)^x$ 的极限行为，并与离散情形 [[离散情形回顾-数列极限-$lim_{ntoinfty}(1+1n)^n-=-e$.md]]{type=concept, label=数列极限 $e$, render=link, tags=极限|数列} 形成完美呼应，体现数学分析中“离散→连续”的自然延拓思想。
+:::
+
+延伸应用见：
+- [[例1.6.9-求-$lim_{xto-infty}(1-13x)^x$.md]]{type=question, id=例1.6.9, label=形如 $(1+a/x)^x$ 的极限, render=card, source=同济高数, answer=e^{-1/3}, tags=高数|极限|计算题}
+- [[例1.6.10-求-$lim_{xto-0}(1-x)^{2x}$.md]]{type=question, id=例1.6.10, label=形如 $(1+ax)^{b/x}$ 的极限, render=card, source=同济高数, answer=e^{-2}, tags=高数|极限|计算题}

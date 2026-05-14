@@ -1,0 +1,57 @@
+---
+title: 例6.2.18：心形线周长
+numeric_source: 6-2-3-9
+aliases:
+  - 心形线周长计算
+  - 极坐标下心形线弧长
+tags:
+  - 高等数学
+  - 弧长
+  - 极坐标
+  - 参数曲线
+---
+
+# 例6.2.18：心形线周长
+
+求心形线 $\rho = a(1 + \cos \varphi)\ (a > 0)$ 的周长。
+
+::: {.example label="例6.2.18" type=example}
+解 因为  
+$$
+\rho (\varphi) = a(1 + \cos \varphi),\quad \rho'(\varphi) = -a\sin \varphi,\quad \varphi \in [0,2\pi],
+$$  
+所以  
+$$
+\begin{aligned}
+\rho^{2} (\varphi) + \rho'^{2} (\varphi) 
+&= a^{2} (1 + \cos \varphi)^{2} + a^{2} \sin^{2} \varphi \\
+&= a^{2} \left[1 + 2\cos \varphi + \cos^{2}\varphi + \sin^{2}\varphi \right] \\
+&= a^{2} \left[2 + 2\cos \varphi \right] \\
+&= 4a^{2} \cos^{2} \frac{\varphi}{2}.
+\end{aligned}
+$$
+
+由于心形线 $\rho = a(1 + \cos \varphi)$ 关于极轴对称，故其周长为  
+$$
+\begin{aligned}
+s &= 2 \int_{0}^{\pi} \sqrt{\rho^{2} (\varphi) + \rho'^{2} (\varphi)}\, d\varphi \\
+&= 2 \int_{0}^{\pi} \sqrt{4a^{2} \cos^{2} \frac{\varphi}{2}}\, d\varphi \\
+&= 4a \int_{0}^{\pi} \left| \cos \frac{\varphi}{2} \right| d\varphi.
+\end{aligned}
+$$  
+在 $[0,\pi]$ 上，$\cos \frac{\varphi}{2} \geq 0$，故可去绝对值：  
+$$
+s = 4a \int_{0}^{\pi} \cos \frac{\varphi}{2}\, d\varphi 
+= 4a \cdot 2 \int_{0}^{\pi} \cos \frac{\varphi}{2}\, d\left(\frac{\varphi}{2}\right) 
+= 8a \sin \frac{\varphi}{2} \Bigg|_{0}^{\pi} 
+= 8a.
+$$
+:::
+
+该结果体现了极坐标弧长公式的典型应用：[[极坐标方程下平面曲线的弧长公式]]{type=concept, label=极坐标弧长公式, render=link, subject=高等数学, grade=大学, tags=弧长|极坐标|积分}。
+
+本题关键技巧在于利用**对称性简化积分区间**，并结合三角恒等变形化简被积函数。类似思路亦见于 [[例6.2.17-星形线全长]]{type=question, id=例6.2.17, label=星形线全长, render=link, source=教材, tags=弧长|对称性|参数方程}。
+
+延伸思考：心形线是圆锥曲线的一种特殊情形（外摆线），其几何性质与复数表示、傅里叶展开亦有深刻联系，可进一步参阅 [[曲线的参数表示与几何分类]]{type=concept, label=曲线分类, render=link, tags=几何|参数曲线}。
+
+---SPLIT---

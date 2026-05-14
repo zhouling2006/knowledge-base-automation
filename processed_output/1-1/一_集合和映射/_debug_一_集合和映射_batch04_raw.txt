@@ -1,0 +1,136 @@
+---
+title: 映射的定义
+numeric_source: 1-1-1-13
+aliases:
+  - 函数（初等语境）
+  - 对应关系
+tags:
+  - 高等数学
+  - 映射
+  - 基础概念
+---
+
+# 映射的定义
+
+设 $A, B$ 是两个非空集合，若对每个 $x \in A$，按照某种确定的法则 $f$，有唯一确定的 $y \in B$ 与之相对应，则称 $f$ 为从 $A$ 到 $B$ 的一个**映射**，记作：
+
+$$
+f: A \to B \quad \text{或} \quad f: x \mapsto y = f(x),\quad x \in A.
+$$
+
+其中：
+- $y$ 称为 $x$ 在映射 $f$ 下的**像**，
+- $x$ 称为 $y$ 在映射 $f$ 下的一个**原像**（或逆像），
+- $A$ 称为映射 $f$ 的**定义域**，记作 $D(f)$ 或 $D_f$，
+- $A$ 中所有元素 $x$ 的像 $y$ 的全体所构成的集合，称为 $f$ 的**值域**，记作 $f(A)$ 或 $R_f$，即：
+
+$$
+R_f = f(A) = \{y \mid y = f(x),\; x \in A\}.
+$$
+
+::: {.note}
+映射由**三个要素**唯一确定：非空集合 $A$（定义域）、非空集合 $B$（陪域）、确定的对应法则 $f$。值域 $R_f$ 总是 $B$ 的子集（$R_f \subseteq B$），但未必等于 $B$。
+:::
+
+该定义是函数概念的抽象推广——当 $A, B$ 均为数集时，映射 $f: A \to B$ 即为通常所说的**函数**。因此，函数是映射在分析学中的特例。
+
+延伸阅读：  
+- [[集合的定义]]{type=concept, label=集合基础, render=link, subject=高等数学, grade=大学, tags=集合|基础}  
+- [[函数的定义]]{type=concept, label=函数初等定义, render=link, subject=高等数学, grade=大学, tags=函数|映射}  
+- [[映射的性质与分类]]{type=concept, label=映射类型, render=link, tags=映射|分类}
+
+::: {#proof-mapping-def-001 .proof label="映射三要素验证" type=proof}
+一个对象是否构成映射，需同时满足：  
+1. **定义域非空**（$A \neq \varnothing$）；  
+2. **单值性**（$\forall x \in A$，存在唯一 $y \in B$ 使 $f(x)=y$）；  
+3. **法则确定性**（对同一 $x$，$f(x)$ 不随观察者或时间变化）。  
+违反任一条件（如“$f(x)=\pm\sqrt{x}$”在 $x>0$ 时不满足单值性），则不构成映射。
+:::
+
+关键验证见 ((proof-mapping-def-001)){type=proof, label=映射三要素验证, render=card, note=单值性与确定性是核心}
+
+
+---SPLIT---
+---
+title: 映射的性质与分类
+numeric_source: 1-1-1-14
+aliases:
+  - 满射
+  - 单射
+  - 双射
+  - 可逆映射
+  - 复合映射
+tags:
+  - 高等数学
+  - 映射
+  - 分类
+---
+
+# 映射的性质与分类
+
+映射按其**像的覆盖性**与**原像的唯一性**可分为三类基本类型，它们共同构成了映射结构理论的核心框架。
+
+## 一、基本分类
+
+- **满射（Surjection）**：若映射 $f: A \to B$ 的值域等于陪域，即 $R_f = B$，则称 $f$ 为**满射**。  
+  ⇔ 对任意 $y \in B$，存在至少一个 $x \in A$，使得 $f(x) = y$。
+
+- **单射（Injection）**：若对任意 $x_1, x_2 \in A$，当 $x_1 \ne x_2$ 时必有 $f(x_1) \ne f(x_2)$，则称 $f$ 为**单射**。  
+  ⇔ 值域中每个元素至多有一个原像（即原像唯一或不存在）。
+
+- **一一映射（双射，Bijection）**：若 $f$ 既是满射又是单射，则称 $f$ 为**一一映射**（或**双射**）。  
+  ⇔ 对每个 $y \in B$，存在**唯一** $x \in A$ 使得 $f(x) = y$。
+
+> ✅ 例1.1.1（学号映射）是一一映射；  
+> ❌ 例1.1.2（平方函数 $f(x)=x^2$）既非单射（$f(1)=f(-1)$）也非满射（$R_f = [0,+\infty) \subsetneq \mathbb{R}$）；  
+> ⚠️ 例1.1.3（$F(x,y)=x^2+y^2$）是满射（$B=[0,+\infty)$），但非单射（$F(1,0)=F(0,1)=1$）。
+
+## 二、重要衍生概念
+
+### 1. 逆映射（Inverse Mapping）
+
+若 $f: A \to B$ 是一一映射，则存在唯一的**逆映射** $f^{-1}: B \to A$，满足：
+
+$$
+f^{-1}(y) = x \iff f(x) = y,
+$$
+
+且有：
+- $D_{f^{-1}} = B$, $R_{f^{-1}} = A$；
+- $(f^{-1})^{-1} = f$，即逆映射可逆；
+- $f^{-1} \circ f = \mathrm{id}_A$, $f \circ f^{-1} = \mathrm{id}_B$（恒等映射）。
+
+### 2. 复合映射（Composite Mapping）
+
+设有映射 $f: A \to B$ 与 $g: B \to C$，若 $f(A) \subseteq B$（即 $f$ 的值域被 $g$ 的定义域包含），则可定义**复合映射** $g \circ f: A \to C$，其法则为：
+
+$$
+(g \circ f)(x) = g\big(f(x)\big), \quad \forall x \in A.
+$$
+
+> ⚠️ 注意：复合要求**衔接兼容**；$f: A \to B$ 与 $g: C \to D$ 一般不可复合，除非 $B \subseteq C$ 或经适当限制。
+
+参考图示：  
+![](images/4d875094ace70846e3bd5bfc1f7473d4975840a806a2133deee990df0c2a56cc.jpg)  
+图1.1.4：满射、单射、双射的文氏图对比  
+
+![](images/207cc5df2bbbaa9b3a4524b309b23bf843abcb5c3783150b8f48f6ca3bd42f0c.jpg)  
+(a) 与  
+![](images/06519c85db67f5d17718af0b5e848a6184f8c7c21aa33399057e7e4688ead498.jpg)  
+(b)  
+图1.1.5：复合映射的两种图示视角
+
+延伸学习：  
+- [[映射的定义]]{type=concept, label=基础定义, render=link, tags=映射|基础}  
+- [[函数的定义]]{type=concept, label=函数作为特例, render=link, subject=高等数学, grade=大学, tags=函数|映射}  
+- [[逆函数]]{type=concept, label=函数语境下的逆映射, render=link, tags=函数|反函数}  
+- [[复合函数]]{type=concept, label=函数复合, render=link, tags=函数|复合}
+
+::: {#proof-bijection-inv-001 .proof label="一一映射 ⇔ 可逆" type=proof}
+**证明思路**：  
+（⇒）若 $f$ 是一一映射，则对每个 $y \in B$ 存在唯一 $x \in A$ 满足 $f(x)=y$，故可定义 $f^{-1}(y):=x$，易证其为映射且满足逆性。  
+（⇐）若 $f^{-1}: B \to A$ 存在且为映射，则对任意 $y \in B$，$x=f^{-1}(y)$ 唯一，故 $f$ 是单满射。  
+因此，一一映射与可逆性等价。
+:::
+
+详细推导见 ((proof-bijection-inv-001)){type=proof, label=一一映射与可逆性等价, render=card, note=核心等价性命题}

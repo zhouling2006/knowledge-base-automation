@@ -1,0 +1,168 @@
+[
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 1,
+    "title": "函数在区间上的平均值（定义引入）",
+    "content": "“平均值”在实际中广泛存在，如平均温度、平均功率等。离散情形下，n个数y₁,…,yₙ的算术平均值为(y₁+⋯+yₙ)/n；而对连续函数f(x)在区间[a,b]上的平均值，需通过极限过程定义。",
+    "raw_content": "“平均值”这一概念，在实际问题中经常碰到，例如平均年龄、平均温度、平均高度……一般地，我们把 $n$ 个数值 $y_{1}, y_{2}, \\dots, y_{n}$ 的算术平均值\\n\\n$$\\n\\bar {y} = \\frac {y _ {1} + y _ {2} + \\cdots + y _ {n}}{n}\\n$$\\n\\n定义为这 $n$ 个数的平均值. 这是离散情况下求平均值的方法. 但在实际应用上, 有时要求一个连续变量的平均值. 例如, 求一昼夜的平均温度、在一段时间的平均功率等. 为此, 我们需要讨论连续函数 $f(x)$ 在区间 $[a, b]$ 上的平均值的定义及计算方法.",
+    "type": "concept",
+    "aliases": [
+      "连续平均值",
+      "区间平均值"
+    ],
+    "entities": "平均值,函数,区间,算术平均值",
+    "references": [
+      "我们把 $n$ 个数值 $y_{1}, y_{2}, \\dots, y_{n}$ 的算术平均值定义为这 $n$ 个数的平均值",
+      "我们称极限…为函数 $f(x)$ 在区间 $[a,b]$ 上的平均值"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "引入连续函数在闭区间上平均值的概念，对比离散平均值，指出需用极限方法定义。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 2,
+    "title": "函数平均值的构造步骤（离散逼近）",
+    "content": "为定义f(x)在[a,b]上的平均值，先将区间n等分，取右端点函数值构成离散样本，其算术平均为ȳₙ = (1/n)∑ᵢ₌₁ⁿ f(xᵢ)；该值随n增大而趋近于真实平均值。",
+    "raw_content": "第一步，把 $[a,b]$ $n$ 等分，分点为\\n\\n$$\\na = x _ {0} <   x _ {1} <   x _ {2} <   \\dots <   x _ {n - 1} <   x _ {n} = b.\\n$$\\n\\n每个小区间的长度都为 $\\Delta x = \\frac{b - a}{n}$ ，各分点处的函数值分别为\\n\\n$$\\nf \\left(x _ {0}\\right), f \\left(x _ {1}\\right), f \\left(x _ {2}\\right), \\dots , f \\left(x _ {n - 1}\\right), f \\left(x _ {n}\\right).\\n$$\\n\\n第二步，在每个小区间右端点的函数值的平均值为\\n\\n$$\\n\\bar {y} _ {n} = \\frac {f \\left(x _ {1}\\right) + f \\left(x _ {2}\\right) + \\cdots + f \\left(x _ {n}\\right)}{n} = \\frac {1}{n} \\sum_ {i = 1} ^ {n} f \\left(x _ {i}\\right).\\n$$\\n\\n显然，可用 $\\overline{y}_n$ 近似表示 $f(x)$ 在 $[a,b]$ 上所取得一切值的平均值",
+    "type": "concept",
+    "aliases": [
+      "右端点平均近似",
+      "离散逼近平均值"
+    ],
+    "entities": "函数,区间,右端点,平均值,等分",
+    "references": [
+      "可用 $\\overline{y}_n$ 近似表示 $f(x)$ 在 $[a,b]$ 上所取得一切值的平均值"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "通过n等分与右端点采样构造离散平均值序列ȳₙ，作为连续平均值的逼近。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 3,
+    "title": "函数在区间上的平均值（极限定义）",
+    "content": "函数f(x)在闭区间[a,b]上的平均值定义为极限ȳ = limₙ→∞ (1/n)∑ᵢ₌₁ⁿ f(xᵢ)，其中xᵢ为[a,b]的n等分右端点；该极限存在且等于(1/(b−a))∫ₐᵇ f(x)dx。",
+    "raw_content": "第三步，如果 $n$ 越大，所取的分点就越多， $\\overline{y}_n$ 的值就越能比较准确地表示 $f(x)$ 在 $[a, b]$ 上的平均值，因此，我们称极限\\n\\n$$\\n\\bar {y} = \\lim  _ {n \\rightarrow \\infty} \\frac {1}{n} \\sum_ {i = 1} ^ {n} f (x _ {i})\\n$$\\n\\n为函数 $f(x)$ 在区间 $[a,b]$ 上的平均值",
+    "type": "concept",
+    "aliases": [
+      "平均值的极限定义"
+    ],
+    "entities": "函数,区间,平均值,极限,右端点",
+    "references": [
+      "我们称极限…为函数 $f(x)$ 在区间 $[a,b]$ 上的平均值"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "正式给出连续函数在闭区间上平均值的极限定义。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 4,
+    "title": "平均值的积分表达式（主公式）",
+    "content": "由定积分定义可证：当f(x)在[a,b]上连续时，其平均值极限等于(1/(b−a))∫ₐᵇ f(x)dx，即公式(6.4.1)。该式表明平均值是函数图像与x轴围成面积除以区间长度。",
+    "raw_content": "因为函数 $f(x)$ 在区间 $[a,b]$ 上连续， $\\Delta x_{i} = \\frac{b - a}{n} (i = 1,2,\\dots ,n)$ 相等，所以由定积分的定义有\\n\\n$$\\n\\begin{array}{l} \\lim  _ {n \\rightarrow \\infty} \\frac {1}{n} \\sum_ {i = 1} ^ {n} f (x _ {i}) = \\lim  _ {n \\rightarrow \\infty} \\frac {1}{n \\Delta x _ {i}} \\sum_ {i = 1} ^ {n} f (x _ {i}) \\Delta x _ {i} = \\lim  _ {n \\rightarrow \\infty} \\frac {1}{b - a} \\sum_ {i = 1} ^ {n} f (x _ {i}) \\Delta x _ {i} \\\\ = \\frac {1}{b - a} \\int_ {a} ^ {b} f (x) d x, \\\\ \\end{array}\\n$$\\n\\n于是，连续函数 $f(x)$ 在区间 $[a,b]$ 上的平均值为\\n\\n$$\\n\\bar {y} = \\frac {1}{b - a} \\int_ {a} ^ {b} f (x) \\mathrm {d} x. \\tag {6.4.1}\\n$$",
+    "type": "theorem",
+    "aliases": [
+      "平均值公式",
+      "区间平均值积分公式"
+    ],
+    "entities": "函数,区间,平均值,定积分,连续函数",
+    "references": [
+      "于是，连续函数 $f(x)$ 在区间 $[a,b]$ 上的平均值为 $\\bar {y} = \\frac {1}{b - a} \\int_ {a} ^ {b} f (x) \\mathrm {d} x$"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "推导并给出连续函数在闭区间上平均值的核心积分公式（6.4.1）。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 5,
+    "title": "平均值的存在性与几何解释",
+    "content": "由积分中值定理可知，连续函数f(x)在[a,b]上的平均值ȳ必等于某点ξ∈[a,b]处的函数值f(ξ)，即平均值一定存在且具有明确的函数值意义。",
+    "raw_content": "实际上，此处 $\\overline{y}$ 便是积分中值定理中的 $f(\\xi)$ 。这就是说，闭区间 $[a, b]$ 上的连续函数的平均值一定存在。",
+    "type": "theorem",
+    "aliases": [
+      "平均值存在性",
+      "积分中值定理推论"
+    ],
+    "entities": "平均值,积分中值定理,连续函数,闭区间",
+    "references": [
+      "此处 $\\overline{y}$ 便是积分中值定理中的 $f(\\xi)$",
+      "闭区间 $[a, b]$ 上的连续函数的平均值一定存在"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "指出平均值存在性，并揭示其与积分中值定理的内在联系。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 6,
+    "title": "例6.4.1：理想气体等温膨胀中压强的平均值",
+    "content": "对等温理想气体p=k/V，在体积区间[Vₐ,V_b]上应用平均值公式得平均压强p̄ = k/(V_b−Vₐ)·ln(V_b/Vₐ)，体现平均值在物理量计算中的直接应用。",
+    "raw_content": "例6.4.1 若一定质量的理想气体，在等温条件下，其体积由 $V_{a}$ 膨胀到 $V_{b}$ ，求这过程中压强的平均值。\\n\\n解 一定质量的理想气体，在等温条件下，压强 $p = \\frac{k}{V}$ （ $k$ 是常数）。由题意可知，要求 $p = \\frac{k}{V}$ 在区间 $[V_a, V_b]$ 上的平均值，由公式（6.4.1）得\\n\\n$$\\n\\bar {p} = \\frac {1}{V _ {b} - V _ {a}} \\int_ {V _ {a}} ^ {V _ {b}} \\frac {k}{V} \\mathrm {d} V = \\frac {k}{V _ {b} - V _ {a}} \\ln \\frac {V _ {b}}{V _ {a}}.\\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "理想气体,压强,体积,平均值,定积分",
+    "references": [],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "应用平均值公式计算物理情境中非线性函数的平均压强。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第四节 函数在区间上的平均值.md",
+    "section": "第四节 函数在区间上的平均值",
+    "section_id": null,
+    "position": 7,
+    "title": "例6.4.2：正弦交流电的平均功率",
+    "content": "对纯电阻电路中电流i=Iₘsinωt，功率P=i²R=Iₘ²Rsin²(ωt)，在一个周期T=2π/ω上求平均功率，得P̄=Iₘ²R/2，体现平均值在周期信号能量分析中的关键作用。",
+    "raw_content": "例6.4.2 设纯电阻电路中的正弦交流电的电流强度为\\n\\n$$\\ni = i (t) = I _ {m} \\sin \\omega t,\\n$$\\n\\n求其平均功率（一个周期上功率的平均值） $\\overline{P}$\\n\\n解 设电阻为 $R$ ，则对于这一交流电路来说，电流通过电阻 $R$ 所消耗的功率为\\n\\n$$\\nP = i ^ {2} (t) R = I _ {m} ^ {2} R \\sin^ {2} (\\omega t).\\n$$\\n\\n注意到周期 $T = \\frac{2\\pi}{\\omega}$ ，因此平均功率为\\n\\n$$\\n\\begin{array}{l} \\bar {P} = \\frac {1}{\\frac {2 \\pi}{\\omega}} \\int_ {0} ^ {\\frac {2 \\pi}{\\omega}} I _ {m} ^ {2} R \\sin^ {2} (\\omega t) d t = \\frac {I _ {m} ^ {2} R}{4 \\pi} \\int_ {0} ^ {\\frac {2 \\pi}{\\omega}} [ 1 - \\cos (2 \\omega t) ] d (\\omega t) \\\\ = \\frac {I _ {m} ^ {2} R}{4 \\pi} \\left[ \\omega t - \\frac {1}{2} \\sin (2 \\omega t) \\right] \\Bigg | _ {0} ^ {\\frac {2 \\pi}{\\omega}} = \\frac {I _ {m} ^ {2} R}{2}. \\\\ \\end{array}\\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "正弦交流电,平均功率,周期,电阻,定积分",
+    "references": [],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "应用平均值公式计算周期函数（sin²）在一个完整周期上的平均功率。",
+    "created_at": "2026-05-11T18:44:44",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

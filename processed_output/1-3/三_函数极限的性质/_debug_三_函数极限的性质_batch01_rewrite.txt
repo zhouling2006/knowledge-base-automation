@@ -1,0 +1,151 @@
+---
+title: 函数极限的唯一性
+numeric_source: 1-3-3-1
+aliases:
+  - 极限唯一性定理
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+  - 基础性质
+---
+
+# 函数极限的唯一性
+
+若函数 $f(x)$ 在 $x \to x_0$ 时极限存在，则该极限值唯一。
+
+这是函数极限最基础的结构性质之一，表明极限若存在，其值不可歧义。它为后续所有极限运算、夹逼准则、连续性定义等提供了逻辑前提。
+
+该结论与数列极限的唯一性（[[数列极限的唯一性]]{type=concept, label=数列极限唯一性, render=link, subject=高等数学, grade=大学, tags=极限|数列}）形式一致，但证明思路需依托函数极限的 $\varepsilon$-$\delta$ 定义，体现局部趋近的本质。
+
+::: {#proof-uniqueness-001 .proof label="唯一性证明思路" type=proof}
+假设 $\lim_{x \to x_0} f(x) = A$ 且 $\lim_{x \to x_0} f(x) = B$，其中 $A \neq B$。取 $\varepsilon = \frac{|A - B|}{2} > 0$，由极限定义，存在 $\delta_1, \delta_2 > 0$，使得当 $0 < |x - x_0| < \min\{\delta_1,\delta_2\}$ 时，同时有  
+$|f(x) - A| < \varepsilon$ 与 $|f(x) - B| < \varepsilon$。  
+则  
+$$
+|A - B| \leq |A - f(x)| + |f(x) - B| < 2\varepsilon = |A - B|,
+$$  
+矛盾。故 $A = B$。
+:::
+
+详细推导见 ((proof-uniqueness-001)){type=proof, label=唯一性证明思路, render=card, note=反证法应用}。
+
+关联知识点：[[函数极限的定义]]{type=concept, label=极限定义, render=link, tags=高数|极限|核心概念}、[[极限的局部保号性]]{type=concept, label=保号性, render=link, tags=高数|极限|性质}。
+
+---SPLIT---
+---
+title: 函数极限的局部有界性
+numeric_source: 1-3-3-2
+aliases:
+  - 局部有界性定理
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+  - 局部性质
+---
+
+# 函数极限的局部有界性
+
+若 $\lim_{x \to x_0} f(x) = A$，则存在正数 $\delta$，使得 $f(x)$ 在点 $x_0$ 的去心 $\delta$ 邻域 $\mathring{U}(x_0,\delta) = \{x \mid 0 < |x - x_0| < \delta\}$ 内有界，即存在 $M > 0$，使得对所有 $x \in \mathring{U}(x_0,\delta)$，恒有 $|f(x)| \leq M$。
+
+该性质强调“局部”二字——有界性仅在趋近点附近某个小邻域内成立，不涉及函数在更大范围（如整个区间）的行为，是函数极限区别于“整体有界函数”的关键特征。
+
+::: {#proof-local-boundedness-001 .proof label="局部有界性证明" type=proof}
+因 $\lim_{x \to x_0} f(x) = A$，取 $\varepsilon = 1$，由 $\varepsilon$-$\delta$ 定义，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，有  
+$$
+|f(x) - A| < 1.
+$$  
+利用三角不等式：  
+$$
+|f(x)| = |f(x) - A + A| \leq |f(x) - A| + |A| < 1 + |A|.
+$$  
+令 $M = |A| + 1$，则对所有 $x \in \mathring{U}(x_0,\delta)$，有 $|f(x)| < M$，即 $f(x)$ 在该去心邻域内有界。
+:::
+
+该证明体现了 $\varepsilon$-$\delta$ 定义中“任意小 $\varepsilon$ 可控”的威力——即使只取一个固定 $\varepsilon = 1$，已足以导出局部控制能力。
+
+延伸阅读：[[有界变量（局部）定义]]{type=concept, label=局部有界变量, render=link, tags=高数|极限|概念}、[[函数极限的局部保号性]]{type=concept, label=保号性, render=link, tags=高数|极限|性质}。
+
+---SPLIT---
+---
+title: 有界变量（局部）定义
+numeric_source: 1-3-3-3
+aliases:
+  - 局部有界变量
+tags:
+  - 高等数学
+  - 极限
+  - 概念
+  - 局部性质
+---
+
+# 有界变量（局部）定义
+
+若存在常数 $M > 0$ 和 $\delta > 0$，使得当 $x \in \mathring{U}(x_0,\delta)$（即 $0 < |x - x_0| < \delta$）时，恒有  
+$$
+|f(x)| \leq M,
+$$  
+则称函数 $f(x)$ 在 $x \to x_0$ 时为**有界变量**（或称**局部有界**）。
+
+⚠️ 注意：此定义是**局部概念**，仅要求在某去心邻域内有界；它与第一章第一节中定义的“在某个区间 $I$ 上有界”（即 $\exists M>0,\ \forall x\in I,\ |f(x)|\le M$）有本质区别——后者是**整体性**描述，适用于闭区间连续函数等场景，而前者是极限理论的基石性工具。
+
+该概念直接支撑了极限运算法则中分母非零的保障（如商的极限法则需分母极限非零且局部不为零），也是夹逼准则、无穷小比较等方法的前提。
+
+::: {.note}
+“局部有界” ≠ “有极限”。反例：函数  
+$$
+f(x) = \begin{cases}
+1, & x \in \mathbb{Q} \\
+-1, & x \notin \mathbb{Q}
+\end{cases}
+$$  
+在任意 $x_0$ 处均局部有界（可取 $M = 1$），但极限处处不存在。
+:::
+
+关联定理：[[函数极限的局部有界性]]{type=theorem, label=局部有界性定理, render=link, tags=高数|极限|定理}、[[函数极限的局部保号性]]{type=concept, label=保号性, render=link, tags=高数|极限|性质}。
+
+---SPLIT---
+---
+title: 函数极限的局部保号性
+numeric_source: 1-3-3-4
+aliases:
+  - 局部保号性定理
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+  - 局部性质
+---
+
+# 函数极限的局部保号性
+
+若 $\lim_{x \to x_0} f(x) = A$，且 $A > 0$（或 $A < 0$），则必存在正数 $\delta$，使得当 $0 < |x - x_0| < \delta$ 时，恒有  
+$$
+f(x) > 0 \quad (\text{或 } f(x) < 0).
+$$
+
+该性质称为**局部保号性**，揭示了极限值的符号对函数在趋近点附近取值的“支配作用”：只要极限非零，函数在足够靠近 $x_0$ 的位置必然保持与极限同号。
+
+它是证明不等式型极限结论（如极限非负性、夹逼准则中端点控制）、分析函数图像局部行为（如穿过 $x$ 轴的必要条件）的核心工具。
+
+::: {#proof-local-sign-preservation-001 .proof label="局部保号性证明（A > 0情形）" type=proof}
+设 $A > 0$。取 $\varepsilon = \dfrac{A}{2} > 0$，由极限定义，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，有  
+$$
+|f(x) - A| < \frac{A}{2}.
+$$  
+该不等式等价于  
+$$
+A - \frac{A}{2} < f(x) < A + \frac{A}{2},
+$$  
+即  
+$$
+\frac{A}{2} < f(x) < \frac{3A}{2}.
+$$  
+因此 $f(x) > \dfrac{A}{2} > 0$，结论成立。  
+$A < 0$ 情形同理，取 $\varepsilon = -\dfrac{A}{2}$ 即可。
+:::
+
+该证明再次凸显 $\varepsilon$-$\delta$ 定义的构造灵活性：通过选取与极限值成比例的 $\varepsilon$，可精确控制函数值落入指定符号区间。
+
+延伸应用：[[极限的非负性定理（定理1.3.6）]]{type=theorem, label=极限非负性, render=link, tags=高数|极限|定理}、[[函数极限的唯一性]]{type=theorem, label=唯一性, render=link, tags=高数|极限|定理}。

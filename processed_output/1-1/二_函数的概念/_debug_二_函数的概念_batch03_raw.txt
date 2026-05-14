@@ -1,0 +1,236 @@
+---
+title: 分段函数定义与示例
+numeric_source: 1-1-2-9
+aliases:
+  - 分段定义函数
+tags:
+  - 高等数学
+  - 函数
+  - 分段函数
+---
+
+# 分段函数定义与示例
+
+分段函数是在定义域的不同子集上用不同解析式表示的函数。这类函数在整个定义域上无法用一个统一的解析式描述，需将定义域划分为若干个互不相交的真子集，并在每个子集上指定独立的对应法则。尽管表达式分段，但其本质仍严格满足**函数单值性**：对定义域中任一自变量 $x$，有且仅有一个函数值 $y$ 与之对应。
+
+典型分段函数包括：
+
+- **三角波函数**（脉冲发生器）：  
+  $$
+  U(t) = 
+  \begin{cases}
+    \dfrac{2E}{\tau} t, & 0 \leqslant t < \dfrac{\tau}{2}, \\
+    -\dfrac{2E}{\tau}(t - \tau), & \dfrac{\tau}{2} \leqslant t \leqslant \tau,
+  \end{cases}
+  $$  
+  定义域为 $[0,\tau]$，值域为 $[0,E]$，图形见图1.1.8。
+
+- **绝对值函数**：  
+  $$
+  y = |x| = 
+  \begin{cases}
+    x, & x \geqslant 0, \\
+    -x, & x < 0,
+  \end{cases}
+  $$  
+  定义域为 $(-\infty, +\infty)$，值域为 $[0, +\infty)$，图形见图1.1.9。
+
+- **符号函数**：  
+  $$
+  y = \operatorname{sgn} x = 
+  \begin{cases}
+    1, & x > 0, \\
+    0, & x = 0, \\
+    -1, & x < 0,
+  \end{cases}
+  $$  
+  定义域为 $(-\infty, +\infty)$，值域为 $\{-1, 0, 1\}$，满足恒等式 $x = \operatorname{sgn} x \cdot |x|$，图形见图1.1.10。
+
+- **取整函数（下取整）**：  
+  $y = [x]$ 表示不超过 $x$ 的最大整数，如 $[2.5] = 2$，$[-1.5] = -2$。  
+  定义域为 $(-\infty, +\infty)$，值域为整数集 $\mathbb{Z} = \{0, \pm1, \pm2, \dots\}$，图形见图1.1.11。
+
+- **狄利克雷函数**：  
+  $$
+  y = D(x) = 
+  \begin{cases}
+    1, & x \text{ 为有理数}, \\
+    0, & x \text{ 为无理数},
+  \end{cases}
+  $$  
+  定义域为 $(-\infty, +\infty)$，值域为 $\{0,1\}$。因有理数与无理数在实数轴上稠密交错，该函数**不可作图**，是分析学中重要的反例函数。
+
+> 💡 **关键理解**：分段函数不是多个函数的拼接，而是一个函数——其“对应法则”本身具有分段结构。判断两个分段函数是否相等，仍须验证**定义域完全一致**且**每一段上的解析式及对应区间均相同**。
+
+延伸学习：[[函数的两大要素与相等判定]]{type=concept, label=函数相等条件, render=link, subject=高等数学, grade=大学, tags=函数|基础概念}  
+进阶应用：[[例1.1.12-分段函数的平移变换]]{type=question, id=例1.1.12, label=平移变换, render=card, source=同济高数, tags=函数|分段函数|变换}
+
+::: {.note}
+分段函数是连接初等函数与实际建模的重要桥梁。工程中常见的开关信号、周期脉冲、阈值响应等，均以分段形式建模。
+:::
+
+---SPLIT---
+---
+title: 例1.1.12：分段函数的平移变换
+numeric_source: 1-1-2-10
+aliases: []
+tags:
+  - 高等数学
+  - 函数
+  - 分段函数
+  - 变换
+---
+
+# 例1.1.12：分段函数的平移变换
+
+已知分段函数  
+$$
+f(x) = 
+\begin{cases}
+  x^2, & 0 \leqslant x \leqslant 1, \\
+  2x, & 1 < x \leqslant 2,
+\end{cases}
+$$  
+求复合函数 $f(x+1)$ 的解析表达式。
+
+## 解
+
+函数 $f$ 是一个映射规则；$f(x+1)$ 表示将输入量 $x+1$ 代入该规则中，即对新变量 $u = x+1$ 执行与 $f(u)$ 相同的操作。
+
+因此，需将原定义域区间同步平移：
+- 原第一段条件 $0 \leqslant u \leqslant 1$ ⇒ $0 \leqslant x+1 \leqslant 1$ ⇒ $-1 \leqslant x \leqslant 0$，对应表达式 $(x+1)^2 = x^2 + 2x + 1$；
+- 原第二段条件 $1 < u \leqslant 2$ ⇒ $1 < x+1 \leqslant 2$ ⇒ $0 < x \leqslant 1$，对应表达式 $2(x+1) = 2x + 2$。
+
+故  
+$$
+f(x+1) = 
+\begin{cases}
+  x^2 + 2x + 1, & -1 \leqslant x \leqslant 0, \\
+  2x + 2, & 0 < x \leqslant 1.
+\end{cases}
+$$
+
+## 关键要点
+
+- 分段函数的自变量变换（如 $x \to x+a$）要求**所有分段条件同步替换并求解新不等式**；
+- 平移后各段定义域可能重叠或留空，需严格按逻辑推导，不可简单“移动图像”而忽略端点归属；
+- 此类操作是后续研究函数周期性、奇偶性、卷积及信号处理的基础。
+
+参考定义：[[分段函数定义与示例]]{type=concept, label=分段函数本质, render=link, tags=函数|分段函数}  
+关联知识：[[函数的图形定义]]{type=concept, label=图形视角, render=link, tags=函数|图形}
+
+::: {.example label="例1.1.12" type=example}
+已知分段函数  
+$$
+f(x) = 
+\begin{cases}
+  x^2, & 0 \leqslant x \leqslant 1, \\
+  2x, & 1 < x \leqslant 2,
+\end{cases}
+$$  
+则  
+$$
+f(x+1) = 
+\begin{cases}
+  x^2 + 2x + 1, & -1 \leqslant x \leqslant 0, \\
+  2x + 2, & 0 < x \leqslant 1.
+\end{cases}
+$$
+:::
+
+---SPLIT---
+---
+title: 极坐标系定义
+numeric_source: 1-1-2-11
+aliases:
+  - 极坐标
+tags:
+  - 高等数学
+  - 坐标系
+  - 极坐标
+---
+
+# 极坐标系定义
+
+极坐标系是一种基于**距离与角度**定位平面内点的二维坐标系统，广泛应用于物理、工程与曲线建模（如心形线、阿基米德螺线等）。
+
+## 基本构成
+
+- **极点**（Pole）：定点 $O$，相当于直角坐标系的原点；
+- **极轴**（Polar axis）：从极点 $O$ 出发的一条射线 $Ox$，通常取为直角坐标系 $x$ 轴正向；
+- **极径**（Radial coordinate）$\rho$：点 $P$ 到极点 $O$ 的距离，即 $\rho = |OP| \geqslant 0$；
+- **极角**（Angular coordinate）$\varphi$：从极轴 $Ox$ 到射线 $OP$ 的有向角（逆时针为正），单位为弧度。
+
+点 $P$ 的位置由有序对 $(\rho, \varphi)$ 唯一确定，记作 $P(\rho, \varphi)$（见图1.1.12）。
+
+## 特殊约定与唯一性
+
+- **极点的表示**：当 $P$ 与 $O$ 重合时，规定 $\rho = 0$，而 $\varphi$ 可取任意实数值，即 $(0,\varphi)$ 对所有 $\varphi$ 均表示极点；
+- **一一对应性**：若限定 $\rho > 0$ 且 $\varphi \in [0, 2\pi)$（或 $[-\pi, \pi)$），则除极点外，平面上**每个点**与**唯一一组极坐标**一一对应。
+
+> 📌 **几何意义**：极坐标天然适配旋转对称与径向变化问题，例如行星轨道、天线辐射图、流体力学中的涡旋场等。
+
+延伸阅读：[[直角坐标与极坐标转换公式]]{type=concept, label=坐标互化, render=link, tags=坐标系|转换}  
+应用实例：[[例1.1.14-心形线作图]]{type=question, id=例1.1.14, label=心形线, render=card, source=同济高数, tags=极坐标|曲线}
+
+![](images/d529f823bea921a4754596675adab8042116525640ef455903387c492a05aa49.jpg)  
+图1.1.12
+
+---SPLIT---
+---
+title: 直角坐标与极坐标转换公式
+numeric_source: 1-1-2-12
+aliases:
+  - 坐标变换
+tags:
+  - 高等数学
+  - 坐标系
+  - 极坐标
+  - 坐标转换
+---
+
+# 直角坐标与极坐标转换公式
+
+设极坐标系的极点 $O$ 与直角坐标系原点重合，极轴 $Ox$ 与直角坐标系 $x$ 轴正半轴重合（见图1.1.13）。对平面内任意非极点 $P$，其直角坐标为 $(x, y)$，极坐标为 $(\rho, \varphi)$，二者满足如下基本关系：
+
+## 正向转换（极坐标 → 直角坐标）
+
+$$
+\begin{cases}
+  x = \rho \cos \varphi, \\
+  y = \rho \sin \varphi.
+\end{cases}
+\tag{1.1.1}
+$$
+
+该式直接由三角函数定义得出，适用于所有 $\rho \geqslant 0$ 和任意 $\varphi$。
+
+## 逆向转换（直角坐标 → 极坐标）
+
+由 (1.1.1) 消元可得：
+$$
+\begin{cases}
+  \rho^2 = x^2 + y^2 \quad \Rightarrow \quad \rho = \sqrt{x^2 + y^2} \geqslant 0, \\
+  \tan \varphi = \dfrac{y}{x} \quad (x \ne 0).
+\end{cases}
+$$
+
+⚠️ **注意象限修正**：  
+$\tan \varphi = y/x$ 仅能确定 $\varphi$ 在第一/第三象限或第二/第四象限的可能范围。需结合 $x,y$ 符号判断准确象限：
+- $x > 0, y \geqslant 0$ ⇒ $\varphi \in [0, \pi/2]$  
+- $x < 0$ ⇒ $\varphi \in (\pi/2, 3\pi/2)$  
+- $x > 0, y < 0$ ⇒ $\varphi \in (3\pi/2, 2\pi)$  
+- $x = 0, y > 0$ ⇒ $\varphi = \pi/2$；$x = 0, y < 0$ ⇒ $\varphi = 3\pi/2$
+
+## 应用价值
+
+- 将直角坐标下的复杂方程（如圆、对数螺线）转化为极坐标下的简洁形式；
+- 简化含 $x^2+y^2$、$\arctan(y/x)$ 的积分与微分运算（如二重积分极坐标换元）；
+- 实现雷达、声呐等传感器数据的自然建模。
+
+经典转化示例：  
+- 圆 $x^2 + y^2 = a^2$ ⇒ $\rho = a$（见 [[例1.1.13]]{type=question, id=例1.1.13, label=圆的极坐标, render=link, tags=极坐标|圆}）；  
+- 心形线 $\rho = a(1-\cos\varphi)$ ⇒ 直角坐标形式高度复杂，极坐标下简洁优美（见 [[例1.1.14]]{type=question, id=例1.1.14, label=心形线, render=card, tags=极坐标|曲线}）。
+
+![](images/4aba7bb9869e5570d749888b99bd4b51a824a80fcdb1e5cb690bb1393115c17f.jpg)  
+图1.1.13

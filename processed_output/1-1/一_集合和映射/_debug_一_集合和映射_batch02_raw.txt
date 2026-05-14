@@ -1,0 +1,158 @@
+---
+title: 集合相等与空集
+numeric_source: 1-1-1-5
+aliases:
+  - 空集合
+tags:
+  - 高等数学
+  - 集合论
+  - 基础概念
+---
+
+# 集合相等与空集
+
+若集合 $A \subseteq B$ 且 $B \subseteq A$，则称 $A$ 与 $B$ **相等**，记作  
+$$
+A = B.
+$$  
+该定义等价于：$A$ 与 $B$ 包含完全相同的元素。
+
+不含有任何元素的集合称为**空集**，记作 $\varnothing$。  
+例如，集合  
+$$
+E = \{x \mid x \in \mathbf{R} \text{ 且 } x^2 + 1 = 0\}
+$$  
+无实数解，故 $E = \varnothing$。
+
+> ✅ **重要性质**：空集是任意集合的子集，即对任意集合 $A$，恒有  
+> $$
+> \varnothing \subseteq A.
+> $$
+
+该性质是集合论中唯一性与逻辑一致性的基石之一，也为后续定义补集、差集等运算提供基础保障。
+
+相关知识点：  
+- [[集合的定义]]{type=concept, label=集合基本定义, render=link, subject=高等数学, grade=大学, tags=集合|基础}  
+- [[子集与真子集]]{type=concept, label=子集关系, render=link, tags=集合|逻辑}  
+- [[全集与集合运算]]{type=concept, label=全集下运算, render=link, tags=集合|运算}
+
+::: {.note}
+空集 $\varnothing$ 是**唯一**的——不存在两个不同的空集。这是由外延公理（集合由其元素唯一确定）直接保证的。
+:::
+
+---
+title: 全集与集合运算
+numeric_source: 1-1-1-6
+aliases:
+  - 全集
+  - 补集
+  - 并、交、差
+tags:
+  - 高等数学
+  - 集合论
+  - 运算
+---
+
+# 全集与集合运算
+
+在研究某一具体问题时，所考虑的所有对象构成的集合称为**全集**（或基本集），通常记作 $I$。  
+设 $A, B \subseteq I$，则可定义以下四种基本集合运算：
+
+| 运算名称 | 符号表示 | 定义（集合描述法） |
+|----------|-----------|---------------------|
+| **并集** | $A \cup B$ | $\{x \mid x \in A \text{ 或 } x \in B\}$ |
+| **交集** | $A \cap B$ | $\{x \mid x \in A \text{ 且 } x \in B\}$ |
+| **差集** | $A \setminus B$ | $\{x \mid x \in A \text{ 且 } x \notin B\}$ |
+| **余集（补集）** | $\complement_I A$ 或 $I \setminus A$ | $\{x \mid x \in I \text{ 且 } x \notin A\}$ |
+
+> 💡 **说明**：余集是相对于全集 $I$ 定义的；脱离全集谈“补集”无意义。符号 $\complement_I A$ 强调了这一依赖关系。
+
+这些运算是集合代数的核心，满足交换律、结合律、分配律及德·摩根律（如 $\complement_I(A \cup B) = \complement_I A \cap \complement_I B$），为后续逻辑推理、测度论与拓扑学奠定基础。
+
+延伸学习：  
+- [[集合的表示法]]{type=concept, label=列举与描述法, render=link, tags=集合|表示}  
+- [[集合相等与空集]]{type=concept, label=相等与空集, render=link, tags=集合|基础}  
+- [[笛卡儿乘积]]{type=concept, label=有序对构造, render=link, tags=集合|高阶运算}
+
+::: {.note}
+差集 $A \setminus B$ 可理解为“从 $A$ 中剔除所有属于 $B$ 的元素”，而余集 $I \setminus A$ 是差集在全集下的特例。
+:::
+
+---
+title: 笛卡儿乘积
+numeric_source: 1-1-1-7
+aliases:
+  - 直积
+  - 笛卡尔积
+tags:
+  - 高等数学
+  - 集合论
+  - 解析几何
+---
+
+# 笛卡儿乘积
+
+设 $A, B$ 为两个非空集合，则所有**有序对** $(x, y)$ 构成的集合，其中 $x \in A$ 且 $y \in B$，称为 $A$ 与 $B$ 的**笛卡儿乘积**（Cartesian product），记作  
+$$
+A \times B = \{(x, y) \mid x \in A,\ y \in B\}.
+$$
+
+> ⚠️ 注意：$(x, y)$ 是**有序对**，即 $(x, y) \neq (y, x)$（除非 $x = y$），因此一般有 $A \times B \neq B \times A$。
+
+### 典型实例
+- $\mathbf{R} \times \mathbf{R} = \{(x, y) \mid x, y \in \mathbf{R}\}$ 表示平面直角坐标系 $xOy$ 中全体点的集合，简记为 $\mathbf{R}^2$。  
+- 若 $A = \{1, 2\},\ B = \{a, b\}$，则  
+  $$
+  A \times B = \{(1,a), (1,b), (2,a), (2,b)\}.
+  $$
+
+笛卡儿乘积是构建多维空间、函数定义域（如二元函数 $f: \mathbf{R}^2 \to \mathbf{R}$）、关系与映射的基础工具。
+
+关联知识：  
+- [[映射]]{type=concept, label=映射定义, render=link, subject=高等数学, grade=大学, tags=映射|函数}  
+- [[实数集的完备性]]{type=concept, label=数轴连续性, render=link, tags=实数|基础}  
+- [[集合的定义]]{type=concept, label=集合本质, render=link, tags=集合|基础}
+
+::: {.note}
+笛卡儿乘积可推广至有限个集合：$A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2, \dots, a_n) \mid a_i \in A_i\}$，进而定义 $\mathbf{R}^n$。
+:::
+
+---
+title: 实数集的完备性
+numeric_source: 1-1-1-8
+aliases:
+  - 实数连续性
+tags:
+  - 高等数学
+  - 实数理论
+  - 极限基础
+---
+
+# 实数集的完备性
+
+实数集 $\mathbf{R}$ 的核心特性是**完备性**（也称**连续性**）：  
+> **$\mathbf{R}$ 与数轴上的所有点一一对应。**
+
+这意味着：  
+- 数轴上**不存在“空隙”**；  
+- 任一实数均可在数轴上找到唯一对应点；  
+- 反之，数轴上任意一点必对应唯一一个实数。
+
+### 对比：有理数集 $\mathbf{Q}$ 的“不完备性”
+- $\mathbf{Q}$ 具有**稠密性**：任意两个不同有理数之间必存在无穷多个有理数（如 $\frac{r_1 + r_2}{2}$）。  
+- 但 $\mathbf{Q}$ **不能布满数轴**：存在无数“不可达点”，即**无理数**（如 $\sqrt{2},\ \pi$）。  
+  > 例：单位正方形对角线长 $\sqrt{2} \notin \mathbf{Q}$，单位圆半周长 $\pi \notin \mathbf{Q}$（见图1.1.1）。
+
+![](images/5cc21cd55357b0a8ddb0b5fb9f6d03b10e56836f1c345b2c5c118d190637f0ca.jpg)  
+图1.1.1 — 数轴上的有理点（稠密）与无理点（填补空隙）
+
+完备性是极限理论、微积分与实分析的根基——它保证了单调有界数列必收敛、确界存在定理成立、闭区间套原理有效等关键结论。
+
+深入学习：  
+- [[确界存在定理]]{type=concept, label=确界原理, render=link, tags=实数|极限基础}  
+- [[实数集]]{type=concept, label=实数定义, render=link, subject=高等数学, grade=大学, tags=实数|基础}  
+- [[集合相等与空集]]{type=concept, label=集合基础, render=link, tags=集合|基础}
+
+::: {.note}
+“完备性”在更抽象的度量空间中被严格定义为：所有柯西列均收敛。而在 $\mathbf{R}$ 中，它直观体现为数轴无缝覆盖。
+::}

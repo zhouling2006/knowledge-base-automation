@@ -1,0 +1,147 @@
+---
+title: 无穷大的直观引入
+numeric_source: 1-4-2-1
+aliases:
+  - 无穷大量
+tags:
+  - 高等数学
+  - 极限
+  - 无穷大
+---
+
+# 无穷大的直观引入
+
+当函数在某一极限过程中极限不存在，且其绝对值无限增大时，称该函数为**无穷大**。这是极限不存在情形中最重要的类型之一。
+
+这一概念是对“函数值剧烈发散”现象的数学刻画，区别于振荡无界（如 $x\sin x$）等其他无极限行为。
+
+相关严格定义见 [[无穷大的定义]]{type=concept, label=严格定义, render=link, subject=高等数学, grade=大学, tags=极限|无穷大|定义}。  
+进一步区分方向性发散可参考 [[正无穷大与负无穷大的定义]]{type=concept, label=方向性无穷大, render=link, tags=正无穷大|负无穷大}。
+
+::: {.note}
+注意：无穷大不是数，而是一种**变量变化趋势**；它描述的是函数在特定过程中的无界增长行为，不可与“很大的数”混淆。
+:::
+
+
+---SPLIT---
+---
+title: 无穷大的定义
+numeric_source: 1-4-2-2
+aliases:
+  - 无穷大量
+  - 无穷大
+tags:
+  - 高等数学
+  - 极限
+  - 无穷大
+  - 定义
+---
+
+# 无穷大的定义
+
+设函数 $f(x)$ 在点 $x_0$ 的某去心邻域（即 $0<|x-x_0|<\delta_0$）内有定义，或在 $|x|>X_0$ 的外部区域有定义。若对**任意给定的正数 $M$**（无论 $M$ 多么大），总存在正数 $\delta$（对应 $x\to x_0$ 情形）或正数 $X$（对应 $x\to \infty$ 情形），使得当  
+$$
+0<|x-x_0|<\delta \quad \text{（或 } |x|>X\text{）}
+$$  
+时，恒有  
+$$
+|f(x)| > M,
+$$  
+则称函数 $f(x)$ 当 $x \to x_0$（或 $x \to \infty$）时为**无穷大量**，简称**无穷大**，记作  
+$$
+\lim_{x \to x_0} f(x) = \infty \qquad \left(\text{或 } \lim_{x \to \infty} f(x) = \infty \right).
+$$
+
+该定义体现了“**任意大 → 存在足够近（或足够远）→ 函数值绝对值必更大**”的逻辑结构，是 $\varepsilon$-$\delta$（或 $M$-$X$）语言在发散情形下的自然推广。
+
+延伸理解：  
+- 正/负无穷大的定义可通过将 $|f(x)| > M$ 替换为 $f(x) > M$ 或 $f(x) < -M$ 获得 → 见 [[正无穷大与负无穷大的定义]]{type=concept, label=方向性定义, render=link, tags=正无穷大|负无穷大}。  
+- 与无穷小的关系由 [[定理1.4.5：无穷大与无穷小的倒数关系]]{type=theorem, label=倒数互逆, render=link, tags=无穷大|无穷小|定理} 刻画。
+
+::: {#def-infinite-142 .definition label="定义1.4.2" type=definition}
+设函数 $f(x)$ 在 $x_0$ 的某去心邻域（或 $|x|>X$）内有定义。若 $\forall M>0$, $\exists \delta>0$（或 $\exists X>0$），使得当 $0<|x-x_0|<\delta$（或 $|x|>X$）时，恒有 $|f(x)|>M$，则称 $f(x)\to\infty$（$x\to x_0$ 或 $x\to\infty$）。
+:::
+
+
+---SPLIT---
+---
+title: 例1.4.1：$\frac{1}{x-1}$ 在 $x\to1$ 处为无穷大
+numeric_source: 1-4-2-3
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷大
+  - 例题
+  - 证明题
+---
+
+# 例1.4.1：$\frac{1}{x-1}$ 在 $x\to1$ 处为无穷大
+
+**题目**：证明  
+$$
+\lim_{x \to 1} \frac{1}{x - 1} = \infty.
+$$
+
+**证明**：  
+对任意给定的 $M > 0$，取 $\delta = \dfrac{1}{M}$。  
+则当 $0 < |x - 1| < \delta$ 时，有  
+$$
+\left| \frac{1}{x - 1} \right| = \frac{1}{|x - 1|} > \frac{1}{\delta} = M.
+$$  
+因此，由[[无穷大的定义]]{type=concept, label=定义依据, render=link, tags=定义|无穷大}可知，  
+$$
+\lim_{x \to 1} \frac{1}{x - 1} = \infty.
+$$
+
+::: {.example label="例1.4.1" type=example}
+对任意 $M>0$，取 $\delta=\frac{1}{M}$，则当 $0<|x-1|<\delta$ 时，$\left|\frac{1}{x-1}\right|>M$，故 $\lim_{x\to1}\frac{1}{x-1}=\infty$。
+:::
+
+本例展示了如何通过**显式构造 $\delta$（或 $X$）** 来验证无穷大定义，是掌握 $\varepsilon$-$\delta$ 类语言的关键训练。  
+类似技巧适用于 $\frac{1}{(x-a)^n}$、$\tan x$ 在渐近线处等典型无穷大函数。
+
+延伸思考：该函数在 $x\to1$ 时是否为正无穷大或负无穷大？→ 参见 [[正无穷大与负无穷大的定义]]{type=concept, label=方向性分析, render=link, tags=单侧极限|符号判断}。
+
+
+---SPLIT---
+---
+title: 正无穷大与负无穷大的定义
+numeric_source: 1-4-2-4
+aliases:
+  - 正无穷大量
+  - 负无穷大量
+tags:
+  - 高等数学
+  - 极限
+  - 无穷大
+  - 正无穷大
+  - 负无穷大
+---
+
+# 正无穷大与负无穷大的定义
+
+无穷大可进一步按**符号方向**细分：
+
+- 若当 $x \to x_0$（或 $x \to \infty$）时，函数 $f(x)$ **恒取正值**且无限增大（即对任意 $M>0$，存在 $\delta>0$ 或 $X>0$，使相应范围内 $f(x)>M$），则称 $f(x)$ 为**正无穷大**，记作  
+  $$
+  \lim_{x \to x_0} f(x) = +\infty \quad \left(\text{或 } \lim_{x \to \infty} f(x) = +\infty \right).
+  $$
+
+- 若当 $x \to x_0$（或 $x \to \infty$）时，函数 $f(x)$ **恒取负值**且其绝对值无限增大（即对任意 $M>0$，存在 $\delta>0$ 或 $X>0$，使相应范围内 $f(x)<-M$），则称 $f(x)$ 为**负无穷大**，记作  
+  $$
+  \lim_{x \to x_0} f(x) = -\infty \quad \left(\text{或 } \lim_{x \to \infty} f(x) = -\infty \right).
+  $$
+
+> ✅ **关键区别**：正/负无穷大要求函数在极限过程的**整个邻域（或外部区域）内保持固定符号**，而一般无穷大仅要求 $|f(x)|$ 无界增长。
+
+**典型示例**：
+- $\displaystyle \lim_{x \to +\infty} x^2 = +\infty$, $\displaystyle \lim_{x \to +\infty} e^x = +\infty$  
+- $\displaystyle \lim_{x \to \frac{\pi^+}{2}} \tan x = -\infty$, $\displaystyle \lim_{x \to 0^+} \ln x = -\infty$
+
+这些例子说明：正/负无穷大的判定常需结合**单侧极限**与**函数符号分析**。例如，$\frac{1}{x-1}$ 在 $x\to1^+$ 时为 $+\infty$，在 $x\to1^-$ 时为 $-\infty$ —— 故其**双侧极限仅为 $\infty$（无符号）**，而非 $+\infty$ 或 $-\infty$。
+
+关联知识点：  
+- 单侧极限 → [[单侧极限的定义]]{type=concept, label=左极限与右极限, render=link, tags=极限|单侧}  
+- 符号判定技巧 → [[函数局部符号分析方法]]{type=method, label=符号判断法, render=link, tags=分析技巧|符号}  
+- 与一般无穷大的关系 → [[无穷大的定义]]{type=concept, label=基础定义, render=link, tags=无穷大|定义}

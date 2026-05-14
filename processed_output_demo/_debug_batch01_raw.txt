@@ -1,0 +1,164 @@
+---
+title: 集合的定义
+numeric_source: 1-1-1-1
+aliases:
+  - 集
+tags:
+  - 高等数学
+  - 集合论
+  - 基础概念
+---
+
+# 集合的定义
+
+集合是具有某种特定性质的事物的全体，组成集合的事物称为**元素**。
+
+通常用大写字母 $A, B, X, Y, \dots$ 表示集合，用小写字母 $a, b, x, y, \dots$ 表示元素。若事物 $a$ 是集合 $A$ 的元素，就说 $a$ 属于 $A$，记作 $a \in A$；若 $a$ 不是 $A$ 的元素，则记作 $a \notin A$（注意：原文中出现的 $a \subsetneq A$ 为笔误，应为 $a \notin A$；$\subsetneq$ 是子集符号，不可用于元素与集合之间）。
+
+若集合中元素个数是有限的，则称该集合为**有限集**；否则称为**无限集**。
+
+> **补充说明**：集合是数学中最基本的原始概念之一，通常不加定义而直接使用（公理化集合论除外）。其本质在于“确定性”——给定一个对象和一个集合，能明确判断该对象是否属于该集合。
+
+相关知识点：  
+[[集合的表示法]]{type=concept, label=表示方式, render=link, subject=高等数学, grade=大学, tags=集合论|基础}  
+[[常用数集符号]]{type=concept, label=标准数集, render=link, subject=高等数学, grade=大学, tags=数集|符号约定}
+
+::: {.note}
+在本课程中，除非特别说明，“数”均指**实数**，所涉集合主要为**数集**。
+:::
+
+---
+SPLIT---
+---
+title: 集合的表示法
+numeric_source: 1-1-1-2
+aliases:
+  - 枚举法
+  - 谓词表示法
+tags:
+  - 高等数学
+  - 集合论
+  - 符号表达
+---
+
+# 集合的表示法
+
+集合常用两种方式表示：
+
+### 1. 列举法（枚举法）  
+将集合的所有元素一一列出，用花括号 $\{\ \}$ 括起。适用于**有限集**或具有明显规律的**可数无限集**。
+
+例如：  
+- 全体自然数集 $\mathbf{N} = \{0, 1, 2, 3, \dots, n, \dots\}$  
+- 方程 $x^2 - 4 = 0$ 的实数解集：$\{-2, 2\}$
+
+### 2. 描述法（谓词表示法 / 集合构造式）  
+通过描述元素所满足的共同性质（谓词）来定义集合，形式为：  
+$$
+A = \{x \mid x\ \text{具有特性}\ P\}
+$$
+
+例如：  
+- $A = \{x \mid x^2 - 1 = 0\}$ 表示方程 $x^2 - 1 = 0$ 的全体实数根构成的集合，即 $A = \{-1, 1\}$  
+- 开区间 $(a,b) = \{x \mid a < x < b\}$
+
+> **注意**：描述法的关键是谓词 $P$ 必须**无歧义、可判定**，以保证集合的确定性（避免罗素悖论等逻辑风险）。
+
+延伸阅读：  
+[[集合的定义]]{type=concept, label=集合本质, render=link, tags=基础概念|集合论}  
+[[常用数集符号]]{type=concept, label=符号体系, render=link, tags=符号|数集}
+
+::: {.note}
+列举法强调“显式呈现”，描述法强调“隐式规则”；二者常结合使用，如 $\mathbb{Z}^+ = \{1,2,3,\dots\} = \{n \in \mathbb{Z} \mid n > 0\}$。
+:::
+
+---
+SPLIT---
+---
+title: 常用数集符号
+numeric_source: 1-1-1-3
+aliases:
+  - 标准数集
+  - 基本数集
+tags:
+  - 高等数学
+  - 数集
+  - 符号约定
+---
+
+# 常用数集符号
+
+本书采用如下标准符号表示常见数集（均为**实数集 $\mathbf{R}$ 的子集**）：
+
+| 符号 | 名称 | 定义说明 |
+|------|------|-----------|
+| $\mathbf{N}$ | 自然数集 | $\{0,1,2,3,\dots\}$（含0，部分文献从1开始） |
+| $\mathbf{Z}$ | 整数集 | $\{\dots,-2,-1,0,1,2,\dots\}$ |
+| $\mathbf{Q}$ | 有理数集 | $\left\{ \frac{p}{q} \mid p,q \in \mathbf{Z},\ q \ne 0 \right\}$ |
+| $\mathbf{R}$ | 实数集 | 数轴上所有点对应的数（有理数与无理数的并集） |
+| $\mathbf{N}_+$ | 正整数集 | $\{1,2,3,\dots\} \subsetneq \mathbf{N}$ |
+| $\mathbf{R}_+$ | 正实数集 | $\{x \in \mathbf{R} \mid x > 0\}$ |
+
+> **重要约定**：除非特别声明，本书中所有未加限定的“数”均指**实数**；所有集合若无特别说明，均默认为 $\mathbf{R}$ 的子集。
+
+包含关系链（真包含）：  
+$$
+\mathbf{N}_+ \subsetneq \mathbf{N} \subsetneq \mathbf{Z} \subsetneq \mathbf{Q} \subsetneq \mathbf{R}
+$$
+
+关联概念：  
+[[子集与真子集]]{type=concept, label=包含关系, render=link, tags=集合论|层级结构}  
+[[实数集]]{type=concept, label=完备性基础, render=link, subject=高等数学, grade=大学, tags=实数|分析基础}
+
+::: {.note}
+这些符号是数学通用语言的基础构件。熟练掌握其含义与关系，是理解后续极限、连续性、函数定义域等概念的前提。
+:::
+
+---
+SPLIT---
+---
+title: 子集与真子集
+numeric_source: 1-1-1-4
+aliases:
+  - 包含关系
+  - 包含于
+tags:
+  - 高等数学
+  - 集合论
+  - 关系运算
+---
+
+# 子集与真子集
+
+设 $A, B$ 为两个集合。
+
+### 子集（Subset）  
+若 $A$ 的**每一个元素**都属于 $B$，则称 $A$ 是 $B$ 的**子集**，记作  
+$$
+A \subseteq B \quad \text{（或 } B \supseteq A\text{）}
+$$  
+读作 “$A$ 包含于 $B$” 或 “$B$ 包含 $A$”。
+
+- 显然，对任意集合 $A$，恒有 $A \subseteq A$（自反性）；  
+- 空集 $\varnothing$ 是任意集合的子集：$\varnothing \subseteq A$。
+
+### 真子集（Proper Subset）  
+若 $A \subseteq B$，且 $B$ 中**至少存在一个元素不属于 $A$**，则称 $A$ 是 $B$ 的**真子集**，记作  
+$$
+A \subsetneq B
+$$
+
+- 真子集强调“严格包含”，排除相等情形；  
+- 例如：$\mathbf{N} \subsetneq \mathbf{Z} \subsetneq \mathbf{Q} \subsetneq \mathbf{R}$。
+
+> **辨析**：  
+> - $A \subseteq B$ 允许 $A = B$；  
+> - $A \subsetneq B$ 蕴含 $A \neq B$，且 $A \subseteq B$。
+
+关联知识：  
+[[常用数集符号]]{type=concept, label=典型实例, render=link, tags=数集|层级}  
+[[集合的定义]]{type=concept, label=元素归属基础, render=link, tags=基础概念}
+
+::: {.note}
+子集关系是集合论中最基本的二元关系之一，它奠定了集合间比较、分类与构造（如幂集）的逻辑基础。
+:::

@@ -1,0 +1,184 @@
+---
+title: 对数函数
+numeric_source: 1-1-5-5
+aliases:
+  - 对数型函数
+  - 自然对数函数（特例）
+tags:
+  - 高等数学
+  - 基本初等函数
+  - 对数函数
+---
+
+# 对数函数
+
+对数函数是六类基本初等函数之一，定义为指数函数的反函数。其一般形式为：
+
+$$
+y = \log_a x \quad (a > 0,\, a \neq 1)
+$$
+
+定义域为 $(0, +\infty)$，值域为 $(-\infty, +\infty)$。
+
+当底数 $a = e$（自然常数）时，记作：
+
+$$
+y = \ln x = \log_e x
+$$
+
+称为**自然对数函数**，是指数函数 $y = e^x$ 的反函数，广泛应用于微积分与数学建模中。
+
+::: {.note}
+对数函数与指数函数互为反函数，满足恒等关系：
+- $\log_a(a^x) = x$，对所有 $x \in \mathbb{R}$
+- $a^{\log_a x} = x$，对所有 $x > 0$
+:::
+
+知识点关联：  
+- 定义基础：[[指数函数]]{type=concept, label=指数函数, render=link, subject=高等数学, grade=大学, tags=基本初等函数|指数函数}  
+- 反函数本质：[[反函数定义]]{type=concept, label=反函数, render=link, subject=高等数学, grade=大学, tags=函数|映射}  
+- 特例深化：[[自然对数]]{type=concept, label=自然对数, render=card, subject=高等数学, grade=大学, tags=对数函数|e}
+
+---
+---SPLIT---
+---
+title: 三角函数
+numeric_source: 1-1-5-6
+aliases:
+  - 基本三角函数
+tags:
+  - 高等数学
+  - 基本初等函数
+  - 三角函数
+---
+
+# 三角函数
+
+三角函数是六类基本初等函数之一，统称**基本三角函数**，包括以下六种：
+
+| 函数名 | 表达式 | 定义域 | 关键限制 |
+|--------|--------|--------|----------|
+| 正弦函数 | $y = \sin x$ | $(-\infty, +\infty)$ | — |
+| 余弦函数 | $y = \cos x$ | $(-\infty, +\infty)$ | — |
+| 正切函数 | $y = \tan x = \dfrac{\sin x}{\cos x}$ | $x \neq n\pi + \dfrac{\pi}{2},\; n \in \mathbb{Z}$ | $\cos x \neq 0$ |
+| 余切函数 | $y = \cot x = \dfrac{1}{\tan x}$ | $x \neq n\pi,\; n \in \mathbb{Z}$ | $\sin x \neq 0$ |
+| 正割函数 | $y = \sec x = \dfrac{1}{\cos x}$ | $x \neq n\pi + \dfrac{\pi}{2},\; n \in \mathbb{Z}$ | $\cos x \neq 0$ |
+| 余割函数 | $y = \csc x = \dfrac{1}{\sin x}$ | $x \neq n\pi,\; n \in \mathbb{Z}$ | $\sin x \neq 0$ |
+
+所有三角函数均具有**周期性**，是最典型的非多项式周期函数。
+
+![](images/c4a0ff5441bab455f751a3514607f8cf7ad49319cd22a735e69a5c19ff1fd67e.jpg)  
+图1.1.22：正切函数图像
+
+![](images/132cf6899b0e1eb7ba497ee7791eb1acace02dc4720d2eb06b6d8ac879e462c9.jpg)  
+图1.1.23：余切函数图像
+
+![](images/4263915547b5eaff2075468d70e32114e19a0a2d3ce101f02f39221745b9fc29.jpg)  
+图1.1.24：正割函数图像
+
+![](images/887fe42b7ab1187c184a642086d65cd538b5dc948830804e698b3eaa993da473.jpg)  
+图1.1.25：余割函数图像
+
+::: {.note}
+三角函数是研究周期现象的核心工具，在物理振动、信号处理、傅里叶分析等领域具有基础地位。
+:::
+
+知识延伸：  
+- 周期性与图像特征：[[函数的周期性]]{type=concept, label=周期函数, render=link, subject=高等数学, grade=大学, tags=函数性质|周期性}  
+- 单位圆定义：[[三角函数的几何定义]]{type=concept, label=单位圆定义, render=card, subject=高等数学, grade=高中|大学, tags=三角函数|几何}  
+- 与反函数关系：[[反三角函数]]{type=concept, label=反三角函数, render=link, subject=高等数学, grade=大学, tags=基本初等函数|反函数}
+
+---
+---SPLIT---
+---
+title: 反三角函数
+numeric_source: 1-1-5-7
+aliases:
+  - 反三角型函数
+  - 主值反三角函数
+tags:
+  - 高等数学
+  - 基本初等函数
+  - 反三角函数
+---
+
+# 反三角函数
+
+由于基本三角函数具有**周期性**，在其整个定义域上不具单射性，因此无法直接定义全局反函数。反三角函数定义为：在包含锐角的**单调主值区间**上，基本三角函数的反函数。
+
+四类常用反三角函数如下：
+
+| 函数名 | 记法 | 定义域 | 主值范围（值域） | 图像编号 |
+|--------|------|--------|------------------|----------|
+| 反正弦函数 | $y = \arcsin x$ | $[-1, 1]$ | $\left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]$ | 图1.1.26 |
+| 反余弦函数 | $y = \arccos x$ | $[-1, 1]$ | $[0, \pi]$ | 图1.1.27 |
+| 反正切函数 | $y = \arctan x$ | $(-\infty, +\infty)$ | $\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)$ | 图1.1.28 |
+| 反余切函数 | $y = \operatorname{arccot} x$ | $(-\infty, +\infty)$ | $(0, \pi)$ | 图1.1.29 |
+
+> 上述所指出的各个反三角函数的值域范围，称为它们的**主值范围**（principal value range），是国际通用标准取法。
+
+![](images/ed737ec312f4a840ffde2cc71ce8c5bf8783527775f644e75ac52e350f7910a7.jpg)  
+图1.1.26：反正弦函数图像
+
+![](images/e6b7957e73ff6f4d9f46cff43828a2dce53fb8fc69807c39f4f33317132a9753.jpg)  
+图1.1.27：反余弦函数图像
+
+![](images/9019afe6f05abbb7d2e8fe04570b1077e4cea8bfd450b5d6688811041e07fdbb.jpg)  
+图1.1.28：反正切函数图像
+
+![](images/a06e088360814754f46e3ad1bac4d6e455c297eac2b4bc0a7053be77a17f1f5b.jpg)  
+图1.1.29：反余切函数图像
+
+::: {.note}
+反三角函数是“受限反函数”，其主值范围确保了函数的单值性与连续性，是微分与积分运算中不可或缺的初等函数类型。
+:::
+
+关联学习：  
+- 基础前提：[[三角函数]]{type=concept, label=三角函数, render=link, subject=高等数学, grade=大学, tags=基本初等函数|周期性}  
+- 反函数理论：[[反函数存在条件]]{type=concept, label=单调性与反函数, render=card, subject=高等数学, grade=大学, tags=函数|映射|单调性}  
+- 应用实例：[[反三角函数求导]]{type=concept, label=导数公式, render=link, subject=高等数学, grade=大学, tags=微分|导数}
+
+---
+---SPLIT---
+---
+title: 初等函数
+numeric_source: 1-1-5-8
+aliases:
+  - 复合初等函数
+  - 解析初等函数
+tags:
+  - 高等数学
+  - 基本初等函数
+  - 初等函数
+---
+
+# 初等函数
+
+**初等函数**是由六类基本初等函数（常值函数、幂函数、指数函数、对数函数、三角函数、反三角函数）经过**有限次四则运算**（加、减、乘、除）和**有限次复合运算**所得到的、且能用**一个解析式**表示的函数。
+
+### 典型例子：
+
+- **多项式函数**：  
+  $$
+  y = a_0 x^n + a_1 x^{n-1} + \dots + a_{n-1} x + a_n,\quad n \in \mathbb{N}_+,\; a_0 \neq 0
+  $$
+
+- **有理函数**：  
+  $$
+  y = \frac{a_0 x^n + a_1 x^{n-1} + \cdots + a_n}{b_0 x^m + b_1 x^{m-1} + \cdots + b_m},\quad m,n \in \mathbb{N}_+,\; a_0,b_0 \neq 0
+  $$
+
+- **复合型初等函数**：  
+  - $y = \sin(x^2)$ —— 三角函数与幂函数复合  
+  - $y = \ln(x + \sqrt{1 + x^2})$ —— 对数函数与代数式复合（实为反双曲函数 $\operatorname{arsinh}x$）  
+  - $y = \sqrt{1 + x^2}$ —— 幂函数（$u^{1/2}$）与多项式复合  
+
+::: {.note}
+⚠️ 注意：初等函数强调“**一个式子表达**”与“**有限次运算**”。无限过程（如级数、极限、积分）所得函数（如 $\Gamma(x)$、$\operatorname{erf}(x)$）不属于初等函数。
+:::
+
+知识网络：  
+- 构成基石：[[基本初等函数]]{type=concept, label=六类基本函数, render=link, subject=高等数学, grade=大学, tags=基本初等函数}  
+- 运算规则：[[函数的四则运算]]{type=concept, label=函数加减乘除, render=card, subject=高等数学, grade=大学, tags=函数运算}  
+- 复合逻辑：[[函数的复合]]{type=concept, label=复合函数, render=link, subject=高等数学, grade=大学, tags=函数|映射|复合}  
+- 边界对照：[[非初等函数示例]]{type=concept, label=超越函数举例, render=card, subject=高等数学, grade=大学, tags=函数分类|特殊函数}

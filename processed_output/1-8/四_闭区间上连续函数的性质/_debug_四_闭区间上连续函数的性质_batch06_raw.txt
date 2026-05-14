@@ -1,0 +1,101 @@
+---
+title: 例1.8.10：x³ 在 (0,1) 内一致连续
+numeric_source: 1-8-4-21
+aliases: []
+tags:
+  - 高等数学
+  - 一致连续性
+  - 例题
+---
+
+# 例1.8.10：x³ 在 (0,1) 内一致连续
+
+证明：函数 $f(x) = x^3$ 在开区间 $(0,1)$ 内一致连续。
+
+::: {.example label="例1.8.10" type=example}
+对任意 $x_1, x_2 \in (0,1)$，有  
+$$
+\left| x_1^3 - x_2^3 \right| = \left| x_1 - x_2 \right| \cdot \left| x_1^2 + x_1 x_2 + x_2^2 \right| \leqslant 3 \left| x_1 - x_2 \right|,
+$$  
+取 $\delta = \dfrac{\varepsilon}{3}$，则对任意 $\varepsilon > 0$，当 $|x_1 - x_2| < \delta$ 时，恒有  
+$$
+|f(x_1) - f(x_2)| = |x_1^3 - x_2^3| < \varepsilon.
+$$  
+因此，$f(x) = x^3$ 在 $(0,1)$ 内一致连续。
+:::
+
+该例展示了**Lipschitz 连续 ⇒ 一致连续**的典型应用。由于导数 $f'(x) = 3x^2$ 在 $(0,1)$ 上有界（$\sup |f'| = 3$），故满足 Lipschitz 条件，从而一致连续。
+
+关联知识点：  
+- [[一致连续性定义]]{type=concept, label=定义回顾, render=link, subject=高等数学, grade=大学, tags=一致连续|定义}  
+- [[一致连续性引言]]{type=concept, label=概念背景, render=link, tags=一致连续|核心思想}  
+- [[一致连续性定理]]{type=theorem, label=闭区间保障, render=link, tags=一致连续|闭区间}
+
+---SPLIT---
+---
+title: 例1.8.11：1/x 在 (0,1] 上不一致连续
+numeric_source: 1-8-4-22
+aliases: []
+tags:
+  - 高等数学
+  - 一致连续性
+  - 反例
+---
+
+# 例1.8.11：1/x 在 (0,1] 上不一致连续
+
+证明：函数 $f(x) = \dfrac{1}{x}$ 在 $(0,1]$ 上连续，但**不一致连续**。
+
+::: {.example label="例1.8.11" type=example}
+$f(x) = \dfrac{1}{x}$ 是初等函数，在 $(0,1]$ 上有定义且连续。
+
+现取 $\varepsilon_0 = \dfrac{1}{2}$（或任取 $0 < \varepsilon < 1$）。假设其一致连续，则存在 $\delta > 0$，使得对任意 $x_1,x_2 \in (0,1]$，只要 $|x_1 - x_2| < \delta$，就有 $\left| \dfrac{1}{x_1} - \dfrac{1}{x_2} \right| < \varepsilon$。
+
+取序列 $x_1^{(n)} = \dfrac{1}{n},\; x_2^{(n)} = \dfrac{1}{n+1}$，其中 $n \in \mathbb{N}^+$。显然 $x_1^{(n)}, x_2^{(n)} \in (0,1]$，且  
+$$
+|x_1^{(n)} - x_2^{(n)}| = \left| \frac{1}{n} - \frac{1}{n+1} \right| = \frac{1}{n(n+1)} \to 0 \quad (n \to \infty).
+$$  
+故对上述 $\delta$，总存在充分大的 $n$，使 $|x_1^{(n)} - x_2^{(n)}| < \delta$；但此时  
+$$
+\left| f(x_1^{(n)}) - f(x_2^{(n)}) \right| = \left| n - (n+1) \right| = 1 > \varepsilon_0.
+$$  
+矛盾。因此 $f(x) = \dfrac{1}{x}$ 在 $(0,1]$ 上**不一致连续**。
+:::
+
+该反例揭示了**区间非闭**（此处为左端点“缺失”）是导致一致连续性失效的关键——函数在趋近于 $0^+$ 时变化剧烈，无法用统一的 $\delta$ 控制所有邻域。
+
+延伸思考：  
+- [[最值定理反例说明]]{type=concept, label=开区间失效, render=link, tags=闭区间|必要性}  
+- [[一致连续性性质说明]]{type=concept, label=连续 vs 一致连续, render=link, tags=一致连续|逻辑关系}  
+- [[一致连续性定理]]{type=theorem, label=闭区间上的保证, render=card, tags=一致连续|核心定理}
+
+---SPLIT---
+---
+title: 一致连续性定理
+numeric_source: 1-8-4-23
+aliases:
+  - Heine-Cantor 定理
+tags:
+  - 高等数学
+  - 一致连续性
+  - 定理
+---
+
+# 一致连续性定理
+
+> **定理1.8.7（一致连续性定理）**  
+> 若函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，则 $f(x)$ 在 $[a,b]$ 上一致连续。
+
+该定理是实分析中连接**逐点连续**与**整体一致连续**的核心桥梁，也称为 **Heine–Cantor 定理**。它表明：**闭区间的紧致性**（compactness）可将局部控制（逐点 $\delta$）提升为全局统一控制（一致 $\delta$）。
+
+::: {.note}
+该定理的证明依赖于实数完备性（如有限覆盖定理或聚点定理），超出了初等微积分范围，故教材中注明“证明从略”。其逆命题不成立：一致连续函数未必定义在闭区间上（例如 $f(x)=x$ 在 $\mathbb{R}$ 上一致连续，但 $\mathbb{R}$ 非闭有界）。
+:::
+
+几何意义：在闭区间上连续的曲线不会出现“无限陡峭”的局部行为，因此可找到一个适用于全区间的一致“分辨率”$\delta$，确保任意两点距离小于 $\delta$ 时，函数值差异可控。
+
+关联知识网络：  
+- 前置基础：[[连续性定义]]{type=concept, label=连续性, render=link, tags=连续|基础}  
+- 直接支撑：[[最值定理]]{type=theorem, label=紧致性体现, render=link, tags=闭区间|极值}  
+- 应用延伸：[[一致连续性引言]]{type=concept, label=动机与对比, render=link, tags=一致连续|教学定位}  
+- 对比参照：[[例1.8.11：1/x 在 (0,1] 上不一致连续]]{type=example, label=开区间反例, render=card, tags=一致连续|反例}

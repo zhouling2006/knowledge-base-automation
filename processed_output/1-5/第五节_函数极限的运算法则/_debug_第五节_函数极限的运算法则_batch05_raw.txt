@@ -1,0 +1,128 @@
+---
+title: 定理1.5.2的证明（ε-δ语言）
+numeric_source: 1-5-1-17
+aliases:
+  - 复合函数极限ε-δ证明
+  - 定理1.5.2严格证明
+tags:
+  - 高等数学
+  - 极限
+  - 证明
+  - ε-δ定义
+---
+
+# 定理1.5.2的证明（ε-δ语言）
+
+::: {#proof-theorem-1-5-2-epsilon-delta .proof label="定理1.5.2的ε-δ证明" type=proof}
+利用极限定义：由 $\lim_{u\to u_0} f(u)=A$ 得，对任意 $\varepsilon > 0$，存在 $\eta > 0$，使得当 $0 < |u - u_0| < \eta$ 时，有 $|f(u) - A| < \varepsilon$；  
+再由 $\lim_{x\to x_0} \varphi(x) = u_0$ 得，对上述 $\eta > 0$，存在 $\delta_1 > 0$，使得当 $0 < |x - x_0| < \delta_1$ 时，有 $|\varphi(x) - u_0| < \eta$；  
+结合题设条件：存在 $\delta_0 > 0$，当 $x \in \mathring{U}(x_0,\delta_0)$ 时，$\varphi(x) \neq u_0$；  
+取 $\delta = \min\{\delta_0, \delta_1\}$，则当 $0 < |x - x_0| < \delta$ 时，同时满足  
+$$
+0 < |\varphi(x) - u_0| < \eta,
+$$  
+从而  
+$$
+|f[\varphi(x)] - A| = |f(u) - A| < \varepsilon.
+$$  
+根据函数极限的 $\varepsilon$-$\delta$ 定义，可知  
+$$
+\lim_{x \to x_0} f[\varphi(x)] = A.
+$$
+:::
+
+该证明是定理1.5.2（复合函数的极限运算法则）的核心严格推导，完整体现了极限定义的逻辑严密性与变量依赖关系。
+
+参考主定理文档：[[定理1.5.2-复合函数的极限运算法则]]{type=concept, label=复合函数极限法则, render=link, subject=高等数学, grade=大学, tags=极限|复合函数|核心定理}
+
+延伸阅读：[[极限的定义]]{type=concept, label=ε-δ定义回顾, render=card, tags=高数|基础定义}、[[定理1.5.2的证明（ε-δ语言）]]{type=proof, render=card, note=严格形式化推导}
+
+---SPLIT---
+---
+title: 复合函数极限的变量代换表述
+numeric_source: 1-5-1-18
+aliases:
+  - 极限变量代换规则
+  - 复合函数极限换元法
+tags:
+  - 高等数学
+  - 极限
+  - 变量代换
+  - 复合函数
+---
+
+# 复合函数极限的变量代换表述
+
+定理1.5.2不仅给出极限存在的充分条件，更提供了一种**可操作的计算范式**：在满足前提条件下，允许进行变量代换，并同步迁移极限过程。
+
+其核心表述为：
+
+$$
+\lim_{x \to x_0} f[\varphi(x)] \overset{\text{令 } u = \varphi(x)}{\longrightarrow} \lim_{u \to u_0} f(u), \quad \text{其中 } u_0 = \lim_{x \to x_0} \varphi(x).
+$$
+
+> ✅ **适用前提**（缺一不可）：
+> - $\lim_{x \to x_0} \varphi(x) = u_0$ 存在；
+> - $\lim_{u \to u_0} f(u) = A$ 存在；
+> - 在 $x_0$ 的某去心邻域内，$\varphi(x) \neq u_0$（避免“空壳”代换）。
+
+该规则同样适用于 $x \to \infty$ 等其他极限过程，只需将 $u_0$ 替换为 $\lim_{x \to \infty} \varphi(x)$ 即可。
+
+此代换思想是后续处理指数、对数、三角复合函数极限的通用钥匙。
+
+关联知识点：[[定理1.5.2-复合函数的极限运算法则]]{type=concept, label=定理原文, render=link, tags=高数|极限|复合函数}  
+典型应用：[[例1.5.11-指数函数极限（复合函数代换）]]{type=question, id=例1.5.11, label=指数函数极限, render=card, source=同济高数, answer=a^{x_0}, tags=高数|极限|指数函数|代换}
+
+::: {.note}
+> 💡 **教学提示**：变量代换不是形式游戏，而是极限存在性与连续性协同作用的结果。若 $f(u)$ 在 $u=u_0$ 处连续，则条件 $\varphi(x)\neq u_0$ 可放宽；但一般情形下，必须严格验证三重存在性。
+:::
+
+---SPLIT---
+---
+title: 例1.5.11：指数函数极限（复合函数代换）
+numeric_source: 1-5-1-19
+aliases:
+  - 指数函数极限计算
+  - a^x在x₀处的极限
+tags:
+  - 高等数学
+  - 极限
+  - 例题
+  - 复合函数
+  - 指数函数
+---
+
+# 例1.5.11：指数函数极限（复合函数代换）
+
+::: {.example label="例1.5.11" type=example}
+**题目**：求 $\displaystyle \lim_{x \to x_0} a^x$，其中 $a > 0$ 且 $a \neq 1$，$x_0$ 为任意实数。
+
+**解**：  
+将指数函数转化为以 $e$ 为底的复合形式：  
+$$
+a^x = e^{x \ln a}.
+$$  
+令 $u = x \ln a$，则当 $x \to x_0$ 时，有  
+$$
+u = x \ln a \to x_0 \ln a.
+$$  
+由于指数函数 $e^u$ 在全体实数上连续，故  
+$$
+\lim_{x \to x_0} a^x 
+= \lim_{x \to x_0} e^{x \ln a} 
+\overset{u = x \ln a}{=} \lim_{u \to x_0 \ln a} e^u 
+= e^{x_0 \ln a} 
+= a^{x_0}.
+$$
+:::
+
+✅ **关键步骤解析**：
+- 第一步：恒等变形 $a^x = e^{x \ln a}$，构建复合结构 $f(u) = e^u$，$u = \varphi(x) = x \ln a$；
+- 第二步：验证 $\lim_{x \to x_0} \varphi(x) = x_0 \ln a$（存在）；
+- 第三步：验证 $\lim_{u \to x_0 \ln a} f(u) = e^{x_0 \ln a}$（存在，且 $e^u$ 连续）；
+- 第四步：应用定理1.5.2完成代换。
+
+本例是定理1.5.2最典型的初等应用，展示了如何将“非初等形式”极限转化为“已知极限”。
+
+延伸练习：[[例1.5.12-对数函数极限]]{type=question, id=例1.5.12, label=对数函数极限, render=link, source=同济高数, tags=高数|极限|对数函数}  
+理论支撑：[[定理1.5.2-复合函数的极限运算法则]]{type=concept, label=复合函数极限法则, render=link, subject=高等数学, grade=大学, tags=极限|复合函数|核心定理}、[[复合函数极限的变量代换表述]]{type=concept, label=代换操作规范, render=card, tags=高数|技巧}

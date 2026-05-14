@@ -1,0 +1,195 @@
+---
+title: 函数极限的四则运算法则（定理1.5.1）
+numeric_source: 1-5-1-1
+aliases:
+  - 极限四则运算法则
+  - 函数极限的代数运算法则
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+---
+
+# 函数极限的四则运算法则（定理1.5.1）
+
+设 $\lim f(x) = A$，$\lim g(x) = B$，则在相应极限过程下（如 $x \to x_0$、$x \to \infty$ 等），以下运算法则成立：
+
+1. **和差法则**：  
+   $\lim [f(x) \pm g(x)]$ 存在，且  
+   $$
+   \lim [f(x) \pm g(x)] = \lim f(x) \pm \lim g(x) = A \pm B.
+   $$
+
+2. **积法则**：  
+   $\lim [f(x) \cdot g(x)]$ 存在，且  
+   $$
+   \lim [f(x) \cdot g(x)] = \lim f(x) \cdot \lim g(x) = A \cdot B.
+   $$  
+   特别地，对任意常数 $k$，有  
+   $$
+   \lim [k \cdot f(x)] = k \cdot \lim f(x) = kA.
+   $$
+
+3. **商法则**（分母极限非零）：  
+   若 $B \neq 0$ 且在去心邻域内 $g(x) \neq 0$，则 $\lim \dfrac{f(x)}{g(x)}$ 存在，且  
+   $$
+   \lim \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)} = \frac{A}{B}.
+   $$
+
+> ✅ **适用前提**：所有参与运算的函数在该极限过程中极限均存在，且商法则要求分母极限非零、函数值在去心邻域内不为零。  
+> 🔗 此定理是函数极限计算的基石，其严格性依赖于无穷小分析——详见 [[定理1.5.1的证明（和与商）]]{type=proof, label=和与商的严格推导, render=link, tags=高数|极限|证明}。
+
+延伸推广：  
+- [[推论1.5.1：有限个函数代数和（积）的极限]]{type=theorem, label=有限和/积极限交换律, render=link, tags=高数|极限|推广}  
+- [[推论1.5.2：幂函数的极限]]{type=theorem, label=幂的极限等于极限的幂, render=link, tags=高数|极限|幂函数}
+
+::: {#proof-thm151-overview .note}
+该定理形式上与数列极限四则运算法则一致，但函数极限需额外关注定义域邻域条件与“去心”要求，体现连续性与局部性的统一。
+:::
+
+---
+SPLIT---
+---
+title: 定理1.5.1的证明（和与商）
+numeric_source: 1-5-1-2
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 证明
+---
+
+# 定理1.5.1的证明（和与商）
+
+本证明以极限过程 $x \to x_0$ 为例，基于**函数极限与无穷小的关系**展开。该关系指出：  
+若 $\lim_{x \to x_0} f(x) = A$，则可唯一表示为  
+$$
+f(x) = A + \alpha(x), \quad \text{其中 } \lim_{x \to x_0} \alpha(x) = 0;
+$$  
+同理，$g(x) = B + \beta(x)$，其中 $\lim_{x \to x_0} \beta(x) = 0$。
+
+---
+
+### （1）和法则的证明
+
+$$
+f(x) + g(x) = [A + \alpha(x)] + [B + \beta(x)] = (A + B) + [\alpha(x) + \beta(x)].
+$$
+
+由无穷小的性质（有限个无穷小之和仍为无穷小）知：  
+$$
+\lim_{x \to x_0} [\alpha(x) + \beta(x)] = 0.
+$$
+
+因此  
+$$
+\lim_{x \to x_0} [f(x) + g(x)] = A + B = \lim_{x \to x_0} f(x) + \lim_{x \to x_0} g(x).
+$$
+
+---
+
+### （3）商法则的证明（$B \neq 0$）
+
+考虑差式：
+$$
+\frac{f(x)}{g(x)} - \frac{A}{B}
+= \frac{A + \alpha(x)}{B + \beta(x)} - \frac{A}{B}
+= \frac{B\alpha(x) - A\beta(x)}{B[B + \beta(x)]}.
+$$
+
+- 分子：$\lim_{x \to x_0} [B\alpha(x) - A\beta(x)] = B \cdot 0 - A \cdot 0 = 0$；  
+- 分母：当 $x \to x_0$ 时，$\beta(x) \to 0$，故 $B[B + \beta(x)] \to B^2 \neq 0$。
+
+由**定理1.4.3（非零极限的商极限存在）** 可得：
+$$
+\lim_{x \to x_0} \frac{B\alpha(x) - A\beta(x)}{B[B + \beta(x)]} = 0,
+$$
+从而  
+$$
+\lim_{x \to x_0} \frac{f(x)}{g(x)} = \frac{A}{B}
+= \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to x_0} g(x)}.
+$$
+
+> 📌 **关键约束说明**：商法则成立需同时满足  
+> - $\lim g(x) = B \neq 0$（保证分母极限非零）；  
+> - 在 $x_0$ 的某去心邻域内 $g(x) \neq 0$（避免除零，确保表达式恒有意义）。  
+> 这两点共同保障了极限过程的合法性与代数变形的合理性。
+
+参考基础工具：[[函数极限与无穷小的关系]]{type=concept, label=极限-无穷小转化, render=link, subject=高等数学, grade=大学, tags=极限|无穷小|等价表示}  
+前置引理支撑：[[定理1.4.3（非零极限的商）]]{type=theorem, label=非零极限商存在性, render=link, tags=高数|极限|引理}
+
+---
+SPLIT---
+---
+title: 推论1.5.1：有限个函数代数和（积）的极限
+numeric_source: 1-5-1-3
+aliases:
+  - 有限和极限可交换
+  - 有限积极限可交换
+tags:
+  - 高等数学
+  - 极限
+  - 推论
+---
+
+# 推论1.5.1：有限个函数代数和（积）的极限
+
+若函数 $f_1(x), f_2(x), \dots, f_n(x)$ 在同一极限过程（如 $x \to x_0$ 或 $x \to \infty$）下均有极限，即  
+$$
+\lim f_1(x) = A_1,\; \lim f_2(x) = A_2,\; \dots,\; \lim f_n(x) = A_n,
+$$  
+则：
+
+- **代数和的极限等于极限的代数和**：  
+  $$
+  \lim \left[ f_1(x) \pm f_2(x) \pm \cdots \pm f_n(x) \right] = A_1 \pm A_2 \pm \cdots \pm A_n.
+  $$
+
+- **乘积的极限等于极限的乘积**：  
+  $$
+  \lim \left[ f_1(x) \cdot f_2(x) \cdots f_n(x) \right] = A_1 \cdot A_2 \cdots A_n.
+  $$
+
+> ✅ **本质**：这是定理1.5.1通过数学归纳法自然推广的结果，体现了极限运算对**有限线性组合与有限乘积**的保持性。  
+> ⚠️ 注意：该结论**不适用于无限项**（如级数），无限情形需另行讨论收敛性（见 [[级数收敛性]]{type=concept, label=无穷级数极限, render=link, tags=高数|级数}）。
+
+应用示例：  
+- 多项式极限：$\lim_{x \to x_0} P_n(x) = P_n(x_0)$（见 [[多项式函数的极限]]{type=concept, label=多项式极限代入法, render=link, tags=高数|极限|多项式}）；  
+- 有理函数在分母非零点的极限（如 [[例1.5.2]]{type=question, id=例1.5.2, label=有理函数代入求值, render=card, source=教材例题, answer=-5/8, tags=高数|极限|计算题}）。
+
+---
+SPLIT---
+---
+title: 推论1.5.2：幂函数的极限
+numeric_source: 1-5-1-4
+aliases:
+  - 幂的极限等于极限的幂
+tags:
+  - 高等数学
+  - 极限
+  - 推论
+  - 幂函数
+---
+
+# 推论1.5.2：幂函数的极限
+
+若 $\lim f(x) = A$，且 $n \in \mathbb{N}_+$（正整数），则  
+$$
+\lim [f(x)]^n = \left[ \lim f(x) \right]^n = A^n.
+$$
+
+等价地，幂函数运算与极限运算可交换顺序。
+
+> ✅ **直观理解**：将 $[f(x)]^n$ 视为 $n$ 个相同函数 $f(x)$ 的乘积，直接应用推论1.5.1（有限积极限可交换）即可得证。  
+> 🧩 **推广视角**：  
+> - 当 $n = 2$：$\lim [f(x)]^2 = (\lim f(x))^2$；  
+> - 当 $n = 3$：$\lim [f(x)]^3 = (\lim f(x))^3$；  
+> - 依此类推，对任意固定正整数 $n$ 均成立。
+
+⚠️ **重要限制**：  
+- $n$ 必须为**确定的正整数**（不能是变量或无穷大）；  
+- 若 $A = 0$ 且 $n$ 很大，结果仍为 $0$；若 $A < 0$ 且 $n$ 为偶数，则 $A^n > 0$，符号变化需谨慎（如 $\lim (-1)^n$ 不适用，因 $n$ 非函数变量）。
+
+💡 **延伸联系**：  
+- 结合复合函数极限法则（[[定理1.5.2]]{type=theorem, label=复合函数极限代换, render=link, tags=高数|极限|复合函数}），可处理更复杂形式，如 $\lim [\sin x]^3 = (\lim \sin x)^3$；  
+- 与根式极限结合：若 $A > 0$ 且 $n \in \mathbb{N}_+$，则 $\lim \sqrt[n]{f(x)} = \sqrt[n]{A}$（需单独证明，见 [[根式函数的极限]]{type=concept, label=n次方根极限, render=link, tags=高数|极限|根式}）。

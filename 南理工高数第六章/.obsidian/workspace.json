@@ -1,0 +1,215 @@
+{
+  "main": {
+    "id": "479ea1e2cf1d7b36",
+    "type": "split",
+    "children": [
+      {
+        "id": "b3fe9cf11c91d303",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7154ec224982dca0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "函数在区间上的平均值(定义引入).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "函数在区间上的平均值(定义引入)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6bf056eca514ae7c",
+    "type": "split",
+    "children": [
+      {
+        "id": "1462a677b95dc51c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "520e3ef1d271a762",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "32d72fb9a3991258",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "2a02112cc81e7133",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8f9ec4bc95f80a1e",
+    "type": "split",
+    "children": [
+      {
+        "id": "7ab5ddc7d631f43d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "92fb15a9999043a6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "函数在区间上的平均值(定义引入).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "函数在区间上的平均值(定义引入) 的反向链接列表"
+            }
+          },
+          {
+            "id": "51275b26feefba26",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "函数在区间上的平均值(定义引入).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "函数在区间上的平均值(定义引入) 的出链列表"
+            }
+          },
+          {
+            "id": "eeee43a585ea10d9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "89900746eaeae18d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "3eba2a8cbe52d55c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "函数在区间上的平均值(定义引入).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "函数在区间上的平均值(定义引入) 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "7154ec224982dca0",
+  "lastOpenFiles": [
+    "垂直平板所受水压力需用定积分计算.md",
+    "变力做功的微元法.md",
+    "常力做功公式.md",
+    "函数平均值的构造步骤(离散逼近).md",
+    "函数在区间上的平均值(极限定义).md",
+    "例6.2.8-劈形体体积(斜截圆柱).md",
+    "例6.2.4-摆线一拱与x轴围成图形面积(参数方程).md",
+    "例6.2.5-阿基米德螺线一环面积.md",
+    "例6.2.6-心形线围成图形面积(对称性应用).md",
+    "例6.2.7-两极曲线围成图形面积(对称性+交点).md",
+    "例6.2.10-复合边界图形的面积与旋转体体积.md",
+    "例6.2.11-摆线一拱旋转体体积.md",
+    "例6.2.16-摆线一拱的弧长.md",
+    "例6.2.17-星形线全长.md",
+    "平均值的存在性与几何解释.md",
+    "直角坐标系下两曲线间图形面积公式(y型).md",
+    "应用案例-电极的接地电阻问题.md",
+    "例6.4.2-正弦交流电的平均功率.md",
+    "例6.4.1-理想气体等温膨胀中压强的平均值.md",
+    "例6.3.6-细棒对中垂线上单位质点的引力(矢量分解).md",
+    "例6.3.5-细棒对延长线上单位质点的引力.md",
+    "旋转体体积公式(绕x轴).md",
+    "例6.2.12-正弦曲线旋转体体积(柱壳法与圆盘法对比).md",
+    "积分变量选择原则.md",
+    "例6.2.13-同一区域绕不同轴旋转(x轴、y轴、y=2).md",
+    "例6.2.15-正弦型曲线族弧长不变性.md"
+  ]
+}

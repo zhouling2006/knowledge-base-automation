@@ -1,0 +1,260 @@
+---
+title: 旋转体体积公式（绕y轴）
+numeric_source: 6-2-2-5
+aliases:
+  - y轴圆盘法
+tags:
+  - 高等数学
+  - 积分应用
+  - 旋转体
+  - 体积计算
+---
+
+# 旋转体体积公式（绕y轴）
+
+由连续曲线 $x = \varphi(y)$（其中 $\varphi(y) \geqslant 0$）、直线 $y = c$、$y = d$（$c < d$）及 $y$ 轴所围成的平面图形，绕 $y$ 轴旋转一周所得旋转体，其垂直于 $y$ 轴的截面为圆形，半径为 $\varphi(y)$，面积为  
+$$
+S(y) = \pi\, \varphi^2(y).
+$$  
+因此，该旋转体的体积为：
+
+$$
+V = \pi \int_{c}^{d} \varphi^2(y)\, \mathrm{d}y. \tag{6.2.8}
+$$
+
+此公式称为 **y方向圆盘法**（或“垂直于y轴的圆盘法”），适用于以 $y$ 为自变量、边界函数显式表示为 $x = \varphi(y)$ 的情形。
+
+> ✅ 对比参考：  
+> - [[旋转体体积公式(绕x轴)]]{type=concept, label=绕x轴圆盘法, render=link, tags=高数|积分应用|旋转体}  
+> - [[平行截面面积已知的立体体积公式]]{type=concept, label=一般截面法, render=link, subject=高等数学, grade=大学, tags=体积|积分}
+
+![](images/b2e88c4c852c134901c81c8b3d284dce66b265d42ae6a790bc642e7ea870699d.jpg)  
+图6.2.15
+
+::: {.note}
+该公式是[[平行截面面积已知的立体体积公式]]{type=concept, label=截面法通式, render=link}在旋转对称情形下的特例：当截面恒为圆且半径由 $\varphi(y)$ 给出时，$S(y) = \pi \varphi^2(y)$，代入即得。
+:::
+
+---SPLIT---
+---
+title: 例6.2.9：圆环体（torus）体积
+numeric_source: 6-2-2-6
+aliases: []
+tags:
+  - 高等数学
+  - 积分应用
+  - 旋转体
+  - 圆环体
+  - torus
+---
+
+# 例6.2.9：圆环体（torus）体积
+
+> **题目**：求圆域 $x^{2} + (y - b)^{2} \leqslant a^{2}$（其中 $0 < a < b$）绕 $x$ 轴旋转一周所得旋转体的体积。
+
+该立体为典型的**圆环体**（torus），形如甜甜圈，其几何中心在 $(0,b)$，截面圆半径为 $a$，中心到旋转轴（$x$ 轴）距离为 $b$。
+
+## 解法：上下半圆旋转体体积差法
+
+由圆方程解得：
+$$
+y = b \pm \sqrt{a^2 - x^2}, \quad x \in [-a,\, a].
+$$
+
+- 上半圆：$y_1 = b + \sqrt{a^2 - x^2}$  
+- 下半圆：$y_2 = b - \sqrt{a^2 - x^2}$  
+
+二者与 $x$ 轴围成的图形绕 $x$ 轴旋转，所求体积即为上半圆旋转体体积减去下半圆旋转体体积：
+
+$$
+\begin{aligned}
+V &= \pi \int_{-a}^{a} y_1^2 \,\mathrm{d}x - \pi \int_{-a}^{a} y_2^2 \,\mathrm{d}x \\
+&= \pi \int_{-a}^{a} \left[(b + \sqrt{a^2 - x^2})^2 - (b - \sqrt{a^2 - x^2})^2 \right] \mathrm{d}x \\
+&= \pi \int_{-a}^{a} 4b\sqrt{a^2 - x^2} \,\mathrm{d}x \\
+&= 8\pi b \int_{0}^{a} \sqrt{a^2 - x^2} \,\mathrm{d}x.
+\end{aligned}
+$$
+
+利用半圆面积公式 $\int_0^a \sqrt{a^2 - x^2}\,\mathrm{d}x = \frac{\pi a^2}{4}$，得：
+
+$$
+V = 8\pi b \cdot \frac{\pi a^2}{4} = 2\pi^2 a^2 b.
+$$
+
+✅ **结论**：圆环体体积为  
+$$
+\boxed{V = 2\pi^2 a^2 b}.
+$$
+
+> 🔁 知识关联：  
+> - 此结果亦可由**帕普斯定理（Pappus’s centroid theorem）**直接得出：平面区域面积 $A = \pi a^2$，其形心到 $x$ 轴距离为 $b$，故旋转体积 $V = A \cdot 2\pi b = 2\pi^2 a^2 b$。  
+> - 参考：[[祖暅原理与卡瓦列里原理]]{type=concept, label=等截面体积相等, render=link, tags=几何|体积原理}
+
+![](images/e78b5cdf06b70bc2fd08342b8fd5887667777648e0ab1e96d3cd04947209441b.jpg)  
+图6.2.16
+
+---SPLIT---
+---
+title: 例6.2.10：复合边界图形的面积与旋转体体积
+numeric_source: 6-2-2-7
+aliases: []
+tags:
+  - 高等数学
+  - 积分应用
+  - 平面图形面积
+  - 旋转体体积
+  - 分段积分
+---
+
+# 例6.2.10：复合边界图形的面积与旋转体体积
+
+> **题目**：一平面图形（见图6.2.17）由以下四条边界围成：  
+> - 抛物线 $x = y^2 + 2$，  
+> - 过点 $(3,1)$ 处的法线，  
+> - $x$ 轴（$y = 0$），  
+> - $y$ 轴（$x = 0$）。  
+>   
+> （1）求该平面图形的面积；  
+> （2）求该图形绕 $x$ 轴旋转一周所得旋转体的体积。
+
+---
+
+## （1）求面积：需先确定法线方程
+
+由 $x = y^2 + 2$，得 $\displaystyle \frac{\mathrm{d}x}{\mathrm{d}y} = 2y$，故  
+$$
+\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{1}{2y}, \quad \left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{(x,y)=(3,1)} = \frac{1}{2}.
+$$  
+法线斜率为 $-2$，过点 $(3,1)$，故法线方程为：  
+$$
+y - 1 = -2(x - 3) \quad \Rightarrow \quad 2x + y - 7 = 0.
+$$
+
+图形在第一象限，边界交点分析：
+- 法线与 $x$ 轴交于 $(3.5, 0)$，但受抛物线 $x = y^2 + 2$ 限制；
+- 实际有效区域由 $y$ 从 $0$ 到 $1$（对应法线与抛物线交点），再至 $y=2$（法线与 $y$ 轴交点）；
+- 更宜按 $x$ 分段：从 $x = 0$ 到 $x = 2$（法线主导），再到 $x = 2$ 至 $x = 3$（法线减抛物线分支）。
+
+面积计算（按 $x$ 积分）：
+$$
+\begin{aligned}
+A &= \int_{0}^{2} (-2x + 7)\,\mathrm{d}x + \int_{2}^{3} \left[(-2x + 7) - \sqrt{x - 2}\right]\,\mathrm{d}x \\
+&= \left[-x^2 + 7x\right]_0^2 + \left[-x^2 + 7x - \frac{2}{3}(x - 2)^{3/2}\right]_2^3 \\
+&= ( -4 + 14 ) + \left[ (-9 + 21) - \frac{2}{3}(1)^{3/2} \right] - 0 \\
+&= 10 + \left(12 - \frac{2}{3}\right) = \frac{34}{3}.
+\end{aligned}
+$$
+
+✅ 面积为 $\displaystyle \boxed{\frac{34}{3}}$。
+
+---
+
+## （2）绕 $x$ 轴旋转体积：外减内法（washer method）
+
+旋转体横截面为圆环（washer）：
+- 外半径：法线到 $x$ 轴距离，即 $R_{\text{out}} = -2x + 7$（$x \in [0,3]$）；
+- 内半径：抛物线右支到 $x$ 轴距离，即 $R_{\text{in}} = \sqrt{x - 2}$（仅当 $x \geq 2$）；
+- 故分段积分：
+
+$$
+\begin{aligned}
+V &= \pi \int_{0}^{3} (-2x + 7)^2 \,\mathrm{d}x - \pi \int_{2}^{3} (x - 2) \,\mathrm{d}x \\
+&= \pi \left[ \frac{4}{3}x^3 - 14x^2 + 49x \right]_0^3 - \pi \left[ \frac{(x - 2)^2}{2} \right]_2^3 \\
+&= \pi (36 - 126 + 147) - \pi \cdot \frac{1}{2} = \pi \cdot 57 - \frac{\pi}{2} = \frac{113}{2}\pi.
+\end{aligned}
+$$
+
+✅ 旋转体体积为 $\displaystyle \boxed{\frac{113}{2}\pi}$。
+
+> 📌 方法提示：本题体现**复合边界下分段建模**与**旋转体“外减内”思想**，是[[旋转体体积公式(绕x轴)]]{type=concept, label=圆盘/圆环法, render=link}的典型应用。
+
+![](images/75d6451d700046944f7b66d4d8521542d67bdc1beab8ee6ad5052f08098e0080.jpg)  
+图6.2.17
+
+---SPLIT---
+---
+title: 例6.2.11：摆线一拱旋转体体积
+numeric_source: 6-2-2-8
+aliases: []
+tags:
+  - 高等数学
+  - 参数方程
+  - 旋转体体积
+  - 摆线
+  - 参数积分
+---
+
+# 例6.2.11：摆线一拱旋转体体积
+
+> **题目**：求摆线一拱  
+> $$
+> \begin{cases}
+> x = a(t - \sin t), \\
+> y = a(1 - \cos t)
+> \end{cases}
+> \quad (a > 0,\; 0 \leq t \leq 2\pi)
+> $$  
+> 与 $x$ 轴围成的平面图形（见图6.2.18），分别绕 $x$ 轴、$y$ 轴旋转一周所得旋转体的体积。
+
+该图形为标准摆线一拱，宽度 $2\pi a$，高度 $2a$，关于 $x = \pi a$ 对称。
+
+---
+
+## （1）绕 $x$ 轴旋转体积 $V_x$
+
+使用参数形式下的圆盘法（公式变形）：  
+$$
+V_x = \pi \int_{x=0}^{2\pi a} y^2 \,\mathrm{d}x = \pi \int_{t=0}^{2\pi} y^2 \cdot \frac{\mathrm{d}x}{\mathrm{d}t} \,\mathrm{d}t.
+$$
+
+计算：
+- $y = a(1 - \cos t) \Rightarrow y^2 = a^2 (1 - \cos t)^2$，
+- $\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t} = a(1 - \cos t)$，
+
+故：
+$$
+\begin{aligned}
+V_x &= \pi \int_0^{2\pi} a^2 (1 - \cos t)^2 \cdot a(1 - \cos t) \,\mathrm{d}t \\
+&= \pi a^3 \int_0^{2\pi} (1 - \cos t)^3 \,\mathrm{d}t \\
+&= \pi a^3 \int_0^{2\pi} \left(1 - 3\cos t + 3\cos^2 t - \cos^3 t\right) \mathrm{d}t.
+\end{aligned}
+$$
+
+利用周期积分性质（$\int_0^{2\pi} \cos t\,\mathrm{d}t = 0$, $\int_0^{2\pi} \cos^3 t\,\mathrm{d}t = 0$），及  
+$\displaystyle \int_0^{2\pi} \cos^2 t \,\mathrm{d}t = \pi$，得：
+$$
+V_x = \pi a^3 \left[2\pi + 3 \cdot \pi \right] = \pi a^3 \cdot 5\pi = 5\pi^2 a^3.
+$$
+
+✅ $V_x = \boxed{5\pi^2 a^3}$。
+
+---
+
+## （2）绕 $y$ 轴旋转体积 $V_y$
+
+采用**左右支差分法**（类似 washer，但沿 $y$ 方向）：  
+将图形分为左支（$OBC$）与右支（$OABC$），绕 $y$ 轴旋转后体积差即为所求。
+
+由参数方程解出 $x$ 关于 $y$ 的表达较难，故仍用参数积分，注意：
+- $y = a(1 - \cos t) \in [0, 2a]$，对应 $t \in [0, 2\pi]$，
+- 对每个 $y$，存在两个 $x$ 值：左支 $x_1(t)$（$t \in [0,\pi]$），右支 $x_2(t)$（$t \in [\pi,2\pi]$）。
+
+利用柱壳法思想或直接推导得：
+$$
+V_y = \pi \int_{y=0}^{2a} \left[x_2^2(y) - x_1^2(y)\right] \mathrm{d}y.
+$$
+
+经参数换元（$y = a(1 - \cos t) \Rightarrow \mathrm{d}y = a \sin t \,\mathrm{d}t$），并整理符号，最终得：
+$$
+V_y = -\pi a^3 \int_0^{2\pi} (t - \sin t)^2 \sin t \,\mathrm{d}t = 6\pi^3 a^3.
+$$
+
+✅ $V_y = \boxed{6\pi^3 a^3}$。
+
+> 💡 拓展理解：  
+> - $V_x$ 体现**参数圆盘法**，$V_y$ 体现**参数柱壳/差分法**；  
+> - 结果符合量纲：$[a^3]$，且含 $\pi^2$、$\pi^3$，反映旋转对称性叠加；  
+> - 可对比[[例6.2.8-劈形体体积(斜截圆柱)]]{type=question, id=例6.2.8, label=斜截圆柱体积, render=link, tags=高数|体积|几何应用}中截面法思路异同。
+
+![](images/cebbb38e4f8435c5d9bb2bac5c475a558128f49116d0765593a0a9274747c0cf.jpg)  
+图6.2.18

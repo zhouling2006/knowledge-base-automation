@@ -1,0 +1,143 @@
+---
+title: 等价形式：$\lim_{z\to0}(1+z)^{1/z} = e$
+numeric_source: 1-6-2-9
+aliases:
+  - 零点形式的重要极限
+  - 倒代换形式
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 变量代换
+---
+
+# 等价形式：$\lim_{z\to0}(1+z)^{1/z} = e$
+
+在公式 (1.6.3) —— 即 $\lim_{x\to\infty}\left(1 + \frac{1}{x}\right)^x = e$ —— 中，作变量代换 $x = \frac{1}{z}$，则当 $x \to \infty$ 时，必有 $z \to 0$（且 $z \neq 0$）。由此导出该重要极限的**零点等价形式**：
+
+$$
+\lim_{z \to 0} (1 + z)^{\frac{1}{z}} = e.
+$$
+
+该式亦可将哑变量统一记为 $x$，写作：
+
+$$
+\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e.
+$$
+
+此形式在处理含 $(1+\text{无穷小})^{\text{无穷大}}$ 型未定式时极为常用，是标准极限 $\lim_{n\to\infty}(1+1/n)^n = e$ 在连续变量下的自然延拓，也是后续推导复合指数极限（如 $\lim (1+u(x))^{v(x)}$）的核心桥梁。
+
+相关基础支撑：  
+- [[离散情形回顾-数列极限-$lim_{ntoinfty}(1+1n)^n-=-e$.md]]{type=concept, label=数列极限基础, render=link, subject=高等数学, grade=大学, tags=极限|数列|重要极限}  
+- [[连续变量推广-$x-to-pminfty$-时极限仍为-$e$.md]]{type=concept, label=连续推广结论, render=link, subject=高等数学, grade=大学, tags=极限|函数极限|重要极限}  
+- [[综合结论-$lim_{xtoinfty}(1+1x)^x-=-e$.md]]{type=concept, label=完整极限公式, render=card, subject=高等数学, grade=大学, tags=极限|重要极限|公式(1.6.3)}
+
+::: {.note}
+该等价形式揭示了自然常数 $e$ 的本质定义之一：它是函数 $(1+z)^{1/z}$ 在 $z=0$ 处的**去心极限值**，体现了“单位增长速率”在瞬时尺度下的累积效应。
+:::
+
+---
+SPLIT---
+---
+title: 例1.6.9：求 $\lim_{x\to\infty}(1-1/(3x))^x$
+numeric_source: 1-6-2-10
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 计算题
+---
+
+# 例1.6.9：求 $\lim_{x\to\infty}(1-1/(3x))^x$
+
+计算：
+
+$$
+\lim_{x \to \infty} \left(1 - \frac{1}{3x}\right)^x.
+$$
+
+**解**：  
+将底数改写为标准重要极限形式：
+
+$$
+1 - \frac{1}{3x} = 1 + \frac{1}{-3x}.
+$$
+
+令 $t = -3x$，则当 $x \to \infty$ 时，$t \to -\infty$？注意：此处教材原文取 $t \to \infty$，实为隐含 **$x \to +\infty$**（因原极限中 $x\to\infty$ 在本节上下文中默认为 $+\infty$，见例1.6.8），故 $t = -3x \to -\infty$。但关键在于：  
+$$
+\left(1 + \frac{1}{t}\right)^{-t/3} = \left[\left(1 + \frac{1}{t}\right)^t\right]^{-1/3},
+$$  
+而 $\lim_{t \to \pm\infty} \left(1 + \frac{1}{t}\right)^t = e$（已由[[连续变量推广-$x-to-pminfty$-时极限仍为-$e$.md]]{type=concept, label=左右极限一致, render=link, tags=极限|重要极限}证实），因此无论 $t \to +\infty$ 或 $t \to -\infty$，结果相同。
+
+于是：
+
+$$
+\lim_{x \to \infty} \left(1 - \frac{1}{3x}\right)^x 
+= \lim_{t \to \infty} \left(1 + \frac{1}{t}\right)^{-t/3} 
+= \left[ \lim_{t \to \infty} \left(1 + \frac{1}{t}\right)^t \right]^{-1/3} 
+= e^{-1/3}.
+$$
+
+答案为：$e^{-1/3}$。
+
+关联知识点：  
+- [[等价形式：$\\lim_{z\\to0}(1+z)^{1/z} = e$]]{type=concept, label=零点形式, render=link, tags=重要极限|变量代换}  
+- [[重要极限-$lim_{xto-infty}left(1-+-frac{1}{x}right)^x-=-e$.md]]{type=concept, label=标准极限, render=card, subject=高等数学, grade=大学, tags=极限|重要极限|公式(1.6.3)}  
+- [[例1.6.8-证明-$lim_{xto-+infty}(1+1x)^x-=-e$(夹逼法).md]]{type=question, id=例1.6.8, label=右极限证明, render=link, source=教材, tags=高数|极限|证明题}
+
+::: {.example label="例1.6.9" type=example}
+$$
+\lim_{x \to \infty} \left(1 - \frac{1}{3x}\right)^x = e^{-1/3}
+$$
+:::
+
+---
+SPLIT---
+---
+title: 例1.6.10：求 $\lim_{x\to0}(1-x)^{2/x}$
+numeric_source: 1-6-2-11
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 计算题
+---
+
+# 例1.6.10：求 $\lim_{x\to0}(1-x)^{2/x}$
+
+计算：
+
+$$
+\lim_{x \to 0} (1 - x)^{\frac{2}{x}}.
+$$
+
+**解**：  
+令 $t = -x$，则当 $x \to 0$ 时，$t \to 0$，且 $1 - x = 1 + t$，$\frac{2}{x} = -\frac{2}{t}$。于是：
+
+$$
+\lim_{x \to 0} (1 - x)^{\frac{2}{x}} 
+= \lim_{t \to 0} (1 + t)^{-\frac{2}{t}} 
+= \left[ \lim_{t \to 0} (1 + t)^{\frac{1}{t}} \right]^{-2}.
+$$
+
+由[[等价形式：$\\lim_{z\\to0}(1+z)^{1/z} = e$]]{type=concept, label=零点形式, render=link, tags=重要极限|极限定义}知，$\lim_{t \to 0} (1 + t)^{1/t} = e$，故：
+
+$$
+\left[ \lim_{t \to 0} (1 + t)^{\frac{1}{t}} \right]^{-2} = e^{-2}.
+$$
+
+答案为：$e^{-2}$。
+
+本题典型地展示了如何通过**平移代换**（$x \mapsto -x$）将非标准底数 $1 - x$ 转化为 $1 + t$ 形式，并利用零点型重要极限完成指数化简。
+
+延伸练习参考：  
+- [[例1.6.9：求 $\\lim_{x\\to\\infty}(1-1/(3x))^x$]]{type=question, id=例1.6.9, label=线性代换类比, render=link, tags=极限|代换|指数}  
+- [[重要极限-$lim_{xto-infty}left(1-+-frac{1}{x}right)^x-=-e$.md]]{type=concept, label=标准极限源, render=card, subject=高等数学, grade=大学, tags=极限|重要极限}  
+
+::: {.example label="例1.6.10" type=example}
+$$
+\lim_{x \to 0} (1 - x)^{\frac{2}{x}} = e^{-2}
+$$
+:::

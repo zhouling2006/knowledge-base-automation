@@ -1,0 +1,145 @@
+---
+title: 数列极限的直观描述
+numeric_source: 1-2-2-1
+aliases:
+  - 收敛数列
+  - 极限存在
+tags:
+  - 高等数学
+  - 数列极限
+  - 基础概念
+---
+
+# 数列极限的直观描述
+
+当 $n$ 无限增大时，若数列 $\{u_n\}$ 的通项 $u_n$ 能无限接近某个常数 $a$，则称该数列为**有极限的数列**（或**收敛数列**），而常数 $a$ 称为它的**极限**；否则称其**无极限**（即**发散**）。
+
+例如：
+- $\displaystyle \frac{1}{2^n} \to 0$，
+- $\displaystyle \frac{n+1}{n} \to 1$，
+- $\displaystyle 1 + \frac{(-1)^{n-1}}{n} \to 1$。
+
+而以下数列不趋向于任何固定常数，故**发散**：
+- $u_n = n = 1, 2, 3, \dots$（无限增大）；
+- $\displaystyle u_n = \frac{1 + (-1)^{n-1}}{2} = 1, 0, 1, 0, \dots$（在 $0$ 与 $1$ 间振荡）。
+
+这一描述体现了极限的**直观本质**：变化趋势的“终极归宿”。
+
+延伸理解：[[极限的定量刻画基础：距离度量]]{type=concept, label=从直观到定量, render=link, subject=高等数学, grade=大学, tags=数列极限|ε-N基础}
+
+::: {.note}
+本节内容属于极限概念的**前形式化阶段**，重在建立几何与数值直觉，尚未引入严格逻辑定义。
+:::
+---SPLIT---
+---
+title: 极限的定量刻画基础：距离度量
+numeric_source: 1-2-2-2
+aliases:
+  - ε-邻域度量
+  - 距离判据
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N语言
+---
+
+# 极限的定量刻画基础：距离度量
+
+两个实数 $a$ 与 $b$ 的“接近程度”，在数量上由其**绝对值距离** $|a - b|$ 刻画：$|a - b|$ 越小，二者越接近。
+
+因此，“数列 $\{u_n\}$ 的通项 $u_n$ 无限接近常数 $a$”这一直观说法，在定量意义上即指：
+
+> 对任意给定的正数 $\varepsilon > 0$（无论多么小），总存在正整数 $N$，使得当 $n > N$ 时，恒有  
+> $$
+|u_n - a| < \varepsilon.
+$$
+
+该不等式表明：只要 $n$ 足够大（超过某个阈值 $N$），所有后续项 $u_n$ 与 $a$ 的偏差就可被控制在任意指定精度 $\varepsilon$ 之内。
+
+以数列 $\displaystyle u_n = 1 + \frac{(-1)^{n-1}}{n}$ 为例：  
+$$
+|u_n - 1| = \left| \frac{(-1)^{n-1}}{n} \right| = \frac{1}{n},
+$$  
+要使 $\frac{1}{n} < \varepsilon$，只需取 $n > \frac{1}{\varepsilon}$，即令 $N = \left\lfloor \frac{1}{\varepsilon} \right\rfloor$ 即可满足要求。
+
+此思想是构建**严格极限定义**的核心桥梁。
+
+前置基础：[[数列极限的直观描述]]{type=concept, label=直观前提, render=link, tags=数列极限|基础}  
+严格定义：[[数列极限的 ε-N 定义]]{type=theorem, label=正式定义, render=link, tags=数列极限|核心定理}
+---SPLIT---
+---
+title: 数列极限的 ε-N 定义
+numeric_source: 1-2-2-3
+aliases:
+  - ε-N 定义
+  - 柯西极限定义
+tags:
+  - 高等数学
+  - 数列极限
+  - 严格定义
+---
+
+# 数列极限的 ε-N 定义
+
+> **定义（数列极限的 $\varepsilon$-$N$ 定义）**  
+> 设有数列 $\{u_n\}$。若存在常数 $a$，使得对**任意给定的正数 $\varepsilon > 0$**，总存在**正整数 $N$**，使得当 $n > N$ 时，恒有  
+> $$
+|u_n - a| < \varepsilon,
+$$  
+> 则称常数 $a$ 为数列 $\{u_n\}$ 当 $n \to \infty$ 时的**极限**，也称 $\{u_n\}$ **收敛于 $a$**。  
+> 记作  
+> $$
+\lim_{n \to \infty} u_n = a \quad \text{或} \quad u_n \to a \; (n \to \infty).
+$$  
+> 否则，称 $\{u_n\}$ **发散**（即极限不存在）。
+
+该定义亦称为**$\varepsilon$-$N$ 语言**，是分析学中极限概念的**严格逻辑基石**。
+
+::: {.note}
+- $\varepsilon$ 的**任意性**：体现“无限接近”的彻底性——精度可任取，无下界；
+- $N$ 的**存在性与依赖性**：对每个 $\varepsilon$，只需存在某个 $N$（不必最小），且 $N$ 通常随 $\varepsilon$ 减小而增大；
+- 定义**不提供求法**，仅提供**验证标准**；后续将学习极限运算法则与技巧。
+:::
+
+几何解释见：[[数列极限的几何意义]]{type=concept, label=几何图示, render=link, tags=数列极限|几何视角}  
+应用范例：[[例1.2.1：(-1)ⁿ⁻¹/n 的极限]]{type=question, id=例1.2.1, label=(-1)ⁿ⁻¹/n → 0, render=card, source=教材例题, answer=0, tags=数列极限|验证题}
+
+::: {#def-seq-limit-epsN .definition label="ε-N 定义（标准表述）" type=definition}
+设 $\{u_n\}$ 是一个数列。若 $\forall \varepsilon > 0,\; \exists N \in \mathbb{N}^+$，使得 $\forall n > N$，有 $|u_n - a| < \varepsilon$，则称 $a$ 为 $\{u_n\}$ 的极限。
+:::
+---SPLIT---
+---
+title: 数列极限的几何意义
+numeric_source: 1-2-2-4
+aliases:
+  - ε-邻域解释
+  - 点列收敛的几何表征
+tags:
+  - 高等数学
+  - 数列极限
+  - 几何直观
+---
+
+# 数列极限的几何意义
+
+在数轴上，数列 $\{u_n\}$ 对应一个**点列** $u_1, u_2, u_3, \dots$，而极限 $a$ 对应一个**定点**。
+
+“$\{u_n\}$ 以 $a$ 为极限”在几何上意味着：
+
+> 对任意给定的 $\varepsilon > 0$，考虑点 $a$ 的 **$\varepsilon$-邻域**  
+> $$
+U(a,\varepsilon) = (a - \varepsilon,\; a + \varepsilon),
+$$  
+> 总存在正整数 $N$，使得从第 $N+1$ 项起的所有点 $u_{N+1}, u_{N+2}, u_{N+3}, \dots$ **全部落在该邻域内**；至多只有前 $N$ 个点可能落在该邻域之外。
+
+这形象地表达了“**充分靠后的项无限聚集于 $a$ 附近**”的本质。
+
+![](images/c9404fd83190da0cae9ace9e0e3781fcd74e55f1db5dac6939845e23b69789c4.jpg)  
+图1.2.4：数列收敛的几何示意（$a$ 的 $\varepsilon$-邻域内包含除有限项外的所有 $u_n$）
+
+关联定义：[[数列极限的 ε-N 定义]]{type=theorem, label=代数形式, render=link, tags=数列极限|严格定义}  
+教学提示：该几何图示是理解 $\varepsilon$-$N$ 逻辑的**关键可视化工具**，建议结合动态演示加深认知。
+
+::: {.note}
+邻域 $U(a,\varepsilon)$ 是分析学中刻画“局部性”与“逼近”的基本工具，后续函数极限、连续性、导数等均以此为基础。
+:::

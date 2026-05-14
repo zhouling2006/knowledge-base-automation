@@ -1,0 +1,143 @@
+[
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 1,
+    "title": "函数极限的唯一性",
+    "content": "若函数 f(x) 在 x → x₀ 时极限存在，则该极限值唯一。",
+    "raw_content": "定理1.3.3（函数极限的唯一性）设函数 $f(x)$ 当 $x \\to x_0$ 时极限存在，则其极限值是唯一的。",
+    "type": "theorem",
+    "aliases": [
+      "极限唯一性定理"
+    ],
+    "entities": "函数极限,唯一性,定理1.3.3",
+    "references": [
+      "定理1.3.3（函数极限的唯一性）"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "函数在某点极限若存在，则必唯一。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 2,
+    "title": "函数极限的局部有界性",
+    "content": "若函数 f(x) 在 x → x₀ 时以 A 为极限，则存在去心 δ 邻域，使得 f(x) 在该邻域内有界。",
+    "raw_content": "定理1.3.4 设函数 $f(x)$ 当 $x \\to x_0$ 时以 $A$ 为极限，则存在正数 $\\delta$ ，使得函数 $f(x)$ 在点 $x_0$ 的去心 $\\delta$ 邻域内有界。\n\n证 因为 $\\lim_{x \\to x_0} f(x) = A$ ，根据定义，对于给定 $\\varepsilon = 1$ ，必存在正数 $\\delta$ ，当 $0 < |x - x_0| < \\delta$ 时，有 $|f(x) - A| < 1$ 。而\n\n$$\n| f (x) | = | f (x) - A + A | \\leqslant | f (x) - A | + | A |.\n$$\n\n取 $M = |A| + 1$ ，则当 $0 < |x - x_0| < \\delta$ 时， $|f(x)| < 1 + |A| = M$ ，即 $f(x)$ 在点 $x_0$ 的去心 $\\delta$ 邻域内有界.",
+    "type": "theorem",
+    "aliases": [
+      "局部有界性定理"
+    ],
+    "entities": "函数极限,局部有界性,定理1.3.4,去心邻域",
+    "references": [
+      "定理1.3.4"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "极限存在的函数在趋近点附近某去心邻域内必有界。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 3,
+    "title": "有界变量（局部）定义",
+    "content": "若存在 M > 0 和 δ > 0，使得当 x 属于 x₀ 的去心 δ 邻域时恒有 |f(x)| ≤ M，则称 f(x) 在 x → x₀ 时为有界变量；这是局部概念，区别于区间整体有界。",
+    "raw_content": "通常，对于函数 $f(x)$ ，若存在 $M > 0$ 及 $\\delta > 0$ ，使得当 $x \\in \\mathring{U}(x_0, \\delta)$ 时，有 $|f(x)| \\leqslant M$ ，则称函数 $f(x)$ 当 $x \\to x_0$ 时是有界变量。这与本章第一节所讨论的某个区间上的有界函数有本质区别，前者是局部概念，后者是具有整体性的。",
+    "type": "concept",
+    "aliases": [
+      "局部有界变量"
+    ],
+    "entities": "有界变量,去心邻域,局部有界性",
+    "references": [
+      "称函数 $f(x)$ 当 $x \\to x_0$ 时是有界变量"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "‘x→x₀时有界变量’指在某去心邻域内绝对值有上界，属局部性质。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 4,
+    "title": "函数极限的局部保号性",
+    "content": "若 limₓ→ₓ₀ f(x) = A 且 A > 0（或 A < 0），则存在去心 δ 邻域，使得在该邻域内 f(x) > 0（或 f(x) < 0）。",
+    "raw_content": "定理1.3.5 若函数 $f(x)$ 当 $x \\to x_0$ 时以 $A$ 为极限，且 $A > 0$ （或 $A < 0$ ），则必存在正数 $\\delta$ ，使得当 $0 < |x - x_0| < \\delta$ 时，有 $f(x) > 0$ （或 $f(x) < 0$ ）：\n\n证 设 $A > 0$ 。因为 $\\lim_{x \\to x_0} f(x) = A$ ，所以给定 $\\varepsilon = \\frac{A}{2}$ ，必存在正数 $\\delta$ ，当 $0 < |x - x_0| < \\delta$ 时，有 $|f(x) - A| < \\frac{A}{2}$ ，即 $0 < |x - x_0| < \\delta$ 时，有\n\n$$\n0 <   \\frac {A}{2} = A - \\frac {A}{2} <   f (x) <   A + \\frac {A}{2} = \\frac {3 A}{2}.\n$$\n\n结论成立. 同理可证 $A < 0$ 的情形",
+    "type": "theorem",
+    "aliases": [
+      "局部保号性定理"
+    ],
+    "entities": "函数极限,局部保号性,定理1.3.5",
+    "references": [
+      "定理1.3.5"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "极限为正（负）时，函数在趋近点附近某去心邻域内保持正（负）。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 5,
+    "title": "函数极限的保号性推论（极限值不等式）",
+    "content": "若 limₓ→ₓ₀ f(x) = A，且在 x₀ 某去心邻域内 f(x) ≥ 0（或 ≤ 0），则必有 A ≥ 0（或 A ≤ 0）。",
+    "raw_content": "根据定理1.3.5，用反证法不难得到定理1.3.6\n\n定理1.3.6 如果 $\\lim_{x\\to x_0}f(x) = A$ ，而且在点 $x_0$ 的某个去心邻域内有 $f(x)\\geqslant 0$ （或 $f(x)\\leqslant 0$ ，则必有 $A\\geqslant 0$ （或 $A\\leqslant 0$ ）：",
+    "type": "theorem",
+    "aliases": [
+      "极限保序性",
+      "极限不等式性质"
+    ],
+    "entities": "函数极限,定理1.3.6,保号性推论",
+    "references": [
+      "定理1.3.6"
+    ],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "若函数在去心邻域内非负（非正），则其极限必非负（非正）。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第三节/三、函数极限的性质.md",
+    "section": "三、函数极限的性质",
+    "section_id": null,
+    "position": 6,
+    "title": "应用案例：飞机滑跑速度问题",
+    "content": "本节附图展示飞机滑跑过程中速度随时间变化的函数图像，用于直观理解函数极限的局部性质（如局部有界性、保号性）在物理建模中的体现。",
+    "raw_content": "![](images/835979daf4979f0ac2cfdb03d96e060f331dca0d97319b13e19b971e82cf79d4.jpg)  \n1.3 应用案例飞机滑跑速度问题",
+    "type": "example",
+    "aliases": [],
+    "entities": "飞机滑跑速度,函数图像",
+    "references": [],
+    "confidence": 0.92,
+    "needs_review": false,
+    "summary": "通过飞机滑跑速度变化图例，说明函数极限局部性质的实际意义。",
+    "created_at": "2026-05-10T10:54:29",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

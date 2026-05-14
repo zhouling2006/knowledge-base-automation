@@ -1,0 +1,106 @@
+---
+title: 例1.2.4：分式有理函数极限
+numeric_source: 1-2-2-9
+aliases:
+  - 分式有理函数极限验证
+  - 例1.2.4
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N 定义
+  - 有理函数
+---
+
+# 例1.2.4：分式有理函数极限
+
+证明：
+$$
+\lim_{n \to \infty} \frac{n^2 + n + 1}{n^2 + 1} = 1.
+$$
+
+记 $u_n = \dfrac{n^2 + n + 1}{n^2 + 1}$，则  
+$$
+|u_n - 1| = \left| \frac{n^2 + n + 1}{n^2 + 1} - 1 \right| = \frac{n}{n^2 + 1}.
+$$
+
+注意到对所有正整数 $n$，有不等式：
+$$
+\frac{n}{n^2 + 1} < \frac{1}{n},
+$$
+（因 $n^2 + 1 > n^2 \Rightarrow \frac{n}{n^2 + 1} < \frac{n}{n^2} = \frac{1}{n}$）。
+
+因此，对任意给定的 $\varepsilon > 0$，欲使 $|u_n - 1| < \varepsilon$，只需保证 $\dfrac{1}{n} < \varepsilon$，即 $n > \dfrac{1}{\varepsilon}$。
+
+取正整数 $N = \left\lfloor \dfrac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，必有 $n > \dfrac{1}{\varepsilon}$，从而  
+$$
+|u_n - 1| < \frac{1}{n} < \varepsilon.
+$$
+
+根据数列极限的 $\varepsilon$-$N$ 定义，得证：
+$$
+\lim_{n \to \infty} \frac{n^2 + n + 1}{n^2 + 1} = 1.
+$$
+
+::: {.example label="例1.2.4" type=example}
+该例展示了**放缩法**在 $\varepsilon$-$N$ 证明中的核心作用：通过构造更易控制的上界（如 $\frac{1}{n}$），将复杂分式差值转化为标准形式，从而简化 $N$ 的选取。
+:::
+
+知识点支撑：[[数列极限的-ε-N-定义]]{type=concept, label=ε-N 定义, render=link, subject=高等数学, grade=大学, tags=极限|严格定义}  
+前置工具：[[极限的定量刻画基础-距离度量]]{type=concept, label=距离度量, render=link, tags=高数|基础}  
+同类方法参考：[[例1.2.1-证明-limₙ→∞-(−1)ⁿ⁻¹n-=-0.md]]{type=question, id=例1.2.1, label=振荡型数列验证, render=card, source=教材例题, answer=0, tags=高数|极限|ε-N}
+
+---SPLIT---
+---
+title: 例1.2.5：根式函数的极限传递性
+numeric_source: 1-2-2-10
+aliases:
+  - 根式极限传递性
+  - 例1.2.5
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N 定义
+  - 连续性初探
+  - 代数恒等变形
+---
+
+# 例1.2.5：根式函数的极限传递性
+
+设 $u_n > 0\ (n = 1,2,3,\dots)$，且 $\displaystyle \lim_{n \to \infty} u_n = a > 0$，  
+证明：
+$$
+\lim_{n \to \infty} \sqrt{u_n} = \sqrt{a}.
+$$
+
+**证明思路**：利用已知极限 $\lim u_n = a$，结合恒等变形  
+$$
+\left| \sqrt{u_n} - \sqrt{a} \right| = \frac{|u_n - a|}{\sqrt{u_n} + \sqrt{a}},
+$$  
+并控制分母下界（由 $a>0$ 及极限保号性可得 $u_n > a/2$ 对充分大 $n$ 成立），从而将 $\sqrt{u_n}$ 的误差控制在 $\varepsilon$ 内。
+
+**严谨证明**：  
+因 $\lim_{n \to \infty} u_n = a > 0$，由极限保号性，存在 $N_1 \in \mathbb{N}^+$，使得当 $n > N_1$ 时，$u_n > \dfrac{a}{2}$，故  
+$$
+\sqrt{u_n} + \sqrt{a} > \sqrt{\frac{a}{2}} + \sqrt{a} > \sqrt{a}.
+$$
+
+于是，对任意 $\varepsilon > 0$，取 $\varepsilon' = \sqrt{a}\, \varepsilon > 0$。  
+由 $\lim u_n = a$，存在 $N_2 > 0$，使得当 $n > N_2$ 时，$|u_n - a| < \varepsilon'$。
+
+令 $N = \max\{N_1, N_2\}$，则当 $n > N$ 时，  
+$$
+\left| \sqrt{u_n} - \sqrt{a} \right| 
+= \frac{|u_n - a|}{\sqrt{u_n} + \sqrt{a}} 
+< \frac{|u_n - a|}{\sqrt{a}} 
+< \frac{\varepsilon'}{\sqrt{a}} = \varepsilon.
+$$
+
+故由 $\varepsilon$-$N$ 定义，$\displaystyle \lim_{n \to \infty} \sqrt{u_n} = \sqrt{a}$。
+
+::: {.example label="例1.2.5" type=example}
+本例揭示了极限的**函数复合传递性雏形**：若 $f(x) = \sqrt{x}$ 在 $x=a>0$ 处连续（虽尚未正式定义连续性），则 $\lim f(u_n) = f(\lim u_n)$。这是后续「连续函数与极限交换」定理的重要特例。
+:::
+
+关联概念：[[数列极限的-ε-N-定义]]{type=concept, label=ε-N 定义, render=link, tags=极限|严格定义}  
+延伸理解：[[极限的性质]]{type=concept, label=极限保序性与保号性, render=link, tags=高数|极限|性质}  
+对比学习：[[例1.2.3-常数列的极限.md]]{type=question, id=例1.2.3, label=常数列极限, render=card, source=教材例题, answer=C, tags=高数|极限|基础}

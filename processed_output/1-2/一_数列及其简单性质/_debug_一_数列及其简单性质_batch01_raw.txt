@@ -1,0 +1,142 @@
+---
+title: 数列的定义
+numeric_source: 1-2-1-1
+aliases:
+  - 整标序列
+  - 离散函数列
+tags:
+  - 高等数学
+  - 数列
+  - 基础概念
+---
+
+# 数列的定义
+
+数列是定义域为正整数集 $\mathbf{N}_{+}$ 的整标函数  
+$$
+u_n = f(n), \quad n \in \mathbf{N}_{+}
+$$  
+的函数值按自然序排列而成的无穷序列  
+$$
+u_1, u_2, u_3, \dots, u_n, \dots,
+$$  
+记作 $\{u_n\}$ 或简称为数列 $u_n$。  
+
+数列中的每一个数称为**项**，第 $n$ 项 $u_n$ 称为数列的**通项**（或**一般项**）。
+
+::: {.note}
+数列本质上是定义在离散定义域 $\mathbf{N}_{+}$ 上的函数，因此可继承函数的诸多分析性质（如单调性、有界性、极限等）。
+:::
+
+相关概念：[[数列的几何表示]]{type=concept, label=几何直观, render=link, subject=高等数学, grade=大学, tags=数列|几何意义}  
+后续拓展：[[数列的单调性]]{type=concept, label=单调性定义, render=link, tags=数列|单调}  
+基础工具：[[整标函数]]{type=concept, label=离散函数, render=link, tags=函数|离散}
+
+```
+---SPLIT---
+```markdown
+---
+title: 数列的几何表示
+numeric_source: 1-2-1-2
+aliases:
+  - 数轴表示
+  - 离散点图
+tags:
+  - 高等数学
+  - 数列
+  - 几何直观
+---
+
+# 数列的几何表示
+
+数列 $\{u_n\}$ 在几何上可表示为**数轴上随 $n$ 增大而依次变动的一系列离散点**：  
+$$
+u_1,\; u_2,\; u_3,\; \dots,\; u_n,\; \dots
+$$  
+这些点的位置反映数列项的取值变化趋势——例如是否趋近某值、是否振荡、是否单向远离原点等。
+
+该表示法直观揭示了数列的**分布特性**与**渐进行为**，是理解收敛性、发散性、上下界等核心性质的重要视觉辅助。
+
+::: {.note}
+- 每个正整数 $n$ 对应唯一一个实数 $u_n$，故每个 $u_n$ 在数轴上有唯一对应点；
+- 图形不体现“时间”或“连续运动”，仅呈现静态的离散点集；
+- 若数列有极限 $L$，其图形表现为点列在 $L$ 附近逐渐密集（如例：$\{1/2^n\}$ 趋近于 0）。
+:::
+
+参考示例：[[例：数列 1/2ⁿ 的图形]]{type=example, label=递减趋零, render=card, tags=数列|收敛|图像}  
+对比观察：[[例：数列 (n+1)/n 的图形]]{type=example, label=从上方趋1, render=card, tags=数列|极限|图像}  
+理论基础：[[数列的定义]]{type=concept, label=定义溯源, render=link, tags=数列|基础}
+
+```
+---SPLIT---
+```markdown
+---
+title: 例：数列 1/2ⁿ 的图形
+numeric_source: 1-2-1-3
+aliases: []
+tags:
+  - 高等数学
+  - 数列
+  - 示例
+  - 图像
+---
+
+# 例：数列 1/2ⁿ 的图形
+
+考虑数列  
+$$
+\left\{\frac{1}{2^n}\right\} = \frac{1}{2},\; \frac{1}{4},\; \frac{1}{8},\; \dots,\; \frac{1}{2^n},\; \dots
+$$  
+该数列具有以下性质：
+- 严格单调递减（因 $\frac{1}{2^{n+1}} < \frac{1}{2^n}$）；
+- 所有项为正，且以 $0$ 为下界；
+- 极限为 $0$，即 $\displaystyle \lim_{n \to \infty} \frac{1}{2^n} = 0$；
+- 其图像如图1.2.1所示，点列沿数轴正半轴向原点密集趋近。
+
+![图1.2.1：数列 {1/2ⁿ} 的数轴表示](images/1e191d702de5ba000d3d44efebbf205bced53a7be14d9f7fd0e2f151b35203f6.jpg)  
+图1.2.1
+
+::: {.example label="数列 {1/2ⁿ}" type=example}
+这是典型的**正项收敛数列**，常用于演示极限存在性、单调有界定理的应用及 $\varepsilon$-$N$ 定义的验证。
+:::
+
+延伸思考：[[数列的有界性]]{type=concept, label=有界性检验, render=link, tags=数列|有界}  
+关联定义：[[数列的定义]]{type=concept, label=通项形式, render=link, tags=数列|通项}  
+对比学习：[[例：数列 (n+1)/n 的图形]]{type=example, label=非零极限例, render=link, tags=数列|极限|比较}
+
+```
+---SPLIT---
+```markdown
+---
+title: 例：数列 (n+1)/n 的图形
+numeric_source: 1-2-1-4
+aliases: []
+tags:
+  - 高等数学
+  - 数列
+  - 示例
+  - 图像
+---
+
+# 例：数列 (n+1)/n 的图形
+
+考虑数列  
+$$
+\left\{\frac{n+1}{n}\right\} = 2,\; \frac{3}{2},\; \frac{4}{3},\; \frac{5}{4},\; \dots,\; \frac{n+1}{n},\; \dots
+$$  
+该数列具有以下性质：
+- 严格单调递减（因 $\frac{n+2}{n+1} - \frac{n+1}{n} = -\frac{1}{n(n+1)} < 0$）；
+- 所有项大于 $1$，且以 $1$ 为下界；
+- 极限为 $1$，即 $\displaystyle \lim_{n \to \infty} \frac{n+1}{n} = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right) = 1$；
+- 其图像如图1.2.2所示，点列从右侧（大于1一侧）单调趋近于 $1$。
+
+![图1.2.2：数列 {(n+1)/n} 的数轴表示](images/fe2789b8e10eb97b5689cf29c4c1911c123ebf3eaeb68ebc22e1072b26f4a36c.jpg)  
+图1.2.2
+
+::: {.example label="数列 {(n+1)/n}" type=example}
+此例展示了**极限非零但可显式计算**的典型数列，是理解“极限作为趋势终点”而非“某项取值”的关键范例。
+:::
+
+知识链接：[[数列的极限]]{type=concept, label=极限概念, render=link, subject=高等数学, grade=大学, tags=数列|极限|基础}  
+结构分析：[[数列的单调性]]{type=concept, label=单调递减验证, render=link, tags=数列|单调}  
+对照案例：[[例：数列 1/2ⁿ 的图形]]{type=example, label=零极限对比, render=card, tags=数列|收敛|图像}

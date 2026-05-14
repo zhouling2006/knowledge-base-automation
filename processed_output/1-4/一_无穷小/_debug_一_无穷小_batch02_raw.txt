@@ -1,0 +1,129 @@
+---
+title: 无穷小的注释（1）
+numeric_source: 1-4-1-5
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 基础概念
+---
+
+# 无穷小的注释（1）
+
+无穷小是极限为 0 的变量，不能与任何很小的固定常数混淆。
+
+::: {.note}
+这是对无穷小本质的根本性澄清：**无穷小不是“极小的数”，而是“趋于零的变量”**。它描述的是一个动态变化过程中的行为，而非静态数值大小。例如，$10^{-100}$ 是一个极小的正数，但它不随任何变量变化，因此不是无穷小；而 $x$ 当 $x \to 0$ 时是无穷小，因其取值随 $x$ 变化并无限趋近于 0。
+
+该性质强调了无穷小的**过程依赖性**与**变量性**，是区别于初等数学中“小量估算”的关键所在。
+:::
+
+参考核心定义：[[无穷小的定义]]{type=concept, label=无穷小定义, render=link, subject=高等数学, grade=大学, tags=无穷小|定义|变量}
+
+延伸辨析：[[无穷小的引入与定义背景]]{type=concept, label=引入背景, render=link, tags=高数|概念起源}
+
+---
+SPLIT---
+---
+title: 无穷小的注释（2）
+numeric_source: 1-4-1-6
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 极限过程
+---
+
+# 无穷小的注释（2）
+
+无穷小总是与特定极限过程相关；同一函数在不同极限过程中未必都是无穷小。例如，$f(x) = x^2$ 在 $x \to 0$ 时是无穷小，但在 $x \to 2$ 时不是无穷小（因 $\lim_{x \to 2} x^2 = 4 \neq 0$）。
+
+::: {.note}
+无穷小**没有脱离极限过程的绝对意义**。必须明确指出：“当 $x \to x_0$ 时，$f(x)$ 是无穷小”，或“当 $n \to \infty$ 时，$a_n$ 是无穷小”。  
+遗漏极限过程会导致概念错误——如误认为“$x^2$ 是无穷小”，实则仅在 $x \to 0$ 下成立；在 $x \to \infty$ 下，它是无穷大。
+
+这一注释揭示了无穷小的**相对性**与**语境敏感性**，是正确使用该概念的前提。
+:::
+
+关联知识点：[[无穷小的定义]]{type=concept, label=定义强调, render=link, tags=无穷小|定义|过程依赖}  
+反例对照：[[无穷小的典型例子]]{type=concept, label=典型过程对照, render=card, tags=无穷小|例子|对比}
+
+---
+SPLIT---
+---
+title: 无穷小的注释（3）
+numeric_source: 1-4-1-7
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 零函数
+---
+
+# 无穷小的注释（3）
+
+常值函数 $f(x) \equiv 0$ 在任一极限过程中均为无穷小。
+
+::: {.note}
+零函数是唯一满足“对所有极限过程都为无穷小”的函数。因其恒等于 0，故对任意极限过程 $x \to x_0$、$x \to \infty$、$n \to \infty$ 等，均有  
+$$
+\lim f(x) = 0,
+$$  
+完全符合无穷小的定义。
+
+该性质凸显了零函数的特殊地位：它既是**最平凡的无穷小**，也是**无穷小集合的零元**（加法单位元），在无穷小代数结构中起基础作用。
+:::
+
+延伸理解：[[无穷小的性质]]{type=concept, label=代数封闭性, render=link, tags=无穷小|性质|代数}  
+形式验证：[[无穷小的ε-δ(或ε-X)形式定义]]{type=concept, label=ε-δ验证, render=link, tags=无穷小|严格定义}
+
+---
+SPLIT---
+---
+title: 定理1.4.1：无穷小的和差仍为无穷小
+numeric_source: 1-4-1-8
+aliases:
+  - 无穷小和差定理
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 定理
+  - 代数性质
+---
+
+# 定理1.4.1：无穷小的和差仍为无穷小
+
+若 $\alpha(x)$ 和 $\beta(x)$ 均为 $x \to x_0$ 时的无穷小，即  
+$$
+\lim_{x \to x_0} \alpha(x) = 0,\quad \lim_{x \to x_0} \beta(x) = 0,
+$$  
+则它们的和与差 $\alpha(x) \pm \beta(x)$ 也是 $x \to x_0$ 时的无穷小：  
+$$
+\lim_{x \to x_0} \big[ \alpha(x) \pm \beta(x) \big] = 0.
+$$
+
+该结论可推广至**有限个无穷小的代数和**（见[[推论1.4.1]]{type=concept, label=有限和推论, render=link, tags=无穷小|推论}）。
+
+::: {#proof-thm141 .proof label="无穷小和差定理证明" type=proof}
+任意给定 $\varepsilon > 0$，由 $\lim_{x \to x_0} \alpha(x) = 0$ 知，存在 $\delta_1 > 0$，使得当 $0 < |x - x_0| < \delta_1$ 时，有  
+$$
+|\alpha(x)| < \frac{\varepsilon}{2}. \tag{1}
+$$  
+同理由 $\lim_{x \to x_0} \beta(x) = 0$，存在 $\delta_2 > 0$，使得当 $0 < |x - x_0| < \delta_2$ 时，有  
+$$
+|\beta(x)| < \frac{\varepsilon}{2}. \tag{2}
+$$  
+取 $\delta = \min\{\delta_1, \delta_2\}$，则当 $0 < |x - x_0| < \delta$ 时，(1) 与 (2) 同时成立，于是  
+$$
+|\alpha(x) \pm \beta(x)| \leq |\alpha(x)| + |\beta(x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+$$  
+故由无穷小定义知 $\lim_{x \to x_0} [\alpha(x) \pm \beta(x)] = 0$。
+:::
+
+应用示例：$\lim_{x \to 0}(x + x^2) = 0$，因 $x$ 与 $x^2$ 均为 $x \to 0$ 时的无穷小。  
+进一步阅读：[[无穷小的性质]]{type=concept, label=性质总览, render=link, tags=无穷小|性质}  
+证明复用：((proof-thm141)){type=proof, label=标准ε-δ构造, render=card, note=和差封闭性的经典证明范式}

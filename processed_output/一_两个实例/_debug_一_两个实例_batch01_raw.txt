@@ -1,0 +1,155 @@
+---
+title: 实例2.1.1：质点变速直线运动的瞬时速度
+numeric_source: 2-1-1-1
+aliases: []
+tags:
+  - 高等数学
+  - 导数
+  - 物理应用
+  - 变化率
+---
+
+# 实例2.1.1：质点变速直线运动的瞬时速度
+
+设质点 $P$ 沿一直线做变速直线运动，以 $t$ 表示时间，$s$ 表示质点 $P$ 从某一选定时刻开始到时刻 $t$ 为止所走过的路程，则 $s$ 是时间 $t$ 的函数：  
+$$
+s = s(t)
+$$  
+物理上称该函数为质点的**运动规律**，数学上称其为**位置函数**。
+
+若已知位置函数 $s = s(t)$，则质点 $P$ 在时刻 $t_0$ 的**瞬时速度** $v(t_0)$ 定义为平均速度在时间增量 $\Delta t \to 0$ 时的极限：
+
+$$
+v(t_0) = \lim_{\Delta t \to 0} \frac{s(t_0 + \Delta t) - s(t_0)}{\Delta t} = \lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t}
+$$
+
+其中 $\Delta s = s(t_0 + \Delta t) - s(t_0)$ 是时间区间 $[t_0, t_0 + \Delta t]$ 内的路程增量。
+
+> **说明**：当 $|\Delta t|$ 很小时，质点运动近似匀速，故平均速度 $\overline{v} = \frac{\Delta s}{\Delta t}$ 可作为瞬时速度的良好近似；$\Delta t \to 0$ 时的极限（若存在）即为其精确值。
+
+### 示例：自由落体运动
+
+自由落体的位置函数为  
+$$
+s(t) = \frac{1}{2} g t^2
+$$  
+则在时刻 $t_0$ 的瞬时速度为：
+
+$$
+\begin{aligned}
+v(t_0) 
+&= \lim_{\Delta t \to 0} \frac{\frac{1}{2}g(t_0 + \Delta t)^2 - \frac{1}{2}g t_0^2}{\Delta t} \\
+&= \lim_{\Delta t \to 0} \frac{\frac{1}{2}g(2t_0 \Delta t + (\Delta t)^2)}{\Delta t} \\
+&= \lim_{\Delta t \to 0} \left( g t_0 + \frac{1}{2}g \Delta t \right) \\
+&= g t_0
+\end{aligned}
+$$
+
+该结果与经典力学一致，验证了极限定义的物理合理性。
+
+相关概念：[[导数的概念]]{type=concept, label=导数定义, render=link, subject=高等数学, grade=大学, tags=导数|核心概念}  
+延伸应用：[[瞬时功率]]{type=concept, label=物理中的变化率, render=card, subject=物理学, tags=物理|变化率}
+
+::: {.example label="实例2.1.1" type=example}
+质点变速运动中，瞬时速度是位置函数增量比的极限。
+:::
+
+---
+SPLIT---
+---
+title: 实例2.1.2：曲线上一点处切线的斜率
+numeric_source: 2-1-1-2
+aliases: []
+tags:
+  - 高等数学
+  - 导数
+  - 几何意义
+  - 切线
+---
+
+# 实例2.1.2：曲线上一点处切线的斜率
+
+设曲线 $L$ 是函数 $y = f(x)$ 的图像，$M(x_0, f(x_0))$ 为其上一点。在 $M$ 的邻域内另取一点  
+$$
+N(x_0 + \Delta x,\; f(x_0 + \Delta x))
+$$  
+则割线 $MN$ 的斜率为：
+
+$$
+k_1 = \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} = \frac{\Delta y}{\Delta x}
+$$
+
+根据**切线的几何定义**：当点 $N$ 沿曲线 $L$ 无限趋近于点 $M$（即 $\Delta x \to 0$）时，若割线 $MN$ 存在极限位置 $MT$，则称直线 $MT$ 为曲线 $L$ 在点 $M$ 处的**切线**。
+
+因此，若极限  
+$$
+\lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+$$  
+存在，则该极限值即为曲线 $y = f(x)$ 在点 $M(x_0, f(x_0))$ 处的**切线斜率**，记作 $k$：
+
+$$
+k = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+$$
+
+> **图示说明**：  
+> ![](images/c631551187517106dc2c79a71c08babc1fd5c5ba1d244ccff7d3c7f5056fa61c.jpg)  
+> 图2.1.1：割线极限定义切线（一般曲线）  
+>   
+> ![](images/a8344949984de5001a436945186e11cc88b8e834eb95e3032e1f7eadb71c31a2.jpg)  
+> 图2.1.2：函数图像上的切线构造
+
+该定义将**几何直观**（割线旋转趋近）转化为**解析表达**（差商极限），是导数几何意义的核心体现。
+
+关联知识点：[[导数的概念]]{type=concept, label=导数定义, render=link, subject=高等数学, grade=大学, tags=导数|核心概念}  
+对比学习：[[实例2.1.1：质点变速直线运动的瞬时速度]]{type=example, label=物理背景, render=card, tags=物理|导数}
+
+::: {.example label="实例2.1.2" type=example}
+曲线切线斜率是函数增量比在自变量增量趋于零时的极限。
+:::
+
+---
+SPLIT---
+---
+title: 两个实例的共性与导数概念的引出
+numeric_source: 2-1-1-3
+aliases:
+  - 函数的变化率
+  - 平均变化率的极限
+tags:
+  - 高等数学
+  - 导数
+  - 核心概念
+  - 变化率
+---
+
+# 两个实例的共性与导数概念的引出
+
+实例2.1.1（质点瞬时速度）与实例2.1.2（曲线切线斜率）虽源于不同领域——前者属**物理学中的运动学问题**，后者属**几何学中的切线问题**——但其**数学结构完全一致**：
+
+- 均涉及一个函数 $y = f(x)$（或 $s = s(t)$）；
+- 均考察自变量微小增量 $\Delta x$（或 $\Delta t$）对应的函数增量 $\Delta y = f(x_0 + \Delta x) - f(x_0)$；
+- 均研究比值 $\displaystyle \frac{\Delta y}{\Delta x}$（即**平均变化率**）在 $\Delta x \to 0$ 时的极限行为。
+
+> **抽象概括**：  
+> 若极限  
+> $$
+> \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+> $$  
+> 存在，则称该极限为函数 $f(x)$ 在点 $x_0$ 处的**导数**（derivative），记作 $f'(x_0)$、$\displaystyle \frac{dy}{dx}\Big|_{x=x_0}$ 或 $\displaystyle \frac{df}{dx}(x_0)$。
+
+导数是刻画**瞬时变化率**的统一数学工具，其应用远超微积分本身，广泛存在于：
+
+- 物理学：瞬时功率（$P = \frac{dW}{dt}$）、线密度（$\lambda = \frac{dm}{dl}$）、电流强度（$I = \frac{dq}{dt}$）  
+- 化学：反应速率（$r = \frac{d[\text{A}]}{dt}$）  
+- 生物学：种群增长率（$\frac{dN}{dt}$）  
+- 经济学：边际成本、边际收益  
+
+因此，导数不仅是微分学的起点，更是现代科学描述动态世界的基本语言。
+
+::: {.note}
+导数的本质 = **局部线性化能力**：它给出了函数在一点附近最“贴近”的直线（即切线）的斜率，从而实现对复杂非线性行为的局部简化建模。
+:::
+
+延伸阅读：[[导数的定义]]{type=concept, label=严格定义, render=link, subject=高等数学, grade=大学, tags=导数|定义}  
+前置基础：[[极限的定义]]{type=concept, label=极限基础, render=link, tags=极限|基础}  
+后续深化：[[导数的几何意义与物理意义]]{type=concept, label=多维解读, render=card, tags=导数|意义}

@@ -1,0 +1,200 @@
+---
+title: 数列极限的四则运算法则（定理1.2.4）
+numeric_source: 1-2-4-1
+aliases:
+  - 极限四则运算律
+  - 数列极限的线性与乘除法则
+tags:
+  - 高等数学
+  - 数列极限
+  - 极限运算
+---
+
+# 数列极限的四则运算法则（定理1.2.4）
+
+设数列 $\{u_n\}$ 与 $\{v_n\}$ 分别收敛，且  
+$$
+\lim_{n \to \infty} u_n = a,\quad \lim_{n \to \infty} v_n = b,
+$$  
+则以下结论成立：
+
+1. **和与差**：数列 $\{u_n \pm v_n\}$ 收敛，且  
+   $$
+   \lim_{n \to \infty} (u_n \pm v_n) = a \pm b.
+   $$
+
+2. **积**：数列 $\{u_n \cdot v_n\}$ 收敛，且  
+   $$
+   \lim_{n \to \infty} (u_n \cdot v_n) = a \cdot b.
+   $$  
+   特别地，对任意常数 $k$，有  
+   $$
+   \lim_{n \to \infty} (k \cdot u_n) = k \cdot a.
+   $$
+
+3. **商**（分母极限非零）：若 $b \neq 0$ 且 $v_n \neq 0$（对充分大的 $n$），则数列 $\left\{\dfrac{u_n}{v_n}\right\}$ 收敛，且  
+   $$
+   \lim_{n \to \infty} \frac{u_n}{v_n} = \frac{a}{b}.
+   $$
+
+该定理是数列极限计算的基石，将复杂数列的极限问题转化为基本极限（如 $\lim\limits_{n\to\infty}\frac{1}{n}=0$、$\lim\limits_{n\to\infty}c=c$）的代数组合。
+
+相关知识点：[[数列极限的定义]]{type=concept, label=定义基础, render=link, subject=高等数学, grade=大学, tags=数列极限|核心概念}  
+严格证明见：[[定理1.2.4的证明（和与积）]]{type=proof, label=和与积的ε-N证明, render=link, tags=高数|证明|ε-N}
+
+::: {.note}
+> **注意**：商法则要求 *两个条件同时满足* —— 极限 $b \neq 0$，且从某项起 $v_n \neq 0$。仅 $b \neq 0$ 不足以保证分母不为零（例如 $v_n = \frac{1}{n} + (-1)^n \frac{1}{n^2}$ 虽极限为 0？需谨慎验证）。
+:::
+
+---
+SPLIT---
+---
+title: 定理1.2.4的证明（和与积）
+numeric_source: 1-2-4-2
+aliases: []
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N证明
+---
+
+# 定理1.2.4的证明（和与积）
+
+本证明采用标准的 $\varepsilon$-$N$ 定义，严格验证和数列与积数列的收敛性及极限值。
+
+## （1）和的情形
+
+已知：$\lim\limits_{n \to \infty} u_n = a$，$\lim\limits_{n \to \infty} v_n = b$。  
+对任意给定 $\varepsilon > 0$，由极限定义：
+
+- 存在 $N_1 > 0$，使得当 $n > N_1$ 时，$\displaystyle |u_n - a| < \frac{\varepsilon}{2}$；  
+- 存在 $N_2 > 0$，使得当 $n > N_2$ 时，$\displaystyle |v_n - b| < \frac{\varepsilon}{2}$。
+
+取 $N = \max\{N_1, N_2\}$，则当 $n > N$ 时，两不等式同时成立。于是：
+$$
+\begin{aligned}
+|(u_n + v_n) - (a + b)| &= |(u_n - a) + (v_n - b)| \\
+&\leq |u_n - a| + |v_n - b| \\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+\end{aligned}
+$$
+故 $\displaystyle \lim_{n \to \infty} (u_n + v_n) = a + b$。
+
+## （2）积的情形
+
+考虑差式：
+$$
+|u_n v_n - ab| = |u_n v_n - a v_n + a v_n - ab| 
+= |(u_n - a)v_n + a(v_n - b)|.
+$$
+由三角不等式：
+$$
+|u_n v_n - ab| \leq |u_n - a|\cdot|v_n| + |a|\cdot|v_n - b|.
+$$
+
+由于 $\{v_n\}$ 收敛，故有界：存在 $M > 0$，使得对所有 $n$，$|v_n| \leq M$。  
+再对同一 $\varepsilon > 0$，取：
+
+- $N_1$ 满足：当 $n > N_1$ 时，$\displaystyle |u_n - a| < \frac{\varepsilon}{2M}$；  
+- $N_2$ 满足：当 $n > N_2$ 时，$\displaystyle |v_n - b| < \frac{\varepsilon}{2(|a|+1)}$（分母加1避免 $a=0$ 时除零）。
+
+令 $N = \max\{N_1, N_2\}$，则当 $n > N$ 时：
+$$
+\begin{aligned}
+|u_n v_n - ab| &< M \cdot \frac{\varepsilon}{2M} + |a| \cdot \frac{\varepsilon}{2(|a|+1)} \\
+&= \frac{\varepsilon}{2} + \frac{|a|\varepsilon}{2(|a|+1)} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+\end{aligned}
+$$
+故 $\displaystyle \lim_{n \to \infty} (u_n v_n) = ab$。
+
+::: {#proof-thm124-sumprod .proof label="定理1.2.4（和与积）" type=proof}
+上述推导完整建立了数列极限四则运算中“和”与“积”的严格基础。商与常数倍情形可类似导出或由本结果组合得到。
+:::
+
+参考定理原文：[[数列极限的四则运算法则（定理1.2.4）]]{type=theorem, label=原定理陈述, render=link, tags=高数|定理}  
+推广形式见：[[推论1.2.3（有限个数列的极限运算推广）]]{type=theorem, label=有限可加可乘性, render=link, tags=高数|推论}
+
+---
+SPLIT---
+---
+title: 推论1.2.3（有限个数列的极限运算推广）
+numeric_source: 1-2-4-3
+aliases:
+  - 有限和积极限法则
+  - 极限运算的有限可加性与可乘性
+tags:
+  - 高等数学
+  - 数列极限
+  - 极限推广
+---
+
+# 推论1.2.3（有限个数列的极限运算推广）
+
+若 $k$ 个数列 $\{u_n^{(1)}\}, \{u_n^{(2)}\}, \dots, \{u_n^{(k)}\}$ 均收敛，且  
+$$
+\lim_{n \to \infty} u_n^{(i)} = a_i \quad (i = 1,2,\dots,k),
+$$  
+则：
+
+- **代数和**：数列 $\displaystyle \left\{ \sum_{i=1}^{k} u_n^{(i)} \right\}$ 收敛，且  
+  $$
+  \lim_{n \to \infty} \sum_{i=1}^{k} u_n^{(i)} = \sum_{i=1}^{k} a_i.
+  $$
+
+- **乘积**：数列 $\displaystyle \left\{ \prod_{i=1}^{k} u_n^{(i)} \right\}$ 收敛，且  
+  $$
+  \lim_{n \to \infty} \prod_{i=1}^{k} u_n^{(i)} = \prod_{i=1}^{k} a_i.
+  $$
+
+该推论是定理1.2.4通过数学归纳法自然延伸的结果，体现了极限运算对**有限次**线性组合与乘法的封闭性。
+
+> ✅ 实际应用中，多项式型数列（如例1.2.6）、有理函数型数列（如例1.2.8）均依赖此推广进行逐项拆解。
+
+关联定理：[[数列极限的四则运算法则（定理1.2.4）]]{type=theorem, label=基础定理, render=link, tags=高数|定理}  
+典型应用：[[例1.2.6：多项式型数列极限]]{type=example, label=多项式极限, render=card, source=教材例题, answer=1, tags=高数|例题|计算题}
+
+::: {.note}
+> **重要提示**：该推论**不适用于无限个数列**。例如 $\displaystyle \sum_{i=1}^{n} \frac{1}{n} = 1$，但 $\displaystyle \lim_{n\to\infty} \sum_{i=1}^{n} \frac{1}{n} = 1$ 并非“无限个 $\frac{1}{n}$ 的极限和”，而是整体序列的极限——此时不可交换极限与求和顺序。
+:::
+
+---
+SPLIT---
+---
+title: 例1.2.6：多项式型数列极限
+numeric_source: 1-2-4-4
+aliases: []
+tags:
+  - 高等数学
+  - 数列极限
+  - 极限计算
+---
+
+# 例1.2.6：多项式型数列极限
+
+**题目**：求极限  
+$$
+\lim_{n \to \infty} \left(1 - \frac{3}{n} + \frac{1}{n^2}\right).
+$$
+
+**解**：  
+利用极限的线性性质（定理1.2.4 及其推论1.2.3），将极限拆分为各项极限的代数组合：
+$$
+\begin{aligned}
+\lim_{n \to \infty} \left(1 - \frac{3}{n} + \frac{1}{n^2}\right)
+&= \lim_{n \to \infty} 1 - 3 \lim_{n \to \infty} \frac{1}{n} + \left(\lim_{n \to \infty} \frac{1}{n}\right)\cdot\left(\lim_{n \to \infty} \frac{1}{n}\right) \\
+&= 1 - 3 \cdot 0 + 0 \cdot 0 = 1.
+\end{aligned}
+$$
+
+**答案**：$1$
+
+🔍 **方法要点**：  
+- 将表达式视为关于 $\frac{1}{n}$ 的多项式；  
+- 利用基本极限 $\displaystyle \lim_{n \to \infty} \frac{1}{n} = 0$、$\displaystyle \lim_{n \to \infty} c = c$（$c$ 为常数）；  
+- 通过四则运算法则逐项求极限。
+
+关联知识点：  
+- [[数列极限的四则运算法则（定理1.2.4）]]{type=theorem, label=运算法则, render=link, tags=高数|定理}  
+- [[推论1.2.3（有限个数列的极限运算推广）]]{type=theorem, label=有限可加性, render=link, tags=高数|推论}  
+
+进阶练习：[[例1.2.8：有理函数型数列极限]]{type=example, label=有理函数极限, render=card, source=教材例题, answer=3/2, tags=高数|例题|计算题}

@@ -1,0 +1,163 @@
+---
+title: 定理1.4.3的证明
+numeric_source: 1-4-1-17
+aliases: []
+tags:
+  - 高等数学
+  - 无穷小
+  - 极限
+  - 证明
+---
+
+# 定理1.4.3的证明
+
+::: {#proof-theorem-1-4-3 .proof label="定理1.4.3的证明" type=proof}
+将商拆为 $\frac{\alpha (x)}{f (x)} = \alpha (x) \cdot \frac{1}{f (x)}$，由定理1.4.2可知：若 $\alpha(x)$ 是无穷小，且 $\frac{1}{f(x)}$ 在 $x \to x_0$ 附近有界，则其乘积仍为无穷小。
+
+因此只需证明：当 $\lim_{x \to x_0} f(x) = A \neq 0$ 时，$\frac{1}{f(x)}$ 在 $x \to x_0$ 的某去心邻域内有界。
+
+取 $\varepsilon = \dfrac{|A|}{2} > 0$，由极限定义，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，
+$$
+|f(x) - A| < \frac{|A|}{2}.
+$$
+
+利用三角不等式变形：
+$$
+|f(x)| = |A - (A - f(x))| \geq |A| - |A - f(x)| > |A| - \frac{|A|}{2} = \frac{|A|}{2} > 0.
+$$
+
+从而在此邻域内恒有：
+$$
+\left|\frac{1}{f(x)}\right| < \frac{2}{|A|}.
+$$
+
+故 $\frac{1}{f(x)}$ 是有界变量。再结合 $\lim_{x \to x_0} \alpha(x) = 0$ 及定理1.4.2，即得：
+$$
+\lim_{x \to x_0} \frac{\alpha(x)}{f(x)} = \lim_{x \to x_0} \left[ \alpha(x) \cdot \frac{1}{f(x)} \right] = 0.
+$$
+:::
+
+该证明的关键在于**极限的保号性**（推导出 $|f(x)|$ 远离零）与**有界性判定**的结合，是处理“非零分母极限”类问题的标准范式。
+
+相关知识点：[[无穷小的定义]]{type=concept, label=无穷小定义, render=link, subject=高等数学, grade=大学, tags=无穷小|基础概念}  
+前置引用：[[定理1.4.2-无穷小与有界变量的乘积仍是无穷小]]{type=theorem, label=定理1.4.2, render=link, tags=无穷小|有界性}  
+后续应用：[[定理1.4.4：函数极限与无穷小的关系（充要条件）]]{type=theorem, label=极限-无穷小分解定理, render=link, tags=极限|等价刻画}
+
+---SPLIT---
+---
+title: 定理1.4.4：函数极限与无穷小的关系（充要条件）
+numeric_source: 1-4-1-18
+aliases:
+  - 极限-无穷小分解定理
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 等价刻画
+---
+
+# 定理1.4.4：函数极限与无穷小的关系（充要条件）
+
+> **定理1.4.4**  
+> 函数 $f(x)$ 当 $x \to x_0$ 时以常数 $A$ 为极限的**充要条件**是：  
+> $f(x)$ 可表示为常数 $A$ 与一个 $x \to x_0$ 时的无穷小之和，即  
+> $$
+> f(x) = A + \alpha(x), \quad \text{其中 } \lim_{x \to x_0} \alpha(x) = 0.
+> $$
+
+该定理建立了**极限存在性**与**函数可分解性**之间的严格等价关系，是极限理论中承上启下的核心桥梁：
+
+- 向上衔接 [[极限的定义]]{type=concept, label=极限定义, render=link, tags=极限|基础}；
+- 向下支撑 [[无穷小的性质]]{type=concept, label=无穷小运算性质, render=link, tags=无穷小|代数结构}；
+- 在计算与证明中广泛用于“分离主部+余量”的分析策略（如泰勒展开、渐近分析的雏形）。
+
+::: {.note}
+该定理揭示了极限的本质：函数趋近于某值，等价于其“偏差量”趋于零。这种“主部+无穷小余项”的思想，是整个微积分分析语言的底层范式。
+:::
+
+完整证明分为两部分：  
+✅ [[定理1.4.4的证明（必要性）]]{type=proof, label=必要性证明, render=link, tags=证明|必要性}  
+✅ [[定理1.4.4的证明（充分性）]]{type=proof, label=充分性证明, render=link, tags=证明|充分性}
+
+---SPLIT---
+---
+title: 定理1.4.4的证明（必要性）
+numeric_source: 1-4-1-19
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 证明
+  - 必要性
+---
+
+# 定理1.4.4的证明（必要性）
+
+::: {#proof-theorem-1-4-4-necessity .proof label="定理1.4.4的必要性证明" type=proof}
+设 $\lim_{x \to x_0} f(x) = A$。  
+根据极限的 $\varepsilon$-$\delta$ 定义：对任意 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，有  
+$$
+|f(x) - A| < \varepsilon.
+$$
+
+令 $\alpha(x) = f(x) - A$，则上式即为  
+$$
+|\alpha(x)| < \varepsilon,
+$$  
+这恰好满足无穷小的定义（见 [[无穷小的ε-δ(或ε-X)形式定义]]{type=concept, label=ε-δ形式, render=link, tags=无穷小|严格定义}）。  
+因此 $\alpha(x)$ 是当 $x \to x_0$ 时的无穷小，且  
+$$
+f(x) = A + \alpha(x).
+$$
+必要性得证。
+:::
+
+该证明体现了**构造性思维**：从极限存在出发，自然构造出所需的无穷小余项 $\alpha(x)$，实现函数的“主部+误差”分解。
+
+关联概念：  
+- [[无穷小的定义]]{type=concept, label=无穷小定义, render=link, tags=无穷小|基础}  
+- [[极限的定义]]{type=concept, label=极限定义, render=link, tags=极限|基础}  
+- [[定理1.4.4：函数极限与无穷小的关系（充要条件）]]{type=theorem, label=极限-无穷小分解定理, render=card, tags=等价刻画}
+
+---SPLIT---
+---
+title: 定理1.4.4的证明（充分性）
+numeric_source: 1-4-1-20
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 无穷小
+  - 证明
+  - 充分性
+---
+
+# 定理1.4.4的证明（充分性）
+
+::: {#proof-theorem-1-4-4-sufficiency .proof label="定理1.4.4的充分性证明" type=proof}
+设 $f(x) = A + \alpha(x)$，其中 $A$ 为常数，且 $\lim_{x \to x_0} \alpha(x) = 0$。  
+由无穷小定义：对任意 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，有  
+$$
+|\alpha(x)| < \varepsilon.
+$$
+
+而  
+$$
+|f(x) - A| = |\alpha(x)|,
+$$  
+故在同一邻域内亦有  
+$$
+|f(x) - A| < \varepsilon.
+$$
+
+这正是 $\lim_{x \to x_0} f(x) = A$ 的 $\varepsilon$-$\delta$ 定义。  
+因此充分性得证。
+:::
+
+该证明展示了**逆向还原**逻辑：将“无穷小余项”直接代回，复现极限定义的不等式，从而确认极限存在。它强调了无穷小作为“可控误差”的本质角色。
+
+知识网络：  
+- 基础支撑：[[无穷小的定义]]{type=concept, label=无穷小定义, render=link, tags=无穷小|基础}  
+- 对应证明：[[定理1.4.4的证明（必要性）]]{type=proof, label=必要性证明, render=link, tags=证明|必要性}  
+- 应用延伸：[[定理1.4.4：函数极限与无穷小的关系（充要条件）]]{type=theorem, label=极限-无穷小分解定理, render=card, tags=等价刻画|分析工具}

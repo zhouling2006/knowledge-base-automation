@@ -1,0 +1,166 @@
+---
+title: 微元法的基本思想
+numeric_source: 6-1-1-1
+aliases:
+  - 微元分析法
+  - 积分微元法
+tags:
+  - 高等数学
+  - 定积分
+  - 应用方法
+---
+
+# 微元法的基本思想
+
+微元法是定积分应用的基础方法，用于求解具有可加性、区间依赖性和局部线性近似性的整体量 $\varPhi$。其核心是将整体量分解为小区间上的部分量 $\Delta \varPhi_i$，通过“以匀代不匀”得到近似表达式  
+$$
+\Delta \varPhi_i \approx f(\xi_i)\Delta x_i \quad (i = 1,2,\dots,n),
+$$  
+它们只相差一个比 $\Delta x_i$ 高阶的无穷小；再通过极限过程构造定积分  
+$$
+\Phi = \lim_{\lambda \to 0} \sum_{i=1}^{n} f(\xi_i)\Delta x_i = \int_a^b f(x)\,dx
+$$  
+作为整体量 $\varPhi$ 的精确值。
+
+该方法源于对曲边梯形面积与变速直线运动路程等问题的抽象提炼，适用于所有满足以下三条件的实际问题：  
+1. **区间依赖性**：$\varPhi$ 分布在自变量 $x$ 的某变化区间 $[a,b]$ 上；  
+2. **可加性**：若将 $[a,b]$ 任意划分为 $n$ 个子区间 $[x_{i-1},x_i]$，对应部分量为 $\Delta \varPhi_i$，则  
+   $$
+   \Phi = \sum_{i=1}^{n} \Delta \varPhi_i;
+   $$  
+3. **局部线性近似性**：每个 $\Delta \varPhi_i$ 可用形如 $f(\xi_i)\Delta x_i$ 的线性主部逼近，误差为 $o(\Delta x_i)$。
+
+::: {.note}
+微元法的本质是“局部线性化 + 全局积分”，它将复杂非均匀问题转化为可积的线性微分模型。
+:::
+
+延伸理解：[[微元的定义与性质]]{type=concept, label=微元本质, render=link, subject=高等数学, grade=大学, tags=定积分|微元|线性主部}  
+操作指南：[[微元法的三步操作程序]]{type=concept, label=三步流程, render=link, tags=方法论|建模步骤}
+
+---SPLIT---
+---
+title: 微元法的三步操作程序
+numeric_source: 6-1-1-2
+aliases:
+  - 微元法步骤
+  - 微元法流程
+tags:
+  - 高等数学
+  - 定积分
+  - 解题方法
+---
+
+# 微元法的三步操作程序
+
+利用定积分解决实际问题时，微元法提供一套清晰、普适的操作范式，共分三步：
+
+### 第一步：选定积分变量与区间  
+根据问题物理/几何意义，确定合适的积分变量 $x$（如长度、时间、角度等），并明确其取值范围 $[a,b]$。
+
+### 第二步：构造微元 $d\varPhi$  
+在 $[a,b]$ 内任取一微小区间 $[x, x+dx]$，对该区间上所求量 $\varPhi$ 的部分增量 $\Delta \varPhi$ 进行“以匀代不匀”的线性近似：  
+$$
+\Delta \varPhi \approx f(x)\,dx.
+$$  
+当 $dx \to 0$ 时，若 $\Delta \varPhi - f(x)\,dx = o(dx)$，则称 $f(x)\,dx$ 为 $\varPhi$ 的**微元**，记作  
+$$
+d\varPhi = f(x)\,dx.
+$$  
+此即所求量的**线性主部**，是后续积分的基础。
+
+### 第三步：积分求和得整体量  
+将微元 $d\varPhi = f(x)\,dx$ 在整个区间 $[a,b]$ 上无限积累（即积分），得到整体量的精确表达式：  
+$$
+\Phi = \int_a^b d\varPhi = \int_a^b f(x)\,dx.
+$$
+
+::: {.note}
+三步中，“造微元”是关键难点——需结合具体问题背景，识别出主导变化率 $f(x)$，确保 $f(x)\,dx$ 确为 $\Delta \varPhi$ 的线性主部。
+:::
+
+前置基础：[[微元法的基本思想]]{type=concept, label=思想起源, render=link, tags=定积分|方法论}  
+核心支撑：[[微元的定义与性质]]{type=concept, label=微元性质, render=link, tags=微元|无穷小|线性主部}  
+实例引导：[[应用案例：电极的接地电阻问题]]{type=example, label=物理建模, render=card, tags=物理学|工程应用}
+
+---SPLIT---
+---
+title: 微元的定义与性质
+numeric_source: 6-1-1-3
+aliases:
+  - 线性主部
+  - 微分形式的微元
+tags:
+  - 高等数学
+  - 定积分
+  - 微元
+  - 无穷小
+---
+
+# 微元的定义与性质
+
+设所求整体量为 $\varPhi$，其在微小区间 $[x,x+dx]$ 上的部分增量为 $\Delta \varPhi$。若存在函数 $f(x)$，使得当 $dx \to 0$ 时，  
+$$
+\Delta \varPhi = f(x)\,dx + o(dx),
+$$  
+即  
+$$
+\Delta \varPhi - f(x)\,dx = o(dx),
+$$  
+则称 $f(x)\,dx$ 为 $\varPhi$ 的**微元**，记作  
+$$
+d\varPhi = f(x)\,dx.
+$$
+
+### 性质说明：
+- **唯一性**：若微元存在，则 $f(x)$ 在连续前提下唯一（由极限唯一性保证）；  
+- **主导性**：$d\varPhi$ 是 $\Delta \varPhi$ 的**线性主部**，刻画了 $\varPhi$ 在无穷小尺度下的主导变化率；  
+- **可积性**：因 $d\varPhi$ 是关于 $x$ 的函数微分形式，故可在区间 $[a,b]$ 上直接积分，恢复整体量：  
+  $$
+  \Phi = \int_a^b d\varPhi = \int_a^b f(x)\,dx.
+  $$
+
+::: {.note}
+微元不是任意近似，而是满足“误差为高阶无穷小”的严格线性逼近。这是微元法数学严谨性的根基。
+:::
+
+理论源头：[[微元法的基本思想]]{type=concept, label=思想基础, render=link, tags=定积分|极限思想}  
+操作体现：[[微元法的三步操作程序]]{type=concept, label=第二步核心, render=link, tags=建模|微元构造}  
+典型应用：[[应用案例：电极的接地电阻问题]]{type=example, label=物理微元实例, render=card, tags=电学|微元建模}
+
+---SPLIT---
+---
+title: 应用案例：电极的接地电阻问题
+numeric_source: 6-1-1-4
+aliases: []
+tags:
+  - 高等数学
+  - 定积分
+  - 物理应用
+  - 工程建模
+---
+
+# 应用案例：电极的接地电阻问题
+
+本案例以**电极的接地电阻计算**为背景，直观展示微元法在物理学中的建模价值。图示如下：
+
+![6.1 应用案例：电极的接地电阻问题](images/50b7441230748025709d6454492e89d1f39afd832e9fa85fb697593aeaef9e82.jpg)
+
+> **问题简述**：半球形接地电极埋于均匀导电土壤中，电流从电极表面径向流入大地。求电极与无穷远地之间的接地电阻。
+
+该问题天然满足微元法三条件：  
+- 电阻分布依赖于距电极中心的径向距离 $r \in [R, \infty)$（$R$ 为电极半径）；  
+- 总电阻具有可加性（串联各球壳层电阻）；  
+- 每一薄球壳层（厚度 $dr$）的电阻可近似为匀质介质中的线性表达式 $dR = \rho \frac{dr}{2\pi r^2}$（$\rho$ 为土壤电阻率）。
+
+因此，可构造微元 $dR = \frac{\rho}{2\pi r^2}\,dr$，积分得总电阻：  
+$$
+R = \int_R^\infty \frac{\rho}{2\pi r^2}\,dr = \frac{\rho}{2\pi R}.
+$$
+
+::: {.example label="电极接地电阻" type=example}
+该例完整呈现微元法三步：选变量 $r$、造微元 $dR$、积微元得 $R$，是后续几何与物理应用章节的先导范例。
+:::
+
+前置知识：[[微元法的三步操作程序]]{type=concept, label=三步复现, render=link, tags=方法论|物理建模}  
+核心概念：[[微元的定义与性质]]{type=concept, label=微元物理意义, render=link, subject=物理学, grade=大学, tags=电学|微元}  
+延伸学习：[[定积分的几何应用]]{type=concept, label=几何建模, render=link, tags=几何|体积|面积}

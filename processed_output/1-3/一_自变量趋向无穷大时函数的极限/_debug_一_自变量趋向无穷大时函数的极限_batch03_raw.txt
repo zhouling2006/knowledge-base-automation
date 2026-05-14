@@ -1,0 +1,51 @@
+---
+title: 例1.3.4：证明 lim_(x→∞) (√(x²+1) − √(x²−1)) = 0
+numeric_source: 1-3-1-9
+aliases:
+  - 根式差极限
+  - 无穷远处根式极限
+  - ε–X 法根式例题
+tags:
+  - 高等数学
+  - 极限
+  - ε–X 定义
+  - 根式函数
+---
+
+# 例1.3.4：证明 $\lim_{x\to \infty}(\sqrt{x^2 + 1} -\sqrt{x^2 - 1}) = 0$
+
+本例运用**有理化技巧**与**不等式放缩**，严格依据定义1.3.3（$x \to \infty$ 时的 $\varepsilon$–$X$ 定义）完成证明，是复合根式函数在无穷远处极限的经典范例。
+
+::: {#proof-example-1-3-4 .proof label="例1.3.4 证明过程" type=proof}
+证 由于  
+$$
+\begin{aligned}
+\left| \left(\sqrt{x^2 + 1} - \sqrt{x^2 - 1}\right) - 0 \right| 
+&= \sqrt{x^2 + 1} - \sqrt{x^2 - 1} \\
+&= \frac{2}{\sqrt{x^2 + 1} + \sqrt{x^2 - 1}} \\
+&< \frac{2}{\sqrt{x^2 + 1}} < \frac{2}{\sqrt{x^2}} = \frac{2}{|x|},
+\end{aligned}
+$$  
+对于任意给定的 $\varepsilon > 0$（不妨设 $\varepsilon < 2$），取 $X = \dfrac{2}{\varepsilon}$，则当 $|x| > X$ 时，恒有  
+$$
+\left| (\sqrt{x^2 + 1} - \sqrt{x^2 - 1}) - 0 \right| < \frac{2}{|x|} < \frac{2}{X} = \varepsilon.
+$$  
+根据定义1.3.3可知  
+$$
+\lim_{x \to \infty} \left(\sqrt{x^2 + 1} - \sqrt{x^2 - 1}\right) = 0.
+$$
+:::
+
+该证明的关键步骤包括：  
+- **分子有理化**：将差式转化为分式形式，消除根号相减的不确定性；  
+- **分母放大**：利用 $\sqrt{x^2 + 1} + \sqrt{x^2 - 1} > \sqrt{x^2 + 1} > |x|$ 实现有效放缩；  
+- **构造 $X$**：由 $\dfrac{2}{|x|} < \varepsilon$ 直接解得 $X = \dfrac{2}{\varepsilon}$，满足定义要求。
+
+延伸理解：此极限反映两个“几乎相同”的大根式之差趋于零，体现函数在无穷远处的渐近一致性。类似结构常见于物理中的近似展开与误差分析。
+
+相关定义参考：[[定义1.3.3-x-→-∞-时函数极限的-ε–X-定义]]{type=concept, label=∞处极限定义, render=link, subject=高等数学, grade=大学, tags=极限|ε–X|核心定义}  
+前序例题：[[例1.3.3-证明-lim_(x→∞)-(1+x)x-=-1.md]]{type=question, id=例1.3.3, label=(1+x)/x 极限, render=link, tags=高数|极限|ε–X}  
+核心方法：[[有理化技巧在极限证明中的应用]]{type=concept, label=有理化法, render=card, tags=极限|代数技巧|根式处理}
+
+详细推导见 ((proof-example-1-3-4)){type=proof, label=例1.3.4 证明过程, render=card, note=根式差的ε–X严格证明}
+---SPLIT---

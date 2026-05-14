@@ -1,0 +1,246 @@
+---
+title: 参数方程下平面曲线的弧长公式
+numeric_source: 6-2-3-5
+aliases:
+  - 参数式弧长公式
+  - 向量形式弧长公式
+tags:
+  - 高等数学
+  - 曲线弧长
+  - 参数方程
+---
+
+# 参数方程下平面曲线的弧长公式
+
+设平面曲线弧 $\widehat{AB}$ 的参数方程为  
+$$
+\begin{cases}
+x = x(t), \\
+y = y(t),
+\end{cases}
+\quad (\alpha \leqslant t \leqslant \beta),
+$$  
+且 $x'(t),\, y'(t)$ 在区间 $[\alpha,\beta]$ 上连续，且不同时为零，则其**弧微分**为  
+$$
+\mathrm{d}s = \sqrt{\big(x'(t)\big)^2 + \big(y'(t)\big)^2}\,\mathrm{d}t. \tag{6.2.12}
+$$  
+
+对该弧微分在 $[\alpha,\beta]$ 上积分，即得该曲线弧的**弧长公式**：  
+$$
+s = \int_{\alpha}^{\beta} \sqrt{\big(x'(t)\big)^2 + \big(y'(t)\big)^2}\,\mathrm{d}t. \tag{6.2.13}
+$$  
+
+该公式是直角坐标系下弧长公式的自然推广，本质源于向量导数模长的几何意义：$\left\|\boldsymbol{r}'(t)\right\| = \sqrt{x'^2 + y'^2}$，其中 $\boldsymbol{r}(t) = \langle x(t), y(t) \rangle$。
+
+关联知识点：[[直角坐标系下平面曲线的弧长公式]]{type=concept, label=直角坐标弧长, render=link, subject=高等数学, grade=大学, tags=曲线弧长|参数化基础}  
+推导依据：[[曲线弧长的定义]]{type=concept, label=弧长定义, render=link, subject=高等数学, grade=大学, tags=曲线弧长|极限定义}
+
+::: {#proof-parametric-arc-length-001 .proof label="参数式弧长公式推导" type=proof}
+由参数曲线 $\boldsymbol{r}(t)$ 的微分 $\mathrm{d}\boldsymbol{r} = \langle x'(t)\,\mathrm{d}t,\, y'(t)\,\mathrm{d}t \rangle$，得弧长微元  
+$$
+\mathrm{d}s = \|\mathrm{d}\boldsymbol{r}\| = \sqrt{(x'\,\mathrm{d}t)^2 + (y'\,\mathrm{d}t)^2} = \sqrt{x'^2 + y'^2}\,\mathrm{d}t.
+$$  
+对 $t$ 从 $\alpha$ 到 $\beta$ 积分，即得总弧长 $s$。
+:::
+
+详细推导见 ((proof-parametric-arc-length-001)){type=proof, label=参数式弧长公式推导, render=card, note=基于向量微分与欧氏模长}
+
+---SPLIT---
+---
+title: 例6.2.16：摆线一拱的弧长
+numeric_source: 6-2-3-6
+aliases: []
+tags:
+  - 高等数学
+  - 曲线弧长
+  - 参数方程
+  - 摆线
+---
+
+# 例6.2.16：摆线一拱的弧长
+
+求摆线一拱（$a > 0$，$0 \leqslant t \leqslant 2\pi$）  
+$$
+\begin{cases}
+x = a(t - \sin t), \\
+y = a(1 - \cos t)
+\end{cases}
+$$  
+的弧长 $s$。
+
+---
+
+**解**：  
+先求导数：  
+$$
+x'(t) = a(1 - \cos t), \quad y'(t) = a \sin t.
+$$  
+代入参数式弧长公式（6.2.13）：  
+$$
+\begin{aligned}
+s &= \int_0^{2\pi} \sqrt{a^2(1 - \cos t)^2 + a^2 \sin^2 t} \,\mathrm{d}t \\
+&= a \int_0^{2\pi} \sqrt{1 - 2\cos t + \cos^2 t + \sin^2 t} \,\mathrm{d}t \\
+&= a \int_0^{2\pi} \sqrt{2 - 2\cos t} \,\mathrm{d}t \\
+&= a \int_0^{2\pi} \sqrt{4 \sin^2 \frac{t}{2}} \,\mathrm{d}t 
+= 2a \int_0^{2\pi} \left|\sin \frac{t}{2}\right| \,\mathrm{d}t.
+\end{aligned}
+$$  
+在 $[0,2\pi]$ 上，$\sin \frac{t}{2} \geqslant 0$，故可去绝对值：  
+$$
+s = 2a \int_0^{2\pi} \sin \frac{t}{2} \,\mathrm{d}t 
+= 2a \cdot \left[-2 \cos \frac{t}{2}\right]_0^{2\pi} 
+= 4a \big( -\cos\pi + \cos 0 \big) = 4a(1 + 1) = 8a.
+$$  
+
+因此，摆线一拱的弧长为 $s = 8a$。
+
+> ✅ **几何意义**：摆线一拱长度恰为生成圆直径的 4 倍（因圆直径为 $2a$），体现其等时性与几何优美性。
+
+关联公式：[[参数方程下平面曲线的弧长公式]]{type=concept, label=参数式公式, render=link, tags=参数方程|弧长}  
+延伸阅读：[[例6.2.14-悬链线弧长及几何关系]]{type=question, id=例6.2.14, label=悬链线弧长, render=card, source=同济高数, tags=双曲函数|几何恒等式}
+
+::: {.example label="例6.2.16" type=example}
+摆线一拱弧长结果简洁而深刻：$s = 8a$，与参数 $a$ 成正比，且不依赖于三角函数的复杂积分技巧——仅需半角恒等式与符号判断。
+:::
+
+---SPLIT---
+---
+title: 例6.2.17：星形线全长
+numeric_source: 6-2-3-7
+aliases: []
+tags:
+  - 高等数学
+  - 曲线弧长
+  - 参数方程
+  - 星形线
+  - 对称性
+---
+
+# 例6.2.17：星形线全长
+
+求星形线（$a > 0$，$0 \leqslant t \leqslant 2\pi$）  
+$$
+\begin{cases}
+x = a \cos^3 t, \\
+y = a \sin^3 t
+\end{cases}
+$$  
+的**全长** $s$。
+
+---
+
+**解**：  
+星形线关于 $x$ 轴和 $y$ 轴均对称（如图6.2.23），故其全长等于第一象限部分弧长的 4 倍。
+
+先求导数：  
+$$
+x'(t) = -3a \cos^2 t \sin t, \quad y'(t) = 3a \sin^2 t \cos t.
+$$  
+则  
+$$
+\begin{aligned}
+\mathrm{d}s &= \sqrt{x'^2 + y'^2}\,\mathrm{d}t \\
+&= \sqrt{9a^2 \cos^4 t \sin^2 t + 9a^2 \sin^4 t \cos^2 t}\,\mathrm{d}t \\
+&= 3a \sqrt{\cos^2 t \sin^2 t (\cos^2 t + \sin^2 t)}\,\mathrm{d}t \\
+&= 3a |\sin t \cos t|\,\mathrm{d}t.
+\end{aligned}
+$$  
+
+在第一象限（$t \in [0, \frac{\pi}{2}]$），$\sin t \geqslant 0$，$\cos t \geqslant 0$，故 $|\sin t \cos t| = \sin t \cos t$。于是  
+$$
+s = 4 \int_0^{\frac{\pi}{2}} 3a \sin t \cos t \,\mathrm{d}t 
+= 12a \int_0^{\frac{\pi}{2}} \sin t \cos t \,\mathrm{d}t.
+$$  
+
+利用倍角公式 $\sin t \cos t = \frac{1}{2}\sin 2t$：  
+$$
+s = 12a \cdot \frac{1}{2} \int_0^{\frac{\pi}{2}} \sin 2t \,\mathrm{d}t 
+= 6a \int_0^{\frac{\pi}{2}} \sin 2t \,\mathrm{d}t.
+$$  
+
+令 $u = 2t$，则 $\mathrm{d}u = 2\mathrm{d}t$，当 $t = 0$ 时 $u = 0$；$t = \frac{\pi}{2}$ 时 $u = \pi$：  
+$$
+s = 6a \cdot \frac{1}{2} \int_0^{\pi} \sin u \,\mathrm{d}u 
+= 3a \big[ -\cos u \big]_0^{\pi} 
+= 3a \big( -(-1) + 1 \big) = 3a \cdot 2 = 6a.
+$$  
+
+因此，星形线的**全长为 $s = 6a$**。
+
+> 🌟 **关键技巧**：对称性降维 + 绝对值处理 + 三角恒等变形，是参数曲线弧长计算的经典范式。
+
+关联概念：[[参数方程下平面曲线的弧长公式]]{type=concept, label=参数式公式, render=link, tags=参数方程|弧长}  
+对比学习：[[例6.2.16：摆线一拱的弧长]]{type=question, id=例6.2.16, label=摆线弧长, render=card, source=同济高数, answer=8a, tags=摆线|周期曲线}
+
+::: {.example label="例6.2.17" type=example}
+星形线全长 $6a$ 小于其外切正方形周长 $8a$，大于内切圆周长 $2\pi a \approx 6.28a$？不——注意：$6a < 2\pi a$，说明星形线“更紧凑”，符合其尖点收缩的几何直观。
+:::
+
+![](images/046bdff8c9240f1734cf39fdc2019d1972746cc0a75fdbd507f02303b5abb531.jpg)  
+图6.2.23
+
+---SPLIT---
+---
+title: 极坐标方程下平面曲线的弧长公式
+numeric_source: 6-2-3-8
+aliases:
+  - 极坐标弧长公式
+  - ρ-φ 弧长公式
+tags:
+  - 高等数学
+  - 曲线弧长
+  - 极坐标
+  - 参数方程
+---
+
+# 极坐标方程下平面曲线的弧长公式
+
+设平面曲线弧 $\widehat{AB}$ 的极坐标方程为  
+$$
+\rho = \rho(\varphi), \quad (\alpha \leqslant \varphi \leqslant \beta),
+$$  
+且 $\rho'(\varphi)$ 在 $[\alpha,\beta]$ 上连续。将极坐标转化为以 $\varphi$ 为参数的参数方程：  
+$$
+\begin{cases}
+x(\varphi) = \rho(\varphi) \cos \varphi, \\
+y(\varphi) = \rho(\varphi) \sin \varphi.
+\end{cases}
+$$  
+
+对其求导并计算：  
+$$
+\begin{aligned}
+x'(\varphi) &= \rho'(\varphi) \cos \varphi - \rho(\varphi) \sin \varphi, \\
+y'(\varphi) &= \rho'(\varphi) \sin \varphi + \rho(\varphi) \cos \varphi,
+\end{aligned}
+$$  
+则  
+$$
+x'^2(\varphi) + y'^2(\varphi) = \rho^2(\varphi) + \big(\rho'(\varphi)\big)^2.
+$$  
+
+代入参数式弧长公式（6.2.13），即得**极坐标下的弧长公式**：  
+$$
+s = \int_{\alpha}^{\beta} \sqrt{ \rho^2(\varphi) + \big(\rho'(\varphi)\big)^2 } \,\mathrm{d}\varphi. \tag{6.2.14}
+$$  
+
+该公式统一刻画了极径 $\rho$ 与极角变化率 $\rho'$ 对弧长的联合贡献，是极坐标微分几何的基础工具。
+
+关联推导：[[参数方程下平面曲线的弧长公式]]{type=concept, label=参数式公式, render=link, tags=参数方程|弧长}  
+前置知识：[[曲线弧长的定义]]{type=concept, label=弧长定义, render=link, subject=高等数学, grade=大学, tags=曲线弧长|极限定义}
+
+::: {#proof-polar-arc-length-001 .proof label="极坐标弧长公式推导" type=proof}
+由 $x = \rho \cos\varphi$, $y = \rho \sin\varphi$，对 $\varphi$ 求导得：
+$$
+\frac{\mathrm{d}x}{\mathrm{d}\varphi} = \frac{\mathrm{d}\rho}{\mathrm{d}\varphi}\cos\varphi - \rho \sin\varphi,\quad
+\frac{\mathrm{d}y}{\mathrm{d}\varphi} = \frac{\mathrm{d}\rho}{\mathrm{d}\varphi}\sin\varphi + \rho \cos\varphi.
+$$
+平方相加后交叉项抵消，仅余 $\rho^2 + (\rho')^2$，故  
+$$
+\mathrm{d}s = \sqrt{ \left(\frac{\mathrm{d}x}{\mathrm{d}\varphi}\right)^2 + \left(\frac{\mathrm{d}y}{\mathrm{d}\varphi}\right)^2 } \,\mathrm{d}\varphi = \sqrt{ \rho^2 + (\rho')^2 } \,\mathrm{d}\varphi.
+$$
+积分即得结论。
+:::
+
+应用示例：[[例6.2.18：心形线周长]]{type=question, id=例6.2.18, label=心形线周长, render=card, source=同济高数, answer=8a, tags=心形线|对称性|极坐标}  
+深入理解：[[例6.2.14-悬链线弧长及几何关系]]{type=question, id=例6.2.14, label=悬链线几何恒等式, render=link, tags=双曲函数|几何关系}

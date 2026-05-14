@@ -1,0 +1,161 @@
+---
+title: 复合函数的连续性定理
+numeric_source: 1-8-3-5
+aliases:
+  - 复合函数连续性准则
+  - 连续函数复合的保连续性
+tags:
+  - 高等数学
+  - 连续性
+  - 复合函数
+  - 极限
+---
+
+# 复合函数的连续性定理
+
+设函数 $y = f(u)$ 与 $u = \varphi(x)$ 构成复合函数 $y = f[\varphi(x)]$。若 $u = \varphi(x)$ 在点 $x_0$ 处连续，且 $y = f(u)$ 在对应点 $u_0 = \varphi(x_0)$ 处连续，则复合函数 $y = f[\varphi(x)]$ 在点 $x_0$ 处连续。
+
+由此可得极限与连续函数可交换顺序的重要结论：
+
+$$
+\lim_{x \to x_0} f[\varphi(x)] = f\left[\lim_{x \to x_0} \varphi(x)\right].
+$$
+
+该性质是初等函数极限计算的核心工具之一，其本质源于连续性对极限运算的“穿透性”。
+
+相关知识点：[[连续函数的和、差、积、商的连续性.md]]{type=concept, label=四则运算连续性, render=link, tags=高数|连续性}  
+延伸应用：[[幂函数的连续性证明]]{type=example, label=幂函数连续性, render=link, tags=高数|幂函数|复合函数}
+
+::: {#proof-composite-continuity-001 .proof label="定理1.8.3证明" type=proof}
+因为 $f(u)$ 在点 $u_0 = \varphi(x_0)$ 处连续，所以对任意给定的 $\varepsilon > 0$，存在 $\eta > 0$，当 $|u - u_0| < \eta$ 时，有  
+$$
+|f(u) - f(u_0)| < \varepsilon.
+$$
+
+又因 $\varphi(x)$ 在 $x_0$ 处连续，对上述 $\eta > 0$，必存在 $\delta > 0$，使得当 $|x - x_0| < \delta$ 时，有  
+$$
+|\varphi(x) - \varphi(x_0)| = |\varphi(x) - u_0| < \eta.
+$$
+
+综上，对任意 $\varepsilon > 0$，$\exists \delta > 0$，当 $|x - x_0| < \delta$ 时，有  
+$$
+\left| f[\varphi(x)] - f[\varphi(x_0)] \right| < \varepsilon.
+$$  
+故 $f[\varphi(x)]$ 在 $x_0$ 处连续。
+:::
+
+详细推导见 ((proof-composite-continuity-001)){type=proof, label=复合函数连续性证明, render=card, note=ε-η严格论证}
+
+---SPLIT---
+---
+title: 幂函数的连续性证明
+numeric_source: 1-8-3-6
+aliases: []
+tags:
+  - 高等数学
+  - 连续性
+  - 幂函数
+  - 复合函数
+---
+
+# 幂函数的连续性证明
+
+**命题**：幂函数 $y = x^\mu$（其中 $\mu \in \mathbb{R}$）在区间 $(0, +\infty)$ 内连续。
+
+**证明思路**：将幂函数表示为指数函数与对数函数的复合形式，再利用已知基本初等函数的连续性及复合函数连续性定理。
+
+由于对任意 $x > 0$，有恒等式  
+$$
+x^\mu = e^{\mu \ln x},
+$$  
+即 $y = x^\mu$ 是由外层函数 $y = e^u$ 与内层函数 $u = \mu \ln x$ 构成的复合函数。
+
+- 指数函数 $y = e^u$ 在 $(-\infty, +\infty)$ 上连续；  
+- 对数函数 $u = \ln x$ 在 $(0, +\infty)$ 上连续，故 $u = \mu \ln x$ 也在 $(0, +\infty)$ 上连续（常数倍不破坏连续性）。
+
+根据 [[复合函数的连续性定理]]{type=concept, label=复合保连续, render=link, tags=高数|复合函数|连续性}，其复合函数 $e^{\mu \ln x} = x^\mu$ 在 $(0, +\infty)$ 内连续。
+
+> ✅ 补充说明：该结论对所有实数指数 $\mu$ 成立（包括整数、分数、无理数），是后续讨论一般幂指函数与洛必达法则的基础。
+
+关联概念：[[对数函数的连续性.md]]{type=concept, label=对数函数连续性, render=link, tags=高数|对数函数}  
+关联定理：[[复合函数的连续性定理]]{type=concept, label=核心工具, render=card, tags=高数|复合函数}
+
+---SPLIT---
+---
+title: 初等函数的连续性
+numeric_source: 1-8-3-7
+aliases:
+  - 初等函数连续性定理
+tags:
+  - 高等数学
+  - 连续性
+  - 初等函数
+  - 定义区间
+---
+
+# 初等函数的连续性
+
+**核心结论**：一切初等函数在其**定义区间**（即包含于定义域内的开/闭/半开区间）上处处连续。因此，若 $x_0$ 属于初等函数 $f(x)$ 的某个定义区间，则极限可直接代入计算：
+
+$$
+\lim_{x \to x_0} f(x) = f(x_0).
+$$
+
+该结论建立在以下两层基础之上：
+
+1. **基本初等函数在其定义区间内连续**：
+   - 常值函数 $y = C$ 在 $(-\infty, +\infty)$ 连续；
+   - 幂函数 $y = x^\mu$（$\mu \in \mathbb{R}$）在 $(0, +\infty)$ 连续（如 [[幂函数的连续性证明]]{type=example, label=幂函数, render=link} 所示）；
+   - 指数函数 $y = a^x$（$a > 0, a \neq 1$）在 $(-\infty, +\infty)$ 连续；
+   - 对数函数 $y = \log_a x$（$a > 0, a \neq 1$）在 $(0, +\infty)$ 连续（参见 [[对数函数的连续性.md]]{type=concept, label=对数函数, render=link}）；
+   - 三角函数：$\sin x, \cos x$ 在 $\mathbb{R}$ 连续；$\tan x, \cot x, \sec x, \csc x$ 分别在其自然定义区间内连续；
+   - 反三角函数：$\arcsin x, \arccos x$ 在 $[-1,1]$ 连续；$\arctan x, \operatorname{arccot} x$ 在 $\mathbb{R}$ 连续（参见 [[反三角函数的连续性.md]]{type=concept, label=反三角函数, render=link}）。
+
+2. **连续性对运算封闭**：
+   - 连续函数的和、差、积、商（分母非零）仍连续（参见 [[连续函数的和、差、积、商的连续性.md]]{type=concept, label=四则运算, render=link}）；
+   - 连续函数的复合仍连续（参见 [[复合函数的连续性定理]]{type=concept, label=复合运算, render=link}）。
+
+> 📌 注：“定义区间”强调**连通性**——例如 $\tan x$ 在 $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ 连续，但不能说在 $(-\frac{\pi}{2}, \frac{\pi}{2}) \cup (\frac{\pi}{2}, \frac{3\pi}{2})$ 上连续，因后者非区间。
+
+典型应用见：[[例1.8.4：利用连续性求极限]]{type=example, label=反正弦极限, render=card, tags=高数|反三角函数|极限}  
+理论基石：[[反函数的连续性定理.md]]{type=concept, label=反函数连续性, render=link, tags=高数|反函数}
+
+---SPLIT---
+---
+title: 例1.8.4：利用连续性求极限
+numeric_source: 1-8-3-8
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 反正弦函数
+  - 连续函数
+---
+
+# 例1.8.4：利用连续性求极限
+
+**题目**：求极限  
+$$
+\lim_{x \to 0^{+}} \arcsin\left(\frac{1 - x}{1 + x}\right).
+$$
+
+**解**：  
+注意到：
+- 函数 $\arcsin u$ 在闭区间 $[-1,1]$ 上连续（参见 [[反三角函数的连续性.md]]{type=concept, label=反三角函数, render=link}）；
+- 当 $x \to 0^{+}$ 时，$\frac{1 - x}{1 + x} \to \frac{1 - 0}{1 + 0} = 1$，且对充分小的 $x > 0$，有 $\frac{1 - x}{1 + x} \in (0,1] \subset [-1,1]$，即内层函数值始终落在 $\arcsin$ 的连续定义域内。
+
+因此，由 [[初等函数的连续性]]{type=concept, label=连续性代入法, render=link, tags=高数|初等函数|极限}，极限符号可移入函数内部：
+
+$$
+\lim_{x \to 0^{+}} \arcsin\left(\frac{1 - x}{1 + x}\right)
+= \arcsin\left( \lim_{x \to 0^{+}} \frac{1 - x}{1 + x} \right)
+= \arcsin(1)
+= \frac{\pi}{2}.
+$$
+
+✅ **关键识别点**：  
+- 内层函数极限存在且落于外层函数的连续定义域内 → 允许“极限-函数交换”；  
+- 此技巧广泛适用于 $\sin, \cos, \ln, \exp, \arctan$ 等所有连续初等函数。
+
+延伸练习：[[例1.8.5：对数型极限]]{type=example, label=对数极限, render=card, source=同济高数, answer=1, tags=高数|对数函数|极限}  
+原理支撑：[[复合函数的连续性定理]]{type=concept, label=理论依据, render=link, tags=高数|复合函数}

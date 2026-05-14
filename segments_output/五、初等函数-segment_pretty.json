@@ -1,0 +1,397 @@
+[
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 1,
+    "title": "基本初等函数",
+    "content": "六类函数统称为基本初等函数：常值函数、幂函数、指数函数、对数函数、三角函数、反三角函数。",
+    "raw_content": "以下六类函数称为基本初等函数\n\n1）常值函数\n\n$y = C, x \\in (-\\infty, +\\infty)$ ，其中 $C$ 为已知常数\n\n2）幂函数\n\n$y = x^{\\mu}(\\mu \\in \\mathbb{R})$ ，其定义域与指数 $\\mu$ 的值有关，它们的公共定义域是区间 $(0, + \\infty)$\n\n3）指数函数\n\n$y = a^{x}$ $(a > 0,a\\neq 1),x\\in (-\\infty , + \\infty)$ .常见的是以无理数e为底的指数函数 $y = \\mathrm{e}^{x}$ $x\\in (-\\infty , + \\infty)$\n\n4）对数函数\n\n$y = \\log_{a}x(a > 0,a\\neq 1),x\\in (0, + \\infty)$ . 它是指数函数 $y = a^{x}(a > 0,a\\neq 0)$ 的反函数. 指数函数 $y = \\mathrm{e}^{x}$ 的反函数记作 $y = \\ln x$ ，即以 $\\mathbf{e}$ 为底的对数函数，称为 $x$ 的自然对数.\n\n5）三角函数\n\n正弦函数 $y = \\sin x, x \\in (-\\infty, +\\infty)$ ；\n\n余弦函数 $y = \\cos x, x \\in (-\\infty, +\\infty)$\n\n正切函数 $y = \\tan x = \\frac{\\sin x}{\\cos x},x\\neq n\\pi +\\frac{\\pi}{2} (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.22）；\n\n余切函数 $y = \\cot x = \\frac{1}{\\tan x},x\\neq n\\pi (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.23）；\n\n![](images/c4a0ff5441bab455f751a3514607f8cf7ad49319cd22a735e69a5c19ff1fd67e.jpg)  \n图1.1.22\n\n![](images/132cf6899b0e1eb7ba497ee7791eb1acace02dc4720d2eb06b6d8ac879e462c9.jpg)  \n图1.1.23\n\n正割函数 $y = \\sec x = \\frac{1}{\\cos x},x\\neq n\\pi +\\frac{\\pi}{2} (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.24）；\n\n余割函数 $y = \\csc x = \\frac{1}{\\sin x},x\\neq n\\pi (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.25）.\n\n![](images/4263915547b5eaff2075468d70e32114e19a0a2d3ce101f02f39221745b9fc29.jpg)  \n图1.1.24\n\n![](images/887fe42b7ab1187c184a642086d65cd538b5dc948830804e698b3eaa993da473.jpg)  \n图1.1.25\n\n上述函数又称为基本三角函数\n\n6）反三角函数\n\n由于基本三角函数都具有周期性，那么三角函数在其整个定义域上无法定义反三角函数。我们只把定义在包含锐角的单调区间上的基本三角函数的反函数，称为反三角函数。例如，反正弦函数、反余弦函数、反正切函数、反余切函数，分别记为 $\\arcsin x$ ， $\\arccos x$ ， $\\arctan x$ ， $\\operatorname{arccot} x$ ，其中 $x$ 为自变量。\n\n反正弦函数 $y = \\arcsin x, x \\in [-1, 1], y \\in \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$ （见图1.1.26）；\n\n反余弦函数 $y = \\arccos x, x \\in [-1, 1], y \\in [0, \\pi]$ （见图1.1.27）；\n\n反正切函数 $y = \\arctan x, x \\in (-\\infty, +\\infty), y \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ （见图1.1.28）；\n\n反余切函数 $y = \\operatorname{arccot} x, x \\in (-\\infty, +\\infty), y \\in (0, \\pi)$ （见图1.1.29）.\n\n![](images/ed737ec312f4a840ffde2cc71ce8c5bf8783527775f644e75ac52e350f7910a7.jpg)  \n图1.1.26\n\n![](images/e6b7957e73ff6f4d9f46cff43828a2dce53fb8fc69807c39f4f33317132a9753.jpg)  \n图1.1.27\n\n![](images/9019afe6f05abbb7d2e8fe04570b1077e4cea8bfd450b5d6688811041e07fdbb.jpg)  \n图1.1.28\n\n![](images/a06e088360814754f46e3ad1bac4d6e455c297eac2b4bc0a7053be77a17f1f5b.jpg)  \n图1.1.29\n\n上述所指出的各个反三角函数的值域范围，称为它们的主值范围",
+    "type": "concept",
+    "aliases": [
+      "六类基本初等函数"
+    ],
+    "entities": "常值函数,幂函数,指数函数,对数函数,三角函数,反三角函数",
+    "references": [
+      "以下六类函数称为基本初等函数"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "明确列出并定义六类基本初等函数及其典型表达式与定义域。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 2,
+    "title": "常值函数",
+    "content": "常值函数是基本初等函数之一，形式为 $y = C$，定义域为全体实数 $(-\\infty, +\\infty)$，其中 $C$ 为任意给定常数。",
+    "raw_content": "1）常值函数\n\n$y = C, x \\in (-\\infty, +\\infty)$ ，其中 $C$ 为已知常数",
+    "type": "concept",
+    "aliases": [
+      "常函数",
+      "常量函数"
+    ],
+    "entities": "常值函数",
+    "references": [
+      "常值函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义常值函数及其定义域。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 3,
+    "title": "幂函数",
+    "content": "幂函数是基本初等函数之一，形式为 $y = x^{\\mu}$（$\\mu \\in \\mathbb{R}$），其定义域依赖于指数 $\\mu$，所有幂函数的公共定义域为 $(0, +\\infty)$。",
+    "raw_content": "2）幂函数\n\n$y = x^{\\mu}(\\mu \\in \\mathbb{R})$ ，其定义域与指数 $\\mu$ 的值有关，它们的公共定义域是区间 $(0, + \\infty)$",
+    "type": "concept",
+    "aliases": [
+      "幂型函数"
+    ],
+    "entities": "幂函数",
+    "references": [
+      "幂函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义幂函数及其定义域特性。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 4,
+    "title": "指数函数",
+    "content": "指数函数是基本初等函数之一，形式为 $y = a^x$（$a > 0$ 且 $a \\neq 1$），定义域为 $(-\\infty, +\\infty)$；特别地，以自然常数 $e$ 为底的 $y = e^x$ 是最常用形式。",
+    "raw_content": "3）指数函数\n\n$y = a^{x}$ $(a > 0,a\\neq 1),x\\in (-\\infty , + \\infty)$ .常见的是以无理数e为底的指数函数 $y = \\mathrm{e}^{x}$ $x\\in (-\\infty , + \\infty)$",
+    "type": "concept",
+    "aliases": [
+      "指数型函数",
+      "自然指数函数（特例）"
+    ],
+    "entities": "指数函数,自然指数函数",
+    "references": [
+      "指数函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义指数函数及其自然指数特例。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 5,
+    "title": "对数函数",
+    "content": "对数函数是基本初等函数之一，形式为 $y = \\log_a x$（$a > 0$ 且 $a \\neq 1$），定义域为 $(0, +\\infty)$，是指数函数 $y = a^x$ 的反函数；以 $e$ 为底的对数函数 $y = \\ln x$ 称为自然对数。",
+    "raw_content": "4）对数函数\n\n$y = \\log_{a}x(a > 0,a\\neq 1),x\\in (0, + \\infty)$ . 它是指数函数 $y = a^{x}(a > 0,a\\neq 0)$ 的反函数. 指数函数 $y = \\mathrm{e}^{x}$ 的反函数记作 $y = \\ln x$ ，即以 $\\mathbf{e}$ 为底的对数函数，称为 $x$ 的自然对数.",
+    "type": "concept",
+    "aliases": [
+      "对数型函数",
+      "自然对数函数（特例）"
+    ],
+    "entities": "对数函数,自然对数函数,指数函数",
+    "references": [
+      "它是指数函数 $y = a^{x}(a > 0,a\\neq 0)$ 的反函数",
+      "指数函数 $y = \\mathrm{e}^{x}$ 的反函数记作 $y = \\ln x$"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义对数函数、其与指数函数的互逆关系及自然对数。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 6,
+    "title": "三角函数",
+    "content": "三角函数是基本初等函数之一，包括正弦、余弦、正切、余切、正割、余割六种基本形式，均具周期性；其定义域受分母零点或三角恒等式限制，并配有对应图像（图1.1.22–1.1.25）。",
+    "raw_content": "5）三角函数\n\n正弦函数 $y = \\sin x, x \\in (-\\infty, +\\infty)$ ；\n\n余弦函数 $y = \\cos x, x \\in (-\\infty, +\\infty)$\n\n正切函数 $y = \\tan x = \\frac{\\sin x}{\\cos x},x\\neq n\\pi +\\frac{\\pi}{2} (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.22）；\n\n余切函数 $y = \\cot x = \\frac{1}{\\tan x},x\\neq n\\pi (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.23）；\n\n![](images/c4a0ff5441bab455f751a3514607f8cf7ad49319cd22a735e69a5c19ff1fd67e.jpg)  \n图1.1.22\n\n![](images/132cf6899b0e1eb7ba497ee7791eb1acace02dc4720d2eb06b6d8ac879e462c9.jpg)  \n图1.1.23\n\n正割函数 $y = \\sec x = \\frac{1}{\\cos x},x\\neq n\\pi +\\frac{\\pi}{2} (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.24）；\n\n余割函数 $y = \\csc x = \\frac{1}{\\sin x},x\\neq n\\pi (n = 0,\\pm 1,\\pm 2,\\dots)$ （见图1.1.25）.\n\n![](images/4263915547b5eaff2075468d70e32114e19a0a2d3ce101f02f39221745b9fc29.jpg)  \n图1.1.24\n\n![](images/887fe42b7ab1187c184a642086d65cd538b5dc948830804e698b3eaa993da473.jpg)  \n图1.1.25\n\n上述函数又称为基本三角函数",
+    "type": "concept",
+    "aliases": [
+      "基本三角函数"
+    ],
+    "entities": "正弦函数,余弦函数,正切函数,余切函数,正割函数,余割函数,三角函数",
+    "references": [
+      "上述函数又称为基本三角函数"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "定义六种基本三角函数及其定义域、图像编号。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 7,
+    "title": "反三角函数",
+    "content": "反三角函数是基本初等函数之一，定义为基本三角函数在单调主值区间上的反函数，包括 $\\arcsin x$、$\\arccos x$、$\\arctan x$、$\\operatorname{arccot} x$，各自有指定定义域与主值范围（图1.1.26–1.1.29）。",
+    "raw_content": "6）反三角函数\n\n由于基本三角函数都具有周期性，那么三角函数在其整个定义域上无法定义反三角函数。我们只把定义在包含锐角的单调区间上的基本三角函数的反函数，称为反三角函数。例如，反正弦函数、反余弦函数、反正切函数、反余切函数，分别记为 $\\arcsin x$ ， $\\arccos x$ ， $\\arctan x$ ， $\\operatorname{arccot} x$ ，其中 $x$ 为自变量。\n\n反正弦函数 $y = \\arcsin x, x \\in [-1, 1], y \\in \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$ （见图1.1.26）；\n\n反余弦函数 $y = \\arccos x, x \\in [-1, 1], y \\in [0, \\pi]$ （见图1.1.27）；\n\n反正切函数 $y = \\arctan x, x \\in (-\\infty, +\\infty), y \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ （见图1.1.28）；\n\n反余切函数 $y = \\operatorname{arccot} x, x \\in (-\\infty, +\\infty), y \\in (0, \\pi)$ （见图1.1.29）.\n\n![](images/ed737ec312f4a840ffde2cc71ce8c5bf8783527775f644e75ac52e350f7910a7.jpg)  \n图1.1.26\n\n![](images/e6b7957e73ff6f4d9f46cff43828a2dce53fb8fc69807c39f4f33317132a9753.jpg)  \n图1.1.27\n\n![](images/9019afe6f05abbb7d2e8fe04570b1077e4cea8bfd450b5d6688811041e07fdbb.jpg)  \n图1.1.28\n\n![](images/a06e088360814754f46e3ad1bac4d6e455c297eac2b4bc0a7053be77a17f1f5b.jpg)  \n图1.1.29\n\n上述所指出的各个反三角函数的值域范围，称为它们的主值范围",
+    "type": "concept",
+    "aliases": [
+      "反三角型函数",
+      "主值反三角函数"
+    ],
+    "entities": "反正弦函数,反余弦函数,反正切函数,反余切函数,反三角函数",
+    "references": [
+      "称为反三角函数",
+      "上述所指出的各个反三角函数的值域范围，称为它们的主值范围"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "定义反三角函数的构造逻辑、命名、主值范围及对应图像。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 8,
+    "title": "初等函数",
+    "content": "初等函数是由六类基本初等函数经有限次四则运算和有限次复合运算所得、且能用一个解析式表示的函数；多项式、有理函数、$\\sin(x^2)$、$\\ln(x+\\sqrt{1+x^2})$、$\\sqrt{1+x^2}$ 均为典型例子。",
+    "raw_content": "2. 初等函数的定义\n\n由六类基本初等函数经过有限次四则运算和有限次复合运算所得到的，并可用一个式子表示的函数，称为初等函数。例如，多项式\n\n$$\ny = a _ {0} x ^ {n} + a _ {1} x ^ {n - 1} + \\dots + a _ {n - 1} x + a _ {n},\n$$\n\n其中 $n \\in \\mathbb{N}_{+}, a_{0}, a_{1}, \\dots, a_{n-1}, a_{n}$ 均为常数，且 $a_{0} \\neq 0$ ；有理函数\n\n$$\ny = \\frac {a _ {0} x ^ {n} + a _ {1} x ^ {n - 1} + \\cdots + a _ {n - 1} x + a _ {n}}{b _ {0} x ^ {m} + b _ {1} x ^ {m - 1} + \\cdots + b _ {m - 1} x + b _ {m}},\n$$\n\n其中 $m, n \\in \\mathbb{N}_{+}, a_{0}, a_{1}, \\dots, a_{n}, b_{0}, b_{1}, \\dots, b_{m}$ 均为常数，且 $a_{0} \\neq 0, b_{0} \\neq 0$ ； $y = \\sin(x^{2})$ ， $y = \\ln(x + \\sqrt{1 + x^{2}})$ ， $y = \\sqrt{1 + x^{2}}$ 都是初等函数.",
+    "type": "concept",
+    "aliases": [
+      "复合初等函数",
+      "解析初等函数"
+    ],
+    "entities": "初等函数,多项式,有理函数,三角函数,对数函数,幂函数",
+    "references": [
+      "称为初等函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "给出初等函数的严格定义及典型实例。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 9,
+    "title": "双曲正弦函数",
+    "content": "双曲正弦函数 $y = \\sinh x = \\frac{e^x - e^{-x}}{2}$ 是定义在 $(-\\infty, +\\infty)$ 上的奇函数，单调递增，图像过原点（图1.1.30）。",
+    "raw_content": "(1）双曲正弦函数\n\n$$\ny = \\sinh x = \\frac {\\mathrm {e} ^ {x} - \\mathrm {e} ^ {- x}}{2}\n$$\n\n是定义在区间 $(- \\infty, + \\infty)$ 内的奇函数，在 $(- \\infty, + \\infty)$ 内 $y = \\sinh x$ 是单调增加的，其图形通过坐标原点（见图1.1.30）.",
+    "type": "concept",
+    "aliases": [
+      "sh x"
+    ],
+    "entities": "双曲正弦函数,双曲函数",
+    "references": [
+      "双曲正弦函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义双曲正弦函数及其奇偶性、单调性与图像特征。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 10,
+    "title": "双曲余弦函数",
+    "content": "双曲余弦函数 $y = \\cosh x = \\frac{e^x + e^{-x}}{2}$ 是定义在 $(-\\infty, +\\infty)$ 上的偶函数，在 $(-\\infty, 0]$ 单调减、在 $[0, +\\infty)$ 单调增，图像过点 $(0,1)$（图1.1.30）。",
+    "raw_content": "(2）双曲余弦函数\n\n$$\ny = \\cosh x = \\frac {\\mathrm {e} ^ {x} + \\mathrm {e} ^ {- x}}{2}\n$$\n\n是定义在区间 $(- \\infty, + \\infty)$ 内的偶函数，在区间 $(- \\infty, 0]$ 内 $y = \\cosh x$ 是单调减少的；在区间 $[0, + \\infty)$ 上， $y = \\cosh x$ 是单调增加的，其图形通过点(0,1）（见图1.1.30）.",
+    "type": "concept",
+    "aliases": [
+      "ch x"
+    ],
+    "entities": "双曲余弦函数,双曲函数",
+    "references": [
+      "双曲余弦函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义双曲余弦函数及其奇偶性、分段单调性与图像特征。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 11,
+    "title": "双曲正切函数",
+    "content": "双曲正切函数 $y = \\tanh x = \\frac{\\sinh x}{\\cosh x} = \\frac{e^x - e^{-x}}{e^x + e^{-x}}$ 是定义在 $(-\\infty, +\\infty)$ 上的奇函数，严格单调递增，图像过原点（图1.1.31）。",
+    "raw_content": "（3）双曲正切函数\n\n$$\ny = \\tanh  x = \\frac {\\sinh x}{\\cosh x} = \\frac {e ^ {x} - e ^ {- x}}{e ^ {x} + e ^ {- x}}\n$$\n\n是定义在区间 $(- \\infty, + \\infty)$ 内的奇函数，且是单调增加的，其图形通过坐标原点（见图1.1.31）.",
+    "type": "concept",
+    "aliases": [
+      "th x"
+    ],
+    "entities": "双曲正切函数,双曲函数",
+    "references": [
+      "双曲正切函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义双曲正切函数及其奇偶性、单调性与图像特征。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 12,
+    "title": "双曲余切函数",
+    "content": "双曲余切函数 $y = \\coth x = \\frac{\\cosh x}{\\sinh x} = \\frac{e^x + e^{-x}}{e^x - e^{-x}}$ 定义在 $(-\\infty, 0) \\cup (0, +\\infty)$ 上，是奇函数，在 $(-\\infty, 0)$ 和 $(0, +\\infty)$ 上均单调递减。",
+    "raw_content": "（4）双曲余切函数\n\n$$\ny = \\coth x = \\frac {\\cosh x}{\\sinh x} = \\frac {e ^ {x} + e ^ {- x}}{e ^ {x} - e ^ {- x}}\n$$\n\n是定义在 $(-\\infty, 0) \\cup (0, +\\infty)$ 内的奇函数，在区间 $(- \\infty, 0)$ 及区间 $(0, +\\infty)$ 内均单调减少.",
+    "type": "concept",
+    "aliases": [
+      "cth x"
+    ],
+    "entities": "双曲余切函数,双曲函数",
+    "references": [
+      "双曲余切函数"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "定义双曲余切函数的定义域、奇偶性与单调性。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 13,
+    "title": "双曲函数恒等式",
+    "content": "双曲函数满足一系列与三角函数结构相似的恒等式，如加法公式、倍角公式及基本恒等式 $\\cosh^2 x - \\sinh^2 x = 1$，均可由定义推导。",
+    "raw_content": "双曲函数有类似于三角函数的公式：\n\n$$\n\\begin{array}{l} \\sinh (x + y) = \\sinh x \\cdot \\cosh y + \\cosh x \\cdot \\sinh y ; \\\\ \\sinh (x - y) = \\sinh x \\cdot \\cosh y - \\cosh x \\cdot \\sinh y ; \\\\ \\cosh (x + y) = \\cosh x \\cdot \\cosh y + \\sinh x \\cdot \\sinh y; \\\\ \\cosh (x - y) = \\cosh x \\cdot \\cosh y - \\sinh x \\cdot \\sinh y; \\\\ \\sinh (2 x) = 2 \\sinh x \\cdot \\cosh x; \\\\ \\cosh (2 x) = \\cosh^ {2} x + \\sinh^ {2} x; \\\\ \\cosh^ {2} x - \\sinh^ {2} x = 1. \\\\ \\end{array}\n$$\n\n以上这些公式，读者可以利用双曲函数的定义来证明",
+    "type": "theorem",
+    "aliases": [
+      "双曲恒等式",
+      "双曲加法公式"
+    ],
+    "entities": "双曲函数,双曲正弦函数,双曲余弦函数",
+    "references": [
+      "双曲函数有类似于三角函数的公式"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "列举核心双曲函数恒等式，强调其可由定义推导。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 14,
+    "title": "反双曲正弦函数",
+    "content": "反双曲正弦函数 $y = \\operatorname{arsinh} x = \\ln(x + \\sqrt{x^2 + 1})$ 是 $y = \\sinh x$ 的反函数，定义域为 $\\mathbb{R}$，单调递增。",
+    "raw_content": "双曲函数的反函数称为反双曲函数.例如，双曲正弦函数 $y = \\sinh x$ 在定义域 $(-\\infty , + \\infty)$\n\n内是单调增加的，因此，它的反函数存在，而且也是单调增加的。由定义\n\n$$\ny = \\sinh x = \\frac {\\mathrm {e} ^ {x} - \\mathrm {e} ^ {- x}}{2},\n$$\n\n得\n\n$$\n\\mathrm {e} ^ {2 x} - 2 y \\mathrm {e} ^ {x} - 1 = 0,\n$$\n\n则\n\n$$\n\\mathrm {e} ^ {x} = y \\pm \\sqrt {y ^ {2} + 1}.\n$$\n\n因为指数函数只取正值，所以\n\n$$\n\\mathrm {e} ^ {x} = y + \\sqrt {y ^ {2} + 1},\n$$\n\n即\n\n$$\nx = \\ln (y + \\sqrt {y ^ {2} + 1}).\n$$\n\n把 $x, y$ 互换得反双曲正弦函数为\n\n$$\ny = \\ln (x + \\sqrt {x ^ {2} + 1}), x \\in \\mathbf {R},\n$$\n\n把它记作 $\\operatorname{arsinh} x$ ，就有\n\n$$\ny = \\operatorname {a r s i n h} x = \\ln (x + \\sqrt {x ^ {2} + 1}), x \\in \\mathbf {R}.\n$$",
+    "type": "concept",
+    "aliases": [
+      "arsinh x",
+      "反双曲sinh"
+    ],
+    "entities": "反双曲正弦函数,双曲正弦函数",
+    "references": [
+      "把它记作 $\\operatorname{arsinh} x$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "推导并定义反双曲正弦函数的显式表达式与定义域。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 15,
+    "title": "反双曲余弦函数",
+    "content": "反双曲余弦函数 $y = \\operatorname{arccosh} x = \\ln(x + \\sqrt{x^2 - 1})$ 是 $y = \\cosh x$ 在 $[0,+\\infty)$ 上的反函数，定义域为 $[1,+\\infty)$，主值分支。",
+    "raw_content": "同理可推得反双曲余弦函数（记作 $\\operatorname{arccosh} x$ ）为\n\n$$\ny = \\operatorname {a r c o s h} x = \\ln (x + \\sqrt {x ^ {2} - 1}), x \\geqslant 1 (\\text {主 值}).\n$$",
+    "type": "concept",
+    "aliases": [
+      "arcosh x",
+      "反双曲cosh"
+    ],
+    "entities": "反双曲余弦函数,双曲余弦函数",
+    "references": [
+      "记作 $\\operatorname{arccosh} x$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "给出反双曲余弦函数的显式表达式、定义域与主值说明。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/五、初等函数.md",
+    "section": "五、初等函数",
+    "section_id": null,
+    "position": 16,
+    "title": "反双曲正切函数",
+    "content": "反双曲正切函数 $y = \\operatorname{artanh} x = \\frac{1}{2}\\ln\\frac{1+x}{1-x}$ 是 $y = \\tanh x$ 的反函数，定义域为 $(-1,1)$。",
+    "raw_content": "反双曲正切函数（记作 $\\operatorname{artanh} x$ ）为\n\n$$\ny = \\operatorname {a r t a n h} x = \\frac {1}{2} \\ln \\frac {1 + x}{1 - x}, \\quad x \\in (- 1, 1).\n$$",
+    "type": "concept",
+    "aliases": [
+      "artanh x",
+      "反双曲tanh"
+    ],
+    "entities": "反双曲正切函数,双曲正切函数",
+    "references": [
+      "记作 $\\operatorname{artanh} x$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "给出反双曲正切函数的显式表达式与定义域。",
+    "created_at": "2026-05-11T19:39:42",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

@@ -1,0 +1,168 @@
+---
+title: 自变量与函数的增量
+numeric_source: 1-8-1-1
+aliases:
+  - 自变量增量
+  - 函数增量
+tags:
+  - 高等数学
+  - 函数
+  - 连续性
+  - 增量
+---
+
+# 自变量与函数的增量
+
+对于函数 $y = f(x)$，当自变量 $x$ 从初值 $x_0$ 变到终值 $x_1$ 时，称差值 $x_1 - x_0$ 为**自变量在点 $x_0$ 处的增量**（或改变量），记作 $\Delta x$，即  
+$$
+\Delta x = x_1 - x_0.
+$$
+
+相应地，称函数值之差 $f(x_1) - f(x_0)$ 为**函数在点 $x_0$ 处的增量**（或改变量），记作 $\Delta y$，即  
+$$
+\Delta y = f(x_1) - f(x_0).
+$$
+
+> **注意**：$\Delta x$ 与 $\Delta y$ 是**不可分割的整体记号**，并非乘积 $\Delta \cdot x$ 或 $\Delta \cdot y$；其数值可正、可负、也可为零（见图1.8.1）。
+
+![图1.8.1：增量的几何示意](images/d37dd4c1467890c9f9f7fd72acc6437574db3478212aa93fdbc0e00633981c10.jpg)  
+*图1.8.1*
+
+该增量概念是刻画函数局部变化行为的基础，也是定义连续性、导数等核心概念的起点。
+
+延伸阅读：[[函数在一点连续的增量定义]]{type=concept, label=增量形式连续性, render=link, subject=高等数学, grade=大学, tags=连续性|增量|定义}  
+对比理解：[[函数在一点连续的极限定义]]{type=concept, label=极限形式连续性, render=link, tags=连续性|极限|定义}
+
+::: {.note}
+增量 $\Delta x$ 和 $\Delta y$ 的符号反映变化方向：  
+- $\Delta x > 0$ 表示自变量向右增加；$\Delta x < 0$ 表示向左减小；  
+- $\Delta y > 0$ 表示函数值上升；$\Delta y < 0$ 表示下降。
+:::
+
+---
+SPLIT---
+---
+title: 函数在一点连续的增量定义
+numeric_source: 1-8-1-2
+aliases:
+  - 增量形式的连续性定义
+tags:
+  - 高等数学
+  - 连续性
+  - 增量
+  - 极限
+---
+
+# 函数在一点连续的增量定义
+
+设函数 $y = f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$）有定义。给 $x_0$ 以增量 $\Delta x$，则函数相应产生增量  
+$$
+\Delta y = f(x_0 + \Delta x) - f(x_0).
+$$
+
+若当自变量增量 $\Delta x \to 0$ 时，函数增量 $\Delta y$ 也趋于 0，即  
+$$
+\lim_{\Delta x \to 0} \Delta y = \lim_{\Delta x \to 0} \big[ f(x_0 + \Delta x) - f(x_0) \big] = 0,
+$$  
+则称函数 $f(x)$ 在点 $x_0$ 处**连续**，点 $x_0$ 称为 $f(x)$ 的**连续点**。
+
+该定义直观体现了“微小输入变动引发微小输出变动”的连续性本质，是连续性最原始、最几何化的表述。
+
+关联概念：[[自变量与函数的增量]]{type=concept, label=增量基础, render=link, tags=增量|基础}  
+等价形式：[[函数在一点连续的极限定义]]{type=concept, label=极限等价定义, render=link, tags=连续性|极限|等价}  
+严格化表述：[[函数在一点连续的 ε–δ 定义]]{type=concept, label=ε–δ 形式, render=link, tags=连续性|ε–δ|严格}
+
+::: {#def-continuity-delta .definition label="定义1.8.1" type=definition}
+设函数 $y = f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$）有定义。若  
+$$
+\lim_{\Delta x \to 0} \big[ f(x_0 + \Delta x) - f(x_0) \big] = 0,
+$$  
+则称 $f(x)$ 在 $x_0$ 处连续。
+:::
+
+---
+SPLIT---
+---
+title: 函数在一点连续的极限定义
+numeric_source: 1-8-1-3
+aliases:
+  - 极限形式的连续性定义
+tags:
+  - 高等数学
+  - 连续性
+  - 极限
+  - 函数
+---
+
+# 函数在一点连续的极限定义
+
+设函数 $f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$）有定义。若当 $x \to x_0$ 时，函数 $f(x)$ 的极限存在，且等于该点的函数值 $f(x_0)$，即  
+$$
+\lim_{x \to x_0} f(x) = f(x_0),
+$$  
+则称函数 $f(x)$ 在点 $x_0$ 处**连续**。
+
+该定义将连续性归结为**极限存在性**与**极限值等于函数值**两个条件的联合满足，是分析中最为常用的标准定义。
+
+> **注**：函数在某点有极限 ≠ 函数在该点连续。连续性要求更强——必须同时满足：  
+> （1）$f(x)$ 在 $x_0$ 的某邻域内有定义；  
+> （2）$\displaystyle \lim_{x \to x_0} f(x)$ 存在；  
+> （3）极限值等于函数值：$\displaystyle \lim_{x \to x_0} f(x) = f(x_0)$。
+
+关联定义：[[函数在一点连续的增量定义]]{type=concept, label=增量视角, render=link, tags=连续性|增量}  
+严格基础：[[函数在一点连续的 ε–δ 定义]]{type=concept, label=ε–δ 基础, render=link, tags=连续性|ε–δ}  
+应用入口：[[单侧连续性]]{type=concept, label=左右连续, render=link, tags=连续性|单侧}
+
+::: {#def-continuity-limit .definition label="定义1.8.2" type=definition}
+设函数 $f(x)$ 在点 $x_0$ 的某个邻域内（包含点 $x_0$）有定义。若  
+$$
+\lim_{x \to x_0} f(x) = f(x_0),
+$$  
+则称 $f(x)$ 在 $x_0$ 处连续。
+:::
+
+---
+SPLIT---
+---
+title: 函数在一点连续的 ε–δ 定义
+numeric_source: 1-8-1-4
+aliases:
+  - ε–δ 连续性定义
+tags:
+  - 高等数学
+  - 连续性
+  - ε–δ 语言
+  - 极限
+---
+
+# 函数在一点连续的 ε–δ 定义
+
+设函数 $f(x)$ 在点 $x_0$ 的某个邻域内有定义。若对任意给定的 $\varepsilon > 0$，总存在正数 $\delta > 0$，使得当  
+$$
+|x - x_0| < \delta
+$$  
+时，恒有  
+$$
+\big| f(x) - f(x_0) \big| < \varepsilon,
+$$  
+则称函数 $f(x)$ 在点 $x_0$ 处**连续**。
+
+这是连续性的**严格分析定义**，完全摆脱了“无穷小”等模糊直觉，用精确的不等式关系刻画“无限接近”，为后续研究一致连续性、连续函数性质等奠定逻辑基础。
+
+> ✅ **关键解读**：  
+> - $\varepsilon$ 控制函数值的允许误差范围（纵轴精度）；  
+> - $\delta$ 是为实现该精度而需限定的自变量邻域半径（横轴范围）；  
+> - “对任意 $\varepsilon > 0$，总存在 $\delta > 0$”体现控制的普适性与可实现性。
+
+该定义是 [[函数极限的 ε–δ 定义]]{type=concept, label=极限 ε–δ, render=link, tags=极限|ε–δ} 在 $L = f(x_0)$ 且函数在 $x_0$ 有定义时的特例。
+
+延伸对比：[[函数在一点连续的极限定义]]{type=concept, label=极限定义, render=link, tags=连续性|极限}  
+前置知识：[[自变量与函数的增量]]{type=concept, label=增量预备, render=link, tags=增量|预备}
+
+::: {#def-continuity-epsilon-delta .definition label="ε–δ 连续性定义" type=definition}
+设函数 $f(x)$ 在点 $x_0$ 的某邻域内有定义。若  
+$$
+\forall \varepsilon > 0,\ \exists \delta > 0,\ \text{使得}\ \forall x:\ |x - x_0| < \delta \implies \big| f(x) - f(x_0) \big| < \varepsilon,
+$$  
+则称 $f(x)$ 在 $x_0$ 处连续。
+:::

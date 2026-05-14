@@ -1,0 +1,131 @@
+---
+title: 引例：指数函数在正无穷处的极限行为
+numeric_source: 1-3-1-1
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 函数极限
+  - 正无穷
+---
+
+# 引例：指数函数在正无穷处的极限行为
+
+从指数函数 $y = \mathrm{e}^{-x}$ 的图形（见图1.3.1）可以看出，当自变量 $x$ 取正值且无限增大时（记作 $x \to +\infty$），函数 $y = \mathrm{e}^{-x}$ 无限接近于常数 0，即  
+$$
+\lim_{x \to +\infty} \mathrm{e}^{-x} = 0.
+$$
+
+这一现象直观体现了函数在自变量趋向正无穷大时的稳定趋势，为后续严格定义 $x \to +\infty$ 时的函数极限提供了几何与数值基础。
+
+![](images/7cb6c2a3016790f6c6acc258d06a727a7f32f43caa09a78061ac68592de2a0b7.jpg)  
+图1.3.1
+
+该引例与数列极限 $\lim_{n \to \infty} a_n = L$ 具有高度类比性，是将离散极限思想推广至连续变量的关键桥梁。  
+进一步学习可参考 [[定义1.3.1：x → +∞ 时函数极限的 ε–X 定义]]{type=concept, label=ε–X 定义, render=link, tags=极限|定义|高数}。
+
+---
+SPLIT---
+---
+title: 定义1.3.1：x → +∞ 时函数极限的 ε–X 定义
+numeric_source: 1-3-1-2
+aliases:
+  - ε–X 定义
+  - 正无穷极限定义
+tags:
+  - 高等数学
+  - 极限
+  - 定义
+  - ε–X 语言
+---
+
+# 定义1.3.1：x → +∞ 时函数极限的 ε–X 定义
+
+设函数 $f(x)$ 在区间 $(a, +\infty)$ 内有定义，$A$ 是一个常数。如果对于任意给定的 $\varepsilon > 0$，存在正数 $X (> a)$，使得当 $x > X$ 时，恒有  
+$$
+\left| f(x) - A \right| < \varepsilon,
+$$  
+则称常数 $A$ 为函数 $f(x)$ 当 $x$ 趋向于正无穷大时的极限，记作  
+$$
+\lim_{x \to +\infty} f(x) = A \quad \text{或} \quad f(x) \to A \; (x \to +\infty).
+$$
+
+该定义亦可简述为：  
+若 $\forall \varepsilon > 0,\; \exists X > 0$，使得当 $x > X$ 时恒有 $|f(x) - A| < \varepsilon$，则称 $A$ 为 $f(x)$ 当 $x \to +\infty$ 时的极限。
+
+> **说明**：此即函数极限的“$\varepsilon$–$X$”语言，强调对任意精度 $\varepsilon$，总存在一个“足够大的右截断点”$X$，使函数值在此之后始终落在以 $A$ 为中心、半径为 $\varepsilon$ 的邻域内。
+
+该定义是分析学中极限概念的基石之一，其逻辑结构与数列极限的“$\varepsilon$–$N$”定义完全对应，仅将离散指标 $n > N$ 替换为连续变量 $x > X$。  
+深入理解可结合 [[几何解释：x → +∞ 时函数极限的带形区域描述]]{type=concept, label=带形区域解释, render=link, tags=极限|几何|高数}；  
+典型应用见 [[例1.3.1：证明 lim_(x→+∞) sin x / x = 0]]{type=proof, label=ε–X 证明实例, render=card, tags=极限|证明|高数}。
+
+::: {.note}
+本定义要求函数在某个右无界区间 $(a, +\infty)$ 上有定义，不要求在有限点处连续或可导，仅需“尾部”行为可控。
+:::
+
+---
+SPLIT---
+---
+title: 几何解释：x → +∞ 时函数极限的带形区域描述
+numeric_source: 1-3-1-3
+aliases:
+  - 带形区域解释
+  - 几何直观
+tags:
+  - 高等数学
+  - 极限
+  - 几何解释
+  - 函数图像
+---
+
+# 几何解释：x → +∞ 时函数极限的带形区域描述
+
+函数 $f(x)$ 当 $x \to +\infty$ 时以 $A$ 为极限，其几何含义如下：
+
+对任意给定的 $\varepsilon > 0$，由两条水平直线 $y = A + \varepsilon$ 和 $y = A - \varepsilon$ 所围成的**宽度为 $2\varepsilon$ 的水平带形区域**，总存在一个正数 $X > 0$，使得当 $x$ 位于区间 $(X, +\infty)$ 内时，函数图像 $y = f(x)$ 上的所有点均落在此带形区域内（见图1.3.2）。
+
+![](images/cc96f86a7d3c4cbc0f4e30444d4cf2f85b4feef2a54817c8df5cd6ece9dd2f19.jpg)  
+图1.3.2
+
+> **直观解读**：无论带形区域多窄（即 $\varepsilon$ 多小），只要往 $x$ 轴正方向走得足够远（超过某个 $X$），函数图像就“最终稳定地被约束在该带形中”，不再逃逸——这正是“极限存在”的视觉本质。
+
+该几何解释是对 [[定义1.3.1：x → +∞ 时函数极限的 ε–X 定义]]{type=concept, label=ε–X 定义, render=link, tags=极限|定义|高数} 的可视化补充，强化了 $\varepsilon$–$X$ 逻辑的空间意义。  
+类似地，$x \to -\infty$ 或 $x \to \infty$ 时的极限也可用左右/双向带形区域刻画，详见后续定义。
+
+---
+SPLIT---
+---
+title: 例1.3.1：证明 lim_(x→+∞) sin x / x = 0
+numeric_source: 1-3-1-4
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 证明题
+  - ε–X 证明
+---
+
+# 例1.3.1：证明 $\lim_{x\to +\infty}\frac{\sin x}{x} = 0$
+
+::: {.proof label="例1.3.1 证明" type=proof}
+由于极限过程为 $x \to +\infty$，不妨设 $x > 0$，则 $|x| = x$。利用不等式 $|\sin x| \leq 1$，有  
+$$
+\left| \frac{\sin x}{x} - 0 \right| = \left| \frac{\sin x}{x} \right| = \frac{|\sin x|}{x} \leq \frac{1}{x}.
+$$  
+于是，对任意给定的 $\varepsilon > 0$，取 $X = \dfrac{1}{\varepsilon}$，则当 $x > X$ 时，  
+$$
+\left| \frac{\sin x}{x} - 0 \right| \leq \frac{1}{x} < \frac{1}{X} = \varepsilon.
+$$  
+由 $x \to +\infty$ 时函数极限的 $\varepsilon$–$X$ 定义可知：  
+$$
+\lim_{x \to +\infty} \frac{\sin x}{x} = 0.
+$$
+:::
+
+该证明是 $\varepsilon$–$X$ 方法的经典范例，核心技巧为**绝对值放缩**与**构造性取 $X$**。  
+- 放缩目标：将含振荡项 $|\sin x|$ 的表达式控制为仅含 $x$ 的单调衰减量（此处为 $1/x$）；  
+- 构造关键：由 $1/x < \varepsilon$ 直接解出 $x > 1/\varepsilon$，从而确定 $X$。
+
+延伸思考：该结论揭示了**有界函数除以无穷大量仍趋于零**的一般规律，是处理振荡型极限的重要工具。  
+同类题型可参考 [[例1.3.2：证明 lim_(x→+∞) 1/√x = 0]]{type=proof, label=根式极限, render=card, tags=极限|证明|高数}；  
+理论基础请回顾 [[定义1.3.1：x → +∞ 时函数极限的 ε–X 定义]]{type=concept, label=ε–X 定义, render=link, tags=极限|定义|高数}。

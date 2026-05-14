@@ -1,0 +1,186 @@
+---
+title: 常力做功公式
+numeric_source: 6-3-2-1
+aliases:
+  - 恒力做功
+  - 标量功公式
+tags:
+  - 高等数学
+  - 物理应用
+  - 定积分
+---
+
+# 常力做功公式
+
+当物体在大小和方向均不变的**常力** $F$ 作用下，沿力的方向移动距离 $s$ 时，该力对物体所做的功定义为：
+
+$$
+W = F \cdot s.
+$$
+
+此公式适用于力与位移共线且恒定的情形，是功的最基础定义，也是变力做功模型的起点。
+
+> 💡 **物理意义**：功是力在位移方向上的累积效应，单位为焦耳（J），1 J = 1 N·m。
+
+该公式可视为变力做功在 $F(x) \equiv F$（常函数）时的特例。  
+延伸学习：[[变力做功的微元法]]{type=concept, label=变力推广, render=link, subject=高等数学, grade=大学, tags=定积分|物理应用}
+
+::: {.note}
+本公式仅适用于**恒力**且**位移方向与力一致**的情形；若力与位移成夹角 $\theta$，则应使用 $W = F s \cos\theta$。但本节聚焦一维同向情形，为后续微元法铺垫。
+:::
+
+
+---SPLIT---
+---
+title: 变力做功的微元法
+numeric_source: 6-3-2-2
+aliases:
+  - 功的微元表达式
+  - 变力做功积分公式
+tags:
+  - 高等数学
+  - 定积分
+  - 物理应用
+---
+
+# 变力做功的微元法
+
+当物体在方向恒定（如始终沿 $Ox$ 轴）、但大小随位置变化的**变力** $F(x)$ 作用下，从点 $a$ 移动到点 $b$ 时，总功不能直接用 $F \cdot s$ 计算，而需采用**微元法**（即“分割—近似—求和—取极限”）：
+
+- 在位移区间 $[a,b]$ 上任取小区间 $[x, x + \mathrm{d}x]$；
+- 在该微小位移上，力近似为常量 $F(x)$，故功的微元为：
+  $$
+  \mathrm{d}W = F(x)\,\mathrm{d}x;
+  $$
+- 对微元在整个区间积分，得总功：
+  $$
+  W = \int_a^b F(x)\,\mathrm{d}x. \tag{6.3.1}
+  $$
+
+> 📌 **关键前提**：$F(x)$ 在 $[a,b]$ 上连续，且力方向与位移轴一致（平行力）。
+
+该公式是定积分在物理学中最典型的应用之一，体现了“以直代曲、以匀代变”的微积分思想。
+
+参考基础：[[常力做功公式]]{type=concept, label=恒力特例, render=link, tags=基础|物理}  
+进阶应用：[[例6.3.3：点电荷电场中单位正电荷移动的功]]{type=example, label=库仑力做功, render=card, id=例6.3.3, source=教材第六章, tags=电学|积分应用}  
+几何图示见 [[图6.3.3]]{type=figure, label=变力做功区间示意, render=card}
+
+
+---SPLIT---
+---
+title: 例6.3.3：点电荷电场中单位正电荷移动的功
+numeric_source: 6-3-2-3
+aliases: []
+tags:
+  - 高等数学
+  - 物理应用
+  - 例题
+---
+
+# 例6.3.3：点电荷电场中单位正电荷移动的功
+
+> **题设**：坐标原点 $O$ 处有一带正电量 $q$ 的点电荷。单位正电荷在电场力作用下，从 $x = a$ 移动到 $x = b$（其中 $0 < a < b$），求电场力所做的功 $W$。
+
+## 解
+
+由库仑定律，单位正电荷在距原点 $x > 0$ 处所受电场力大小为：
+$$
+F(x) = \frac{k q}{x^2},
+$$
+方向沿 $x$ 轴正向（排斥力）。
+
+取 $x$ 为积分变量，变化范围为 $[a, b]$，功的微元为：
+$$
+\mathrm{d}W = F(x)\,\mathrm{d}x = \frac{k q}{x^2}\,\mathrm{d}x.
+$$
+
+积分得总功：
+$$
+W = \int_a^b \frac{k q}{x^2}\,\mathrm{d}x 
+= k q \left[ -\frac{1}{x} \right]_a^b 
+= k q \left( \frac{1}{a} - \frac{1}{b} \right).
+$$
+
+✅ **答案**：$W = k q \left( \dfrac{1}{a} - \dfrac{1}{b} \right)$（单位：焦耳）
+
+📌 **说明**：结果为正，表明电场力做正功（电势能减小）；若反向移动（$b \to a$），功为负。
+
+关联知识点：  
+- [[变力做功的微元法]]{type=concept, label=方法来源, render=link, tags=定积分|物理建模}  
+- [[库仑定律]]{type=concept, label=物理基础, render=link, subject=大学物理, tags=电学|基本定律}  
+- [[图6.3.3]]{type=figure, label=积分路径示意, render=card}
+
+
+---SPLIT---
+---
+title: 例6.3.4：圆锥形容器抽水做功
+numeric_source: 6-3-2-4
+aliases: []
+tags:
+  - 高等数学
+  - 物理应用
+  - 例题
+  - 几何建模
+---
+
+# 例6.3.4：圆锥形容器抽水做功
+
+> **题设**：一圆锥形容器（顶点在原点，底面半径 $R\ \mathrm{(m)}$，高 $H\ \mathrm{(m)}$）盛满水（密度 $\rho = 10^3\ \mathrm{kg/m^3}$）。取重力加速度 $g = 10\ \mathrm{m/s^2}$。问：将全部水从顶部抽出，需克服重力做多少功？
+
+## 解
+
+### 步骤1：建系与变量选取  
+建立直角坐标系（见[[图6.3.4]]{type=figure, label=圆锥坐标系, render=card}），使圆锥顶点在原点 $O$，轴线与 $h$ 轴重合。取高度 $h$ 为积分变量，$h \in [0, H]$。
+
+由相似三角形得：在高度 $h$ 处的横截面半径为  
+$$
+r = \frac{R}{H} h.
+$$
+
+### 步骤2：构造功微元  
+在 $[h, h + \mathrm{d}h]$ 内取一薄水层（近似圆柱体）：  
+- 体积：$\pi r^2 \,\mathrm{d}h = \pi \left(\frac{R h}{H}\right)^2 \mathrm{d}h$，  
+- 质量：$\rho \cdot \pi r^2 \,\mathrm{d}h$，  
+- 重力：$\rho g \pi r^2 \,\mathrm{d}h$，  
+- 提升距离（至顶部）：$H - h$，  
+- 故克服重力做功微元：  
+  $$
+  \mathrm{d}W = \rho g \pi r^2 (H - h)\,\mathrm{d}h 
+  = \frac{\rho g \pi R^2}{H^2} h^2 (H - h)\,\mathrm{d}h.
+  $$
+
+### 步骤3：积分求总功  
+$$
+W = \int_0^H \frac{\rho g \pi R^2}{H^2} h^2 (H - h)\,\mathrm{d}h 
+= \frac{\rho g \pi R^2}{H^2} \int_0^H (H h^2 - h^3)\,\mathrm{d}h.
+$$
+
+计算得：
+$$
+\int_0^H (H h^2 - h^3)\,\mathrm{d}h 
+= \left[ \frac{H h^3}{3} - \frac{h^4}{4} \right]_0^H 
+= \frac{H^4}{3} - \frac{H^4}{4} = \frac{H^4}{12}.
+$$
+
+因此：
+$$
+W = \frac{\rho g \pi R^2}{H^2} \cdot \frac{H^4}{12} 
+= \frac{\rho g \pi}{12} R^2 H^2.
+$$
+
+代入数值：$\rho = 10^3$, $g = 10$，得  
+$$
+W = \frac{10^4 \pi}{12} R^2 H^2 = \frac{2500\pi}{3} R^2 H^2\ \mathrm{(J)}.
+$$
+
+✅ **答案**：$\displaystyle W = \frac{2500\pi}{3} R^2 H^2\ \text{J}$
+
+💡 **建模要点**：  
+- 积分变量选择需匹配几何对称性（此处选高度 $h$）；  
+- 微元质量 → 重力 → 提升距离 → 功微元，逻辑链清晰；  
+- 几何关系 $r(h)$ 是关键桥梁。
+
+关联知识：  
+- [[变力做功的微元法]]{type=concept, label=方法核心, render=link, tags=定积分|建模}  
+- [[图6.3.4]]{type=figure, label=圆锥坐标与水层示意, render=card}  
+- [[重力做功]]{type=concept, label=物理原理, render=link, subject=大学物理, tags=力学|能量}

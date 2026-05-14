@@ -1,0 +1,229 @@
+{
+  "main": {
+    "id": "103ce442e761a120",
+    "type": "split",
+    "children": [
+      {
+        "id": "df91bd0abbba427d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ea498ba1761e76c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图1.8.4.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "图1.8.4"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "eb2a847fe89639e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "05890e0c91ae88d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "58b2dce452621760",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "fe264a6ff194bca0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "691453d839ee72ad",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "36a10d4b48e1f880",
+    "type": "split",
+    "children": [
+      {
+        "id": "1151db16a294c653",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "11b319371b2a9227",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "图1.8.3.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "图1.8.3 的反向链接列表"
+            }
+          },
+          {
+            "id": "36b5226fc23eef04",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "图1.8.3.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "图1.8.3 的出链列表"
+            }
+          },
+          {
+            "id": "1a2469096981f8a5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "d73a0965698d5de2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ad162cda995d8efa",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "图1.8.3.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "图1.8.3 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "3ea498ba1761e76c",
+  "lastOpenFiles": [
+    "图1.8.5.md",
+    "图1.8.6.md",
+    "定理1.4.5的说明.md",
+    "x-→-x₀-时函数极限的直观引入.md",
+    "k阶无穷小示例.md",
+    "k阶无穷小(定义1.7.2).md",
+    "左连续与右连续.md",
+    "最值定理推论-有界性.md",
+    "直角坐标与极坐标转换公式.md",
+    "正负无穷大的严格定义补充.md",
+    "一致连续性引言.md",
+    "无穷小的引入与定义背景.md",
+    "无穷小的阶(定义1.7.1).md",
+    "无穷小的典型例子.md",
+    "无穷间断点.md",
+    "图1.6.1.md",
+    "数列的有界性定义.md",
+    "区间上的连续性.md",
+    "偶函数与奇函数的定义.md",
+    "连续函数的和、差、积、商的连续性.md",
+    "连续变量推广-$x-to-pminfty$-时极限仍为-$e$.md",
+    "例1.6.3-sin-x--x-极限的几何证明.md",
+    "例1.5.11-指数函数极限(复合函数代换).md",
+    "例1.5.10-“∞−∞”型未定式(通分转化).md",
+    "例1.5.6-“∞∞”型未定式(最高次项同除).md",
+    "例1.2.4-分式有理函数极限.md",
+    "assets/feac2e608b8ccf3a32da27ee86824a525dbe9798f19942a908458e162505fc52.jpg",
+    "assets/fe2789b8e10eb97b5689cf29c4c1911c123ebf3eaeb68ebc22e1072b26f4a36c.jpg",
+    "assets/fd6a63d2dd4690319440a26f996a1212c7ff364aa26b51d473a3f866bac4f6c7.jpg",
+    "assets/fc3feeca7a10c3874cf3ccc4fb5c9f074478abffcfb52343217e331520524c08.jpg",
+    "assets/fa2896fb1453644df66ba7b804300bd2da60b3e35d504892714fc2e546498a31.jpg",
+    "assets/f9e254f136c1d9dfe26e09414a7253214f20f12d15dca8d6c58fc7c4667bf6d2.jpg",
+    "assets/f9c7f153bf38577c11b2d50594839b59f17362702704fd622f8a6bdc3ff33655.jpg",
+    "assets/f869e127c5439d62142ae4aefe219d35df6d24e8719935c159ea3668e4b1cad1.jpg",
+    "assets/f78e51a4ab17a9e7e99901cab95de7cbfaeb2e2745a8a4ac6e687fa3a45185d5.jpg",
+    "assets/f724801feaa92a63a1c60f0695292625e4db4d914beaeb7633d3bdce398b4931.jpg",
+    "assets",
+    "asssets",
+    "asserts",
+    "images - 副本"
+  ]
+}

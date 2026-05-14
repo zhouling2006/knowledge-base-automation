@@ -1,0 +1,204 @@
+---
+title: 柱壳法：绕y轴旋转体体积公式
+numeric_source: 6-2-2-9
+aliases:
+  - 壳层法
+  - 圆柱壳法
+tags:
+  - 高等数学
+  - 积分应用
+  - 旋转体体积
+  - 柱壳法
+---
+
+# 柱壳法：绕y轴旋转体体积公式
+
+由连续曲线 $y = f(x)$（其中 $f(x) \geq 0$）、直线 $x = a$、$x = b$（$a < b$）及 $x$ 轴所围成的平面图形，绕 $y$ 轴旋转一周所得旋转体的体积，可用**柱壳法**（又称**壳层法**或**圆柱壳法**）计算。
+
+选取 $x$ 为积分变量，$x \in [a, b]$。在区间 $[a,b]$ 上任取一小区间 $[x, x + \mathrm{d}x]$，对应竖直薄片（高为 $f(x)$、宽为 $\mathrm{d}x$）绕 $y$ 轴旋转，形成一个**圆柱形壳体**：  
+- 壳体中轴半径为 $x$，  
+- 高度为 $f(x)$，  
+- 厚度为 $\mathrm{d}x$，  
+- 展开后可近似为长方体：长 $= 2\pi x$（周长），宽 $= \mathrm{d}x$，高 $= f(x)$。
+
+因此，体积微元为：
+$$
+\mathrm{d}V = 2\pi x f(x)\,\mathrm{d}x.
+$$
+
+对微元在 $[a,b]$ 上积分，得旋转体总体积：
+$$
+V = 2\pi \int_{a}^{b} x f(x)\,\mathrm{d}x. \tag{6.2.9}
+$$
+
+![](images/3f19cec3452009c27d9877f72364419e19f810a0b090d85902c5a8112082d875.jpg)  
+图6.2.19：柱壳法几何示意（圆柱壳展开示意图）
+
+该公式适用于**以 $x$ 为自变量、边界明确且 $f(x)$ 易表达**的情形，是圆盘法（绕 $x$ 轴）的重要互补方法。
+
+相关知识点：  
+- [[旋转体体积公式(绕x轴)]]{type=concept, label=圆盘法, render=link, tags=高数|积分应用|旋转体}  
+- [[旋转体体积公式(绕y轴)]]{type=concept, label=y方向圆盘法, render=link, tags=高数|积分应用|旋转体}  
+- [[例6.2.12：正弦曲线旋转体体积（柱壳法与圆盘法对比）]]{type=question, id=例6.2.12, label=柱壳法实战, render=card, source=同济高数, answer=Vₓ=π²/2, V_y=2π², tags=高数|旋转体|对比应用}
+
+::: {.note}
+柱壳法本质是“以半径为变量”的微元构造，强调**绕垂直于积分变量轴旋转**时的自然建模优势；当函数反解困难（如 $x = \varphi(y)$ 不易显式写出）时，柱壳法常比 $y$-方向圆盘法更简便。
+:::
+---SPLIT---
+---
+title: 例6.2.12：正弦曲线旋转体体积（柱壳法与圆盘法对比）
+numeric_source: 6-2-2-10
+aliases: []
+tags:
+  - 高等数学
+  - 积分应用
+  - 旋转体体积
+  - 方法对比
+---
+
+# 例6.2.12：正弦曲线旋转体体积（柱壳法与圆盘法对比）
+
+求由 $y = \sin x$（$0 \leqslant x \leqslant \pi$）与 $x$ 轴围成的平面图形，分别绕 $x$ 轴和 $y$ 轴旋转一周所得旋转体的体积。
+
+---
+
+### （1）绕 $x$ 轴旋转：使用**圆盘法**
+
+截面为垂直于 $x$ 轴的圆盘，半径 $r(x) = \sin x$，面积 $S(x) = \pi \sin^2 x$，故：
+$$
+V_x = \pi \int_0^\pi \sin^2 x \,\mathrm{d}x 
+= \pi \int_0^\pi \frac{1 - \cos 2x}{2} \,\mathrm{d}x 
+= \frac{\pi}{2} \left[ x - \frac{\sin 2x}{2} \right]_0^\pi 
+= \frac{\pi^2}{2}.
+$$
+
+---
+
+### （2）绕 $y$ 轴旋转：使用**柱壳法**
+
+取竖直薄片，半径 $x$、高度 $\sin x$、厚度 $\mathrm{d}x$，体积微元 $\mathrm{d}V = 2\pi x \sin x \,\mathrm{d}x$，故：
+$$
+V_y = 2\pi \int_0^\pi x \sin x \,\mathrm{d}x.
+$$
+
+利用分部积分：令 $u = x$, $\mathrm{d}v = \sin x \,\mathrm{d}x$，则 $\mathrm{d}u = \mathrm{d}x$, $v = -\cos x$，
+$$
+\begin{aligned}
+V_y &= 2\pi \left[ -x \cos x \Big|_0^\pi + \int_0^\pi \cos x \,\mathrm{d}x \right] \\
+&= 2\pi \left[ -\pi(-1) - 0 + \sin x \Big|_0^\pi \right] \\
+&= 2\pi \left[ \pi + 0 \right] = 2\pi^2.
+\end{aligned}
+$$
+
+> ✅ 注：本题亦可用 $y$ 为积分变量（需反解 $x = \arcsin y$，并处理多值分支），但过程复杂；柱壳法在此显著简化计算。
+
+---
+
+### 方法启示
+
+| 旋转轴 | 推荐方法 | 关键原因 |
+|--------|----------|----------|
+| $x$ 轴 | 圆盘法（$V = \pi \int y^2 \,\mathrm{d}x$） | 截面为圆，半径直接为 $y = \sin x$ |
+| $y$ 轴 | 柱壳法（$V = 2\pi \int x y \,\mathrm{d}x$） | 避免反函数，几何建模直观 |
+
+延伸思考：[[例6.2.13：同一区域绕不同轴旋转（x轴、y轴、y=2）]]{type=question, id=例6.2.13, label=多轴旋转对比, render=card, source=同济高数, tags=高数|旋转体|综合应用}
+
+知识锚点：  
+- [[柱壳法：绕y轴旋转体体积公式]]{type=concept, label=柱壳法公式, render=link, subject=高等数学, grade=大学, tags=柱壳法|积分技巧}  
+- [[旋转体体积公式(绕x轴)]]{type=concept, label=圆盘法公式, render=link, tags=高数|旋转体}
+---SPLIT---
+---
+title: 例6.2.13：同一区域绕不同轴旋转（x轴、y轴、y=2）
+numeric_source: 6-2-2-11
+aliases: []
+tags:
+  - 高等数学
+  - 积分应用
+  - 旋转体体积
+  - 多策略综合
+---
+
+# 例6.2.13：同一区域绕不同轴旋转（x轴、y轴、y=2）
+
+设平面区域 $D$ 由曲线 $y = \sqrt{x}$、直线 $x = 4$ 及 $x$ 轴围成（即 $0 \le x \le 4$, $0 \le y \le \sqrt{x}$）。求其分别绕以下三轴旋转一周所得旋转体的体积：
+
+- （1）绕 $x$ 轴  
+- （2）绕 $y$ 轴  
+- （3）绕水平直线 $y = 2$
+
+---
+
+### （1）绕 $x$ 轴旋转：圆盘法（Disk Method）
+
+截面为圆盘，半径 $r(x) = \sqrt{x}$，面积 $S(x) = \pi (\sqrt{x})^2 = \pi x$：
+$$
+V = \pi \int_0^4 x \,\mathrm{d}x 
+= \pi \cdot \frac{1}{2} x^2 \Big|_0^4 
+= \frac{1}{2}\pi \cdot 16 = 8\pi.
+$$
+
+---
+
+### （2）绕 $y$ 轴旋转：双路径验证
+
+#### ✅ 路径一：$y$-方向圆盘法（Washer，外圆减内圆）  
+区域右边界为 $x = 4$，左边界为 $x = y^2$，$y \in [0,2]$。绕 $y$ 轴旋转，截面为环形（washer）：  
+- 外半径 $R = 4$，内半径 $r = y^2$，  
+- 面积 $S(y) = \pi (4^2 - (y^2)^2) = \pi (16 - y^4)$。
+
+$$
+V = \pi \int_0^2 (16 - y^4) \,\mathrm{d}y 
+= \pi \left[ 16y - \frac{y^5}{5} \right]_0^2 
+= \pi \left(32 - \frac{32}{5}\right) 
+= \frac{128}{5}\pi.
+$$
+
+#### ✅ 路径二：柱壳法（$x$-方向）  
+竖直薄片：半径 $x$、高 $\sqrt{x}$、厚 $\mathrm{d}x$：
+$$
+V = 2\pi \int_0^4 x \cdot \sqrt{x} \,\mathrm{d}x 
+= 2\pi \int_0^4 x^{3/2} \,\mathrm{d}x 
+= 2\pi \cdot \frac{2}{5} x^{5/2} \Big|_0^4 
+= \frac{4\pi}{5} \cdot (4^{5/2}) 
+= \frac{4\pi}{5} \cdot (32) 
+= \frac{128}{5}\pi.
+$$
+
+✅ 两法结果一致，印证方法可靠性。
+
+---
+
+### （3）绕 $y = 2$ 旋转：垫圈法（Washer Method）
+
+旋转轴为水平线 $y = 2$，截面仍为环形，但需以 $x$ 为变量：  
+- 外半径：从 $y = 2$ 到 $x$ 轴（$y = 0$）→ $R_{\text{out}} = 2$，  
+- 内半径：从 $y = 2$ 到曲线 $y = \sqrt{x}$ → $R_{\text{in}} = 2 - \sqrt{x}$，  
+- 面积 $S(x) = \pi \left[ 2^2 - (2 - \sqrt{x})^2 \right] = \pi \left[ 4 - (4 - 4\sqrt{x} + x) \right] = \pi (4\sqrt{x} - x)$。
+
+$$
+V = \pi \int_0^4 (4\sqrt{x} - x) \,\mathrm{d}x 
+= \pi \left[ 4 \cdot \frac{2}{3} x^{3/2} - \frac{1}{2}x^2 \right]_0^4 
+= \pi \left( \frac{8}{3} \cdot 8 - \frac{1}{2} \cdot 16 \right) 
+= \pi \left( \frac{64}{3} - 8 \right) 
+= \pi \cdot \frac{40}{3} 
+= \frac{40}{3}\pi.
+$$
+
+> 💡 提示：“绕非坐标轴旋转”优先考虑**垫圈法**，统一用距离表达内外半径。
+
+---
+
+### 方法选择总结表
+
+| 旋转轴     | 推荐方法       | 理由简述 |
+|------------|----------------|----------|
+| $x$ 轴     | 圆盘法         | 截面为实心圆，$y = \sqrt{x}$ 直接作半径 |
+| $y$ 轴     | 柱壳法 或 $y$-圆盘法 | 柱壳法避免反解；$y$-圆盘法需识别内外边界 |
+| $y = 2$    | 垫圈法（$x$-变量） | 所有距离均可显式表示为 $x$ 的函数 |
+
+关联知识：  
+- [[柱壳法：绕y轴旋转体体积公式]]{type=concept, label=柱壳法, render=link, tags=高数|积分技巧}  
+- [[旋转体体积公式(绕x轴)]]{type=concept, label=圆盘法, render=link, tags=高数|旋转体}  
+- [[平行截面面积已知的立体体积公式]]{type=concept, label=一般截面法, render=link, subject=高等数学, grade=大学, tags=体积|积分应用}  
+
+延伸练习：尝试用 $y$ 为变量重算（3），体会变量选择对计算复杂度的影响。

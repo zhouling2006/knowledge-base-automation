@@ -1,0 +1,213 @@
+---
+title: 例1.6.1：和式极限应用
+numeric_source: 1-6-1-5
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 夹逼准则
+  - 数列极限
+---
+
+# 例1.6.1：和式极限应用
+
+利用夹逼准则求极限：
+$$
+\lim_{n\to \infty}\left(\frac{1}{\sqrt{n^2 + 1}} +\frac{1}{\sqrt{n^2 + 2}} +\dots +\frac{1}{\sqrt{n^2 + n}}\right) = 1.
+$$
+
+令  
+$$
+x_n = \frac{1}{\sqrt{n^{2} + 1}} + \frac{1}{\sqrt{n^{2} + 2}} + \dots + \frac{1}{\sqrt{n^{2} + n}},
+$$  
+可知 $x_n$ 是 $n$ 项之和；其中最大项为 $\frac{1}{\sqrt{n^{2} + 1}}$，最小项为 $\frac{1}{\sqrt{n^{2} + n}}$。因此可得放缩不等式：
+$$
+\frac{n}{\sqrt{n^{2} + n}} < x_n < \frac{n}{\sqrt{n^{2} + 1}}.
+$$
+
+又因：
+$$
+\lim_{n \to \infty} \frac{n}{\sqrt{n^{2} + n}} 
+= \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}} = 1,
+$$
+$$
+\lim_{n \to \infty} \frac{n}{\sqrt{n^{2} + 1}} 
+= \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n^{2}}}} = 1,
+$$
+
+由[[夹逼准则(数列形式)]]{type=concept, label=数列夹逼准则, render=link, subject=高等数学, grade=大学, tags=极限|数列|核心定理}知，$\lim_{n\to \infty}x_n$ 存在，且
+$$
+\lim_{n\to \infty}x_n = 1.
+$$
+
+该题展示了夹逼准则在**含 $n$ 项和式极限**中的典型应用：关键在于识别主导结构、构造紧致上下界，并验证两端极限相等。
+
+::: {.example label="例1.6.1" type=example}
+$$
+\lim_{n\to \infty}\left(\frac{1}{\sqrt{n^2 + 1}} +\frac{1}{\sqrt{n^2 + 2}} +\dots +\frac{1}{\sqrt{n^2 + n}}\right) = 1
+$$
+:::
+
+---SPLIT---
+---
+title: 例1.6.2：最大值型极限
+numeric_source: 1-6-1-6
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 夹逼准则
+  - 根式极限
+---
+
+# 例1.6.2：最大值型极限
+
+设 $a > 0,\ b > 0$，证明：
+$$
+\lim_{n\to \infty}\sqrt[n]{a^n + b^n} = \max\{a,b\}.
+$$
+
+令 $E = \max\{a,b\}$，则显然有：
+$$
+E^n < a^n + b^n \leq E^n + E^n = 2E^n.
+$$
+对各项开 $n$ 次方（所有项为正），得：
+$$
+\sqrt[n]{E^n} < \sqrt[n]{a^n + b^n} \leq \sqrt[n]{2E^n} = E \cdot \sqrt[n]{2}.
+$$
+
+由于：
+- $\displaystyle \lim_{n\to \infty} \sqrt[n]{E^n} = \lim_{n\to \infty} E = E$，
+- $\displaystyle \lim_{n\to \infty} \sqrt[n]{2} = 1$，故 $\displaystyle \lim_{n\to \infty} E \cdot \sqrt[n]{2} = E$，
+
+由[[夹逼准则(数列形式)]]{type=concept, label=数列夹逼准则, render=link, subject=高等数学, grade=大学, tags=极限|数列|核心定理}得：
+$$
+\lim_{n\to \infty}\sqrt[n]{a^n + b^n} = E = \max\{a,b\}.
+$$
+
+本例体现了夹逼准则处理**幂和开方混合结构**的通用策略：提取主导项（最大底数），控制余项增长速率（如 $\sqrt[n]{2} \to 1$）。
+
+::: {.example label="例1.6.2" type=example}
+$$
+\lim_{n\to \infty}\sqrt[n]{a^n + b^n} = \max\{a,b\},\quad a,b>0
+$$
+:::
+
+---SPLIT---
+---
+title: 重要极限：lim_{x→0} sin x / x = 1
+numeric_source: 1-6-1-7
+aliases:
+  - 正弦比极限
+  - 第一个重要极限
+tags:
+  - 高等数学
+  - 极限
+  - 三角函数
+  - 重要极限
+---
+
+# 重要极限：$\lim_{x\to 0} \dfrac{\sin x}{x} = 1$
+
+该极限是微积分中**最基础且最重要的极限之一**，刻画了小角下正弦函数与弧度量的线性近似关系：
+$$
+\sin x \sim x \quad (x \to 0).
+$$
+
+它不仅是推导 $\left(\sin x\right)' = \cos x$ 等三角函数导数的起点，更是求解各类“$\frac{0}{0}$”型未定式（如 $\tan x/x$、$(1-\cos x)/x^2$、$\sin kx / \sin mx$ 等）的核心工具。
+
+此极限的严格成立依赖于[[夹逼准则(函数形式)]]{type=concept, label=函数夹逼准则, render=link, subject=高等数学, grade=大学, tags=极限|函数|核心定理}，其几何证明见[[例1.6.3：sin x / x 极限的几何证明]]{type=example, label=几何证明, render=link, tags=几何|单位圆|面积法}。
+
+作为标准记号，该极限常被标注为：
+$$
+\lim_{x \to 0} \frac{\sin x}{x} = 1 \tag{1.6.1}
+$$
+
+掌握其意义、证明思路与变形应用，是理解初等函数局部行为与微分学逻辑链条的关键一环。
+
+::: {.note}
+该极限仅在**弧度制**下成立；若用角度制，结果为 $\pi/180$，故微积分中默认采用弧度。
+:::
+
+---SPLIT---
+---
+title: 例1.6.3：sin x / x 极限的几何证明
+numeric_source: 1-6-1-8
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 几何证明
+  - 单位圆
+  - 夹逼准则
+---
+
+# 例1.6.3：$\dfrac{\sin x}{x}$ 极限的几何证明
+
+**证明**：$\displaystyle \lim_{x\to 0}\frac{\sin x}{x} = 1$。
+
+函数 $\dfrac{\sin x}{x}$ 在 $x=0$ 处无定义，但在其余点均有定义。我们分两步进行：
+
+---
+
+### 第一步：右极限（$0 < x < \dfrac{\pi}{2}$）
+
+作单位圆（见图1.6.2），设圆心角 $\angle AOB = x$（弧度），点 $B$ 处切线交 $OA$ 延长线于 $D$，作 $AC \perp OB$。
+
+比较三者面积：
+- $\triangle AOB$ 面积 $= \dfrac{1}{2}\sin x$，
+- 扇形 $AOB$ 面积 $= \dfrac{1}{2}x$，
+- $\triangle DOB$ 面积 $= \dfrac{1}{2}\tan x$。
+
+由几何包含关系得：
+$$
+\frac{1}{2}\sin x < \frac{1}{2}x < \frac{1}{2}\tan x.
+$$
+
+两边同乘 $2$ 并取倒数（注意不等号方向）：
+$$
+\frac{1}{\sin x} > \frac{1}{x} > \frac{\cos x}{\sin x}.
+$$
+
+再同乘 $\sin x > 0$，得：
+$$
+1 > \frac{\sin x}{x} > \cos x.
+$$
+
+由于 $\displaystyle \lim_{x \to 0^+} \cos x = 1$，$\displaystyle \lim_{x \to 0^+} 1 = 1$，由[[夹逼准则(函数形式)]]{type=concept, label=函数夹逼准则, render=link, subject=高等数学, grade=大学, tags=极限|函数|核心定理}得：
+$$
+\lim_{x \to 0^+} \frac{\sin x}{x} = 1.
+$$
+
+---
+
+### 第二步：左极限（$-\dfrac{\pi}{2} < x < 0$）
+
+注意到 $\dfrac{\sin x}{x}$ 是**偶函数**（因 $\sin(-x) = -\sin x$），故：
+$$
+\frac{\sin(-x)}{-x} = \frac{\sin x}{x}.
+$$
+
+令 $t = -x$，当 $x \to 0^-$ 时，$t \to 0^+$，于是：
+$$
+\lim_{x \to 0^-} \frac{\sin x}{x} 
+= \lim_{t \to 0^+} \frac{\sin t}{t} = 1.
+$$
+
+---
+
+### 结论
+
+左右极限均存在且等于 $1$，故：
+$$
+\lim_{x \to 0} \frac{\sin x}{x} = 1.
+$$
+
+该证明融合了几何直观（单位圆、面积比较）、代数变形与函数对称性，是分析学中“从几何到分析”范式的典范。
+
+![](images/0e734347d200eb0069631d09ac80a00be395d9c1b3bb7e05bc6144b5007a33f6.jpg)  
+图1.6.2
+
+::: {.example label="例1.6.3" type=example}
+利用单位圆面积关系与偶函数性质，严格证明 $\displaystyle \lim_{x \to 0} \frac{\sin x}{x} = 1$。
+:::

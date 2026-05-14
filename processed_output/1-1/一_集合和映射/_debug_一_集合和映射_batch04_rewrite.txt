@@ -1,0 +1,172 @@
+---
+title: 映射的定义
+numeric_source: 1-1-1-13
+aliases:
+  - 函数（初等情形）
+  - 对应关系
+tags:
+  - 高等数学
+  - 映射
+  - 基础概念
+---
+
+# 映射的定义
+
+设 $A$、$B$ 为两个非空集合，若对每个 $x \in A$，按照某种确定的法则 $f$，有唯一确定的 $y \in B$ 与之对应，则称 $f$ 为从 $A$ 到 $B$ 的一个**映射**，记作：
+
+$$
+f: A \to B \quad \text{或} \quad f: x \mapsto y = f(x),\quad x \in A.
+$$
+
+其中：
+- $x$ 称为 **原像**（或逆像），
+- $y = f(x)$ 称为 $x$ 在映射 $f$ 下的 **像**，
+- 集合 $A$ 称为映射 $f$ 的 **定义域**，记作 $D(f)$ 或 $D_f$，
+- 集合 $f(A) = \{ y \mid y = f(x),\, x \in A \}$ 称为 $f$ 的 **值域**，记作 $R_f$ 或 $f(A)$。
+
+> 💡 **核心理解**：映射是一种**单值、全域**的对应规则——$A$ 中每个元素都必须有像，且像唯一；但 $B$ 中元素未必都被“打中”，即 $R_f \subseteq B$，不一定相等。
+
+映射可形象理解为一种输入–输出系统（见图1.1.3）：输入是原像 $x \in A$，经法则 $f$ 处理后，输出唯一像 $y \in B$。
+
+![映射的输入-输出示意图](images/eb44157eb35743d6c70db97299ee1094e8dfad3baaca167b47ddc5c7cc40b00b.jpg)  
+图1.1.3
+
+相关知识点：  
+- [[定义域与值域]]{type=concept, label=定义域与值域, render=link, subject=高等数学, grade=大学, tags=映射|集合论}  
+- [[函数的定义]]{type=concept, label=函数是特殊映射, render=link, subject=高等数学, grade=大学, tags=函数|映射}  
+- [[集合的表示法]]{type=concept, label=集合描述法, render=link, tags=集合论|基础}
+
+::: {.note}
+映射强调**确定性**与**唯一性**：同一个 $x$ 不能对应两个不同的 $y$；但不同 $x$ 可以对应同一个 $y$（即允许多对一）。
+:::
+
+---SPLIT---
+---
+title: 映射的性质与分类
+numeric_source: 1-1-1-14
+aliases:
+  - 满射
+  - 单射
+  - 双射
+  - 可逆映射
+tags:
+  - 高等数学
+  - 映射
+  - 函数理论
+---
+
+# 映射的性质与分类
+
+根据映射在**覆盖性**（是否“打满”目标集）和**区分性**（是否“一对一”）两个维度的表现，可将映射分为以下三类：
+
+### 1. 满射（Surjection）  
+若映射 $f: A \to B$ 的值域等于目标集，即 $R_f = f(A) = B$，则称 $f$ 为 **满射**。  
+→ 表示 $B$ 中**每个元素**都是 $A$ 中某个元素的像。
+
+### 2. 单射（Injection）  
+若对任意 $x_1, x_2 \in A$，当 $x_1 \neq x_2$ 时，总有 $f(x_1) \neq f(x_2)$，则称 $f$ 为 **单射**。  
+→ 表示 $A$ 中**不同元素**的像互不相同（即“一对一”或“多对一”都不行，仅允许“一对一”）。
+
+### 3. 一一映射（双射，Bijection）  
+若 $f$ 既是满射又是单射，则称 $f$ 为 **一一映射**（或**双射**）。  
+→ 此时 $f$ 在 $A$ 与 $B$ 之间建立了**一一对应**关系，是可逆性的充要条件。
+
+---
+
+### 逆映射（Inverse Mapping）
+
+若 $f: A \to B$ 是一一映射，则存在唯一的逆映射  
+$$
+f^{-1}: B \to A,
+$$  
+满足：
+- $f^{-1}(y) = x$ 当且仅当 $f(x) = y$；
+- $f^{-1}(f(x)) = x$，$\forall x \in A$；
+- $f(f^{-1}(y)) = y$，$\forall y \in B$。
+
+此时称 $f$ 是**可逆映射**；且 $f^{-1}$ 本身也是一一映射，且 $(f^{-1})^{-1} = f$。
+
+![满射、单射、双射对比示意图](images/4d875094ace70846e3bd5bfc1f7473d4975840a806a2133deee990df0c2a56cc.jpg)  
+图1.1.4
+
+> ✅ 示例对照：  
+> - [[例1.1.1]]{type=question, id=例1.1.1, label=学号映射, render=card, source=教材, answer=一一映射, tags=映射|实例} 是一一映射；  
+> - [[例1.1.2]]{type=question, id=例1.1.2, label=平方函数, render=card, source=教材, answer=既非单射也非满射, tags=映射|实例} 中 $f(x)=x^2$ 在 $\mathbb{R}\to\mathbb{R}$ 上既非单射（$f(1)=f(-1)$）也非满射（负数无原像）；  
+> - [[例1.1.3]]{type=question, id=例1.1.3, label=二元平方和, render=card, source=教材, answer=满射但非单射, tags=映射|实例} 是满射但非单射。
+
+延伸阅读：  
+- [[复合映射]]{type=concept, label=映射组合, render=link, tags=映射|运算}  
+- [[函数的定义]]{type=concept, label=函数即实数集间映射, render=link, subject=高等数学, grade=大学, tags=函数|映射}  
+- [[集合相等与空集]]{type=concept, label=集合相等判定, render=link, tags=集合论}
+
+---SPLIT---
+---
+title: 复合映射
+numeric_source: 1-1-1-15
+aliases:
+  - 函数复合
+  - 映射合成
+tags:
+  - 高等数学
+  - 映射
+  - 运算
+---
+
+# 复合映射
+
+设有两个映射：  
+$$
+f: A \to B,\quad g: B \to C.
+$$  
+若 $f$ 的值域 $f(A)$ 包含于 $g$ 的定义域 $B$（即 $f(A) \subseteq B$），则可定义一个新的映射：  
+$$
+g \circ f: A \to C,
+$$  
+称为 **$f$ 与 $g$ 的复合映射**（或**合成映射**），其作用规则为：  
+$$
+(g \circ f)(x) = g\big(f(x)\big),\quad \forall x \in A.
+$$
+
+> ⚠️ **关键前提**：复合成立的必要条件是 $f(A) \subseteq B$。  
+> 若不满足（如 $f$ 输出了 $B$ 之外的值），则 $g$ 无法作用于该输出，复合无定义。
+
+---
+
+### 几何与逻辑示意
+
+复合映射可视作“两步操作”：  
+1. 先由 $f$ 将 $x \in A$ 映为 $y = f(x) \in B$；  
+2. 再由 $g$ 将 $y \in B$ 映为 $z = g(y) \in C$。  
+
+整个过程形成一条从 $A$ 到 $C$ 的完整路径（见图1.1.5）。
+
+![复合映射结构图（a）](images/207cc5df2bbbaa9b3a4524b309b23bf843abcb5c3783150b8f48f6ca3bd42f0c.jpg)  
+(a)
+
+![复合映射结构图（b）](images/06519c85db67f5d17718af0b5e848a6184f8c7c21aa33399057e7e4688ead498.jpg)  
+(b)  
+图1.1.5
+
+---
+
+### 实例说明
+
+设：  
+- $f: \mathbb{R} \to \mathbb{R},\; f(x) = 2x + 1$，  
+- $g: \mathbb{R} \to [-1,1],\; g(u) = \sin u$。  
+
+因 $f(\mathbb{R}) = \mathbb{R} \subseteq \mathbb{R} = \operatorname{Dom}(g)$，故复合映射 $g \circ f: \mathbb{R} \to [-1,1]$ 存在，且  
+$$
+(g \circ f)(x) = \sin(2x + 1).
+$$
+
+> 🔁 注意：复合不满足交换律，即一般地 $g \circ f \neq f \circ g$（甚至后者可能无定义）。
+
+关联知识：  
+- [[映射的定义]]{type=concept, label=复合的前提, render=link, tags=映射|基础}  
+- [[映射的性质与分类]]{type=concept, label=复合后的性质, render=link, tags=映射|性质}  
+- [[极限的运算法则]]{type=concept, label=类比：函数运算的组合性, render=link, tags=极限|运算}（类比思想）
+
+::: {.note}
+复合映射是构建复杂函数（如 $\sin(x^2)$、$\ln(\cos x)$）的底层机制，也是微积分中链式法则（Chain Rule）的集合论基础。
+:::

@@ -1,0 +1,111 @@
+[
+  {
+    "source": "第六章/第三节/一、水压力.md",
+    "section": "一、水压力",
+    "section_id": null,
+    "position": 1,
+    "title": "水压强的基本公式",
+    "content": "在水深 h 处的压强为 p = ρgh，其中 ρ 是水的密度；该压强在各方向大小相等，方向垂直于作用面。",
+    "raw_content": "由物理学可知，在水深 $h$ 处的压强 $p = \\rho gh$ ，其中 $\\rho$ 为水的密度，而且在一点处的压强大小在各个方向都是相等的，其方向垂直于作用面.",
+    "type": "concept",
+    "aliases": [
+      "静水压强",
+      "液体压强"
+    ],
+    "entities": "压强,水深,密度,重力加速度",
+    "references": [
+      "在水深 $h$ 处的压强 $p = \\rho gh$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "给出静止液体中深度 h 处压强的物理定义与方向特性。",
+    "created_at": "2026-05-11T17:50:31",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/一、水压力.md",
+    "section": "一、水压力",
+    "section_id": null,
+    "position": 2,
+    "title": "水平平板所受水压力",
+    "content": "当面积为 S 的平板水平置于水深 h 处时，其一侧所受水压力为 F = pS = ρghS，因压强处处均匀。",
+    "raw_content": "如果有一面积为 $S$ 的平板水平地放置在水深为 $h$ 处，则该平板一侧所受的水压力为\n\n$$\nF = p S.\n$$",
+    "type": "concept",
+    "aliases": [
+      "均匀压强下的总压力"
+    ],
+    "entities": "水压力,压强,平板,面积",
+    "references": [
+      "该平板一侧所受的水压力为\n\n$$\nF = p S.\n$$"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "水平放置平板所受水压力可直接用压强乘以面积计算。",
+    "created_at": "2026-05-11T17:50:31",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/一、水压力.md",
+    "section": "一、水压力",
+    "section_id": null,
+    "position": 3,
+    "title": "垂直平板所受水压力需用定积分计算",
+    "content": "若平板垂直放置于水中，因不同深度处压强不同，不能直接用 F = pS 计算，须将平板分割为微元，对压力微元 dF = p(x)·dS(x) 在深度区间上积分。",
+    "raw_content": "如果平板垂直地放置在水中，那么，由于水深不同的点处压强 $p$ 不同，平板一侧所受的水压力就不能用上述方法计算，而要用定积分来计算。",
+    "type": "concept",
+    "aliases": [],
+    "entities": "水压力,定积分,压强,微元法",
+    "references": [],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "垂直平板因压强随深度变化，必须采用定积分方法求总压力。",
+    "created_at": "2026-05-11T17:50:31",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/一、水压力.md",
+    "section": "一、水压力",
+    "section_id": null,
+    "position": 4,
+    "title": "例6.3.1：半圆闸门所受水压力（水淹至圆心）",
+    "content": "半径为 R 的圆形闸门，水恰好淹没至圆心。建立坐标系后，取 x ∈ [0,R] 为积分变量，对应窄条深度为 x，宽度为 2√(R²−x²)，面积微元为 2√(R²−x²)dx，压强为 ρgx，故压力微元 dF = 2ρgx√(R²−x²)dx。积分得总压力 F = 2ρgR³/3。",
+    "raw_content": "例6.3.1一半径为 $R$ 的圆形闸门，求水恰好淹没到闸门圆心时，该闸门一侧所受的压力（水的密度为 $\\rho$ ）：\n\n解 建立如图6.3.1所示的直角坐标系，则闸门上水淹部分对应于 $x$ 的变化范围是 $0 \\leqslant x \\leqslant R$ ，圆的方程为 $x^{2} + y^{2} = R^{2}$\n\n在 $[0,R]$ 上任取小区间 $[x,x + \\mathrm{d}x]$ ，半圆闸门上相应于 $[x,x + \\mathrm{d}x]$ 的窄条上各点处的压强近似等于 $\\rho gx$ ，其面积近似为 $2\\sqrt{R^2 - x^2}\\mathrm{d}x$ ，于是压力微元为\n\n$$\n\\begin{array}{l} \\mathrm {d} F = 2 \\sqrt {R ^ {2} - x ^ {2}} \\mathrm {d} x \\cdot \\rho g x \\\\ = 2 \\rho g x \\sqrt {R ^ {2} - x ^ {2}} d x. \\\\ \\end{array}\n$$\n\n将 $\\mathrm{d}F$ 在 $[0, R]$ 上积分，得到闸门一侧所受水压力为\n\n![](images/3d78921f3126aface506898e54a4d5da87a02c478dfa014c3d302a518296da7e.jpg)  \n图6.3.1\n\n$$\n\\begin{array}{l} F = \\int_ {0} ^ {R} 2 \\rho g x \\sqrt {R ^ {2} - x ^ {2}} d x \\\\ = - \\rho g \\int_ {0} ^ {R} \\left(R ^ {2} - x ^ {2}\\right) ^ {\\frac {1}{2}} \\mathrm {d} \\left(R ^ {2} - x ^ {2}\\right) \\\\ = - \\rho g \\cdot \\frac {2}{3} \\left(R ^ {2} - x ^ {2}\\right) ^ {\\frac {3}{2}} \\Bigg | _ {0} ^ {R} = \\frac {2 \\rho g R ^ {3}}{3}. \\\\ \\end{array}\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "圆形闸门,水压力,定积分,压力微元,坐标系",
+    "references": [],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "通过微元法与定积分，计算半圆闸门被水淹没至圆心时一侧所受总压力。",
+    "created_at": "2026-05-11T17:50:31",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第六章/第三节/一、水压力.md",
+    "section": "一、水压力",
+    "section_id": null,
+    "position": 5,
+    "title": "例6.3.2：倾斜正方形薄板所受水压力",
+    "content": "边长为 1/√2 m 的正方形薄板垂直沉入水中，较近顶点位于水下 1 m，一条对角线平行于水面。建立坐标系后，分两段积分：x ∈ [1, 3/2] 对应三角形区域，压力微元 dF = 2ρg(x−1)x dx，积分得 F₁ = ρg/3；x ∈ [3/2, 2] 对应另一三角形，dF = 2ρg(−x+2)x dx，积分得 F₂ = 5ρg/12；代入 ρ = 10³ kg/m³、g = 10 m/s²，得总压力 F = 7500 N。",
+    "raw_content": "例6.3.2 一边长为 $\\frac{1}{\\sqrt{2}} \\mathrm{~m}$ 的正方形薄板垂直沉入水中，它离水面较近的一个顶点位于水下 $1 \\mathrm{~m}$ 处，而一条对角线与水面平行，水的密度为 $\\rho$ ，求该薄板一侧所受的压力（ $g$ 取 $10 \\mathrm{~m} / \\mathrm{s}^{2}$ ， $\\rho$ 为 $10^{3} \\mathrm{~kg} / \\mathrm{m}^{3}$ ）.\n\n解 建立如图6.3.2所示的直角坐标系，则直线 $AB$ 的方程为 $y = x - 1$ ，直线 $BC$ 的方程为 $y = -x + 2$\n\n取 $x$ 作为积分变量，则 $x$ 的变化区间为 $[1,2]$ ， $x$ 的单位为 $\\mathrm{m}$ 。在 $\\left[1,\\frac{3}{2}\\right]$ 上任取一小区间 $[x,x + \\mathrm{d}x]$ ，则薄板上相应于 $[x,x + \\mathrm{d}x]$ 的细窄水平长条的面积为 $2(x - 1)\\mathrm{d}x$ ，这一窄条所受的侧压力微元为\n\n$$\n\\mathrm {d} F = 2 (x - 1) \\mathrm {d} x \\cdot \\rho g x = 2 \\rho g (x - 1) x \\mathrm {d} x,\n$$\n\n于是，当 $x \\in \\left[1, \\frac{3}{2}\\right]$ 时，对应的三角形薄板所受的侧压力为\n\n$$\n\\begin{array}{l} F _ {1} = 2 \\rho g \\int_ {1} ^ {\\frac {3}{2}} (x - 1) x \\mathrm {d} x = 2 \\rho g \\left(\\frac {1}{3} x ^ {3} - \\frac {1}{2} x ^ {2}\\right) \\Bigg | _ {1} ^ {\\frac {3}{2}} \\\\ = \\frac {\\rho g}{3} = \\frac {1 0 0 0 0}{3} (\\mathrm {N}). \\end{array}\n$$\n\n同理，当 $x \\in \\left[\\frac{3}{2}, 2\\right]$ 时，对应的三角形薄板所受的侧压力为\n\n$$\n\\begin{array}{l} F _ {2} = 2 \\rho g \\int_ {\\frac {3}{2}} ^ {2} (- x + 2) x d x = 2 \\rho g \\left(- \\frac {1}{3} x ^ {3} + x ^ {2}\\right) \\Bigg | _ {\\frac {3}{2}} ^ {2} \\\\ = \\frac {5 \\rho g}{1 2} = \\frac {1 2 5 0 0}{3} (\\mathrm {N}). \\end{array}\n$$\n\n因此，正方形薄板一侧所受的压力为\n\n$$\nF = F _ {1} + F _ {2} = 7 5 0 0 (\\mathrm {N}).\n$$",
+    "type": "example",
+    "aliases": [],
+    "entities": "正方形薄板,水压力,定积分,压力微元,坐标系,三角形区域",
+    "references": [],
+    "confidence": 0.95,
+    "needs_review": false,
+    "summary": "针对倾斜放置的正方形薄板，分段建模并积分计算总水压力，含具体数值代入。",
+    "created_at": "2026-05-11T17:50:31",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

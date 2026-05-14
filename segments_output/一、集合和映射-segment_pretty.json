@@ -1,0 +1,402 @@
+[
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 1,
+    "title": "集合的定义",
+    "content": "集合是具有某种特定性质的事物的全体，组成集合的事物称为元素。通常用大写字母表示集合，小写字母表示元素；若a是A的元素，记作a ∈ A；否则记作a ∉ A。元素个数有限的集合称为有限集，否则为无限集。",
+    "raw_content": "集合是数学中的一个基本概念. 一般地, 所谓集合 (或集) 是指具有某种特定性质的事物的全体. 组成这个集合的事物称为该集合的元素.\n\n通常用大写字母 $A, B, X, Y, \\cdots$ 表示集合，用小写字母 $a, b, x, y, \\cdots$ 表示元素。若事物 $a$ 是集合 $A$ 的元素，就说 $a$ 属于 $A$ ，记作 $a \\in A$ ；若事物 $a$ 不是集合 $A$ 的元素，就说 $a$ 不属于 $A$ ，记作 $a \\notin A$ 或 $a \\subsetneq A$ 。若集合中元素个数是有限的，则称该集合为有限集，否则称为无限集。",
+    "type": "concept",
+    "aliases": [
+      "集"
+    ],
+    "entities": "集合,元素,有限集,无限集",
+    "references": [
+      "所谓集合 (或集) 是指具有某种特定性质的事物的全体",
+      "组成这个集合的事物称为该集合的元素"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "集合是具有共同性质的对象全体，元素是其组成成员。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 2,
+    "title": "集合的表示法",
+    "content": "集合常用列举法（如N = {0,1,2,…}）和描述法（如A = {x | x具有特性P}）表示。描述法中，A = {x | x²−1=0}表示方程x²−1=0的全体实数根构成的集合。",
+    "raw_content": "集合通常有两种表示方法. 一种是列举法. 例如, 若记 $\\mathbf{N}$ 为全体自然数的集合, 则 $\\mathbf{N}$ 可以表示为\n\n$$\n\\mathbf {N} = \\{0, 1, 2, 3, \\dots , n, \\dots \\}.\n$$\n\n另一种是描述法. 例如, 若集合 $A$ 是由具有某种特性 $P$ 的全体元素所组成的, 则可表示为\n\n$$\nA = \\{x \\mid x \\text {具 有 特 性} P \\}.\n$$\n\n如集合 $A = \\{x \\mid x^2 - 1 = 0\\}$ ，表示方程 $x^2 - 1 = 0$ 的全体实数根所组成的集合。",
+    "type": "concept",
+    "aliases": [
+      "枚举法",
+      "谓词表示法"
+    ],
+    "entities": "集合,自然数集,列举法,描述法",
+    "references": [
+      "一种是列举法",
+      "另一种是描述法",
+      "A = {x | x具有特性P}"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "集合可通过列举全部元素或描述元素共性两种方式定义。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 3,
+    "title": "常用数集符号",
+    "content": "本书主要使用实数集R及其子集：自然数集N、整数集Z、有理数集Q、正整数集N₊、正实数集R₊。所有数默认为实数，除非特别说明。",
+    "raw_content": "本书所用到的集合主要是数集，即以数为元素的集合，如果没有特别声明，所涉及的数均是实数.\n\n全体自然数所构成的集合记作 $\\mathbf{N}$ , 全体整数所构成的集合记作 $\\mathbf{Z}$ , 全体有理数所构成的集合记作 $\\mathbf{Q}$ , 全体实数所构成的集合记作 $\\mathbf{R}$ . $\\mathbf{N}_{+}$ 表示正整数集, $\\mathbf{R}_{+}$ 表示正实数集.",
+    "type": "concept",
+    "aliases": [
+      "标准数集",
+      "基本数集"
+    ],
+    "entities": "自然数集,整数集,有理数集,实数集,正整数集,正实数集",
+    "references": [
+      "全体自然数所构成的集合记作 $\\mathbf{N}$",
+      "全体整数所构成的集合记作 $\\mathbf{Z}$",
+      "全体有理数所构成的集合记作 $\\mathbf{Q}$",
+      "全体实数所构成的集合记作 $\\mathbf{R}$"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "约定标准数集符号：N、Z、Q、R及其变体。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 4,
+    "title": "子集与真子集",
+    "content": "若集合A的所有元素都属于集合B，则称A是B的子集，记作A ⊆ B；若A ⊆ B且B中存在不属于A的元素，则称A是B的真子集，记作A ⊊ B。例如N ⊊ Z ⊊ Q ⊊ R。",
+    "raw_content": "如果集合 $A$ 的元素都是集合 $B$ 的元素，则称 $A$ 是 $B$ 的子集，记作 $A \\subseteq B$ （或 $B \\supseteq A$ ），读作 $A$ 包含于 $B$ （或 $B$ 包含 $A$ ）。显然 $A \\subseteq A$ 。如果 $A \\subseteq B$ 且 $B$ 中确有不属于 $A$ 的元素，则称 $A$ 是 $B$ 的真子集，记作 $A \\subsetneq B$ 。例如， $\\mathbf{N} \\subsetneq \\mathbf{Z} \\subsetneq \\mathbf{Q} \\subsetneq \\mathbf{R}$ 。",
+    "type": "concept",
+    "aliases": [
+      "包含关系",
+      "包含于"
+    ],
+    "entities": "子集,真子集,自然数集,整数集,有理数集,实数集",
+    "references": [
+      "称 $A$ 是 $B$ 的子集，记作 $A \\subseteq B$",
+      "称 $A$ 是 $B$ 的真子集，记作 $A \\subsetneq B$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "子集要求A中每个元素都在B中；真子集还要求B中至少有一个元素不在A中。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 5,
+    "title": "集合相等与空集",
+    "content": "若A ⊆ B且B ⊆ A，则称A等于B，记作A = B。不含有任何元素的集合称为空集，记作∅；空集是任意集合的子集。",
+    "raw_content": "如果 $A \\subseteq B$ 且 $B \\subseteq A$ ，则称 $A$ 等于 $B$ （或 $B$ 等于 $A$ ），记作 $A = B$ （或 $B = A$ ）.\n\n不含有任何元素的集合称为空集，记作 $\\varnothing$ 。例如，集合 $E = \\{x \\mid x \\in \\mathbf{R} \\text{ 且 } x^2 + 1 = 0\\}$ 是一个空集。规定空集是任意集合的子集，即对任意集合 $A$ ，有 $\\varnothing \\subseteq A$ 。",
+    "type": "concept",
+    "aliases": [
+      "空集合"
+    ],
+    "entities": "集合相等,空集,子集",
+    "references": [
+      "称 $A$ 等于 $B$ ，记作 $A = B$",
+      "不含有任何元素的集合称为空集，记作 $\\varnothing$",
+      "空集是任意集合的子集"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "集合相等即互为子集；空集是唯一不含元素的集合，且是所有集合的子集。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 6,
+    "title": "全集与集合运算",
+    "content": "研究问题时所考虑的对象全体称为全集I。对I的子集A、B，定义：并集A∪B = {x | x∈A或x∈B}；交集A∩B = {x | x∈A且x∈B}；差集A\\B = {x | x∈A且x∉B}；余集I\\A = {x | x∈I且x∉A}，也记作∁ᵢA。",
+    "raw_content": "我们将研究某个问题时所考虑的对象全体称为全集或基本集，记为 $I$ 。设集合 $A$ 与集合 $B$ 是全集 $I$ 的子集，定义如下。\n\n（1）集合的并集： $A\\bigcup B = \\{x\\mid x\\in A$ 或 $x\\in B\\}$   \n（2）集合的交集： $A\\bigcap B = \\{x|x\\in A$ 且 $x\\in B\\}$   \n（3）集合的差集： $A\\backslash B = \\{x|x\\in A$ 且 $x\\notin B\\}$   \n（4）集合的余（或补）集： $I\\setminus A = \\{x|x\\in I$ 且 $x\\notin A\\}$ ， $A$ 的余集也记作 $\\complement_{\\iota}A$",
+    "type": "concept",
+    "aliases": [
+      "补集",
+      "全集下的补"
+    ],
+    "entities": "全集,并集,交集,差集,余集",
+    "references": [
+      "称为全集或基本集，记为 $I$",
+      "集合的并集： $A\\bigcup B = \\{x\\mid x\\in A$ 或 $x\\in B\\}$",
+      "集合的余（或补）集： $I\\setminus A = \\{x|x\\in I$ 且 $x\\notin A\\}$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "在全集I下，定义并、交、差、余四种基本集合运算。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 7,
+    "title": "笛卡儿乘积",
+    "content": "设A、B为非空集合，A与B的直积（笛卡儿乘积）定义为A×B = {(x,y) | x∈A且y∈B}。例如R×R表示平面直角坐标系中所有点的集合，常记作R²。",
+    "raw_content": "设 $A, B$ 是两个非空集合，称 $A, B$ 的元素所构成的有序对的集合 $\\{(x, y) | x \\in A$ 且 $y \\in B\\}$ 为 $A$ 与 $B$ 的直积，也称笛卡儿（Descartes）乘积，记为 $A \\times B$ ，即\n\n$$\nA \\times B = \\{(x, y) \\mid x \\in A   \\text {且}   y \\in B \\}.\n$$\n\n例如， $\\mathbf{R}\\times \\mathbf{R} = \\{(x,y)|x\\in \\mathbf{R}$ 且 $y\\in \\mathbb{R}\\}$ 表示直角坐标平面 $xOy$ 中全体点的集合， $\\mathbf{R}\\times \\mathbf{R}$ 常记作 $\\mathbf{R}^2$",
+    "type": "concept",
+    "aliases": [
+      "直积",
+      "笛卡尔积"
+    ],
+    "entities": "笛卡儿乘积,直积,实数集,平面",
+    "references": [
+      "称 $A, B$ 的元素所构成的有序对的集合 … 为 $A$ 与 $B$ 的直积，也称笛卡儿（Descartes）乘积",
+      "常记作 $\\mathbf{R}^2$"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "笛卡儿乘积是由两个集合元素构成的有序对全体组成的集合。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 8,
+    "title": "实数集的完备性",
+    "content": "实数集R布满整个数轴，与数轴上所有点一一对应，这一性质称为实数的连续性或完备性；而有理数集虽稠密（任意两有理数间存在无穷多有理数），但不能覆盖整个数轴，故不完备。",
+    "raw_content": "实数集 $\\mathbf{R}$ 是“高等数学”课程研究的基本数集。实数的完备性是极限理论的基础，下面我们仅从几何直观的角度来简要说明什么是实数的完备性。\n\n有理数集是实数集的一个子集. 有理数的一个重要特性是它的稠密性, 即任意两个不相等的有理数之间必定至少存在一个有理数. 事实上, 设 $r_{1}$ 与 $r_{2}$ 是两个不同的有理数, 不难证明, $\\frac{r_{1} + r_{2}}{2}$ 就是介于 $r_{1}$ 与 $r_{2}$ 之间的一个有理数. 由此可见, 任意两个有理数之间必有无穷多个有理数. 若在数轴上表示, 就是任何两个有理点之间必定含有无穷多个有理点. 有理点在坐标轴上的分布是处处稠密的, 但是, 数轴上的点并不都是有理点, 还有无理点. 例如, 在数轴上, $O$ 为原点, $A, B$ 为数轴上的两点 (见图 1.1.1). 其中 $OA$ 的长度为单位正方形的对角线长度, $OB$ 的长度为单位圆的周长的一半, 则点 $A, B$ 就不是有理点, 而是无理点. 因此, 有理点并未布满整个数轴, 而实数布满了整个数轴, 也就是说, 实数和数轴上的所有点是一一对应的. 实数的这个特性称为实数的连续性或完备性, 而有理数不能与数轴上的所有点一一对应, 因此, 有理数是不完备的.\n\n![](images/5cc21cd55357b0a8ddb0b5fb9f6d03b10e56836f1c345b2c5c118d190637f0ca.jpg)  \n图1.1.1",
+    "type": "concept",
+    "aliases": [
+      "实数连续性",
+      "实数完备性"
+    ],
+    "entities": "实数集,有理数集,数轴,稠密性,无理点",
+    "references": [
+      "实数和数轴上的所有点是一一对应的",
+      "实数的这个特性称为实数的连续性或完备性"
+    ],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "实数完备性体现为与数轴点的一一对应；有理数虽稠密但不连续。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 9,
+    "title": "有界集与确界定义",
+    "content": "设A为非空数集：若存在L∈ℝ使∀x∈A有x≤L，则A有上界，L为上界；类似定义下界；既有上界又有下界称有界。若β是A的上界且不大于任一上界，则β为上确界，记作sup A；类似定义下确界inf A。",
+    "raw_content": "定义1.1.1 设 $A$ 为一非空数集，若存在 $L \\in \\mathbb{R}$ ，使得对任意 $x \\in A$ ，都有 $x \\leqslant L$ ，则称 $A$ 有上界（或上有界）， $L$ 称为 $A$ 的一个上界；若存在 $l \\in \\mathbb{R}$ ，使得对任意 $x \\in A$ ，都有 $x \\geqslant l$\n\n则称 $A$ 有下界（或下有界）， $l$ 称为 $A$ 的一个下界；若 $A$ 既有上界又有下界，则称 $A$ 有界，否则称 $A$ 无界。\n\n\\*定义1.1.2 设 $A$ 为一非空数集，若存在 $A$ 的一个上界 $\\beta$ ，使得对 $A$ 的任何上界 $L$ 都有 $\\beta \\leqslant L$ ，则称 $\\beta$ 为 $A$ 的上确界，记作 $\\sup A$ ；若存在 $A$ 的一个下界 $\\alpha$ ，使得对 $A$ 的任何下界 $l$ ，都有 $\\alpha \\geqslant l$ ，则称 $\\alpha$ 为 $A$ 的下确界，记作 $\\inf A$ 。",
+    "type": "concept",
+    "aliases": [
+      "最小上界",
+      "最大下界"
+    ],
+    "entities": "上界,下界,有界集,上确界,下确界",
+    "references": [
+      "称 $A$ 有上界（或上有界）， $L$ 称为 $A$ 的一个上界",
+      "称 $\\beta$ 为 $A$ 的上确界，记作 $\\sup A$",
+      "称 $\\alpha$ 为 $A$ 的下确界，记作 $\\inf A$"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "上（下）界是控制集合整体大小的实数；上（下）确界是最小（大）的上（下）界。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 10,
+    "title": "确界存在定理",
+    "content": "任意有上（下）界的非空实数子集必有上（下）确界。",
+    "raw_content": "我们不加证明地给出下列确界存在定理\n\n\\*定理1.1.1（确界存在定理） 任意有上（下）界的非空实数子集 $A$ 必有上（下）确界",
+    "type": "theorem",
+    "aliases": [
+      "上确界原理"
+    ],
+    "entities": "确界存在定理,实数子集,上确界,下确界",
+    "references": [
+      "任意有上（下）界的非空实数子集 $A$ 必有上（下）确界"
+    ],
+    "confidence": 0.99,
+    "needs_review": false,
+    "summary": "实数集的完备性核心体现：有界非空实数集必有确界。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 11,
+    "title": "区间与邻域",
+    "content": "开区间(a,b)={x|a<x<b}，闭区间[a,b]={x|a≤x≤b}，半开半闭区间如(a,b]；无限区间如(-∞,+∞)、(a,+∞)等。邻域U(a,δ)={x||x−a|<δ}，去心邻域Ů(a,δ)={x|0<|x−a|<δ}。",
+    "raw_content": "常用的实数集合有区间、邻域、去心邻域. 设 $a, b$ 是两个实数，且 $a < b$ ，则满足不等式 $a < x < b$ 的全体实数 $x$ 的集合称为以 $a, b$ 为端点的开区间，记作 $(a, b)$ ，即\n\n$$\n(a, b) = \\{x \\mid a <   x <   b \\}.\n$$\n\n满足不等式 $a \\leqslant x \\leqslant b$ 的全体实数 $x$ 的集合称为以 $a, b$ 为端点的闭区间，记作 $[a, b]$ ，即\n\n$$\n[ a, b ] = \\{x \\mid a \\leqslant x \\leqslant b \\}.\n$$\n\n同理，数集 $\\{x \\mid a < x \\leqslant b\\}$ 或 $\\{x \\mid a \\leqslant x < b\\}$ 称为半开半闭区间，分别记作 $(a, b]$ 或 $[a, b)$ ，即\n\n$$\n\\begin{array}{l} (a, b ] = \\{x \\mid a <   x \\leqslant b \\}; \\\\ [ a, b) = \\{x \\mid a \\leqslant x <   b \\}. \\\\ \\end{array}\n$$\n\n以上这几类区间统称为有限区间，其中 $a, b$ 分别称为区间的左端点、右端点，数 $b - a$ 称为区间的长度。除了有限区间外，还有下述的无限区间（或无穷区间）。引入记号 $+\\infty$ （读作正无穷大）和 $-\\infty$ （读作负无穷大），满足不等式 $-\\infty < x < +\\infty$ 的所有实数 $x$ 的集合称为无穷区间，记作\n\n$$\n(- \\infty , + \\infty) = \\{x \\mid - \\infty <   x <   + \\infty \\}.\n$$\n\n类似地，也有半无穷区间：\n\n$$\n\\begin{array}{l} (a, + \\infty) = \\{x \\mid a <   x <   + \\infty \\}; \\\\ [ a, + \\infty) = \\{x \\mid a \\leqslant x <   + \\infty \\}; \\\\ (- \\infty , b) = \\{x \\mid - \\infty <   x <   b \\}; \\\\ (- \\infty , b ] = \\{x \\mid - \\infty <   x \\leqslant b \\}. \\\\ \\end{array}\n$$\n\n邻域也是一种常用的集合. 设 $a \\in \\mathbb{R}, \\delta > 0$ ，则数集 $(a, +\\infty) = \\{x \\mid a - \\delta < x < a + \\delta\\}$ 称为点 $a$ 的 $\\delta$ 邻域（见图1.1.2），记作 $U(a, \\delta)$ ，即\n\n$$\nU (a, \\delta) = \\{x \\mid a - \\delta <   x <   a + \\delta \\}\n$$\n\n或\n\n$$\nU (a, \\delta) = \\left\\{x \\mid | x - a | <   \\delta \\right\\},\n$$\n\n其中 $a$ 称为邻域的中心， $\\delta$ 称为邻域的半径\n\n![](images/e248a15b882dfb9c55d3f2b76200cf43b2311ea63fa1ec375752d8d840615c8e.jpg)  \n图1.1.2\n\n数集 $\\{x|0 < |x - a| < \\delta\\}$ 称为点 $a$ 的去心 $\\delta$ 邻域，记作 $\\mathring{U}(a, \\delta)$ ，即\n\n$$\n\\begin{array}{l} \\stackrel {\\circ} {U} (a, \\delta) = \\{x \\mid 0 <   | x - a | <   \\delta \\}, \\end{array}\n$$\n\n其中不等式 $0 < |x - a|$ 表示 $x \\neq a$\n\n当不强调邻域的半径时，常将点 $a$ 的邻域和去心邻域分别简记为 $U(a)$ 和 $\\hat{U}(a)$ 。",
+    "type": "concept",
+    "aliases": [
+      "δ-邻域",
+      "去心邻域"
+    ],
+    "entities": "开区间,闭区间,半开半闭区间,无限区间,邻域,去心邻域",
+    "references": [
+      "称为以 $a, b$ 为端点的开区间，记作 $(a, b)$",
+      "称为点 $a$ 的 $\\delta$ 邻域，记作 $U(a, \\delta)$",
+      "称为点 $a$ 的去心 $\\delta$ 邻域，记作 $\\mathring{U}(a, \\delta)$"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "区间按端点开闭分类；邻域是以某点为中心、半径为δ的开区间；去心邻域排除中心点。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 12,
+    "title": "常量与变量",
+    "content": "在某一过程中取固定值的量称为常量，可取不同值的量称为变量。常量与变量是相对的，取决于研究范围；常量可视作取值恒定的特殊变量。",
+    "raw_content": "3. 常量与变量\n\n在自然现象和实践活动中，人们经常会遇到各种各样的量，例如长度、面积、体积、质量、温度、压强、时间、距离等。在某一过程中，只取固定值的量称为常量；可以取不同值的量称为变量。例如，把一个密闭容器内的气体加热时，气体的体积和分子数保持不变，它们是常量。但气体的温度和压强可以取不同值，它们是变量。又如，圆的直径可以取不同的值，它是变量。但圆周率，即圆周长与直径之比恒等于 $\\pi$ ，是常量。\n\n一个量是变量还是常量，并不是绝对的，需要视具体情况而定。例如，重力加速度 $g$ 的值随着纬度和高度的变化而变化，是一个变量。但是在地球表面附近的局部地区内，由于纬度和高度变化很小， $g$ 的值变化不大，因此可以把重力加速度 $g$ 看作常量。\n\n实际上，常量也可看成一种特殊的变量，正如将静止看成运动的特例一样，把常量看成某一过程中始终取同一值的变量。通常我们用字母 $a, b, c$ 等表示常量，用字母 $x, y, z$ 等表示变量。",
+    "type": "concept",
+    "aliases": [
+      "恒量",
+      "参量（语境依赖）"
+    ],
+    "entities": "常量,变量,圆周率,重力加速度",
+    "references": [
+      "只取固定值的量称为常量",
+      "可以取不同值的量称为变量",
+      "常量也可看成一种特殊的变量"
+    ],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "常量与变量依研究过程而定；常量是变量的特例。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 13,
+    "title": "映射的定义",
+    "content": "设A、B为非空集合，若对每个x∈A，按确定法则f有唯一y∈B与之对应，则f称为从A到B的映射，记作f:A→B或x↦f(x)。x称为原像，y=f(x)称为像；A为定义域D(f)，f(A)为值域R_f。",
+    "raw_content": "4. 映射\n\n定义1.1.3 设 $A, B$ 是两个非空集合，若对每个 $x \\in A$ ，按照某种确定的法则 $f$ ，有唯一确定的 $y \\in B$ 与之相对应，则称 $f$ 为从 $A$ 到 $B$ 的一个映射，记作\n\n$$\nf: A \\to B \\quad {\\text {或}} \\quad f: x \\mapsto y = f (x),     x \\in A  ,\n$$\n\n其中 $y$ 称为 $x$ 在映射 $f$ 下的像， $x$ 称为 $y$ 在映射 $f$ 下的一个原像（或逆像）， $A$ 称为映射 $f$ 的定义域，记作 $D(f)$ 或 $D_{f}$ 。 $A$ 中所有元素 $x$ 的像 $y$ 的全体所构成的集合，称为 $f$ 的值域，记作 $f(A)$ 或 $R_{f}$ ，即\n\n$$\nR _ {f} = f (A) = \\{y \\mid y = f (x), x \\in A \\}.\n$$\n\n映射也可简单地看成如图1.1.3所示的输入、输出系统，输入是原像 $x$ ，输出是像 $y$\n\n![](images/eb44157eb35743d6c70db97299ee1094e8dfad3baaca167b47ddc5c7cc40b00b.jpg)  \n图1.1.3",
+    "type": "concept",
+    "aliases": [
+      "函数（初等情形）",
+      "对应关系"
+    ],
+    "entities": "映射,定义域,值域,原像,像",
+    "references": [
+      "称 $f$ 为从 $A$ 到 $B$ 的一个映射",
+      "其中 $y$ 称为 $x$ 在映射 $f$ 下的像",
+      "称为映射 $f$ 的定义域",
+      "称为 $f$ 的值域"
+    ],
+    "confidence": 0.98,
+    "needs_review": false,
+    "summary": "映射是集合A到B的单值对应规则，强调唯一性与全域性。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 14,
+    "title": "映射的性质与分类",
+    "content": "若R_f = B，则f为满射；若x₁≠x₂ ⇒ f(x₁)≠f(x₂)，则f为单射；既是单射又是满射则为一一映射（双射）。一一映射存在逆映射f⁻¹:B→A，满足f⁻¹(f(x))=x，f(f⁻¹(y))=y。",
+    "raw_content": "设 $f$ 是从集合 $A$ 到集合 $B$ 的映射，若 $R_{f} = B$ ，即 $B$ 中任意元素 $y$ 都是 $A$ 中某元素的像，则称 $f$ 为 $A$ 到 $B$ 的满射；若对 $A$ 中任意两个不同元素 $x_{1}\\neq x_{2}$ ，它们的像 $f(x_{1})\\neq f(x_{2})$ ，则称 $f$ 为 $A$ 到 $B$ 的单射；若映射 $f$ 既是单射，又是满射，则称 $f$ 为 $A$ 到 $B$ 的一一映射（或双射）（见图1.1.4）.\n\n![](images/4d875094ace70846e3bd5bfc1f7473d4975840a806a2133deee990df0c2a56cc.jpg)  \n图1.1.4\n\n例1.1.1中的映射既是单射，又是满射，因此是一一映射；例1.1.2中的映射既不是单射，也不是满射；例1.1.3中的映射不是单射，是满射.\n\n根据集合 $A, B$ 的不同情况，在不同的数学分支中，映射有着不同的术语，例如“函数”“算子”“变换”等.\n\n设 $f: A \\to B$ 是一个一一映射（见图1.1.4），则由定义，对每个 $y \\in B$ ，有唯一的 $x \\in A$ ，使得 $f(x) = y$ 。于是，我们可定义一个从 $B$ 到 $A$ 的新映射，它将每个 $y \\in B$ 映为 $A$ 中的元素 $x$ ，其中 $x$ 满足 $f(x) = y$ ，这个映射称为 $f$ 的逆映射，记作\n\n$$\nf ^ {- 1}: B \\to A,\n$$\n\n其定义域 $D_{f^{-1}} = B$ ，值域 $R_{f^{-1}} = A$ ．此时，我们称 $f$ 是可逆映射．由定义可知，若 $f$ 是可逆映射，则 $f$ 的逆映射 $f^{-1}$ 也是可逆映射，且 $(f^{-1})^{-1} = f$",
+    "type": "concept",
+    "aliases": [
+      "满射",
+      "单射",
+      "双射",
+      "可逆映射"
+    ],
+    "entities": "满射,单射,一一映射,逆映射,可逆映射",
+    "references": [
+      "称 $f$ 为 $A$ 到 $B$ 的满射",
+      "称 $f$ 为 $A$ 到 $B$ 的单射",
+      "称 $f$ 为 $A$ 到 $B$ 的一一映射（或双射）",
+      "这个映射称为 $f$ 的逆映射"
+    ],
+    "confidence": 0.97,
+    "needs_review": false,
+    "summary": "映射按像集覆盖性与原像唯一性分为满射、单射、双射；双射存在唯一逆映射。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  },
+  {
+    "source": "第一章/第一节/一、集合和映射.md",
+    "section": "一、集合和映射",
+    "section_id": null,
+    "position": 15,
+    "title": "复合映射",
+    "content": "设有映射f:A→B、g:B→C，若f(A)⊆B，则可定义复合映射g∘f:A→C，满足(g∘f)(x)=g(f(x))。复合需满足前一个映射的值域被后一个映射的定义域包含。",
+    "raw_content": "设有两个映射\n\n$$\nf: A \\to B, \\quad g: B \\to C,\n$$\n\n对每个 $x \\in A$ ，对应唯一一个 $y = f(x) \\in B$ ，且对这个 $y \\in B$ ，又对应唯一一个 $z = g(y) \\in C$ 从而按上面的对应法则确定了一个从 $A$ 到 $C$ 的映射，称这个映射为由 $f$ 和 $g$ 构成的复合映射（见图1.1.5），记作 $g \\circ f$ ，即\n\n$$\ng \\circ f: A \\to C,\n$$\n\n$$\n(g \\circ f) (x) = g [ f (x) ], x \\in A.\n$$\n\n![](images/207cc5df2bbbaa9b3a4524b309b23bf843abcb5c3783150b8f48f6ca3bd42f0c.jpg)  \n(a)\n\n![](images/06519c85db67f5d17718af0b5e848a6184f8c7c21aa33399057e7e4688ead498.jpg)  \n(b)   \n图1.1.5\n\n注 任意两个映射不一定都能够进行复合，条件 $f(A) \\subseteq B$ 是必要的.\n\n例1.1.4 设有映射 $f: \\mathbb{R} \\to \\mathbb{R}$ ，对每个 $x \\in \\mathbb{R}, f(x) = 2x + 1$ ；映射 $g: \\mathbb{R} \\to [-1,1]$ ，对每个 $u \\in \\mathbb{R}, g(u) = \\sin u$ ，则映射 $f$ 和 $g$ 构成的复合映射 $g \\circ f: \\mathbb{R} \\to [-1,1]$ ，即\n\n$$\n[ (g \\circ f) ] (x) = g [ f (x) ] = g (2 x + 1) = \\sin (2 x + 1), x \\in \\mathbf {R}.\n$$",
+    "type": "concept",
+    "aliases": [
+      "函数复合",
+      "映射合成"
+    ],
+    "entities": "复合映射,定义域,值域",
+    "references": [
+      "称这个映射为由 $f$ 和 $g$ 构成的复合映射",
+      "条件 $f(A) \\subseteq B$ 是必要的"
+    ],
+    "confidence": 0.96,
+    "needs_review": false,
+    "summary": "复合映射要求前映射值域包含于后映射定义域，结果为逐层作用的新映射。",
+    "created_at": "2026-05-11T19:16:00",
+    "model": "qwen-plus",
+    "version": 1,
+    "embedding": null
+  }
+]

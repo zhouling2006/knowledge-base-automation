@@ -1,0 +1,30 @@
+---
+title: 推论1.2.2（极限保序性）
+numeric_source: 1-2-3-9
+aliases:
+  - 极限保非负性
+  - 极限保序性
+tags:
+  - 高等数学
+  - 数列极限
+  - 不等式性质
+---
+
+# 推论1.2.2（极限保序性）
+
+若存在正整数 $N$，使得当 $n > N$ 时恒有 $u_n \geqslant 0$（或 $u_n \leqslant 0$），且极限 $\lim_{n \to \infty} u_n$ 存在，则必有：
+
+$$
+\lim_{n \to \infty} u_n \geqslant 0 \quad \text{（或} \quad \lim_{n \to \infty} u_n \leqslant 0\text{）}.
+$$
+
+该推论是**收敛数列保号性**（定理1.2.3）的逆向延伸，刻画了极限运算对不等式关系的保持能力，常用于极限存在性已知前提下的符号判定与不等式估计。
+
+相关知识点：  
+- [[定理1.2.3(收敛数列的保号性)]]{type=concept, label=保号性, render=link, subject=高等数学, grade=大学, tags=极限|不等式|核心性质}  
+- [[推论1.2.1(无界数列发散)]]{type=concept, label=无界⇒发散, render=link, tags=数列|发散判据}  
+- [[定理1.2.1(数列极限的唯一性)]]{type=concept, label=极限唯一性, render=link, tags=极限|基础公理}
+
+::: {.note}
+该结论强调“极限存在”是关键前提——若极限不存在，即使数列终为非负，也不能推出任何关于极限符号的结论（例如振荡有界数列 $(-1)^n + 2$ 终为正但无极限；而 $(-1)^n$ 终不满足单侧不等式约束）。
+:::

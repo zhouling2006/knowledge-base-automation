@@ -1,0 +1,97 @@
+---
+title: 例1.1.13：直角坐标方程化为极坐标方程
+numeric_source: 1-1-2-13
+aliases:
+  - 圆的极坐标方程
+  - 直角坐标转极坐标示例
+tags:
+  - 高等数学
+  - 函数
+  - 坐标变换
+  - 极坐标系
+---
+
+# 例1.1.13：直角坐标方程化为极坐标方程
+
+将圆方程 $x^{2} + y^{2} = a^{2}$（其中 $a > 0$）代入极坐标与直角坐标的转换公式：
+
+$$
+x = \rho \cos \varphi,\quad y = \rho \sin \varphi,
+$$
+
+得：
+
+$$
+(\rho \cos \varphi)^2 + (\rho \sin \varphi)^2 = a^2 \quad \Rightarrow \quad \rho^2 (\cos^2 \varphi + \sin^2 \varphi) = a^2 \quad \Rightarrow \quad \rho^2 = a^2.
+$$
+
+由于极径 $\rho \geq 0$，故取非负解：$\rho = a$。
+
+因此，该圆在极坐标系下的方程为：
+
+$$
+\rho = a.
+$$
+
+这表示以**极点为圆心、半径为 $a$** 的圆——这是极坐标中最具代表性的简洁曲线之一。
+
+知识点支撑：  
+- [[直角坐标与极坐标转换公式]]{type=concept, label=转换公式, render=link, subject=高等数学, grade=大学, tags=坐标变换|极坐标系}  
+- [[极坐标系定义]]{type=concept, label=极坐标基础, render=link, tags=极坐标系|基础概念}
+
+几何意义延伸：  
+此结果凸显了极坐标在描述**中心对称图形**（尤其是以极点为对称中心的图形）时的天然优势：一个常数 $\rho$ 即完整刻画整个圆，无需角度参数参与。
+
+---SPLIT---
+---
+title: 例1.1.14：心形线 ρ = a(1 − cos φ) 的作图
+numeric_source: 1-1-2-14
+aliases:
+  - 心形线作图法
+  - 极坐标周期曲线绘图
+tags:
+  - 高等数学
+  - 函数
+  - 极坐标图形
+  - 对称性分析
+---
+
+# 例1.1.14：心形线 ρ = a(1 − cos φ) 的作图
+
+考虑极坐标函数：
+
+$$
+\rho = a(1 - \cos \varphi),\quad a > 0.
+$$
+
+该函数具有以下关键性质：
+
+- **周期性**：因 $\cos \varphi$ 以 $2\pi$ 为周期，故 $\rho(\varphi)$ 也是以 $2\pi$ 为周期的函数；
+- **对称性**：由于  
+  $$
+  \rho(2\pi - \varphi) = a(1 - \cos(2\pi - \varphi)) = a(1 - \cos \varphi) = \rho(\varphi),
+  $$  
+  图形关于**极轴（$x$ 轴）对称**，因此只需绘制 $0 \leq \varphi \leq \pi$ 区间，再镜像补全即可；
+- **单调性**：当 $\varphi$ 从 $0$ 增至 $\pi$ 时，$\cos \varphi$ 由 $1$ 单调减至 $-1$，故 $\rho = a(1 - \cos \varphi)$ 由 $0$ 单调增至 $2a$。
+
+据此，选取关键角度计算对应极径，列表如下：
+
+<table>
+  <tr><td>φ</td><td>0</td><td>π/6</td><td>π/4</td><td>π/3</td><td>π/2</td><td>2π/3</td><td>3π/4</td><td>5π/6</td><td>π</td></tr>
+  <tr><td>ρ</td><td>0</td><td>0.1a</td><td>0.3a</td><td>0.5a</td><td>a</td><td>1.5a</td><td>1.7a</td><td>1.9a</td><td>2a</td></tr>
+</table>
+
+> 注：表中数值为近似值（如 $\cos(\pi/6)=\sqrt{3}/2 \approx 0.866$，故 $\rho = a(1-0.866)\approx 0.134a \approx 0.1a$），实际作图可依精度需要增补点。
+
+描出上述点后，用光滑曲线连接，并利用极轴对称性延拓至 $[\pi, 2\pi]$，所得封闭曲线即为**心形线（cardioid）**（见图1.1.14）。
+
+![](images/b686afa574508fa79d2a24262192872d0982b844faa25777b55ff1172d2e4173.jpg)  
+图1.1.14：心形线 $\rho = a(1 - \cos \varphi)$
+
+知识关联：  
+- [[极坐标系定义]]{type=concept, label=极坐标基础, render=link, tags=极坐标系|基础概念}  
+- [[直角坐标与极坐标转换公式]]{type=concept, label=转换工具, render=link, tags=坐标变换|极坐标系}  
+- [[函数的图形定义]]{type=concept, label=图形本质, render=link, subject=高等数学, grade=大学, tags=函数|图形}
+
+延伸思考：  
+心形线是圆的**摆线族**特例（当动圆与定圆半径相等且内切滚动时的轨迹），其极坐标表达式简洁而优美，体现了极坐标在刻画**旋转对称、径向依赖型曲线**中的强大表现力。

@@ -1,0 +1,45 @@
+---
+title: 例1.6.7：平移型极限
+numeric_source: 1-6-1-13
+aliases:
+  - 平移代换求极限
+  - 非零点sin极限
+  - 变量平移型极限
+tags:
+  - 高等数学
+  - 极限
+  - 重要极限
+  - 题目
+---
+
+# 例1.6.7：平移型极限
+
+求  
+$$
+\lim_{x\to \pi}\frac{\sin x}{x - \pi}.
+$$
+
+**解**：令 $t = \pi - x$，则当 $x \to \pi$ 时，$t \to 0$。利用恒等式 $\sin(\pi - x) = \sin x$，有  
+$$
+\lim_{x \to \pi} \frac{\sin x}{x - \pi}
+= \lim_{x \to \pi} \frac{\sin (\pi - x)}{x - \pi}
+= \lim_{t \to 0} \frac{\sin t}{-t}
+= -\lim_{t \to 0} \frac{\sin t}{t}
+= -1.
+$$
+
+该题的核心技巧是**变量平移代换**：将极限点从 $x = \pi$ 平移到 $t = 0$，从而将问题转化为标准重要极限 $\lim_{t\to 0}\frac{\sin t}{t} = 1$ 的直接应用。
+
+知识点支撑：  
+- [[重要极限-lim_{x→0}-sin-x--x-=-1.md]]{type=concept, label=核心重要极限, render=link, subject=高等数学, grade=大学, tags=极限|三角函数|基础重要极限}  
+- [[例1.6.4-tan-x--x-极限.md]]{type=question, id=例1.6.4, label=tan x/x 极限, render=link, tags=高数|极限|三角函数}（同属重要极限的变形应用）
+
+延伸思考：此类“非零点三角函数极限”均可通过平移（或对称）代换归一化为 $u \to 0$ 形式，是处理 $\frac{0}{0}$ 型未定式的典型策略。
+
+::: {.example label="例1.6.7：平移型极限" type=example}
+令 $t = \pi - x$，将 $x \to \pi$ 转化为 $t \to 0$，利用 $\sin(\pi - x) = \sin x$ 及重要极限，得  
+$$
+\lim_{x\to \pi}\frac{\sin x}{x - \pi} = -1.
+$$
+:::
+---SPLIT---

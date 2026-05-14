@@ -1,0 +1,164 @@
+---
+title: ε-N 定义中 ε 与 N 的性质说明
+numeric_source: 1-2-2-5
+aliases:
+  - ε的任意性
+  - N的存在性
+  - 极限定义要点
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N定义
+---
+
+# ε-N 定义中 ε 与 N 的性质说明
+
+在数列极限的 $\varepsilon$-$N$ 定义中，两个核心参数 $\varepsilon$ 与 $N$ 具有明确而关键的逻辑角色：
+
+- **$\varepsilon$ 的任意性**：正数 $\varepsilon$ 是刻画“逼近精度”的度量工具。$\varepsilon$ 愈小，表示对“无限接近”的要求愈严格；其**任意小性**保证了邻域 $U(a,\varepsilon)$ 可以任意收缩，从而精确描述 $u_n \to a$ 的趋势。但需注意：一旦给定 $\varepsilon$，它即被视为**固定常量**，用于后续确定对应的 $N$。
+
+- **$N$ 的依赖性与存在性**：正整数 $N$ 依赖于所选的 $\varepsilon$（记作 $N = N(\varepsilon)$），通常随 $\varepsilon$ 减小而增大；且对同一 $\varepsilon$，满足条件的 $N$ 不唯一。因此，极限定义的关键不在于求出**最小的 $N$**，而在于论证其**存在性**——这正是 $\varepsilon$-$N$ 语言严谨性的根基。
+
+该性质澄清了初学者常见误区：极限不是“当 $n$ 很大时 $u_n$ 接近 $a$”，而是“对**任意精度要求** $\varepsilon$，总能找到一个**截断点** $N$，使得之后所有项都满足该精度”。
+
+延伸理解可参考 [[数列极限的-ε-N-定义]]{type=concept, label=ε-N定义全文, render=link, subject=高等数学, grade=大学, tags=极限|严格定义} 与 [[极限的定量刻画基础-距离度量]]{type=concept, label=距离度量基础, render=link, tags=高数|分析基础}。
+
+::: {.note}
+本说明非独立定义，而是对 [[数列极限的-ε-N-定义]]{type=concept, label=核心定义, render=card} 的补充阐释，强调逻辑重心在于“任意 $\varepsilon$ ⇒ 存在 $N$”这一蕴含关系。
+:::
+---SPLIT---
+---
+title: 例1.2.1：证明 limₙ→∞ (−1)ⁿ⁻¹/n = 0
+numeric_source: 1-2-2-6
+aliases:
+  - 振荡数列极限验证
+  - (-1)ⁿ⁻¹/n 极限
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N验证
+---
+
+# 例1.2.1：证明 $\lim_{n\to \infty}\frac{(-1)^{n - 1}}{n} = 0$
+
+::: {.example label="例1.2.1" type=example}
+要证：$\displaystyle \lim_{n\to \infty}\frac{(-1)^{n - 1}}{n} = 0$。
+
+即证：对任意 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，恒有  
+$$
+\left|\frac{(-1)^{n - 1}}{n} - 0\right| < \varepsilon.
+$$
+
+注意到  
+$$
+\left|\frac{(-1)^{n - 1}}{n} - 0\right| = \frac{1}{n}.
+$$  
+因此，只需使 $\displaystyle \frac{1}{n} < \varepsilon$，即 $n > \dfrac{1}{\varepsilon}$。
+
+取 $\displaystyle N = \left\lfloor \frac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，必有 $n > \dfrac{1}{\varepsilon}$，从而  
+$$
+\left|\frac{(-1)^{n - 1}}{n}\right| < \varepsilon.
+$$
+
+由数列极限的 $\varepsilon$-$N$ 定义可知：  
+$$
+\lim_{n \to \infty} \frac{(-1)^{n - 1}}{n} = 0.
+$$
+:::
+
+该例展示了如何处理含符号振荡但幅值衰减的数列，是 $\varepsilon$-$N$ 定义的典型入门应用。
+
+关联知识点：[[ε-N 定义中 ε 与 N 的性质说明]]{type=concept, label=参数性质, render=link, tags=极限|基础逻辑}  
+同类结构：[[例1.2.2]]{type=question, id=例1.2.2, label=指数衰减验证, render=link, tags=高数|ε-N}  
+几何直观参考：[[数列极限的几何意义]]{type=concept, label=邻域图示, render=card, tags=极限|几何}
+---SPLIT---
+---
+title: 例1.2.2：证明 limₙ→∞ 1/2ⁿ = 0
+numeric_source: 1-2-2-7
+aliases:
+  - 指数衰减数列极限
+  - 1/2ⁿ 极限验证
+tags:
+  - 高等数学
+  - 数列极限
+  - ε-N验证
+  - 对数运算
+---
+
+# 例1.2.2：证明 $\lim_{n\to \infty}\frac{1}{2^n} = 0$
+
+::: {.example label="例1.2.2" type=example}
+要证：$\displaystyle \lim_{n\to \infty}\frac{1}{2^n} = 0$。
+
+即证：对任意 $\varepsilon > 0$（不妨设 $\varepsilon < \frac{1}{2}$），存在正整数 $N$，使得当 $n > N$ 时，恒有  
+$$
+\left|\frac{1}{2^n} - 0\right| = \frac{1}{2^n} < \varepsilon.
+$$
+
+对不等式 $\displaystyle \frac{1}{2^n} < \varepsilon$ 两边取以 2 为底的对数（因 $2^n > 0$，单调保序）：  
+$$
+-n < \log_2 \varepsilon \quad \Rightarrow \quad n > \log_2 \frac{1}{\varepsilon}.
+$$
+
+取 $\displaystyle N = \left\lfloor \log_2 \frac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，有  
+$$
+n > \log_2 \frac{1}{\varepsilon} \quad \Rightarrow \quad \frac{1}{2^n} < \varepsilon.
+$$
+
+故由 $\varepsilon$-$N$ 定义得：  
+$$
+\lim_{n \to \infty} \frac{1}{2^n} = 0.
+$$
+:::
+
+本例体现了对**指数型通项**进行 $\varepsilon$-$N$ 验证的标准方法：通过**对数变换解出 $n$**，凸显分析中函数反演的思想。
+
+推广结论：当 $|q| < 1$ 时，$\displaystyle \lim_{n \to \infty} q^n = 0$（参见 [[数列极限的-ε-N-定义]]{type=concept, label=几何级数极限, render=link, tags=极限|经典结论}）。
+
+关联练习：[[例1.2.1]]{type=question, id=例1.2.1, label=振荡衰减, render=link}  
+理论支撑：[[ε-N 定义中 ε 与 N 的性质说明]]{type=concept, label=参数依赖性, render=card, tags=高数|逻辑细节}
+---SPLIT---
+---
+title: 例1.2.3：常数列的极限
+numeric_source: 1-2-2-8
+aliases:
+  - 常数列收敛性
+  - lim C = C
+tags:
+  - 高等数学
+  - 数列极限
+  - 基础验证
+---
+
+# 例1.2.3：常数列的极限
+
+::: {.example label="例1.2.3" type=example}
+设数列 $u_n = C$（其中 $C$ 为常数，$n = 1,2,3,\dots$），证明：  
+$$
+\lim_{n \to \infty} u_n = C \quad \text{（即 } \lim_{n \to \infty} C = C \text{）}.
+$$
+
+**证明**：  
+对任意 $\varepsilon > 0$，考虑差值：  
+$$
+|u_n - C| = |C - C| = 0.
+$$  
+显然，对**一切正整数 $n$**，均有  
+$$
+|u_n - C| = 0 < \varepsilon.
+$$  
+因此，可取任意正整数 $N$（例如 $N = 1$），当 $n > N$ 时，不等式恒成立。
+
+由 $\varepsilon$-$N$ 定义知：  
+$$
+\lim_{n \to \infty} C = C.
+$$
+:::
+
+此例虽简单，却至关重要：它验证了极限定义对最平凡情形的自洽性，体现定义的**普适性与包容性**——常数列是收敛的，且极限即其自身。
+
+教学意义：帮助初学者建立对“$\forall \varepsilon > 0$”和“$\exists N$”量词结构的直觉，尤其理解“$N$ 不必依赖 $\varepsilon$”的特例。
+
+延伸思考：该性质是后续证明极限运算法则（如和、积极限）的基础前提之一。  
+参考定义：[[数列极限的-ε-N-定义]]{type=concept, label=标准定义, render=link, tags=极限|公理化起点}  
+对比案例：[[例1.2.1]]{type=question, id=例1.2.1, label=非平凡收敛, render=card, tags=高数|典型例题}

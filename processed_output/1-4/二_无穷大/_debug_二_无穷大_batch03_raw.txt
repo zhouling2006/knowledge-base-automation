@@ -1,0 +1,72 @@
+---
+title: 定理1.4.5：无穷大与无穷小的倒数关系
+numeric_source: 1-4-2-9
+aliases:
+  - 无穷大与无穷小互为倒数定理
+tags:
+  - 高等数学
+  - 极限
+  - 无穷大
+  - 无穷小
+  - 定理
+---
+
+# 定理1.4.5：无穷大与无穷小的倒数关系
+
+在同一极限过程中，无穷大的倒数是无穷小；恒不为零的无穷小的倒数是无穷大。
+
+该定理建立了无穷大与无穷小之间深刻的对偶关系，是极限理论中连接两类重要无界/趋零行为的核心桥梁。
+
+::: {.note}
+此定理可视为无穷大定义（[[无穷大的定义]]{type=concept, label=无穷大定义, render=link, tags=高数|极限|无穷大}）与无穷小定义（[[无穷小的定义]]{type=concept, label=无穷小定义, render=link, tags=高数|极限|无穷小}）的直接推论。
+:::
+
+**形式化表述**：  
+设同一极限过程为 $x \to x_0$（或 $x \to \infty$），则：
+
+- 若 $\lim f(x) = \infty$，且 $f(x) \neq 0$ 在该过程的某去心邻域（或外部区域）内成立，则  
+  $$
+  \lim \frac{1}{f(x)} = 0.
+  $$
+
+- 若 $\lim g(x) = 0$，且存在某去心邻域（或外部区域）使 $g(x) \neq 0$ 恒成立，则  
+  $$
+  \lim \frac{1}{g(x)} = \infty.
+  $$
+
+该结论在极限计算、渐近分析及函数性态判断中具有广泛应用，例如用于识别分式型函数的无穷大点（如 $\frac{1}{\sin x}$ 在 $x \to n\pi$ 处）、或由已知无穷小构造无穷大量。
+
+延伸阅读：  
+- [[无穷大的定义]]{type=concept, label=定义回顾, render=link, tags=高数|极限|无穷大}  
+- [[无穷小的定义]]{type=concept, label=定义回顾, render=link, tags=高数|极限|无穷小}  
+- [[关于无穷大的三点注释]]{type=concept, label=概念辨析, render=card, tags=高数|易错点}
+
+---
+SPLIT---
+---
+title: 定理1.4.5的说明
+numeric_source: 1-4-2-10
+aliases: []
+tags:
+  - 高等数学
+  - 极限
+  - 定理
+  - 证明提示
+---
+
+# 定理1.4.5的说明
+
+该定理的证明留作读者练习，可直接由无穷大与无穷小的定义推导得出。
+
+::: {.proof label="证明思路提示" type=proof}
+从定义出发：  
+- 若 $\lim f(x) = \infty$，则对任意 $M > 0$，存在 $\delta > 0$（或 $X > 0$），使得当 $0 < |x - x_0| < \delta$（或 $|x| > X$）时，$|f(x)| > M$。取 $\varepsilon = 1/M$，即得 $|1/f(x)| < \varepsilon$，故 $\lim 1/f(x) = 0$。  
+- 反之，若 $\lim g(x) = 0$ 且 $g(x) \neq 0$，则对任意 $\varepsilon > 0$，存在 $\delta > 0$（或 $X > 0$）使 $|g(x)| < \varepsilon$；取 $M = 1/\varepsilon$，即得 $|1/g(x)| > M$，故 $\lim 1/g(x) = \infty$。
+:::
+
+完整严谨的 $\varepsilon$–$\delta$（或 $M$–$X$）语言书写，建议结合以下文档巩固基础：  
+- [[无穷大的定义]]{type=concept, label=定义精读, render=link, tags=高数|严格定义}  
+- [[无穷小的定义]]{type=concept, label=定义精读, render=link, tags=高数|严格定义}  
+- [[例1.4.1-$frac{1}{x-1}$-在-$xto1$-处为无穷大.md]]{type=question, id=例1.4.1, label=经典验证题, render=card, source=教材例题, tags=高数|例题|无穷大}
+
+> 💡 **学习建议**：尝试独立完成该定理的完整证明，并对比 [[无穷大的定义]] 与 [[无穷小的定义]] 中量词结构（“任给…总存在…”）的一致性——这正是分析学中“对偶性”的典型体现。
