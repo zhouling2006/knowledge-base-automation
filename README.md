@@ -1,73 +1,194 @@
-# 南理工高数知识点仓库
+# 高等数学知识库自动化
 
-从 **`Textbook/NJUST_Fall_Semester_Markdown`**（南理工高数上册教材 Markdown）中**系统性抽取全部知识点**，写成与预览工具兼容的 Markdown；多人按章分工，**一章一支 Git 分支**，分支互不合并进主分支。
+将高等数学教材自动处理成结构化知识文档，面向大一新生群体。
 
-**必须遵守（反复强调）：本仓库只收录教材与知识点 Markdown 及预览所需静态资源。** 除仓库**已有**的 **`dist` 预览启动脚本与内置静态页**外，**禁止**向本仓库提交任何**可运行的程序代码**、**脚本工程**、**单元测试 / 集成测试**、**测试数据或专用测试目录**。抽取、转换、校验类逻辑请在各自本地或其它仓库完成，**勿将上述产物纳入本项目**。
+## 工作流程
 
----
+```
+教材 Markdown
+    │
+    ▼
+┌─────────────────────┐
+│   prograhspilt.py   │  细粒度切分 → 结构化 JSON
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────────┐
+│  reprocess_original.py  │  LLM 二次加工 → 独立 Markdown
+└─────────────────────────┘
+    │
+    ▼
+知识文档（frontmatter + 引用语法）
+```
 
-## 1. 任务说明：教材与格式
+## 快速开始
 
-- **教材来源**：`Textbook/NJUST_Fall_Semester_Markdown/南理工高数第 N 章/南理工高数第 N 章.md`（`N` 为 1～6）。
-- **抽取要求**：对照教材，把可独立成条的概念、定理、公式、典型解法与例题等整理为知识点文稿；粒度可按小节或知识点拆分，**避免遗漏章节内应覆盖的内容**。
-- **格式要求**：与 **`dist/samples`** 中样例一致，采用同一套「Markdown hack」扩展写法，包括但不限于：
-  - 文件开头 **YAML frontmatter**（如 `title`、`aliases`、`tags`）；
-  - 正文 **wiki 链**：`[[标题]]{type=concept|question|..., label=..., render=card|link, ...}`；
-  - **证明块**：`::: {#某-id .proof label="..."} ... :::`，以及 **`((某-id)){type=proof, ...}`** 引用。
+### 1. 安装依赖
 
-请以 **`dist/samples`** 下现有文件为范本（例如 `dist/samples/02-极限运算法则.md`）；知识点之间的 `[[标题]]` 与文件名、`title` 需一致，避免预览断链。
+```bash
+pip install openai python-dotenv
+```
 
----
+### 2. 配置 API Key
 
-## 2. 正式产出目录（仅此一处）
+在项目根目录创建 `.env`：
 
-**正式知识点只存放在：**
+```env
+DASHSCOPE_API_KEY=你的阿里云 DashScope API Key
+```
 
-`Knowledge_Points/NJUST_Fall_Semester_points/南理工高数第 N 章/`
+### 3. 一键运行
 
-（文件夹名与教材章目录一致：`南理工高数第一章` … `南理工高数第六章`。）
+```bash
+# 处理单个文件
+python run_all.py -i "高等数学改/第一章/二、函数的概念.md"
 
-**严禁在本仓库任意路径提交（包括但不限于）：**
+# 批量处理整章(谨慎使用)
+python run_all.py -i "高等数学改/第一章 函数、极限、连续"
 
-- **可执行 / 可运行的代码**：各语言源文件与依赖工程（如 `.py` / `.js` / `.ts` / `.java` 等业务或工具代码、`package.json`、`requirements.txt`、虚拟环境目录等），**唯一例外**是已随仓库提供的 **`dist` 内预览用 `start.bat`、`serve-dist.ps1` 及静态资源**；
-- **测试相关**：测试框架配置、`tests/`、`spec` / `*.test.*`、`pytest` / `jest` 等用例、专为跑测试准备的输入输出数据；
-- **构建与 CI**：仅为编译、打包、部署服务的流水线脚本或产物（若与 Markdown 知识点无关）；
-- 将上述任一类文件与正式知识点**混放**在 `Knowledge_Points/NJUST_Fall_Semester_points` 或教材目录中。
+# 只生成提示词（不调用 API，干跑调试）
+python run_all.py --dry-run
 
-个人草稿若需版本管理，请与组长约定目录或自建分支策略，**默认不把草稿当正式目录合并进公共约定路径**。
+# 调整批处理大小
+python run_all.py -i "高等数学改/第一章/" --batch-size 3
+```
 
----
+## 核心脚本
 
-## 3. Git 协作：一章一分支，不进主分支
+### run_all.py — 自动化流水线（推荐）
 
-- **约定**：每一章在**单独分支**上完成，分支名格式：
+串联 `prograhspilt.py` 和 `reprocess_original.py`，自动处理输入文件。
 
-  ```text
-  feature/<负责人名字>-<日期>-Chapter<N>
-  ```
+**参数：**
 
-  - 示例：`feature/Kxh-20260511-Chapter1`（负责人名字 + `YYYYMMDD` + 章节序号）。
-- **禁止**：各章分支**不要合并**到主分支（如 `main` / `master`），以免互相覆盖或打乱分工。
-- 若需汇总展示或归档，由负责人本地合并或与组长另建流程；**除非全员改规则**，否则保持「章分支不进主分支」。
+| 参数 | 说明 |
+|------|------|
+| `-i, --input` | 输入 `.md` 文件或目录（必填） |
+| `-o, --output-root` | 最终输出根目录（默认：`processed_output/`） |
+| `-s, --segments-dir` | 中间 JSON 目录（默认：`segments_output/`） |
+| `-b, --batch-size` | 每批处理的 segment 数量（默认：4） |
+| `--dry-run` | 只生成提示词，不调用 API |
 
----
+**特性：**
+- 自动跳过习题/练习/作业类文件
+- 中间 JSON 统一归档到 `segments_output/`
+- 最终文档按源文件分目录：`processed_output/{源文件名}/`
+- 步骤2失败不中断，JSON 已保存可单独重跑
 
-## 4. 提取完成后：在 `dist` 中校验显示
+### prograhspilt.py — 细粒度切分
 
-**`dist`** 用于本地预览与验收，**不是**正式知识点存放目录；**`dist/samples`** 仅作格式参考。
+将 Markdown 教材按语义完整性原则切分为知识点段落，输出 JSON 数组。
 
-1. 按 **`dist/如何使用.md`** 的流程启动本地服务。  
-   **在本仓库中**：可在 **`dist`** 目录下双击 **`start.bat`**（与同目录的 `serve-dist.ps1` 配套），浏览器访问终端提示的地址（默认从 `4173` 端口起）。
-2. 在页面中使用「导入文件夹」等功能，**导入你在 `Knowledge_Points/NJUST_Fall_Semester_points` 下本章对应的文件夹**（或本章全部 `.md` 所在目录），检查卡片、链接、公式与证明块是否正常。
-3. 发现问题时在正式目录中修改 Markdown，保存后按预览工具说明重新导入或刷新，直至显示正确。
+**输出格式：** `{block_id, type, title, content, prerequisites}`
 
----
+**JSON 示例：**
 
-## 5. 路径对照小结
+```json
+{
+  "block_id": "concept_060001_1746781234567",
+  "type": "definition",
+  "title": "函数的定义",
+  "content": "设 D 是实数集...",
+  "prerequisites": []
+}
+```
 
-| 用途           | 路径 |
-|----------------|------|
-| 教材 Markdown   | `Textbook/NJUST_Fall_Semester_Markdown/南理工高数第 N 章/` |
-| 正式知识点      | `Knowledge_Points/NJUST_Fall_Semester_points/南理工高数第 N 章/` |
-| 格式样例        | `dist/samples/` |
-| 预览使用说明    | `dist/如何使用.md` |
+### reprocess_original.py — LLM 二次加工
+
+将原始教材片段 + 结构化 JSON 转换为独立 Markdown 知识文档。
+
+**参数：**
+
+| 参数 | 说明 |
+|------|------|
+| `--input-md` | 原始 Markdown 文件 |
+| `--input-json` | 结构化 JSON 文件 |
+| `--output-dir` | 输出目录 |
+| `--batch-size` | 每批处理数量（默认：4） |
+| `--spec-file` | markdown-hack 规范文件（可选） |
+| `--dry-run` | 只生成提示词 |
+
+**输出：** 符合 markdown-hack 规范的独立 Markdown，含 YAML frontmatter 和 `[[...]]` 引用语法。
+
+## 目录结构
+
+```
+F:/xschem/
+├── .env                          # API Key 配置
+├── run_all.py                    # 自动化流水线（入口脚本）
+├── prograhspilt.py               # 细粒度切分
+├── reprocess_original.py         # LLM 二次加工
+├── split_all.py                  # 多级拆分（历史脚本）
+├── normalize_titles.py           # 标题标准化
+├── web_tool.py                   # FastAPI 网页工具
+├── markdown-hack规范.md           # 文档格式规范
+├── segments_output/              # 中间 JSON 归档
+│   └── *.json
+├── processed_output/             # 最终文档输出
+│   └── {源文件名}/
+│       ├── *.md
+│       ├── _{源文件名}_memory.json
+│       └── _{源文件名}_report.md
+├── samples/                      # 参考示例文档
+│   ├── 01-极限定义.md
+│   └── 02-极限运算法则.md
+└── 高等数学改/                    # 拆分后的教材
+    ├── 第一章 函数、极限、连续/
+    │   ├── 第一章 函数、极限、连续_源文件.md
+    │   └── 第一节 映射与函数/
+    │       ├── 一、集合和映射.md
+    │       ├── 二、函数的概念.md
+    │       └── ...
+    └── 第二章 导数与微分/
+```
+
+## 费用估算
+
+以一本非习题小节约 93 节、总 segment 数约 1000~1400 条估算：
+
+| 步骤 | 费用 |
+|------|------|
+| prograhspilt.py 切分 | ~¥0.4 |
+| reprocess_original.py 加工 | ~¥2.8 |
+| rewrite 额外 | ~¥0.6 |
+| **合计** | **约 ¥4~6** |
+
+## 技术栈
+
+- **LLM**: DashScope API（`qwen-plus` 文本改写，`text-embedding-v2` 向量嵌入）
+- **接口**: OpenAI SDK 兼容
+- **配置**: `.env` 文件存储 API Key
+
+## 配置变量
+
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `DASHSCOPE_API_KEY` | DashScope API Key | 必填 |
+| `LLM_MODEL` | 模型名称 | `qwen-plus` |
+| `BATCH_SIZE` | 批处理大小 | 4 |
+
+## Block ID 命名规范
+
+格式：`{type}_{6位来源编号}_{微秒时间戳}`
+
+示例：`concept_060001_1746781234567`
+
+类型前缀：`concept`、`theorem`、`proof`、`example`、`note`
+
+## 数据库
+
+知识块可存入 SQLite 数据库（`idtry.db`），主块与附属块通过 `prerequisites` 字段关联。
+
+## 常见问题
+
+**Q: API Key 如何获取？**
+访问阿里云 DashScope 控制台（https://dashscope.console.aliyun.com/）创建 API Key。
+
+**Q: 批量处理中断了怎么办？**
+中间 JSON 已保存在 `segments_output/`，可直接重跑 `reprocess_original.py`：
+```bash
+python reprocess_original.py --input-json segments_output/xxx.json --input-md xxx.md
+```
+
+**Q: 如何调整输出格式？**
+修改 `markdown-hack规范.md` 或在 `reprocess_original.py` 中自定义 prompt 模板。
