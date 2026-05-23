@@ -538,7 +538,8 @@ def build_indexes(input_dir: Path):
                 chapter_dir = input_dir / parts[0]
                 section_dir = input_dir / parts[0] / parts[1]
                 sections[section_dir].append(ss_dir)
-                chapters[chapter_dir].append(section_dir)
+                if section_dir not in (chapters.get(chapter_dir) or []):
+                    chapters[chapter_dir].append(section_dir)
             elif len(parts) == 2:
                 section_dir = input_dir / parts[0]
                 sections[section_dir].append(ss_dir)
