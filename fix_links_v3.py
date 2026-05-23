@@ -78,6 +78,7 @@ def llm_cascade_match(
 
     # ---- 编号前缀匹配（确定性规则，不走 LLM） ----
     # 例1.6.10/定理1.4.3 等，编号唯一确定文档，文件名去标点也不影响
+    # 多命中时过滤辅助文档（的证明/推论/推广/说明等），优先选主文档
     numbered_prefix = _extract_numbered_prefix(link_text)
     if numbered_prefix:
         chapter_stems = get_scope_stems(idx, "chapter")
@@ -85,6 +86,14 @@ def llm_cascade_match(
                           if s.startswith(numbered_prefix) and s != source_stem]
         if len(prefix_matches) == 1:
             return prefix_matches[0], "numbered_prefix", True, []
+        elif len(prefix_matches) > 1:
+            # 过滤辅助文档：的证明、的推论、的推广、的说明、的补充
+            auxiliary_kw = ['的证明', '的推论', '的推广', '的说明', '的补充说明',
+                           '的例题', '的例题解答']
+            main_matches = [s for s in prefix_matches
+                           if not any(kw in s for kw in auxiliary_kw)]
+            if len(main_matches) == 1:
+                return main_matches[0], "numbered_prefix", True, []
 
     # ---- 以下进入 LLM 流程（范围从小到大逐级放宽） ----
 
@@ -182,7 +191,8 @@ def process_file(
             entry = idx.entries.get(picked, {})
             source = entry.get('source', '?')
             verify_tag = "+V" if verified else ""
-            print(f"      + [{link_text}] -> [{picked}] ({method}{verify_tag}, src:{source})")
+            if picked != link_text:
+                print(f"      + [{link_text}] -> [{picked}] ({method}{verify_tag}, src:{source})")
             report.append({'file': md_path.name, 'link': link_text,
                            'result': 'fixed_llm', 'method': method,
                            'new': picked, 'source': source, 'verified': verified})
@@ -323,6 +333,8 @@ def main():
         print(f"   fixed: {len(fixed)} | exact: {len(ok)} | unresolved: {len(unresolved)} | verified_ok: {len(verified_ok)} | verified_reject: {len(verified_reject)}")
 
         for r in fixed:
+            if r['link'] == r['new']:
+                continue  # 精确自匹配，跳过不打印
             src = r.get('source', '')
             v = "+V" if r.get('verified') else ""
             print(f"      fix: [{r['link']}] -> [{r['new']}]  ({r['method']}{v}, src:{src})")
